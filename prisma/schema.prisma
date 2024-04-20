@@ -9,12 +9,28 @@ generator client {
 }
 
 model User {
-  id              Int      @id @default(autoincrement())
-  strava_id       Int
-  username        String   @unique
-  name            String?
-  account_balance Int      @default(0)
-  collected_cards Int      @default(0)
-  in_app_since    DateTime @default(now())
-  last_active     DateTime @default(now())
+  id                 Int                  @id @default(autoincrement())
+  stravaId           Int                  @unique
+  username           String               @unique
+  name               String?
+  accountBalance     Int                  @default(0)
+  collectedCards     Int                  @default(0)
+  inAppSince         DateTime             @default(now())
+  lastActive         DateTime             @default(now())
+  stravaRefreshToken StravaRefreshToken[]
+  stravaAccessToken  StravaAccessToken[]
+}
+
+model StravaRefreshToken {
+  user             User    @relation(fields: [userStravaId], references: [stravaId])
+  userStravaId     Int
+  refreshTokenCode String  @unique
+  scope            Boolean
+}
+
+model StravaAccessToken {
+  user            User     @relation(fields: [userStravaId], references: [stravaId])
+  userStravaId    Int
+  accessTokenCode String   @unique
+  expiresAt       DateTime
 }
