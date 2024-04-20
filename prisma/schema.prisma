@@ -1,0 +1,20 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id              Int      @id @default(autoincrement())
+  strava_id       Int
+  username        String   @unique
+  name            String?
+  account_balance Int      @default(0)
+  collected_cards Int      @default(0)
+  in_app_since    DateTime @default(now())
+  last_active     DateTime @default(now())
+}
