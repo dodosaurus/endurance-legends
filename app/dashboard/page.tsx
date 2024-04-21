@@ -1,4 +1,3 @@
-import DashboardCoinsStatusCard from "@/components/dashboard-coins-status-card";
 import DashboardRefreshCard from "@/components/dashboard-refresh-card";
 import DashboardStatusCards from "@/components/dashboard-status-cards";
 import DashboardTable from "@/components/dashboard-table";
