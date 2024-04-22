@@ -1,7 +1,7 @@
 export namespace Session {
   export type Payload = {
-    athleteId: number
-  }
+    athleteId: number;
+  };
 }
 
 export namespace StravaAPI {
@@ -9,19 +9,23 @@ export namespace StravaAPI {
     access_token: string;
     refresh_token: string;
     expires_at: number;
-    athlete: {
-      id: number;
-    };
+    athlete: StravaAthlete;
   };
 
   export type StravaRefreshAccessTokenResponse = {
     access_token: string;
     referesh_token: string;
     expires_at: number;
-    athlete: {
-      id: number;
-    };
+    athlete: StravaAthlete;
+  };
+
+  export type StravaAthlete = {
+    id: number;
+    username: string;
+    firstname: string;
+    lastname: string;
+    country: string;
+    profile: string;
+    profile_medium: string;
   };
 }
-
-

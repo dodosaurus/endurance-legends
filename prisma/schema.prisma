@@ -13,6 +13,9 @@ model User {
   athleteId          Int                  @unique
   username           String               @unique
   name               String?
+  country            String               @default("not specified")
+  profile            String               @default("url to default avatar large")
+  profileMedium      String               @default("url to default avatar small")
   accountBalance     Int                  @default(0)
   collectedCards     Int                  @default(0)
   inAppSince         DateTime             @default(now())
@@ -22,15 +25,18 @@ model User {
 }
 
 model StravaRefreshToken {
-  user             User    @relation(fields: [userAthleteId], references: [athleteId])
+  id               Int    @id @default(autoincrement())
+  user             User   @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
   userAthleteId    Int
-  refreshTokenCode String  @unique
-  scope            Boolean
+  refreshTokenCode String @unique
+  scope            String @default("read")
 }
 
 model StravaAccessToken {
-  user            User     @relation(fields: [userAthleteId], references: [athleteId])
+  id              Int      @id @default(autoincrement())
+  user            User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
   userAthleteId   Int
   accessTokenCode String   @unique
   expiresAt       DateTime
+  scope           String   @default("read")
 }

@@ -9,12 +9,14 @@ export default function LoginCard() {
       <CardHeader className="pb-3">
         <CardTitle>Login / Signup</CardTitle>
         <CardDescription className="max-w-lg text-balance leading-relaxed">
-          Login through Strava to let application read activity and profile data, so you can earn coins.
+          Login through Strava to let application read activity and profile data.
+          <br />
+          <span className="font-semibold text-tertiary">We need at least permission to read your public activties.</span>
         </CardDescription>
       </CardHeader>
       <CardFooter>
         <Link href={getStravaLoginUrl()}>
-          <Button variant={"outline"}>Login with Strava</Button>
+          <Button variant={"tertiary"} className="font-semibold">Login with Strava</Button>
         </Link>
       </CardFooter>
     </Card>
