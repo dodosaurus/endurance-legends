@@ -4,8 +4,6 @@ import { createSession } from "@/server/session";
 import { getAccessToken } from "@/server/strava-calls";
 import { NextRequest, NextResponse } from "next/server";
 
-const rootURL = process.env.API_BASE_PATH ? process.env.API_BASE_PATH : "http://localhost:3000";
-
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 

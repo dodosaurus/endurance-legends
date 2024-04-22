@@ -6,7 +6,6 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
 const secretKey = process.env.JWT_SECRET;
-const rootURL = process.env.API_BASE_PATH ? process.env.API_BASE_PATH : "http://localhost:3000";
 const encodedKey = new TextEncoder().encode(secretKey);
 
 export async function encrypt(payload: Session.Payload) {
@@ -47,7 +46,8 @@ export const verifySession = async () => {
   const session = await decrypt(cookie);
 
   if (!session?.athleteId) {
-    redirect(rootURL);
+    //not sure if this will work
+    redirect("/");
   }
 
   return { isAuth: true, athleteId: session.athleteId };
