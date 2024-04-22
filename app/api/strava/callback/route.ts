@@ -1,6 +1,6 @@
 import { StravaAPI } from "@/global";
-import { getStravaLoginUrl } from "@/lib/utils";
 import { createUser, findUserByAthleteId } from "@/server/queries";
+import { createSession } from "@/server/session";
 import { getAccessToken } from "@/server/strava-calls";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -39,14 +39,13 @@ export async function GET(request: NextRequest) {
   //check if such user exists on our side
   let user = await findUserByAthleteId(json.athlete.id);
 
-  if (user) {
-    //user exists, handle this situation and return from function
-  } else {
-    //save user to DB
+  if (!user) {
+    //save user to DB if it doesn't exist
     user = await createUser(json, scope);
   }
 
-  //create our own JWT (ex with athlete.id), save it to DB to user + set is as cookie to user's browser
+  //create our own JWT (ex with athlete.id) and set is as cookie to user's browser
+  await createSession({ athleteId: user.athleteId });
 
-  return NextResponse.json(user);
+  return NextResponse.redirect(`${rootURL}/dashboard`);
 }
