@@ -12,7 +12,7 @@ export async function GET(request: NextRequest) {
   //error check
   const error = searchParams.get("error");
   if (error) {
-    return NextResponse.redirect(rootURL);
+    return NextResponse.redirect(new URL('/', request.nextUrl))
   }
 
   //code check and pre-saving
@@ -24,7 +24,7 @@ export async function GET(request: NextRequest) {
   //scope check and pre-saving
   const scope = searchParams.get("scope");
   if (!scope?.includes("activity:read")) {
-    return NextResponse.redirect(rootURL);
+    return NextResponse.redirect(new URL("/", request.nextUrl));
   }
 
   //call oauth Strava API for access token and refresh token and save them to DB
@@ -47,5 +47,5 @@ export async function GET(request: NextRequest) {
   //create our own JWT (ex with athlete.id) and set is as cookie to user's browser
   await createSession({ athleteId: user.athleteId });
 
-  return NextResponse.redirect(`${rootURL}/dashboard`);
+  return NextResponse.redirect(new URL("/dashboard", request.nextUrl));
 }
