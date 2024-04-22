@@ -11,7 +11,7 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   title: "Dada",
   description:
-    "Dada is concept application, where Strava user could buy boosters with collectible cards and expand his collection by logging more Strava activities.",
+    "Strava athlete could buy boosters with collectible cards and expand his collection by logging more running/cycling activities.",
 };
 
 export default function RootLayout({
@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">{children}</main>
+        <main className="flex min-h-screen flex-col items-center justify-between p-8">{children}</main>
       </body>
     </html>
   );

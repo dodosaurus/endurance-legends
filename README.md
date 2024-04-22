@@ -8,7 +8,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] dashboard UI mockup (blocks from shadcn)
 - [x] login page mockup
 - [x] next DB planned models
-- [ ] test data seeder implementation (new random activtiy on refresh)
+- [ ] test data seeder implementation (new random activity on refresh)
 - [x] authentication implementation (Strava OAuth)
 - [ ] adding verifySession to our data layer
 - [ ] 
