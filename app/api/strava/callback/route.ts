@@ -4,7 +4,12 @@ export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url)
   const code = searchParams.get('code')
 
+  if (!code) {
+    return NextResponse.json({ error: 'No code provided from Strava' })
+  }
+
   //call oauth Strava API for access token and refresh token and save them to DB
+  
 
   //save user to DB
 

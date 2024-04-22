@@ -10,7 +10,7 @@ generator client {
 
 model User {
   id                 Int                  @id @default(autoincrement())
-  stravaId           Int                  @unique
+  athleteId          Int                  @unique
   username           String               @unique
   name               String?
   accountBalance     Int                  @default(0)
@@ -22,15 +22,15 @@ model User {
 }
 
 model StravaRefreshToken {
-  user             User    @relation(fields: [userStravaId], references: [stravaId])
-  userStravaId     Int
+  user             User    @relation(fields: [userAthleteId], references: [athleteId])
+  userAthleteId    Int
   refreshTokenCode String  @unique
   scope            Boolean
 }
 
 model StravaAccessToken {
-  user            User     @relation(fields: [userStravaId], references: [stravaId])
-  userStravaId    Int
+  user            User     @relation(fields: [userAthleteId], references: [athleteId])
+  userAthleteId   Int
   accessTokenCode String   @unique
   expiresAt       DateTime
 }
