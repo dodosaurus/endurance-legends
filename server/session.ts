@@ -33,7 +33,7 @@ export async function createSession(payload: Session.Payload) {
   const session = await encrypt(payload);
 
   cookies().set("session", session, {
-    httpOnly: false,
+    httpOnly: true,
     secure: true,
     expires: expiresAt,
     sameSite: "lax",
