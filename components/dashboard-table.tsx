@@ -33,7 +33,7 @@ export default async function DashboardTable() {
                   <div className="font-medium">{activity.name}</div>
                   <div className="hidden text-sm text-muted-foreground md:inline">{activity.type}</div>
                 </TableCell>
-                <TableCell className="hidden sm:table-cell">{activity.distance / 1000} km</TableCell>
+                <TableCell className="hidden sm:table-cell">{(activity.distance / 1000).toFixed(2)} km</TableCell>
                 <TableCell className="hidden sm:table-cell">{convertSecondsToReadableTime(activity.moving_time)}</TableCell>
                 <TableCell className="hidden md:table-cell">
                   <Badge className="text-xs" variant="secondary">
