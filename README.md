@@ -10,13 +10,6 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] next DB planned models
 - [ ] test data seeder implementation (new random activity on refresh)
 - [x] authentication implementation (Strava OAuth)
-- [ ] adding verifySession to our data layer
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
-- [ ] 
+- [ ] adding verifySession to our data layer (might not work, URL need to be known)
+- [ ] session cookie is not saved on deployed version (maybe httpOnly flag on cookie?)
  
