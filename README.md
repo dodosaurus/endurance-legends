@@ -31,7 +31,12 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] revealing animation for common and uncommon cards
 - collection viewer (new path!)
   - [ ] first concept just list of owned cards
+- collection design
+  - [ ] first some mocked cards, with mock data 
+  - [ ] webscrape the initial data for cards from pro cycling stats
+  - [ ] prepare first common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
 - [ ] test data seeder implementation (new random activity generation)
+- [ ] custom 404 page (loading, error pages -> also possible from server component?)
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
  
