@@ -1,7 +1,7 @@
 import { StravaAPI } from "@/global";
 import { createUser, findUserByAthleteId } from "@/server/queries";
 import { createSession } from "@/server/session";
-import { getAccessToken } from "@/server/strava-calls";
+import { getAccessToken } from "@/server/strava";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {

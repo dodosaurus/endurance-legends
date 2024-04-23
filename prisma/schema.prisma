@@ -27,7 +27,7 @@ model User {
 model StravaRefreshToken {
   id               Int    @id @default(autoincrement())
   user             User   @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
-  userAthleteId    Int
+  userAthleteId    Int    @unique
   refreshTokenCode String @unique
   scope            String @default("read")
 }
@@ -35,7 +35,7 @@ model StravaRefreshToken {
 model StravaAccessToken {
   id              Int      @id @default(autoincrement())
   user            User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
-  userAthleteId   Int
+  userAthleteId   Int      @unique
   accessTokenCode String   @unique
   expiresAt       DateTime
   scope           String   @default("read")

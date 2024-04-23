@@ -4,8 +4,8 @@ import prisma from "./db";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
 
-export function getAthleteActivities(userId: number) {
-  //TODO - important here is that athlete should be able to get only his/her activities, so we need verfifySession here
+export async function syncAthleteActivities() {
+  //idea is to save some set of activities in our DB, but we do not need that probably
 }
 
 export async function createUser(data: StravaAPI.StravaGetAccessTokenResponse, scope: string) {
