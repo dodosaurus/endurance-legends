@@ -5,7 +5,7 @@ import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
 
 export function getAthleteActivities(userId: number) {
-  //TODO
+  //TODO - important here is that athlete should be able to get only his/her activities, so we need verfifySession here
 }
 
 export async function createUser(data: StravaAPI.StravaGetAccessTokenResponse, scope: string) {

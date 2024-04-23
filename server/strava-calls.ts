@@ -2,12 +2,6 @@ import "server-only";
 
 const STRAVA_BASE_PATH = "https://www.strava.com/api/v3";
 
-/**
- * Retrieves the access token from Strava using the provided authorization code.
- *
- * @param {string} code - The authorization code received from Strava native authentication.
- * @return {Promise<Response>} A Promise that resolves to the response from the Strava API.
- */
 export async function getAccessToken(code: string) {
   const res = await fetch(
     `${STRAVA_BASE_PATH}/oauth/token?` +
@@ -24,12 +18,6 @@ export async function getAccessToken(code: string) {
   return res;
 }
 
-/**
- * Refreshes the access token using the provided refresh token.
- *
- * @param {string} refresh_token - The refresh token used for authentication.
- * @return {Promise<Response>} A Promise that resolves to the response from the token refresh request.
- */
 export async function refreshAccessToken(refresh_token: string) {
   const res = await fetch(
     `${STRAVA_BASE_PATH}/oauth/token?` +
@@ -46,12 +34,6 @@ export async function refreshAccessToken(refresh_token: string) {
   return res;
 }
 
-/**
- * Retrieves the athlete's activities from Strava using the provided access token.
- *
- * @param {string} accessToken - The access token used for authentication.
- * @return {Promise<Response>} A Promise that resolves to the response from the Strava API.
- */
 export function getAthleteActivities(access_token: string) {
   const res = fetch(STRAVA_BASE_PATH + "/athlete/activities", {
     headers: {
