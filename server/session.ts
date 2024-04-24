@@ -41,6 +41,10 @@ export async function createSession(payload: Session.Payload) {
   });
 }
 
+export async function deleteSession() {
+  cookies().delete("session");
+}
+
 export const verifySession = async () => {
   const cookie = cookies().get("session")?.value;
   const session = await decrypt(cookie);

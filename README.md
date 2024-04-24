@@ -10,14 +10,15 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] next DB planned models
 - [x] authentication implementation (Strava OAuth)
 - [x] session cookie is not saved on deployed version (maybe httpOnly flag on cookie?)
+- [x] implement getting list of activities and displaying it on dashboard
+- [x] logout button initial concept
 
 ## TODO
 
-- [x] implement getting list of activities and displaying it on dashboard
 - [ ] implement card displaying account balance (give automatically some points on sign up)
 - [ ] implement card displaying run/cycled kilometers from time of registration
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
-- [ ] logout button (after clicking on avatar or name)
+- [ ] putting nice redirect page between callback and dashboard
 - DAL - data access layer
   - [ ] DB queries (internal/local data) - adding verifySession, so local session
   - [ ] Strava API (external) - getting athleteId (from local session or from context (?)) and renewal with refresh_token
