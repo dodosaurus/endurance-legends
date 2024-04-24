@@ -18,24 +18,24 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   }
 
   //get new athlete profile and update it in DB
-  const newAthleteData: StravaAPI.StravaAthlete = await getAuthenticatedAthlete(athleteId, access_token);
+  const newAthleteData: StravaAPI.StravaAthlete = await getAuthenticatedAthlete(access_token);
 
   //get activities since login and skip duplicates
   // const timeCap = (new Date(user.inAppSince).getTime() / 1000).toFixed(0).toString();
-  const timeCap = "1711958785"; //set to 1.4.2024 for testing
-  // const timeCap = "1713168385"; //set to 15.4.2024 for testing
+  // const timeCap = "1711958785"; //set to 1.4.2024 for testing
+  const timeCap = "1713168385"; //set to 15.4.2024 for testing
 
-  const newActivities = await listAthleteActivities(athleteId, timeCap, access_token);
+  const newActivities = await listAthleteActivities(timeCap, access_token);
   await createMultipleActivities(newActivities);
   const activities = await findAllActivities();
 
   //ADDITIONAL BUSINESS LOGIC (recalculation of total distances)
 
   //recalculate total distances and save it to DB
-  const total_distances = calculateTotalDistances(activities);
+  const totalDistances = calculateTotalDistances(activities);
 
   //at the end update all props of user and get newest version of user
-  const user = await updateUser(newAthleteData, total_distances);
+  const user = await updateUser(newAthleteData, totalDistances);
 
   return { user, activities };
 }

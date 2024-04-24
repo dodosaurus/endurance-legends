@@ -1,5 +1,5 @@
 import { StravaAPI } from "@/global";
-import { Activity, User } from "@prisma/client";
+import { Activity } from "@prisma/client";
 
 type PartialActivity = Omit<Activity, "id">;
 

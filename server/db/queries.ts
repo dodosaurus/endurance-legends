@@ -5,7 +5,6 @@ import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
 import { verifySession } from "../session";
 import { translateActivities } from "../translations";
-import { User } from "@prisma/client";
 
 export async function createUser(
   data: StravaAPI.StravaGetAccessTokenResponse,
