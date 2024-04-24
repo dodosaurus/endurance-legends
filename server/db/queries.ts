@@ -103,7 +103,7 @@ export async function findAllActivities() {
   return activities;
 }
 
-export async function updateUser(data: StravaAPI.StravaAthlete, total_distances: { [key: string]: number }) {
+export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: { runs: number, rides: number }) {
   const { athleteId } = await verifySession();
 
   const user = await prisma.user.update({
@@ -117,8 +117,8 @@ export async function updateUser(data: StravaAPI.StravaAthlete, total_distances:
       city: data.city,
       profile: data.profile,
       profileMedium: data.profile_medium,
-      totalRunDistance: total_distances.run,
-      totalRideDistance: total_distances.ride,
+      totalRunDistance: totalDistances.runs,
+      totalRideDistance: totalDistances.rides,
     },
   });
 

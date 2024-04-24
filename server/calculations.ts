@@ -5,7 +5,7 @@ export function calculateTotalDistances(activities: Activity[]) {
     runs: 0,
     rides: 0,
   };
-
+  
   for (const activity of activities) {
     if (activity.type === "Run") {
       total_distance.runs += activity.distance;

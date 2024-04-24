@@ -22,8 +22,9 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
 
   //get activities since login and skip duplicates
   // const timeCap = (new Date(user.inAppSince).getTime() / 1000).toFixed(0).toString();
+    const timeCap = "1709323790"; //set to 1.3.2024 for testing
   // const timeCap = "1711958785"; //set to 1.4.2024 for testing
-  const timeCap = "1713168385"; //set to 15.4.2024 for testing
+  // const timeCap = "1713168385"; //set to 15.4.2024 for testing
 
   const newActivities = await listAthleteActivities(timeCap, access_token);
   await createMultipleActivities(newActivities);
