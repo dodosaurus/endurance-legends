@@ -7,11 +7,11 @@ export default function LoginCard() {
   return (
     <Card className="sm:col-span-2">
       <CardHeader className="pb-3">
-        <CardTitle>Login / Signup</CardTitle>
+        <CardTitle>Login</CardTitle>
         <CardDescription className="max-w-lg text-balance leading-relaxed">
-          Login through Strava to let application read activity and profile data.
+          Connect through Strava and let application read your activity and profile data.
           <br />
-          <span className="font-semibold text-tertiary">We need at least permission to read your public activties.</span>
+          <span className="font-semibold text-tertiary pt-2">We need at least permission to read your public activties.</span>
         </CardDescription>
       </CardHeader>
       <CardFooter>

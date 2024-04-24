@@ -6,11 +6,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
 
 export default function DashboardCoinsStatusCard() {
   return (
-    <Card className="flex flex-col justify-center items-center flex-grow bg-orange-100">
+    <Card className="flex flex-col justify-center items-center flex-grow bg-orange-100 dark:bg-orange-950">
       <CardHeader className="pb-2">
         <CardDescription>Coin balance</CardDescription>
         <CardTitle className="text-4xl">1,329</CardTitle>
