@@ -4,10 +4,11 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { convertSecondsToReadableTime } from "@/lib/utils";
 import { verifySession } from "@/server/session";
 import { getAthleteActivities } from "@/server/strava";
+import { Activity } from "@prisma/client";
 
 export default async function DashboardTable() {
   const { athleteId } = await verifySession();
-  const activities = await getAthleteActivities(athleteId as number);
+  const activities: Activity[] = await getAthleteActivities(athleteId as number);
 
   // console.log(activities)
 
@@ -30,20 +31,20 @@ export default async function DashboardTable() {
           </TableHeader>
           <TableBody>
             {activities.length === 0 && <TableRow><TableCell colSpan={5} className="text-center">No activities found yet. Go out and earn your coins :)</TableCell></TableRow>}
-            {activities.length > 0 && activities.map((activity: any) => (
+            {activities.length > 0 && activities.map((activity) => (
               <TableRow key={activity.id}>
                 <TableCell>
                   <div className="font-medium">{activity.name}</div>
                   <div className="hidden text-sm text-muted-foreground md:inline">{activity.type}</div>
                 </TableCell>
                 <TableCell className="hidden sm:table-cell">{(activity.distance / 1000).toFixed(2)} km</TableCell>
-                <TableCell className="hidden sm:table-cell">{convertSecondsToReadableTime(activity.moving_time)}</TableCell>
+                <TableCell className="hidden sm:table-cell">{convertSecondsToReadableTime(activity.movingTime)}</TableCell>
                 <TableCell className="hidden md:table-cell">
                   <Badge className="text-xs" variant="secondary">
-                    {activity.location_country}
+                    {activity.locationCountry}
                   </Badge>
                 </TableCell>
-                <TableCell className="hidden md:table-cell">{new Date(activity.start_date).toLocaleDateString()}</TableCell>
+                <TableCell className="hidden md:table-cell">{new Date(activity.startDate).toLocaleDateString()}</TableCell>
               </TableRow>
             ))}
           </TableBody>

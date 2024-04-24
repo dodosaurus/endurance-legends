@@ -3,6 +3,7 @@ import "server-only";
 import prisma from "./db";
 import { StravaAPI } from "@/global";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
+import { createMultipleActivities, findAllActivities } from "./queries";
 
 const STRAVA_BASE_PATH = "https://www.strava.com/api/v3";
 
@@ -55,7 +56,7 @@ export async function revalidateStravaAccessToken(athleteId: number) {
     }
     const data: StravaAPI.StravaRefreshAccessTokenResponse = await res.json();
 
-    await prisma.stravaSession.update({
+    const updatedSession = await prisma.stravaSession.update({
       where: {
         userAthleteId: athleteId,
       },
@@ -65,34 +66,20 @@ export async function revalidateStravaAccessToken(athleteId: number) {
         refreshTokenCode: data.refresh_token,
       },
     });
+
+    return updatedSession.accessTokenCode;
   } else {
     console.log("No need to refresh Strava access token. Execution will continue.");
+    return stravaSession?.accessTokenCode;
   }
 }
 
 export async function getAthleteActivities(athleteId: number) {
-  await revalidateStravaAccessToken(athleteId);
-
-  //get access token of user
-  const queried = await prisma.user.findFirst({
-    where: {
-      athleteId,
-    },
-    include: {
-      stravaSession: true,
-    }
-  });
-
-  if (!queried) {
-    throw new Error("User not found");
-  }
-
   //convert time to query param passable
-  const timeCap = (new Date(queried.inAppSince).getTime() / 1000).toFixed(0).toString();
+  // const timeCap = (new Date(queried.inAppSince).getTime() / 1000).toFixed(0).toString();
+  const timeCap = "1711958785" //set to 1.4.2024 for testing
   
-  //get strava session token for auth
-  const access_token = queried.stravaSession[0].accessTokenCode;
-  
+  const access_token = await revalidateStravaAccessToken(athleteId);
   const res = await fetch(STRAVA_BASE_PATH + "/athlete/activities?" + new URLSearchParams({ after: timeCap }), {
     headers: {
       Authorization: `Bearer ${access_token}`,
@@ -100,6 +87,9 @@ export async function getAthleteActivities(athleteId: number) {
   });
   
   const data = await res.json();
-  
-  return data;
+
+  await createMultipleActivities(data);
+  const activities = await findAllActivities();
+
+  return activities;
 }

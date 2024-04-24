@@ -21,6 +21,7 @@ model User {
   inAppSince     DateTime        @default(now())
   lastActive     DateTime        @default(now())
   stravaSession  StravaSession[]
+  activities     Activity[]
 }
 
 model StravaSession {
@@ -31,4 +32,26 @@ model StravaSession {
   accessTokenCode  String   @unique
   expiresAt        DateTime
   scope            String   @default("read")
+}
+
+model Activity {
+  id                 Int      @id @default(autoincrement())
+  user               User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
+  userAthleteId      Int
+  activityId         String   @unique
+  name               String   @default("Activity")
+  type               String
+  distance           Float
+  movingTime         Int
+  elapsedTime        Int
+  totalElevationGain Float    @default(0)
+  startDate          DateTime
+  startDateLocal     DateTime
+  locationCountry    String
+  kudosCount         Int      @default(0)
+}
+
+enum ActivityType {
+  RUN
+  RIDE
 }
