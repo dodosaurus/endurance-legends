@@ -16,7 +16,7 @@ export default function LoginCard() {
       </CardHeader>
       <CardFooter>
         <Link href={getStravaLoginUrl()}>
-          <Button variant={"tertiary"} className="font-semibold">Login with Strava</Button>
+          <Button variant={"tertiary"} className="font-semibold">Connect with Strava</Button>
         </Link>
       </CardFooter>
     </Card>

@@ -1,11 +1,13 @@
 import "server-only";
 
-import prisma from "./db";
+import prisma from "./db/db";
 import { StravaAPI } from "@/global";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
-import { createMultipleActivities, findAllActivities } from "./queries";
+import { createMultipleActivities, findAllActivities } from "./db/queries";
 
 const STRAVA_BASE_PATH = "https://www.strava.com/api/v3";
+
+//AUTHENTICATION
 
 export async function getAccessToken(code: string) {
   const res = await fetch(
@@ -74,22 +76,59 @@ export async function revalidateStravaAccessToken(athleteId: number) {
   }
 }
 
-export async function getAthleteActivities(athleteId: number) {
+//ACTIVITIES
+export async function syncAthleteActivities(athleteId: number) {
+  const user = prisma.user.findFirst({
+    where: {
+      athleteId,
+    },
+  });
+
+  if (!user) {
+    throw new Error("User not found");
+  }
+
   //convert time to query param passable
-  // const timeCap = (new Date(queried.inAppSince).getTime() / 1000).toFixed(0).toString();
-  const timeCap = "1711958785" //set to 1.4.2024 for testing
-  
+  // const timeCap = (new Date(user.inAppSince).getTime() / 1000).toFixed(0).toString();
+  // const timeCap = "1711958785"; //set to 1.4.2024 for testing
+  const timeCap = "1713168385"; //set to 15.4.2024 for testing
+
   const access_token = await revalidateStravaAccessToken(athleteId);
   const res = await fetch(STRAVA_BASE_PATH + "/athlete/activities?" + new URLSearchParams({ after: timeCap }), {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
   });
-  
+
   const data = await res.json();
 
   await createMultipleActivities(data);
   const activities = await findAllActivities();
+
+  //recalculate total distances and save it to DB
+  const total_distance = {
+    runs: 0,
+    rides: 0
+  }
+
+  for(const activity of activities) {
+    if(activity.type === "Run") {
+      total_distance.runs += activity.distance
+    } 
+    if(activity.type === "Ride") {
+      total_distance.rides += activity.distance
+    }
+  }
+
+  await prisma.user.update({
+    where: {
+      athleteId
+    },
+    data: {
+      totalRunDistance: total_distance.runs,
+      totalRideDistance: total_distance.rides
+    }
+  })
 
   return activities;
 }

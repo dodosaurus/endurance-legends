@@ -12,10 +12,12 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] session cookie is not saved on deployed version (maybe httpOnly flag on cookie?)
 - [x] implement getting list of activities and displaying it on dashboard
 - [x] logout button initial concept
+- [x] saving activities in DB
 
 ## TODO
 
-- [ ] saving activities in DB
+- [ ] fix bug that kms are calcualted before activities fetch - need some cascade implementation where activites are always fetched first
+- [ ] test when new activites are added to DB (changing timeCap from older to newer)
 - [ ] add DB field to user lastActivityRefresh and display it in info panel (it could be debug panel)
 - [ ] implement card displaying account balance (give automatically some points on sign up)
 - [ ] implement card displaying run/cycled kilometers from time of registration

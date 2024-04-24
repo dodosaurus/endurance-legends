@@ -1,16 +1,14 @@
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { convertSecondsToReadableTime } from "@/lib/utils";
+import { convertMetersToKilometersForUI, convertSecondsToReadableTime } from "@/lib/utils";
 import { verifySession } from "@/server/session";
-import { getAthleteActivities } from "@/server/strava";
+import { syncAthleteActivities } from "@/server/strava";
 import { Activity } from "@prisma/client";
 
 export default async function DashboardTable() {
   const { athleteId } = await verifySession();
-  const activities: Activity[] = await getAthleteActivities(athleteId as number);
-
-  // console.log(activities)
+  const activities: Activity[] = await syncAthleteActivities(athleteId as number);
 
   return (
     <Card>
@@ -37,7 +35,7 @@ export default async function DashboardTable() {
                   <div className="font-medium">{activity.name}</div>
                   <div className="hidden text-sm text-muted-foreground md:inline">{activity.type}</div>
                 </TableCell>
-                <TableCell className="hidden sm:table-cell">{(activity.distance / 1000).toFixed(2)} km</TableCell>
+                <TableCell className="hidden sm:table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
                 <TableCell className="hidden sm:table-cell">{convertSecondsToReadableTime(activity.movingTime)}</TableCell>
                 <TableCell className="hidden md:table-cell">
                   <Badge className="text-xs" variant="secondary">

@@ -9,19 +9,21 @@ generator client {
 }
 
 model User {
-  id             Int             @id @default(autoincrement())
-  athleteId      Int             @unique
-  username       String          @unique
-  name           String?
-  country        String          @default("not specified")
-  profile        String          @default("url to default avatar large")
-  profileMedium  String          @default("url to default avatar small")
-  accountBalance Int             @default(0)
-  collectedCards Int             @default(0)
-  inAppSince     DateTime        @default(now())
-  lastActive     DateTime        @default(now())
-  stravaSession  StravaSession[]
-  activities     Activity[]
+  id                Int             @id @default(autoincrement())
+  athleteId         Int             @unique
+  username          String          @unique
+  name              String?
+  country           String          @default("not specified")
+  profile           String          @default("url to default avatar large")
+  profileMedium     String          @default("url to default avatar small")
+  accountBalance    Int             @default(0)
+  totalRunDistance  Int             @default(0)
+  totalRideDistance Int             @default(0)
+  collectedCards    Int             @default(0)
+  inAppSince        DateTime        @default(now())
+  lastActive        DateTime        @default(now())
+  stravaSession     StravaSession[]
+  activities        Activity[]
 }
 
 model StravaSession {

@@ -1,5 +1,5 @@
 import { StravaAPI } from "@/global";
-import { createUser, findUserByAthleteId } from "@/server/queries";
+import { createUser, findUserByAthleteId } from "@/server/db/queries";
 import { createSession } from "@/server/session";
 import { getAccessToken } from "@/server/strava";
 import { NextRequest, NextResponse } from "next/server";

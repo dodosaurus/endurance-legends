@@ -3,9 +3,8 @@ import "server-only";
 import prisma from "./db";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
-import { verifySession } from "./session";
-import { Activity } from "@prisma/client";
-import { translateActivities } from "./translations";
+import { verifySession } from "../session";
+import { translateActivities } from "../translations";
 
 export async function createUser(
   data: StravaAPI.StravaGetAccessTokenResponse,
@@ -81,8 +80,6 @@ export async function createMultipleActivities(resData: StravaAPI.StravaActivity
 
   const data = translateActivities(athleteId as number, resData);
 
-  console.log(data)
-
   //this function will only add new activities, based on the activityId uniqness
   //we probably need also other version to sync and check also the contents if they are the same as on Strava
   await prisma.activity.createMany({
@@ -97,6 +94,9 @@ export async function findAllActivities() {
   const activities = await prisma.activity.findMany({
     where: {
       userAthleteId: athleteId as number,
+    },
+    orderBy: {
+      startDate: "desc",
     },
   });
 

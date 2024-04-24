@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 
 type LogoutButtonProps = {
   logout: () => void;
@@ -10,7 +10,7 @@ type LogoutButtonProps = {
 function LogoutButton({ logout }: LogoutButtonProps) {
   return (
     <form action={logout}>
-      <Button variant={"secondary"}>Logout</Button>
+      <Button variant={"tertiary"}>Logout</Button>
     </form>
   );
 }

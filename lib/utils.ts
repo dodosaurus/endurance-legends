@@ -22,3 +22,7 @@ export function convertSecondsToReadableTime(seconds: number): string {
   const remainingSeconds = Math.floor(seconds % 60);
   return `${hours ? `${hours}h ` : ''}${remainingMinutes}m ${remainingSeconds}s`;
 }
+
+export function convertMetersToKilometersForUI(meters: number): string {
+  return (meters / 1000).toFixed(2)
+}
