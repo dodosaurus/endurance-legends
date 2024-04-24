@@ -13,7 +13,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
 
 ## TODO
 
-- [ ] implement getting list of activities and displaying it on dashboard
+- [x] implement getting list of activities and displaying it on dashboard
 - [ ] implement card displaying account balance (give automatically some points on sign up)
 - [ ] implement card displaying run/cycled kilometers from time of registration
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)

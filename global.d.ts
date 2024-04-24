@@ -14,7 +14,7 @@ export namespace StravaAPI {
 
   export type StravaRefreshAccessTokenResponse = {
     access_token: string;
-    referesh_token: string;
+    refresh_token: string;
     expires_at: number;
     athlete: StravaAthlete;
   };

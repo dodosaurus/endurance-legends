@@ -1,5 +1,5 @@
 import "server-only";
-import { verifySession } from "./session";
+
 import prisma from "./db";
 import { StravaAPI } from "@/global";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
@@ -41,57 +41,65 @@ export async function refreshAccessToken(refresh_token: string) {
 export async function revalidateStravaAccessToken(athleteId: number) {
   //find out if stravaAccessToken for our user already expired
   const now = new Date(Date.now());
-  const valid_result = await prisma.stravaAccessToken.findFirst({
+  const stravaSession = await prisma.stravaSession.findFirst({
     where: {
       userAthleteId: athleteId,
-      expiresAt: {
-        gt: now,
-      },
     },
   });
 
-  //if null is returned, it means that we haven't found any active token = refreshing
-  if (!valid_result) {
-    const queried = await prisma.stravaRefreshToken.findFirst({
-      where: {
-        userAthleteId: athleteId,
-      },
-    });
+  //comparison
+  if (stravaSession && stravaSession?.expiresAt < now) {
+    const res = await refreshAccessToken(stravaSession.refreshTokenCode);
+    if (res.status !== 200) {
+      throw new Error("App cannot refresh the Strava access token.");
+    }
+    const data: StravaAPI.StravaRefreshAccessTokenResponse = await res.json();
 
-    const res = await refreshAccessToken(queried?.refreshTokenCode || "");
-    const json: StravaAPI.StravaRefreshAccessTokenResponse = await res.json();
-
-    //now update the accessTokenCode and expiresAt
-    const updateAccessToken = await prisma.stravaAccessToken.update({
+    await prisma.stravaSession.update({
       where: {
         userAthleteId: athleteId,
       },
       data: {
-        accessTokenCode: json.access_token,
-        expiresAt: convertEpochTimeToDateTime(json.expires_at),
+        accessTokenCode: data.access_token,
+        expiresAt: convertEpochTimeToDateTime(data.expires_at),
+        refreshTokenCode: data.refresh_token,
       },
     });
+  } else {
+    console.log("No need to refresh Strava access token. Execution will continue.");
   }
 }
 
-export async function getAthleteActivities() {
-  const { athleteId } = await verifySession();
-  await revalidateStravaAccessToken(athleteId as number);
+export async function getAthleteActivities(athleteId: number) {
+  await revalidateStravaAccessToken(athleteId);
 
   //get access token of user
-  const queried = await prisma.stravaAccessToken.findFirst({
+  const queried = await prisma.user.findFirst({
     where: {
-      userAthleteId: athleteId,
+      athleteId,
     },
+    include: {
+      stravaSession: true,
+    }
   });
 
-  const res = await fetch(STRAVA_BASE_PATH + "/athlete/activities", {
+  if (!queried) {
+    throw new Error("User not found");
+  }
+
+  //convert time to query param passable
+  const timeCap = (new Date(queried.inAppSince).getTime() / 1000).toFixed(0).toString();
+  
+  //get strava session token for auth
+  const access_token = queried.stravaSession[0].accessTokenCode;
+  
+  const res = await fetch(STRAVA_BASE_PATH + "/athlete/activities?" + new URLSearchParams({ after: timeCap }), {
     headers: {
-      Authorization: `Bearer ${queried?.accessTokenCode}`,
+      Authorization: `Bearer ${access_token}`,
     },
   });
-
+  
   const data = await res.json();
-
+  
   return data;
 }

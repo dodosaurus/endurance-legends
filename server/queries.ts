@@ -3,12 +3,13 @@ import "server-only";
 import prisma from "./db";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
+import { verifySession } from "./session";
 
-export async function syncAthleteActivities() {
-  //idea is to save some set of activities in our DB, but we do not need that probably
-}
-
-export async function createUser(data: StravaAPI.StravaGetAccessTokenResponse, scope: string) {
+export async function createUser(data: StravaAPI.StravaGetAccessTokenResponse, scope: string, fromStravaCallback: boolean = false) {
+  if (!fromStravaCallback) {
+    await verifySession();
+  }
+  
   const user = await prisma.user.create({
     data: {
       athleteId: data.athlete.id,
@@ -17,16 +18,11 @@ export async function createUser(data: StravaAPI.StravaGetAccessTokenResponse, s
       country: data.athlete.country,
       profile: data.athlete.profile,
       profileMedium: data.athlete.profile_medium,
-      stravaAccessToken: {
+      stravaSession: {
         create: {
           accessTokenCode: data.access_token,
-          expiresAt: convertEpochTimeToDateTime(data.expires_at),
-          scope,
-        },
-      },
-      stravaRefreshToken: {
-        create: {
           refreshTokenCode: data.refresh_token,
+          expiresAt: convertEpochTimeToDateTime(data.expires_at),
           scope,
         },
       },
@@ -36,7 +32,11 @@ export async function createUser(data: StravaAPI.StravaGetAccessTokenResponse, s
   return user;
 }
 
-export async function findUserByAthleteId(athleteId: number) {
+export async function findUserByAthleteId(athleteId: number, fromStravaCallback: boolean = false) {
+  if (!fromStravaCallback) {
+    await verifySession();
+  }
+
   const user = await prisma.user.findUnique({
     where: {
       athleteId,
@@ -44,4 +44,16 @@ export async function findUserByAthleteId(athleteId: number) {
   });
 
   return user;
+}
+
+export async function findStravaSessionByAthleteId(athleteId: number) {
+  await verifySession()
+
+  const stravaSession = await prisma.stravaSession.findFirst({
+    where: {
+      userAthleteId: athleteId,
+    },
+  });
+
+  return stravaSession;
 }

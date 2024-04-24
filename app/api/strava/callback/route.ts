@@ -35,11 +35,11 @@ export async function GET(request: NextRequest) {
   const json: StravaAPI.StravaGetAccessTokenResponse = await res.json();
 
   //check if such user exists on our side
-  let user = await findUserByAthleteId(json.athlete.id);
+  let user = await findUserByAthleteId(json.athlete.id, true);
 
   if (!user) {
     //save user to DB if it doesn't exist
-    user = await createUser(json, scope);
+    user = await createUser(json, scope, true);
   }
 
   //create our own JWT (ex with athlete.id) and set is as cookie to user's browser

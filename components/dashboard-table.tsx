@@ -2,18 +2,20 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { convertSecondsToReadableTime } from "@/lib/utils";
+import { verifySession } from "@/server/session";
 import { getAthleteActivities } from "@/server/strava";
 
 export default async function DashboardTable() {
-  const activities = await getAthleteActivities();
+  const { athleteId } = await verifySession();
+  const activities = await getAthleteActivities(athleteId as number);
 
-  // console.log(data);
+  // console.log(activities)
 
   return (
     <Card>
       <CardHeader className="px-7">
         <CardTitle>Your activities</CardTitle>
-        <CardDescription>Latest recorded activities (green are most recent).</CardDescription>
+        <CardDescription>Latest recorded activities. Activity must be public, done later than you first register here and need to be type of Ride or Run. The green are ones converted to vault coins.</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
@@ -27,7 +29,8 @@ export default async function DashboardTable() {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {activities.map((activity: any) => (
+            {activities.length === 0 && <TableRow><TableCell colSpan={5} className="text-center">No activities found yet. Go out and earn your coins :)</TableCell></TableRow>}
+            {activities.length > 0 && activities.map((activity: any) => (
               <TableRow key={activity.id}>
                 <TableCell>
                   <div className="font-medium">{activity.name}</div>
@@ -40,23 +43,9 @@ export default async function DashboardTable() {
                     {activity.location_country}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right">{new Date(activity.start_date).toLocaleDateString()}</TableCell>
+                <TableCell className="hidden md:table-cell">{new Date(activity.start_date).toLocaleDateString()}</TableCell>
               </TableRow>
             ))}
-            <TableRow className="bg-accent">
-              <TableCell>
-                <div className="font-medium">Afternoon Ride</div>
-                <div className="hidden text-sm text-muted-foreground md:inline">Ride</div>
-              </TableCell>
-              <TableCell className="hidden sm:table-cell">25,55 km</TableCell>
-              <TableCell className="hidden sm:table-cell">01:23:45</TableCell>
-              <TableCell className="hidden md:table-cell">
-                <Badge className="text-xs" variant="secondary">
-                  Slovakia
-                </Badge>
-              </TableCell>
-              <TableCell className="text-right">2023-06-23</TableCell>
-            </TableRow>
           </TableBody>
         </Table>
       </CardContent>
