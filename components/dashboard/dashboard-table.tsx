@@ -2,14 +2,13 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { convertMetersToKilometersForUI, convertSecondsToReadableTime } from "@/lib/utils";
-import { verifySession } from "@/server/session";
-import { syncAthleteActivities } from "@/server/strava";
 import { Activity } from "@prisma/client";
 
-export default async function DashboardTable() {
-  const { athleteId } = await verifySession();
-  const activities: Activity[] = await syncAthleteActivities(athleteId as number);
+type Props = {
+  activities: Activity[]
+}
 
+export default async function DashboardTable({ activities }: Props) {
   return (
     <Card>
       <CardHeader className="px-7">

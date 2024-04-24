@@ -5,6 +5,7 @@ import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
 import { verifySession } from "../session";
 import { translateActivities } from "../translations";
+import { User } from "@prisma/client";
 
 export async function createUser(
   data: StravaAPI.StravaGetAccessTokenResponse,
@@ -101,4 +102,55 @@ export async function findAllActivities() {
   });
 
   return activities;
+}
+
+export async function updateUser(data: StravaAPI.StravaAthlete, total_distances: { [key: string]: number }) {
+  const { athleteId } = await verifySession();
+
+  const user = await prisma.user.update({
+    where: {
+      athleteId: athleteId as number,
+    },
+    data: {
+      username: data.username,
+      name: data.firstname + " " + data.lastname,
+      country: data.country,
+      city: data.city,
+      profile: data.profile,
+      profileMedium: data.profile_medium,
+      totalRunDistance: total_distances.run,
+      totalRideDistance: total_distances.ride,
+    },
+  });
+
+  return user;
+}
+
+export async function updateStravaSession(data: StravaAPI.StravaRefreshAccessTokenResponse) {
+  const { athleteId } = await verifySession();
+
+  const updatedSession = await prisma.stravaSession.update({
+    where: {
+      userAthleteId: athleteId as number,
+    },
+    data: {
+      accessTokenCode: data.access_token,
+      expiresAt: convertEpochTimeToDateTime(data.expires_at),
+      refreshTokenCode: data.refresh_token,
+    },
+  });
+
+  return updatedSession.accessTokenCode;
+}
+
+export async function findStravaSession() {
+  const { athleteId } = await verifySession();
+
+  const stravaSession = await prisma.stravaSession.findFirst({
+    where: {
+      userAthleteId: athleteId,
+    },
+  });
+
+  return stravaSession;
 }

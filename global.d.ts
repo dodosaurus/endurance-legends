@@ -25,6 +25,7 @@ export namespace StravaAPI {
     firstname: string;
     lastname: string;
     country: string;
+    city: string;
     profile: string;
     profile_medium: string;
   };

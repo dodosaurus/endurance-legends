@@ -1,5 +1,5 @@
 import { StravaAPI } from "@/global";
-import { Activity } from "@prisma/client";
+import { Activity, User } from "@prisma/client";
 
 type PartialActivity = Omit<Activity, "id">;
 
@@ -7,7 +7,7 @@ export function translateActivities(athleteId: number, activitiesFromApi: Strava
   const activitiesForDB: PartialActivity[] = activitiesFromApi.map((activity) => {
     return {
       userAthleteId: athleteId,
-      activityId: (activity.id).toString(),
+      activityId: activity.id.toString(),
       name: activity.name,
       type: activity.type,
       distance: activity.distance,

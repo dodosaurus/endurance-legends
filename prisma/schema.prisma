@@ -13,7 +13,8 @@ model User {
   athleteId         Int             @unique
   username          String          @unique
   name              String?
-  country           String          @default("not specified")
+  city              String?          @default("not specified")
+  country           String?          @default("not specified")
   profile           String          @default("url to default avatar large")
   profileMedium     String          @default("url to default avatar small")
   accountBalance    Int             @default(0)
