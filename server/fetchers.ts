@@ -1,7 +1,7 @@
 import { StravaAPI } from "@/global";
 import { getAuthenticatedAthlete, listAthleteActivities, revalidateStravaAccessToken } from "./strava";
 import { createMultipleActivities, findAllActivities, updateUser } from "./db/queries";
-import { calculateTotalDistances } from "./calculations";
+import { calcTotalDistances } from "./calculations";
 import { Activity, User } from "@prisma/client";
 
 type DashboardSyncResponse = {
@@ -33,7 +33,7 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   //ADDITIONAL BUSINESS LOGIC (recalculation of total distances)
 
   //recalculate total distances and save it to DB
-  const totalDistances = calculateTotalDistances(activities);
+  const totalDistances = calcTotalDistances(activities);
 
   //at the end update all props of user and get newest version of user
   const user = await updateUser(newAthleteData, totalDistances);

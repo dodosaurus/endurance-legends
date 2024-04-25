@@ -1,6 +1,8 @@
 import { Activity } from "@prisma/client";
 
-export function calculateTotalDistances(activities: Activity[]) {
+const NEW_USER_BONUS_AMOUNT = 300;
+
+export function calcTotalDistances(activities: Activity[]) {
   const total_distance = {
     runs: 0,
     rides: 0,
@@ -16,4 +18,8 @@ export function calculateTotalDistances(activities: Activity[]) {
   }
 
   return total_distance;
+}
+
+export function calcNewUserBonus() {
+  return NEW_USER_BONUS_AMOUNT;
 }

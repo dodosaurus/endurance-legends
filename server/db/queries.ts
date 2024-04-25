@@ -5,6 +5,7 @@ import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
 import { verifySession } from "../session";
 import { translateActivities } from "../translations";
+import { calcNewUserBonus } from "../calculations";
 
 export async function createUser(
   data: StravaAPI.StravaGetAccessTokenResponse,
@@ -23,6 +24,7 @@ export async function createUser(
       country: data.athlete.country,
       profile: data.athlete.profile,
       profileMedium: data.athlete.profile_medium,
+      accountBalance: calcNewUserBonus(),
       stravaSession: {
         create: {
           accessTokenCode: data.access_token,
