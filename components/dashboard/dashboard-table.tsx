@@ -20,10 +20,10 @@ export default async function DashboardTable({ activities }: Props) {
           <TableHeader>
             <TableRow>
               <TableHead>Title</TableHead>
-              <TableHead className="hidden sm:table-cell">Distance</TableHead>
+              <TableHead className="table-cell">Distance</TableHead>
               <TableHead className="hidden sm:table-cell">Duration</TableHead>
               <TableHead className="hidden md:table-cell">Location country</TableHead>
-              <TableHead className="table-cell">Date</TableHead>
+              <TableHead className="hidden md:table-cell">Date</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -32,9 +32,9 @@ export default async function DashboardTable({ activities }: Props) {
               <TableRow key={activity.id}>
                 <TableCell>
                   <div className="font-medium">{activity.name}</div>
-                  <div className="hidden text-sm text-muted-foreground md:inline">{activity.type}</div>
+                  <div className="text-sm text-muted-foreground">{activity.type}</div>
                 </TableCell>
-                <TableCell className="hidden sm:table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
+                <TableCell className="table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
                 <TableCell className="hidden sm:table-cell">{convertSecondsToReadableTime(activity.movingTime)}</TableCell>
                 <TableCell className="hidden md:table-cell">
                   <Badge className="text-xs" variant="secondary">

@@ -6,7 +6,7 @@ type Props = {
 }
 
 export default function DashboardSecondPanel({ user }: Props) {
-  return <div className="flex gap-2">
+  return <div className="flex flex-col sm:flex-row gap-2">
     <DashboardDistanceStatusCard  distance={user?.totalRunDistance || 0} activityType={"run"}/>
     <DashboardDistanceStatusCard  distance={user?.totalRideDistance || 0} activityType={"ride"}/>
   </div>;

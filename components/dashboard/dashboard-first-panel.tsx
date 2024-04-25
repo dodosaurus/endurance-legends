@@ -7,7 +7,7 @@ type Props = {
 }
 
 export default function DashboardFirstPanel({ user }: Props) {
-  return <div className="flex gap-2">
+  return <div className="flex flex-col sm:flex-row gap-2">
     <DashboardRefreshCard lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
     <DashboardCoinsStatusCard accountBalance={user.accountBalance}/>
   </div>;

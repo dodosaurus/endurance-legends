@@ -22,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn("min-h-screen bg-background font-sans antialiased", fontSans.variable)}>
-        <main className="flex min-h-screen flex-col items-center justify-between p-8">{children}</main>
+        <main className="flex min-h-screen flex-col items-center justify-between p-1 sm:p-8">{children}</main>
       </body>
     </html>
   );
