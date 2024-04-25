@@ -119,6 +119,7 @@ export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: 
       profileMedium: data.profile_medium,
       totalRunDistance: totalDistances.runs,
       totalRideDistance: totalDistances.rides,
+      lastStravaRefresh: new Date(),
     },
   });
 

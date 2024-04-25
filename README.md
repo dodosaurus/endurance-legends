@@ -16,10 +16,10 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] fix bug that kms are calcualted before activities fetch - need some cascade implementation where activites are always fetched first
 - [x] test when new activites are added to DB (changing timeCap from older to newer)
 - [x] implement card displaying run/cycled kilometers from time of registration
+- [x] add DB field to user lastActivityRefresh and display it in info panel (it could be debug panel)
 
 ## TODO
 
-- [ ] add DB field to user lastActivityRefresh and display it in info panel (it could be debug panel)
 - [ ] implement card displaying account balance (give automatically some points on sign up) and needed caluclator in backend with concept formula
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
