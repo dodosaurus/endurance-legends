@@ -22,21 +22,30 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - we need to store list of ids of newest activities on user, then in frontend we can check if activity is new on each table row
   - also we need timestamp on activity when it was added to our system (to check 24 hours)
 - [x] light green bg on activities that were added in last 7 days (secondary green, "added in last 7 days") - maybe not needed that much
+- [x] logout button on dashboard with cookies().delete("session")
 
 ## TODO
 
-- [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
 - [ ] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
-- [ ] column with earnd coins per earning/activity (badge with SVG), remove badge from country
-- [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+- [ ] mine (at least some, for testing) data for cards
+- collection design
+  - [ ] webscrape the initial data for cards from pro cycling stats (!!!) as json
+  - [ ] first some mocked cards, with mock data 
+  - [ ] prepare first common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
+- finalize prototype engine
+  - [ ] /booster page; just some 3 card-like divs (shadcn card) with some data = representation of card
+  - [ ] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
+  - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+- earnings
+  - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
+  - and in future it can be extended, but list of activites user can see on Strava, this will be more app related dashbaord table
+  - [ ] implement new data model and table (id, event name - enum?, coin transaction, activityId (if it is activity, link it))
+  - [ ] trigger events on new activity addition, on first login, on booster purchase
+  - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
+  - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
+  - [ ] on activity show little map/or on hover
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
 - [ ] putting nice redirect page between callback and dashboard (loading.tsx?)
-- DAL - data access layer
-  - [ ] DB queries (internal/local data) - adding verifySession, so local session
-  - [ ] Strava API (external) - getting athleteId (from local session or from context (?)) and renewal with refresh_token
-- logout functionallity
-  - [ ] logout button on dashboard with cookies().delete("session")
-  - [ ] and also deauthorize here: POST https://www.strava.com/oauth/deauthorize
 - [ ] adding formula and recalculation of coins on fetch of activities
 - opening booster phase (new path?)
   - [ ] initial design of the booster/chest and animation for it
@@ -44,14 +53,12 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] revealing animation for common and uncommon cards
 - collection viewer (new path!)
   - [ ] first concept just list of owned cards
-- collection design
-  - [ ] webscrape the initial data for cards from pro cycling stats (!!!) as json
-  - [ ] first some mocked cards, with mock data 
-  - [ ] prepare first common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
+- [ ] deauthorize on logout here: POST https://www.strava.com/oauth/deauthorize
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
 - earnings/activites table
+- [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
   - [ ] green bg on activities added in last 24 hours
   - [ ] it makes sense to have instead of bg color different group section of table on top with new activites, where activities can be grouped by startDate
  
