@@ -10,7 +10,7 @@ type LogoutButtonProps = {
 function LogoutButton({ logout }: LogoutButtonProps) {
   return (
     <form action={logout}>
-      <Button variant={"tertiary"}>Logout</Button>
+      <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold">Logout</Button>
     </form>
   );
 }

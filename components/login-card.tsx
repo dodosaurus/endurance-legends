@@ -11,12 +11,12 @@ export default function LoginCard() {
         <CardDescription className="max-w-lg text-balance leading-relaxed">
           Connect through Strava and let application read your activity and profile data.
           <br />
-          <span className="font-semibold text-tertiary pt-2">We need at least permission to read your public activties.</span>
+          <span className="font-semibold text-purple-500 pt-2">We need at least permission to read your public activties.</span>
         </CardDescription>
       </CardHeader>
       <CardFooter>
         <Link href={getStravaLoginUrl()}>
-          <Button variant={"tertiary"} className="font-semibold">Connect with Strava</Button>
+          <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold">Connect with Strava</Button>
         </Link>
       </CardFooter>
     </Card>

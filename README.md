@@ -21,14 +21,16 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] light yellow bg on acitvity rows that are newest and were added in last 24 hours = are the newest ("new")
   - we need to store list of ids of newest activities on user, then in frontend we can check if activity is new on each table row
   - also we need timestamp on activity when it was added to our system (to check 24 hours)
+- [x] light green bg on activities that were added in last 7 days (secondary green, "added in last 7 days") - maybe not needed that much
 
 ## TODO
 
-- [ ] light green bg on activities that were added in last 7 days (secondary green, "added in last 7 days") - maybe not needed that much
+- [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
 - [ ] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
+- [ ] column with earnd coins per earning/activity (badge with SVG), remove badge from country
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
-- [ ] putting nice redirect page between callback and dashboard
+- [ ] putting nice redirect page between callback and dashboard (loading.tsx?)
 - DAL - data access layer
   - [ ] DB queries (internal/local data) - adding verifySession, so local session
   - [ ] Strava API (external) - getting athleteId (from local session or from context (?)) and renewal with refresh_token
@@ -49,8 +51,9 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
-- [ ] Strava hover/focus state different color gradient from google keep note
-- [ ] green bg on activities added in last 24 hours
+- earnings/activites table
+  - [ ] green bg on activities added in last 24 hours
+  - [ ] it makes sense to have instead of bg color different group section of table on top with new activites, where activities can be grouped by startDate
  
 
 ## Open sources mentions
