@@ -14,13 +14,17 @@ type Props = {
 }
 
 export default function DashboardRefreshCard( { lastStravaRefresh, inAppSince }: Props) {
+  const convertToBrowserTime = (date: Date) => {
+    return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toLocaleString("en-GB");
+  }
+
   return (
     <Card className="sm:col-span-2">
       <CardHeader className="pb-3">
         <CardTitle>Info</CardTitle>
         <CardDescription className="max-w-lg text-balance leading-relaxed">
-          Last refresh at: {lastStravaRefresh.toLocaleString("en-GB")} <br />
-          In app since: {inAppSince.toLocaleString("en-GB")}
+          Last refresh at: {convertToBrowserTime(lastStravaRefresh)} <br />
+          In app since: {convertToBrowserTime(inAppSince)}
         </CardDescription>
       </CardHeader>
       <CardFooter>
