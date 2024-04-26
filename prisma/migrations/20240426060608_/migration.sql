@@ -1,0 +1,5 @@
+-- AlterTable
+ALTER TABLE "Activity" ADD COLUMN     "inSystemSince" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "newActivityIds" INTEGER[] DEFAULT ARRAY[]::INTEGER[];

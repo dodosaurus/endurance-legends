@@ -102,10 +102,12 @@ export async function findAllActivities() {
     },
   });
 
-  return activities;
+  const ids = activities.map((activity) => activity.id);
+
+  return { activities, ids };
 }
 
-export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: { runs: number, rides: number }) {
+export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: { runs: number; rides: number }, newActivityIds: number[]) {
   const { athleteId } = await verifySession();
 
   const user = await prisma.user.update({
@@ -122,6 +124,7 @@ export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: 
       totalRunDistance: totalDistances.runs,
       totalRideDistance: totalDistances.rides,
       lastStravaRefresh: new Date(),
+      newActivityIds: newActivityIds.length > 0 ? newActivityIds : undefined,
     },
   });
 

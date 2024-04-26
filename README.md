@@ -17,10 +17,15 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] test when new activites are added to DB (changing timeCap from older to newer)
 - [x] implement card displaying run/cycled kilometers from time of registration
 - [x] add DB field to user lastActivityRefresh and display it in info panel (it could be debug panel)
+- [x] implement card displaying account balance (give automatically some points on sign up) 
+- [x] light yellow bg on acitvity rows that are newest and were added in last 24 hours = are the newest ("new")
+  - we need to store list of ids of newest activities on user, then in frontend we can check if activity is new on each table row
+  - also we need timestamp on activity when it was added to our system (to check 24 hours)
 
 ## TODO
 
-- [ ] implement card displaying account balance (give automatically some points on sign up) and needed caluclator in backend with concept formula
+- [ ] light green bg on activities that were added in last 7 days (secondary green, "added in last 7 days") - maybe not needed that much
+- [ ] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
 - [ ] putting nice redirect page between callback and dashboard
@@ -38,13 +43,14 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - collection viewer (new path!)
   - [ ] first concept just list of owned cards
 - collection design
+  - [ ] webscrape the initial data for cards from pro cycling stats (!!!) as json
   - [ ] first some mocked cards, with mock data 
-  - [ ] webscrape the initial data for cards from pro cycling stats
   - [ ] prepare first common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
-- [ ] test data seeder implementation (new random activity generation)
-- [ ] custom 404 page (loading, error pages -> also possible from server component?)
+- [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
+- [ ] Strava hover/focus state different color gradient from google keep note
+- [ ] green bg on activities added in last 24 hours
  
 
 ## Open sources mentions

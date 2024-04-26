@@ -7,9 +7,16 @@ export default async function Dashboard() {
   const { athleteId } = await verifySession();
   const { activities, user } = await dashboardSync(athleteId as number);
 
-  return <div id="dashboard" className="flex flex-col gap-2">
-    <DashboardFirstPanel user={user} />
-    <DashboardSecondPanel user={user} />
-    <DashboardTable activities={activities}/>
-  </div>;
+  return (
+    <div id="dashboard" className="flex flex-col gap-2">
+      {user ? (
+        <>
+          <DashboardFirstPanel user={user} />
+          <DashboardSecondPanel user={user} />
+          <DashboardTable user={user} activities={activities} />
+        </>
+      ) :
+        <p>Loading...</p>}
+    </div>
+  );
 }

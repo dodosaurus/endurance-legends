@@ -25,6 +25,7 @@ model User {
   lastStravaRefresh DateTime        @default(now())
   stravaSession     StravaSession[]
   activities        Activity[]
+  newActivityIds    Int[]           @default([])
 }
 
 model StravaSession {
@@ -50,6 +51,7 @@ model Activity {
   totalElevationGain Float    @default(0)
   startDate          DateTime
   startDateLocal     DateTime
+  inSystemSince      DateTime @default(now())
   locationCountry    String
   kudosCount         Int      @default(0)
 }
