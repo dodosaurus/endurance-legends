@@ -13,9 +13,11 @@ type Props = {
   inAppSince: Date
 }
 
+
 export default function DashboardRefreshCard( { lastStravaRefresh, inAppSince }: Props) {
   const convertToBrowserTime = (date: Date) => {
-    return new Date(date.getTime() - date.getTimezoneOffset() * 60000).toLocaleString("en-GB");
+    const tmz = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    return date.toLocaleString('en-GB', { timeZone: tmz });
   }
 
   return (
