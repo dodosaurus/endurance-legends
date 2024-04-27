@@ -57,6 +57,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
+- [ ] sometimes we get useContext bug (like some client component misconfiguration issue)
 - earnings/activites table
 - [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
   - [ ] green bg on activities added in last 24 hours

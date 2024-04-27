@@ -20,9 +20,9 @@ export default async function DashboardTable({ user, activities }: Props) {
       return "bg-orange-50";
     }
     //must be loaded to system in last 7 days
-    if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
-      return "bg-green-50";
-    }
+    // if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
+    //   return "bg-green-50";
+    // }
 
     //default is loaded from component itself
     return "";
@@ -37,10 +37,6 @@ export default async function DashboardTable({ user, activities }: Props) {
             Latest recorded activities. Activity must be public, done later than you first register here and need to be
             type of Ride or Run.
           </span>
-          <section className="flex gap-2 font-medium">
-            <span className="bg-orange-50">New activities</span>
-            <span className="bg-green-50">Added in last 7 days</span>
-          </section>
         </CardDescription>
       </CardHeader>
       <CardContent>
