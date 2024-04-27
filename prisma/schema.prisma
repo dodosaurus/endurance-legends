@@ -26,6 +26,7 @@ model User {
   stravaSession     StravaSession[]
   activities        Activity[]
   newActivityIds    Int[]           @default([])
+  Transaction       Transaction[]
 }
 
 model StravaSession {
@@ -54,6 +55,16 @@ model Activity {
   inSystemSince      DateTime @default(now())
   locationCountry    String
   kudosCount         Int      @default(0)
+  bonusTriggered     Boolean  @default(false)
+}
+
+model Transaction {
+  id             Int    @id @default(autoincrement())
+  user           User   @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
+  userAthleteId  Int
+  desc           String @default("")
+  amount         Int
+  linkedActivity String @default("")
 }
 
 enum ActivityType {

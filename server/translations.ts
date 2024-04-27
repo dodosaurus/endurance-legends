@@ -1,7 +1,7 @@
 import { StravaAPI } from "@/global";
 import { Activity } from "@prisma/client";
 
-type PartialActivity = Omit<Activity, "id">;
+type PartialActivity = Omit<Activity, "id" | "inSystemSince" | "bonusTriggered">;
 
 export function translateActivities(athleteId: number, activitiesFromApi: StravaAPI.StravaActivity[]) {
   const activitiesForDB: PartialActivity[] = activitiesFromApi.map((activity) => {

@@ -5,7 +5,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import LogoutButton from "./logout-button"
-import { logout } from "@/server/actions"
+import { logout } from "@/server/interface/actions"
 import InfoTimes from "./info-times";
 
 type Props = {

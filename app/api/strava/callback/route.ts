@@ -1,7 +1,8 @@
 import { StravaAPI } from "@/global";
 import { createUser, findUserByAthleteId } from "@/server/db/queries";
-import { createSession } from "@/server/session";
+import { createSession } from "@/server/auth/session";
 import { getAccessToken } from "@/server/strava";
+import { assignNewUserBonus } from "@/server/transactions";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
@@ -40,6 +41,10 @@ export async function GET(request: NextRequest) {
   if (!user) {
     //save user to DB if it doesn't exist
     user = await createUser(json, scope, true);
+
+    //add new user bonus coins, probablt could be better, to not call query here two times
+    await assignNewUserBonus(user.athleteId);
+
   }
 
   //create our own JWT (ex with athlete.id) and set is as cookie to user's browser

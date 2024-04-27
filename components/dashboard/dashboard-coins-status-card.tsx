@@ -38,7 +38,7 @@ export default function DashboardCoinsStatusCard({ accountBalance }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent>
-        <div className="text-xs text-muted-foreground">+25% from last week</div>
+        {/* <div className="text-xs text-muted-foreground">+25% from last week</div> */}
       </CardContent>
     </Card>
   );

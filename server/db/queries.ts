@@ -3,10 +3,12 @@ import "server-only";
 import prisma from "./db";
 import { convertEpochTimeToDateTime } from "@/lib/utils";
 import { StravaAPI } from "@/global";
-import { verifySession } from "../session";
+import { verifySession } from "../auth/session";
 import { translateActivities } from "../translations";
 import { calcNewUserBonus } from "../calculations";
+import { User } from "@prisma/client";
 
+//WITHOUT SESSION VERIFYING
 export async function createUser(
   data: StravaAPI.StravaGetAccessTokenResponse,
   scope: string,
@@ -24,7 +26,6 @@ export async function createUser(
       country: data.athlete.country,
       profile: data.athlete.profile,
       profileMedium: data.athlete.profile_medium,
-      accountBalance: calcNewUserBonus(),
       stravaSession: {
         create: {
           accessTokenCode: data.access_token,
@@ -53,6 +54,19 @@ export async function findUserByAthleteId(athleteId: number, fromStravaCallback:
   return user;
 }
 
+export async function createUnsafeTransaction(athleteId: number, amount: number, desc: string = "new_user_bonus") {
+  const transaction = await prisma.transaction.create({
+    data: {
+      userAthleteId: athleteId as number,
+      amount,
+      desc,
+    },
+  });
+
+  return transaction;
+}
+
+//WITH SESSION VERIFYING
 export async function findUniqueUser() {
   const { athleteId } = await verifySession();
 
@@ -107,7 +121,44 @@ export async function findAllActivities() {
   return { activities, ids };
 }
 
-export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: { runs: number; rides: number }, newActivityIds: number[]) {
+export async function findActivitiesByIdsAndBonusTrigger(ids: number[], expectedBonusTrigger: boolean = false) {
+  await verifySession();
+
+  const activities = await prisma.activity.findMany({
+    where: {
+      id: {
+        in: ids,
+      },
+      bonusTriggered: expectedBonusTrigger,
+    },
+  });
+
+  return activities;
+}
+
+export async function updateActivitiesBonusTriggeredByIds(ids: number[], bonusTriggeredFlag: boolean = true) {
+  await verifySession();
+
+  const activities = await prisma.activity.updateMany({
+    where: {
+      id: {
+        in: ids,
+      },
+    },
+    data: {
+      bonusTriggered: bonusTriggeredFlag,
+    },
+  });
+
+  return activities;
+}
+
+export async function updateUser(
+  data: StravaAPI.StravaAthlete,
+  totalDistances: { runs: number; rides: number },
+  newActivityIds: number[],
+  newAccountBalance: number
+) {
   const { athleteId } = await verifySession();
 
   const user = await prisma.user.update({
@@ -125,7 +176,21 @@ export async function updateUser(data: StravaAPI.StravaAthlete, totalDistances: 
       totalRideDistance: totalDistances.rides,
       lastStravaRefresh: new Date(),
       newActivityIds: newActivityIds.length > 0 ? newActivityIds : undefined,
+      accountBalance: newAccountBalance,
     },
+  });
+
+  return user;
+}
+
+export async function updateUserGeneric(data: Partial<User>) {
+  const { athleteId } = await verifySession();
+
+  const user = await prisma.user.update({
+    where: {
+      athleteId: athleteId as number,
+    },
+    data,
   });
 
   return user;
@@ -158,4 +223,31 @@ export async function findStravaSession() {
   });
 
   return stravaSession;
+}
+
+export async function createTransaction(amount: number, desc: string = "activity", linkedActivity: string = "") {
+  const { athleteId } = await verifySession();
+
+  const transaction = await prisma.transaction.create({
+    data: {
+      userAthleteId: athleteId as number,
+      amount,
+      linkedActivity,
+      desc,
+    },
+  });
+
+  return transaction;
+}
+
+export async function findAllTransactions() {
+  const { athleteId } = await verifySession();
+
+  const transactions = await prisma.transaction.findMany({
+    where: {
+      userAthleteId: athleteId as number,
+    },
+  });
+
+  return transactions;
 }
