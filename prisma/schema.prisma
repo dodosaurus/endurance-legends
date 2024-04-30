@@ -67,7 +67,11 @@ model Transaction {
   linkedActivity String @default("")
 }
 
-enum ActivityType {
-  RUN
-  RIDE
+model Card {
+  id           Int    @id @default(autoincrement())
+  uuid         String @default(uuid())
+  collectionId Int    @default(1)
+  rarity       String @default("common")
+  name         String @default("")
+  info         String @default("")
 }
