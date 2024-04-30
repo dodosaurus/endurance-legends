@@ -23,10 +23,10 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - also we need timestamp on activity when it was added to our system (to check 24 hours)
 - [x] light green bg on activities that were added in last 7 days (secondary green, "added in last 7 days") - maybe not needed that much
 - [x] logout button on dashboard with cookies().delete("session")
+- [x] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
 
 ## TODO
 
-- [ ] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
 - [ ] mine (at least some, for testing) data for cards
 - collection design
   - [ ] webscrape the initial data for cards from pro cycling stats (!!!) as json
