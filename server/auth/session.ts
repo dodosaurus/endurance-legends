@@ -12,7 +12,7 @@ export async function encrypt(payload: Session.Payload) {
   return new SignJWT(payload)
     .setProtectedHeader({ alg: "HS512" })
     .setIssuedAt()
-    .setExpirationTime("6h")
+    .setExpirationTime("30d")
     .sign(encodedKey);
 }
 
@@ -23,13 +23,14 @@ export async function decrypt(session: string | undefined = "") {
     });
     return payload;
   } catch (error) {
-    console.log(error)
+    console.log(error);
     console.log("Failed to verify session");
   }
 }
 
 export async function createSession(payload: Session.Payload) {
-  const expiresAt = new Date(Date.now() + 6 * 60 * 60 * 1000); //adding 6 hours
+  const expiresAt = new Date();
+  expiresAt.setDate(expiresAt.getDate() + 30); //adding 30 days to expire
   const session = await encrypt(payload);
 
   cookies().set("session", session, {
