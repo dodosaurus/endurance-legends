@@ -24,17 +24,16 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] light green bg on activities that were added in last 7 days (secondary green, "added in last 7 days") - maybe not needed that much
 - [x] logout button on dashboard with cookies().delete("session")
 - [x] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
+- [x] mine (at least some, for testing) data for cards
 
 ## TODO
 
-- [ ] mine (at least some, for testing) data for cards
-- collection design
-  - [ ] webscrape the initial data for cards from pro cycling stats (!!!) as json
-  - [ ] first some mocked cards, with mock data 
-  - [ ] prepare first common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
+- [ ] prepare model, give cards rarity attributes, other special attributes (grand tour, monument...) migrate DB and insert JSON into DB
+- [ ] common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
 - finalize prototype engine
-  - [ ] /booster page; just some 3 card-like divs (shadcn card) with some data = representation of card
   - [ ] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
+  - [ ] prepare button for Buy & Open booster, server action behind it and rerouting to booster opening
+  - [ ] /booster page; just some 3 card-like divs (shadcn card) with some data = representation of card
   - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
