@@ -68,10 +68,14 @@ model Transaction {
 }
 
 model Card {
-  id           Int    @id @default(autoincrement())
-  uuid         String @default(uuid())
-  collectionId Int    @default(1)
-  rarity       String @default("common")
-  name         String @default("")
-  info         String @default("")
+  id              Int     @id @default(autoincrement())
+  uuid            String  @default(uuid())
+  collectionId    Int     @default(1)
+  rarity          String  @default("common")
+  name            String  @default("")
+  country         String  @default("")
+  dateInfo        String? @default("")
+  additionalInfo1 String? @default("")
+  additionalInfo2 String? @default("")
+  extendedInfo    String? @default("")
 }

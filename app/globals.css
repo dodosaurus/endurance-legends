@@ -80,3 +80,33 @@
     @apply bg-background text-foreground;
   }
 }
+
+#loading-dots span {
+  width: 20px;
+  height: 20px;
+  margin: 0 5px;
+  background: #e9beff;
+  border-radius: 50%;
+  display: inline-block;
+  animation-name: dots;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+#loading-dots span:nth-child(2) {
+  background-color: #d176ff;
+  animation-delay: 0.2s;
+}
+
+#loading-dots span:nth-child(3) {
+  background-color: #ae0dff;
+  animation-delay: 0.4s;
+}
+
+@keyframes dots {
+  50% {
+    opacity: 0;
+    transform: scale(0.7) translateY(10px);
+  }
+}

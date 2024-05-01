@@ -26,6 +26,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] need caluclator in backend with concept formula - on syncDashboard() we need recalculate accountBalance based on new activities
 - [x] mine (at least some, for testing) data for cards
 - [x] prepare model of card
+- [x] putting nice redirect page between callback and dashboard (loading.tsx?)
 
 ## TODO
 
@@ -45,7 +46,6 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
   - [ ] on activity show little map/or on hover
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
-- [ ] putting nice redirect page between callback and dashboard (loading.tsx?)
 - [ ] adding formula and recalculation of coins on fetch of activities
 - [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirected to Strava and Authorize; how to identify such user coming to our app
 - opening booster phase (new path?)
