@@ -27,11 +27,11 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] mine (at least some, for testing) data for cards
 - [x] prepare model of card
 - [x] putting nice redirect page between callback and dashboard (loading.tsx?)
+- [x] give cards rarity attributes, other special attributes (grand tour, monument...) migrate DB and insert JSON into DB
+- [x] common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
 
 ## TODO
 
-- [ ] give cards rarity attributes, other special attributes (grand tour, monument...) migrate DB and insert JSON into DB
-- [ ] common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
 - finalize prototype engine
   - [ ] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
   - [ ] prepare button for Buy & Open booster, server action behind it and rerouting to booster opening
@@ -45,6 +45,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
   - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
   - [ ] on activity show little map/or on hover
+- [ ] rate limit page redirect when 429 is returned from Strava
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
 - [ ] adding formula and recalculation of coins on fetch of activities
 - [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirected to Strava and Authorize; how to identify such user coming to our app
