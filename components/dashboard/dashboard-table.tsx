@@ -2,7 +2,9 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { convertMetersToKilometersForUI, convertSecondsToReadableTime } from "@/lib/utils";
+import { calcActivityCoins } from "@/server/calculations";
 import { Activity, User } from "@prisma/client";
+import { CoinIcon } from "../coin-icon";
 
 type Props = {
   user: User;
@@ -48,6 +50,7 @@ export default async function DashboardTable({ user, activities }: Props) {
               <TableHead className="hidden sm:table-cell">Duration</TableHead>
               <TableHead className="hidden md:table-cell">Location country</TableHead>
               <TableHead className="hidden md:table-cell">Date</TableHead>
+              <TableHead className="hidden lg:table-cell">Coins</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -69,13 +72,16 @@ export default async function DashboardTable({ user, activities }: Props) {
                   <TableCell className="hidden sm:table-cell">
                     {convertSecondsToReadableTime(activity.movingTime)}
                   </TableCell>
-                  <TableCell className="hidden md:table-cell">
-                    <Badge className="text-xs" variant="secondary">
-                      {activity.locationCountry}
-                    </Badge>
-                  </TableCell>
+                  <TableCell className="hidden md:table-cell">{activity.locationCountry}</TableCell>
                   <TableCell className="hidden md:table-cell">
                     {new Date(activity.startDate).toLocaleDateString()}
+                  </TableCell>
+                  <TableCell className="table-cell">
+                    <Badge className="text-xs" variant="secondary">
+                      <div className="flex justify-start items-center gap-1">
+                        <CoinIcon w="10px" /> <span>{calcActivityCoins(activity)}</span>
+                      </div>
+                    </Badge>
                   </TableCell>
                 </TableRow>
               ))}

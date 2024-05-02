@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 
 //custom type
 const cardCoreData = Prisma.validator<Prisma.CardDefaultArgs>()({
-  select: { name: true, country: true, dateInfo: true, additionalInfo1: true, additionalInfo2: true },
+  select: { id: true, name: true, country: true, dateInfo: true, additionalInfo1: true, additionalInfo2: true },
 });
 type CardCoreData = Prisma.CardGetPayload<typeof cardCoreData>;
 
@@ -13,10 +13,14 @@ const main = async () => {
   try {
     await prisma.card.deleteMany()
 
+    let id = 0;
+
     // map and prepare cyclists
     const cyclist_batch = latest_raw.cyclists.map((cyclist) => {
+      id++;
       let w_and_h = `${cyclist.weight.toString()} kg / ${cyclist.height.toString()} m`;
       return {
+        id,
         name: cyclist.name,
         country: cyclist.country,
         dateInfo: cyclist.birthdate,
@@ -28,6 +32,7 @@ const main = async () => {
 
     // map and prepare races
     const race_batch = latest_raw.races.map((race) => {
+      id++;
       let rarity = "uncommon";
 
       if (race.class === "2.UWT") {
@@ -49,6 +54,7 @@ const main = async () => {
       }
 
       return {
+        id,
         name: race.name,
         country: race.country,
         dateInfo: race.date,

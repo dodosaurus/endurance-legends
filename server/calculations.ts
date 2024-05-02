@@ -1,5 +1,5 @@
 import { Activity } from "@prisma/client";
-import { findAllTransactions, updateUser, updateUserGeneric } from "./db/queries";
+import { findAllTransactions, updateUserGeneric } from "./db/queries";
 
 const NEW_USER_BONUS_AMOUNT = 300;
 const PACK_PRICE = 1000;
