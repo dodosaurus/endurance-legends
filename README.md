@@ -48,7 +48,8 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [ ] rate limit page redirect when 429 is returned from Strava
 - [ ] implement navbar with logo <-> name and avatar (we have pictures from sign up) + refresh button for fetching newest activities (+ anti spam protection)
 - [ ] adding formula and recalculation of coins on fetch of activities
-- [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirected to Strava and Authorize; how to identify such user coming to our app
+- [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app
+- [ ] additional to loading.tsx add lazy loading on tables (on other components)
 - opening booster phase (new path?)
   - [ ] initial design of the booster/chest and animation for it
   - [ ] desktop/mobile showing of the opened cards, animation for not revealed rare card
@@ -66,5 +67,6 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] it makes sense to have instead of bg color different group section of table on top with new activites, where activities can be grouped by startDate
  
 
-## Open sources mentions
+## Sources mentions
+https://www.procyclingstats.com/
 https://www.flaticon.com/free-icon/triathlon_15179919?term=run+bike&page=1&position=2&origin=search&related_id=15179919

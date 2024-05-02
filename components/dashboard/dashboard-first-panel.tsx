@@ -1,5 +1,5 @@
 import { User } from "@prisma/client";
-import DashboardRefreshCard from "./dashboard-refresh-card";
+import DashboardInfoCard from "./dashboard-info-card";
 import DashboardCoinsStatusCard from "./dashboard-coins-status-card";
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
 
 export default function DashboardFirstPanel({ user }: Props) {
   return <div className="flex flex-col sm:flex-row gap-2">
-    <DashboardRefreshCard lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
+    <DashboardInfoCard lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} profile={user.profile} name={user.name} />
     <DashboardCoinsStatusCard accountBalance={user.accountBalance}/>
   </div>;
 }
