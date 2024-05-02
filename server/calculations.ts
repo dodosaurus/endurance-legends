@@ -2,6 +2,7 @@ import { Activity } from "@prisma/client";
 import { findAllTransactions, updateUser, updateUserGeneric } from "./db/queries";
 
 const NEW_USER_BONUS_AMOUNT = 300;
+const PACK_PRICE = 1000;
 
 export function calcActivityCoins(activity: Activity) {
   if (activity.type === "Run") {
@@ -33,6 +34,10 @@ export function calcTotalDistances(activities: Activity[]) {
 
 export function calcNewUserBonus() {
   return NEW_USER_BONUS_AMOUNT;
+}
+
+export function calcAvailablePacks(totalCoins: number) {
+  return Math.floor(totalCoins / PACK_PRICE);
 }
 
 export async function recalcAccountBalance(updateUserToo: boolean = false) {

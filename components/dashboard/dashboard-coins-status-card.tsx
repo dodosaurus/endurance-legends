@@ -1,12 +1,14 @@
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "../ui/button";
+import { calcAvailablePacks } from "@/server/calculations";
 
 type Props = {
   accountBalance: number;
 };
 
-function SVGCoin() {
+function SVGCoin({ w }: { w: string }) {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="25px" height="25px" viewBox="0 0 24 24" fill="none">
+    <svg className="inline-block" xmlns="http://www.w3.org/2000/svg" width={w} height={w} viewBox="0 0 24 24" fill="none">
       <ellipse
         rx="8.5"
         ry="9"
@@ -34,11 +36,17 @@ export default function DashboardCoinsStatusCard({ accountBalance }: Props) {
       <CardHeader className="pb-2 flex flex-col items-center justify-center">
         <CardDescription>Coin balance</CardDescription>
         <CardTitle className="flex gap-2 justify-center items-center text-4xl">
-          <SVGCoin /> <span>{accountBalance.toLocaleString("en-GB")}</span>
+          <SVGCoin w="25px" /> <span>{accountBalance.toLocaleString("en-GB")}</span>
         </CardTitle>
       </CardHeader>
-      <CardContent>
-        {/* <div className="text-xs text-muted-foreground">+25% from last week</div> */}
+      <CardContent className="flex flex-col items-center justify-center gap-2">
+        <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold mt-2">Buy & Open (1 pack)</Button>
+        <div className="flex flex-col justify-center items-center text-xs text-muted-foreground">
+          <span className="font-semibold">{calcAvailablePacks(accountBalance)} total available</span>
+          <span>
+            (1 = <SVGCoin w="10px" /> 1000)
+          </span>
+        </div>
       </CardContent>
     </Card>
   );
