@@ -5,6 +5,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 import { Button } from "../ui/button";
 import SynchronizeForm from "./synchronize-form";
 import LogoutForm from "./logout-form";
+import Link from "next/link";
 
 type Props = {
   lastStravaRefresh: Date;
@@ -29,7 +30,9 @@ export default function DashboardInfoCard({ lastStravaRefresh, inAppSince, profi
       <CardFooter className="flex justify-between items-center gap-2">
         <LogoutForm logout={logout} />
         <SynchronizeForm athleteId={athleteId} synchronize={synchronize} />
-        <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold w-32">My collection</Button>
+        <Link href="/collection">
+          <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold w-32">My collection</Button>
+        </Link>
       </CardFooter>
     </Card>
   );

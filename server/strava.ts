@@ -68,6 +68,10 @@ export async function listAthleteActivities(after: string, access_token: string)
     },
   });
 
+  if (res.status !== 200) {
+    throw new Error("Failed to get activities from Strava");
+  }
+
   return res.json();
 }
 

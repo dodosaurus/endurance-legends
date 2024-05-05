@@ -11,4 +11,5 @@ export async function logout() {
 
 export async function synchronize(athleteId: number) {
   await dashboardSync(athleteId);
+  redirect("/dashboard");
 }

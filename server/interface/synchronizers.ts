@@ -2,8 +2,9 @@ import { StravaAPI } from "@/global";
 import { getAuthenticatedAthlete, listAthleteActivities, revalidateStravaAccessToken } from "../strava";
 import { createMultipleActivities, findAllActivities, updateUser } from "../db/queries";
 import { calcTotalDistances, recalcAccountBalance } from "../calculations";
-import { Activity, User } from "@prisma/client";
+import { Activity, Card, User } from "@prisma/client";
 import { checkAndAssignActivityBonusToMany } from "../transactions";
+import prisma from "../db/db";
 
 type DashboardSyncResponse = {
   user: User | null;
@@ -53,4 +54,26 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   const user = await updateUser(newAthleteData, totalDistances, newIdsFromDiff, newAccountBalance);
 
   return { user, activities };
+}
+
+export async function collectionSync(athleteId: number): Promise<{ cards: Card[] }> {
+  //refresh access token if needed
+  const access_token = await revalidateStravaAccessToken(athleteId);
+
+  if (!access_token) {
+    throw new Error("App cannot refresh the Strava access token.");
+  }
+
+  //get all cards from master collection for skeleton
+  const cards = await prisma.card.findMany({
+    where: {
+      collectionId: 1,
+    },
+  });
+
+  //find out which cards user owns and these will be highlithed
+
+  //not owned cards should be greyed out
+
+  return {cards}
 }

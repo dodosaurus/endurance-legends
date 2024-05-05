@@ -30,16 +30,16 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] give cards rarity attributes, other special attributes (grand tour, monument...) migrate DB and insert JSON into DB
 - [x] common/uncommon (WT riders), rare cards (WT stage races other than grand tours), epic cards (WT one day races), legendary (grand tours, only 3)
 - [x] implement navbar with logo <-> name and avatar (we have pictures from sign up)
+- [x] synchronize button for fetching newest activities (+ anti spam protection = disabling button while fetching), add icon instead
+- [x] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
 
 ## TODO
 
-- [ ] extract buttons to own client components
-- [ ] synchronize button for fetching newest activities (+ anti spam protection = disabling button while fetching), add icon instead
 - finalize prototype engine
-  - [ ] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
   - [ ] prepare button for Buy & Open booster, server action behind it and rerouting to booster opening
   - [ ] /booster page; just some 3 card-like divs (shadcn card) with some data = representation of card
   - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+- [ ] caching on server action (revalidatePath by tags?)
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
   - and in future it can be extended, but list of activites user can see on Strava, this will be more app related dashbaord table
@@ -48,6 +48,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
   - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
   - [ ] on activity show little map/or on hover
+- [ ] bug in translateActivities (maybe delete the layer) Error: activitiesFromApi.map is not a function (429 rate limit problem)
 - [ ] rate limit page redirect when 429 is returned from Strava
 - [ ] adding formula and recalculation of coins on fetch of activities
 - [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app
