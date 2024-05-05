@@ -2,6 +2,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "../ui/button";
 import { calcAvailablePacks } from "@/server/calculations";
 import { CoinIcon } from "../coin-icon";
+import Link from "next/link";
 
 type Props = {
   accountBalance: number;
@@ -17,7 +18,9 @@ export default function DashboardCoinsStatusCard({ accountBalance }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center gap-2">
-        <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold mt-2">Buy & Open (1 pack)</Button>
+        <Link href="/opening">
+          <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold mt-2">Buy & Open (1 pack)</Button>
+        </Link>
         <div className="flex flex-col justify-center items-center text-xs text-muted-foreground">
           <span className="font-semibold">{calcAvailablePacks(accountBalance)} total available</span>
           <span>
