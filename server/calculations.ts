@@ -1,8 +1,6 @@
 import { Activity } from "@prisma/client";
 import { findAllTransactions, updateUserGeneric } from "./db/queries";
-
-const NEW_USER_BONUS_AMOUNT = 300;
-const PACK_PRICE = 1000;
+import { NEW_USER_BONUS_AMOUNT, PACK_PRICE } from "@/lib/constants";
 
 export function calcActivityCoins(activity: Activity) {
   if (activity.type === "Run") {

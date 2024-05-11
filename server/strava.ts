@@ -66,6 +66,7 @@ export async function listAthleteActivities(after: string, access_token: string)
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    cache: "no-store",
   });
 
   if (res.status !== 200) {
@@ -81,6 +82,7 @@ export async function getAuthenticatedAthlete(access_token: string) {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
+    cache: "no-store",
   });
 
   return res.json();

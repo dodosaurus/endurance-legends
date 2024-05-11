@@ -1,14 +1,15 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "../ui/button";
 import { calcAvailablePacks } from "@/server/calculations";
 import { CoinIcon } from "../coin-icon";
-import Link from "next/link";
+import { openPack } from "@/server/interface/actions";
+import OpeningDrawer from "../opening/opening-drawer";
 
 type Props = {
+  athleteId: number;
   accountBalance: number;
 };
 
-export default function DashboardCoinsStatusCard({ accountBalance }: Props) {
+export default function DashboardCoinsStatusCard({ athleteId, accountBalance }: Props) {
   return (
     <Card className="flex flex-col justify-center items-center flex-grow bg-purple-100 dark:bg-orange-950">
       <CardHeader className="pb-2 flex flex-col items-center justify-center">
@@ -18,9 +19,7 @@ export default function DashboardCoinsStatusCard({ accountBalance }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center gap-2">
-        <Link href="/opening">
-          <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold mt-2">Buy & Open (1 pack)</Button>
-        </Link>
+        <OpeningDrawer athleteId={athleteId} openPack={openPack} />
         <div className="flex flex-col justify-center items-center text-xs text-muted-foreground">
           <span className="font-semibold">{calcAvailablePacks(accountBalance)} total available</span>
           <span>

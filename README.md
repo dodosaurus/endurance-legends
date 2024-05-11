@@ -32,13 +32,17 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] implement navbar with logo <-> name and avatar (we have pictures from sign up)
 - [x] synchronize button for fetching newest activities (+ anti spam protection = disabling button while fetching), add icon instead
 - [x] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
+- [x] rework opening to not route segment but to drawer without path, opening should one be action on form
+- [x] implement rarity randomizer (so we add some modifier to algorithm and rare cards will appear more often uncommon > rare > epic > legendary)
 
 ## TODO
 
+- [ ] dispalying and somehow holding last cards acquired in drawer, wiht dashboard still being most recent
 - finalize prototype engine
   - [ ] prepare button for Buy & Open booster, server action behind it and rerouting to booster opening
   - [ ] /booster page; just some 3 card-like divs (shadcn card) with some data = representation of card
   - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+- [ ] after opened pack we need to update frontend coins status immidiately
 - [ ] caching on server action (revalidatePath by tags?)
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
@@ -65,6 +69,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [ ] setting up analytics (Posthog?)
 - [ ] sometimes we get useContext bug (like some client component misconfiguration issue)
 - earnings/activites table
+- [ ] handling situations where user already own whole collection
 - [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
   - [ ] green bg on activities added in last 24 hours
   - [ ] it makes sense to have instead of bg color different group section of table on top with new activites, where activities can be grouped by startDate

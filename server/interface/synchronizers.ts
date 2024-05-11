@@ -5,6 +5,7 @@ import { calcTotalDistances, recalcAccountBalance } from "../calculations";
 import { Activity, Card, User } from "@prisma/client";
 import { checkAndAssignActivityBonusToMany } from "../transactions";
 import prisma from "../db/db";
+import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "../opening-engine";
 
 type DashboardSyncResponse = {
   user: User | null;
@@ -71,9 +72,9 @@ export async function collectionSync(athleteId: number): Promise<{ cards: Card[]
     },
   });
 
-  //find out which cards user owns and these will be highlithed
+  //find out which cards user owns and these will be highlighted
 
   //not owned cards should be greyed out
 
-  return {cards}
+  return { cards };
 }

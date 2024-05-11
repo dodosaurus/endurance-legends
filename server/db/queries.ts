@@ -177,6 +177,8 @@ export async function updateUser(
       lastStravaRefresh: new Date(),
       newActivityIds: newActivityIds.length > 0 ? newActivityIds : undefined,
       accountBalance: newAccountBalance,
+      //empty the array of lastOpenedPack, so we always have clean state
+      lastOpenedPack: [],
     },
   });
 

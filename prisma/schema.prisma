@@ -21,12 +21,14 @@ model User {
   totalRunDistance  Float           @default(0)
   totalRideDistance Float           @default(0)
   collectedCards    Int             @default(0)
+  lastOpenedPack    Int[]           @default([])
   inAppSince        DateTime        @default(now())
   lastStravaRefresh DateTime        @default(now())
   stravaSession     StravaSession[]
   activities        Activity[]
   newActivityIds    Int[]           @default([])
-  Transaction       Transaction[]
+  transactions      Transaction[]
+  ownedCards        OwnedCard[]
 }
 
 model StravaSession {
@@ -59,23 +61,35 @@ model Activity {
 }
 
 model Transaction {
-  id             Int    @id @default(autoincrement())
-  user           User   @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
+  id             Int      @id @default(autoincrement())
+  user           User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
   userAthleteId  Int
-  desc           String @default("")
+  desc           String   @default("")
   amount         Int
-  linkedActivity String @default("")
+  linkedActivity String   @default("")
+  createdAt      DateTime @default(now())
 }
 
 model Card {
-  id              Int     @id @default(autoincrement())
-  uuid            String  @default(uuid())
-  collectionId    Int     @default(1)
-  rarity          String  @default("common")
-  name            String  @default("")
-  country         String  @default("")
-  dateInfo        String? @default("")
-  additionalInfo1 String? @default("")
-  additionalInfo2 String? @default("")
-  extendedInfo    String? @default("")
+  id              Int         @id @default(autoincrement())
+  uuid            String      @default(uuid())
+  collectionId    Int         @default(1)
+  rarity          String      @default("common")
+  name            String      @default("")
+  country         String      @default("")
+  dateInfo        String?     @default("")
+  additionalInfo1 String?     @default("")
+  additionalInfo2 String?     @default("")
+  extendedInfo    String?     @default("")
+  ownedCards      OwnedCard[]
+}
+
+model OwnedCard {
+  id             Int      @id @default(autoincrement())
+  user           User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
+  userAthleteId  Int
+  card           Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  cardId         Int
+  acquiredAt     DateTime @default(now())
+  numberOfCopies Int      @default(1)
 }

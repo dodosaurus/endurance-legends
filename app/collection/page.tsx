@@ -51,7 +51,7 @@ export default async function Collection() {
             <TableHead className="hidden sm:table-cell">Info 2</TableHead>
             <TableHead className="hidden md:table-cell">Country of origin</TableHead>
             <TableHead className="hidden md:table-cell">Date</TableHead>
-            <TableHead className="hidden lg:table-cell">Coins</TableHead>
+            <TableHead className="hidden lg:table-cell">Rarity</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
