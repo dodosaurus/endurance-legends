@@ -29,8 +29,8 @@ export default function OpeningTable() {
       <TableBody>
         {assignedCards.length === 0 && (
           <TableRow>
-            <TableCell colSpan={5} className="text-center">
-              Opening the pack <Loader2 className="h-4 w-4 animate-spin" />
+            <TableCell colSpan={5} className="flex justify-center items-center">
+              <Loader2 className="h-8 w-8 animate-spin" />
             </TableCell>
           </TableRow>
         )}

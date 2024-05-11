@@ -6,8 +6,6 @@ import { DrawerTrigger } from "../ui/drawer";
 
 function OpenPackButton() {
   const { pending } = useFormStatus();
-
-  //write context of 4 new cards
   
   return (
     <DrawerTrigger

@@ -1,5 +1,6 @@
 "use client";
-import { CardDescription } from "../ui/card";
+
+import { CardDescription } from "@/components/ui/card";
 
 type Props = {
   lastStravaRefresh: Date;

@@ -1,4 +1,4 @@
-import DashboardDistanceStatusCard from "./dashboard-distance-status-card";
+import DashboardDistanceStatusCard from "./panel-cards/dashboard-distance-status-card";
 import { User } from "@prisma/client";
 
 type Props = {
