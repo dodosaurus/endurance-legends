@@ -6,10 +6,11 @@ type SynchronizeButtonProps = {
 };
 
 function SynchronizeForm({ athleteId, synchronize }: SynchronizeButtonProps) {
-  const syncWithAthleteId = synchronize.bind(null, athleteId)
-
   return (
-    <form action={syncWithAthleteId}>
+    <form action={async () => {
+      "use server";
+      await synchronize(athleteId);
+    }}>
       <LoaderButton text="Synchronize" />
     </form>
   );

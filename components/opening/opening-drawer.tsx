@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Drawer,
   DrawerClose,
@@ -10,38 +12,22 @@ import {
 import BackButton from "./back-button";
 import OpeningTable from "./opening-table";
 import OpenPackButton from "./open-pack-button";
-import { revalidateStravaAccessToken } from "@/server/strava";
-import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "@/server/opening-engine";
+import { useState } from "react";
+import { openPack } from "@/server/interface/actions";
 
 type OpeningDrawerProps = {
   athleteId: number;
 };
 
 function OpeningDrawer({ athleteId }: OpeningDrawerProps) {
-  async function openPack(athleteId: number) {
-    "use server";
-
-    console.log("opening pack " + athleteId);
-
-    //refresh access token if needed
-    const access_token = await revalidateStravaAccessToken(athleteId);
-
-    if (!access_token) {
-      throw new Error("App cannot refresh the Strava access token.");
-    }
-
-    //algorithm will generate random 4-card acquirement - 3 common + 1 higher rarity
-    const { chosenCards } = await generateAssignmentOfNewCards(athleteId);
-
-    //this will add cards to user and reduce account balance
-    await assignNewCardSetToOwner(athleteId, chosenCards);
-  }
-
-  const openingWithAthleteId = openPack.bind(null, athleteId);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
-    <Drawer>
-      <form action={openingWithAthleteId}>
+    <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+      <form action={async () => {
+        await openPack(athleteId);
+        setIsDrawerOpen(true);
+      }}>
         <OpenPackButton />
       </form>
       <DrawerContent>
