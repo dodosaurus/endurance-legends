@@ -14,6 +14,7 @@ import OpeningTable from "./opening-table";
 import OpenPackButton from "./open-pack-button";
 import { useState } from "react";
 import { openPack } from "@/server/interface/actions";
+import { Card } from "@prisma/client";
 
 type OpeningDrawerProps = {
   athleteId: number;
@@ -21,11 +22,13 @@ type OpeningDrawerProps = {
 
 function OpeningDrawer({ athleteId }: OpeningDrawerProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [newCards, setNewCards] = useState<Card[]>([])
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
       <form action={async () => {
-        await openPack(athleteId);
+        const crds = await openPack(athleteId);
+        setNewCards(crds)
         setIsDrawerOpen(true);
       }}>
         <OpenPackButton />
@@ -35,7 +38,7 @@ function OpeningDrawer({ athleteId }: OpeningDrawerProps) {
           <DrawerTitle className="py-5 text-center">NICE ! You just opened one pack :)</DrawerTitle>
           <DrawerDescription className="py-5 text-center">A list of acquired cards.</DrawerDescription>
         </DrawerHeader>
-        <OpeningTable />
+        <OpeningTable assignedCards={newCards} />
         <DrawerFooter>
           <DrawerClose>
             <BackButton />

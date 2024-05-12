@@ -55,7 +55,7 @@ export async function generateAssignmentOfNewCards(athleteId: number): Promise<{
   };
 }
 
-export async function assignNewCardSetToOwner(athleteId: number, cardIds: number[]): Promise<void> {
+export async function assignNewCardSetToOwner(athleteId: number, cardIds: number[]): Promise<Card[]> {
   //get user and its already owned cards
   const user = await prisma.user.findUnique({
     where: {
@@ -108,4 +108,15 @@ export async function assignNewCardSetToOwner(athleteId: number, cardIds: number
       lastOpenedPack: cardIds,
     },
   });
+
+  //get 4 card objects from Card table by cardIds
+  const toReturnCards = await prisma.card.findMany({
+    where: {
+      id: {
+        in: cardIds,
+      },
+    },
+  });
+
+  return toReturnCards;
 }

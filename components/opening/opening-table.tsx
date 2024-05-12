@@ -3,11 +3,7 @@ import { Badge } from "../ui/badge";
 import { Card } from "@prisma/client";
 import { Loader2 } from "lucide-react";
 
-export default function OpeningTable() {
-  //read context of 4 new cards
-  //we need assignedCards here, would be good to use context/local store for that; we do not need to store it in DB
-  const assignedCards: Card[] = [];
-
+export default function OpeningTable({ assignedCards }: { assignedCards: Card[] }) {
   const bgBasedOnCardRarity = (rarity: string): string => {
     if (rarity === "uncommon") {
       return "bg-green-50";
@@ -25,7 +21,7 @@ export default function OpeningTable() {
   };
 
   return (
-    <Table>
+    <Table className="flex justify-center items-center">
       <TableBody>
         {assignedCards.length === 0 && (
           <TableRow>

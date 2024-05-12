@@ -5,6 +5,7 @@ import { deleteSession } from "../auth/session";
 import { dashboardSync } from "./synchronizers";
 import { revalidateStravaAccessToken } from "../strava";
 import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "../opening-engine";
+import { Card } from "@prisma/client";
 
 export async function logout() {
   deleteSession();
@@ -16,7 +17,7 @@ export async function synchronize(athleteId: number) {
   redirect("/dashboard");
 }
 
-export async function openPack(athleteId: number) {
+export async function openPack(athleteId: number): Promise<Card[]> {
   console.log("opening pack " + athleteId);
 
   //refresh access token if needed
@@ -30,5 +31,7 @@ export async function openPack(athleteId: number) {
   const { chosenCards } = await generateAssignmentOfNewCards(athleteId);
 
   //this will add cards to user and reduce account balance
-  await assignNewCardSetToOwner(athleteId, chosenCards);
+  const newCards = await assignNewCardSetToOwner(athleteId, chosenCards);
+
+  return newCards;
 }
