@@ -35,12 +35,13 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] rework opening to not route segment but to drawer without path, opening should one be action on form
 - [x] implement rarity randomizer (so we add some modifier to algorithm and rare cards will appear more often uncommon > rare > epic > legendary)
 - [x] dispalying and somehow holding last cards acquired in drawer, wiht dashboard still being most recent
+- [x] prepare button for Buy & Open booster, disable when not enough coins
+- [x] after opened pack we need to update frontend coins status immidiately
 
 ## TODO
-- [ ] prepare button for Buy & Open booster, disable when not enough coins
 - [ ] show only owned cards in separate table in collection
-- [ ] after opened pack we need to update frontend coins status immidiately
 - [ ] when closing opening show loading state on coins card; also when synchronizing show loading state (dashboardSync ongoing)
+- [ ] when opening pack with same card that we already own - adjust the opening engine to correctly adjust number of copies (do we need to know when each copy was acuqired? we can throw out numberOfCopies in that case)
 - [ ] show number of copies in collection page
 - [ ] adjust rarity modifiers
 - [ ] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing

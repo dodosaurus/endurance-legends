@@ -19,8 +19,6 @@ export async function synchronize(athleteId: number) {
 }
 
 export async function openPack(athleteId: number): Promise<Card[]> {
-  console.log("opening pack " + athleteId);
-
   //refresh access token if needed
   const access_token = await revalidateStravaAccessToken(athleteId);
 
