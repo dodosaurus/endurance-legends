@@ -57,7 +57,7 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   return { user, activities };
 }
 
-export async function collectionSync(athleteId: number): Promise<{ cards: Card[] }> {
+export async function collectionSync(athleteId: number): Promise<{ cards: Card[], ownedCardsIds: number[] }> {
   //refresh access token if needed
   const access_token = await revalidateStravaAccessToken(athleteId);
 
@@ -73,8 +73,15 @@ export async function collectionSync(athleteId: number): Promise<{ cards: Card[]
   });
 
   //find out which cards user owns and these will be highlighted
+  const ownedCards = await prisma.ownedCard.findMany({
+    where: {
+      userAthleteId: athleteId as number,
+    },
+  })
+
+  const ownedCardsIds = ownedCards.map((card) => card.cardId);
 
   //not owned cards should be greyed out
 
-  return { cards };
+  return { cards, ownedCardsIds };
 }

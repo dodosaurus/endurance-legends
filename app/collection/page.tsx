@@ -1,3 +1,4 @@
+import { RowWithCard } from "@/components/collection/row-with-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
@@ -8,23 +9,7 @@ import Link from "next/link";
 
 export default async function Collection() {
   const { athleteId } = await verifySession();
-  const { cards } = await collectionSync(athleteId as number);
-
-  const bgBasedOnCardRarity = (rarity: string): string => {
-    if (rarity === "uncommon") {
-      return "bg-green-50";
-    }
-    if (rarity === "rare") {
-      return "bg-blue-50";
-    }
-    if (rarity === "epic") {
-      return "bg-purple-50";
-    }
-    if (rarity === "legendary") {
-      return "bg-orange-50";
-    }
-    return "";
-  };
+  const { cards, ownedCardsIds } = await collectionSync(athleteId as number);
 
   //not automatically syncing like on dashboard, rather add own button for that
 
@@ -63,24 +48,8 @@ export default async function Collection() {
             </TableRow>
           )}
           {cards.length > 0 &&
-            cards.map((card) => (
-              <TableRow key={card.id} className={bgBasedOnCardRarity(card.rarity)}>
-                <TableCell>
-                  <div className="font-medium">{card.name}</div>
-                  <div className="text-sm text-muted-foreground">{card.id}</div>
-                </TableCell>
-                <TableCell className="table-cell">{card.additionalInfo1}</TableCell>
-                <TableCell className="hidden sm:table-cell">{card.additionalInfo2}</TableCell>
-                <TableCell className="hidden md:table-cell">{card.country}</TableCell>
-                <TableCell className="hidden md:table-cell">{card.dateInfo}</TableCell>
-                <TableCell className="table-cell">
-                  <Badge className="text-xs" variant="secondary">
-                    <div className="flex justify-start items-center gap-1">
-                      <span>{card.rarity}</span>
-                    </div>
-                  </Badge>
-                </TableCell>
-              </TableRow>
+            cards.map((card) => (            
+              <RowWithCard key={card.id} card={card} owned={ownedCardsIds.includes(card.id)} />
             ))}
         </TableBody>
       </Table>

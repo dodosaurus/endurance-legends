@@ -2,7 +2,6 @@
 
 import { Loader2 } from "lucide-react";
 import { useFormStatus } from "react-dom";
-import { DrawerTrigger } from "../ui/drawer";
 import { Button } from "../ui/button";
 
 function OpenPackButton() {
