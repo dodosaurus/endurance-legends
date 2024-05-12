@@ -1,5 +1,4 @@
 import { RowWithCard } from "@/components/collection/row-with-card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
@@ -18,7 +17,7 @@ export default async function Collection() {
       <Card>
         <CardHeader>
           <CardTitle>My collection</CardTitle>
-          <CardDescription className="flex items-center justify-between">
+          <CardDescription className="flex flex-col items-start justify-between gap-5">
             <span>
               Below you can see whole collection and which cards you do own. Get out for a run or ride and earn more!
             </span>

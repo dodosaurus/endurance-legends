@@ -19,7 +19,7 @@ export default async function DashboardTable({ user, activities }: Props) {
   const bgBasedOnActivityAge = (activity: Activity): string => {
     //must be between newest ids and at least 24 hours from loadin
     if (isActivityNew(activity.id) && activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
-      return "bg-orange-50";
+      return "bg-purple-100";
     }
     //must be loaded to system in last 7 days
     // if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {

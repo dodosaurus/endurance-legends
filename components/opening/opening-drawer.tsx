@@ -18,9 +18,10 @@ import { Card } from "@prisma/client";
 
 type OpeningDrawerProps = {
   athleteId: number;
+  accountBalance: number;
 };
 
-function OpeningDrawer({ athleteId }: OpeningDrawerProps) {
+function OpeningDrawer({ athleteId, accountBalance }: OpeningDrawerProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [newCards, setNewCards] = useState<Card[]>([])
 
@@ -31,7 +32,7 @@ function OpeningDrawer({ athleteId }: OpeningDrawerProps) {
         setNewCards(crds)
         setIsDrawerOpen(true);
       }}>
-        <OpenPackButton />
+        <OpenPackButton accountBalance={accountBalance} />
       </form>
       <DrawerContent>
         <DrawerHeader>

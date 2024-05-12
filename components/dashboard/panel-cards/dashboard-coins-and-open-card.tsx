@@ -18,7 +18,7 @@ export default function DashboardCoinsAndOpenCard({ athleteId, accountBalance }:
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col items-center justify-center gap-2">
-        <OpeningDrawer athleteId={athleteId} />
+        <OpeningDrawer athleteId={athleteId} accountBalance={accountBalance} />
         <div className="flex flex-col justify-center items-center text-xs text-muted-foreground">
           <span className="font-semibold">{calcAvailablePacks(accountBalance)} total available</span>
           <span>

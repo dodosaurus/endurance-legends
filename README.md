@@ -34,16 +34,17 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] /collection page; based on owned cardIds on user, list first in some table owned cards/maybe also not owned with some grayed out rows for ex.
 - [x] rework opening to not route segment but to drawer without path, opening should one be action on form
 - [x] implement rarity randomizer (so we add some modifier to algorithm and rare cards will appear more often uncommon > rare > epic > legendary)
+- [x] dispalying and somehow holding last cards acquired in drawer, wiht dashboard still being most recent
 
 ## TODO
-
-- [ ] dispalying and somehow holding last cards acquired in drawer, wiht dashboard still being most recent
-- finalize prototype engine
-  - [ ] prepare button for Buy & Open booster, server action behind it and rerouting to booster opening
-  - [ ] /booster page; just some 3 card-like divs (shadcn card) with some data = representation of card
-  - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+- [ ] prepare button for Buy & Open booster, disable when not enough coins
+- [ ] show only owned cards in separate table in collection
 - [ ] after opened pack we need to update frontend coins status immidiately
-- [ ] caching on server action (revalidatePath by tags?)
+- [ ] when closing opening show loading state on coins card; also when synchronizing show loading state (dashboardSync ongoing)
+- [ ] show number of copies in collection page
+- [ ] adjust rarity modifiers
+- [ ] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing
+- [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
   - and in future it can be extended, but list of activites user can see on Strava, this will be more app related dashbaord table
