@@ -39,12 +39,12 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] after opened pack we need to update frontend coins status immidiately
 - [x] when opening pack with same card that we already own - adjust the opening engine to correctly adjust number of copies (do we need to know when each copy was acuqired? we can throw out numberOfCopies in that case)
 - [x] adjust rarity modifiers
+- [x] dump DB to local (mainly master collection)
+- [x] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing
 
 ## TODO
-- [ ] show number of copies in collection page
-- [ ] show only owned cards in separate table in collection
-- [ ] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing
-- [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+- [ ] show number of copies in collection page (check ownedCards for duplicate cardIds)
+- [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
   - and in future it can be extended, but list of activites user can see on Strava, this will be more app related dashbaord table
@@ -53,6 +53,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
   - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
   - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
   - [ ] on activity show little map/or on hover
+- [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - [ ] bug in translateActivities (maybe delete the layer) Error: activitiesFromApi.map is not a function (429 rate limit problem)
 - [ ] rate limit page redirect when 429 is returned from Strava
 - [ ] adding formula and recalculation of coins on fetch of activities
