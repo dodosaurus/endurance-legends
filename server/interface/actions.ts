@@ -1,8 +1,6 @@
 "use server";
 
-import { redirect } from "next/navigation";
 import { deleteSession } from "../auth/session";
-import { dashboardSync } from "./synchronizers";
 import { revalidateStravaAccessToken } from "../strava";
 import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "../opening-engine";
 import { Card } from "@prisma/client";
@@ -10,12 +8,11 @@ import { revalidatePath } from "next/cache";
 
 export async function logout() {
   deleteSession();
-  redirect("/");
+  revalidatePath("/");
 }
 
-export async function synchronize(athleteId: number) {
-  await dashboardSync(athleteId);
-  redirect("/dashboard");
+export async function synchronize() {
+  revalidatePath("/dashboard");
 }
 
 export async function openPack(athleteId: number): Promise<Card[]> {
@@ -31,9 +28,6 @@ export async function openPack(athleteId: number): Promise<Card[]> {
 
   //this will add cards to user and reduce account balance
   const newCards = await assignNewCardSetToOwner(athleteId, chosenCards);
-
-  //refresh the dashboard 
-  revalidatePath("/dashboard");
 
   return newCards;
 }
