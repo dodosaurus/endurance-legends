@@ -3,8 +3,8 @@ import prisma from "./db/db";
 import { PACK_PRICE, PACK_SIZE } from "@/lib/constants";
 import { createTransaction } from "./db/queries";
 
-export async function generateAssignmentOfNewCards(athleteId: number): Promise<{ chosenCards: number[] }> {
-  const cardIds: number[] = [];
+export async function generateAssignmentOfNewCards(athleteId: number): Promise<{ chosenCards: Card[] }> {
+  const cards: Card[] = [];
 
   //generate random card acquirement - 3 common + 1 higher rarity (uncommon, rare, epic, legendary)
 
@@ -14,48 +14,24 @@ export async function generateAssignmentOfNewCards(athleteId: number): Promise<{
       rarity: "common",
     },
   });
-  const commonCardIds = commonCards.map((card) => card.id);
+
   for (let i = 0; i < 3; i++) {
-    const randomCardIndex = Math.floor(Math.random() * commonCardIds.length);
-    const randomCardId = commonCardIds[randomCardIndex];
-    cardIds.push(randomCardId);
-    commonCardIds.splice(randomCardIndex, 1);
+    const randomCardIndex = Math.floor(Math.random() * commonCards.length);
+    const randomCard = commonCards[randomCardIndex];
+    cards.push(randomCard);
+    commonCards.splice(randomCardIndex, 1);
   }
 
-  //generate one random higher rarity card
-  const rarityWeights = {
-    uncommon: 4,
-    rare: 3,
-    epic: 2,
-    legendary: 1,
-  };
+  const lastCard = await rollAndChooseLastCard(commonCards);
 
-  const weightedRarities = Object.entries(rarityWeights).flatMap(([rarity, weight]) => Array(weight).fill(rarity));
-  const randomIndex = Math.floor(Math.random() * weightedRarities.length);
-  const higherRarity = weightedRarities[randomIndex];
-
-  const higherRarityCards = await prisma.card.findMany({
-    where: {
-      rarity: higherRarity,
-    },
-  });
-
-  const randomHigherRarityCardIndex = Math.floor(Math.random() * higherRarityCards.length);
-  const higherRarityCard = higherRarityCards[randomHigherRarityCardIndex];
-
-  //master collection is constant, so this always will be returning card, this is just for TS
-  if (!higherRarityCard) {
-    throw new Error("No higher rarity card found.");
-  }
-
-  cardIds.push(higherRarityCard.id);
+  cards.push(lastCard);
 
   return {
-    chosenCards: cardIds,
+    chosenCards: cards,
   };
 }
 
-export async function assignNewCardSetToOwner(athleteId: number, cardIds: number[]): Promise<Card[]> {
+export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]): Promise<Card[]> {
   //get user and its already owned cards
   const user = await prisma.user.findUnique({
     where: {
@@ -77,46 +53,77 @@ export async function assignNewCardSetToOwner(athleteId: number, cardIds: number
   await createTransaction(-PACK_PRICE, "purchase_pack");
 
   const alreadyOwnedCards = user.ownedCards;
+  const duplicatesIds: number[] = [];
 
-  //we we need to create ownedCards assignemnt on our user, but if card is already owned we will raise the numberOfCopies on it
-  const newOwnedCards = cardIds.map((cardId) => {
-    const alreadyOwnedCard = alreadyOwnedCards.find((ownedCard) => ownedCard.cardId === cardId);
+  //we need to distinguish batch of cards that are already in user's collection, and just raise the number of copies
+  cards.map((card) => {
+    const alreadyOwnedCard = alreadyOwnedCards.find((ownedCard) => ownedCard.cardId === card.id);
     if (alreadyOwnedCard) {
-      return {
-        cardId,
-        numberOfCopies: alreadyOwnedCard.numberOfCopies + 1,
-      };
-    } else {
-      return {
-        cardId,
-        numberOfCopies: 1,
-      };
+      duplicatesIds.push(alreadyOwnedCard.id);
     }
   });
 
-  //unsure if this will update existing owned card numberOfCopies
-  const newCollectedCardsCount = user.collectedCards + PACK_SIZE;
+  //iteration modifier of number of UNIQUE collected cards, so we need to subtract duplicates
+  const newCollectedCardsCount = PACK_SIZE - duplicatesIds.length;
+
+  //create each new ownedCard on user based on cardIds, and raise the number of collectedCards
   await prisma.user.update({
     where: {
       athleteId,
     },
     data: {
       ownedCards: {
-        create: newOwnedCards,
+        create: cards.map((card) => ({
+          cardId: card.id,
+        })),
       },
-      collectedCards: newCollectedCardsCount,
-      lastOpenedPack: cardIds,
+      collectedCards: {
+        increment: newCollectedCardsCount,
+      },
     },
   });
 
-  //get 4 card objects from Card table by cardIds
-  const toReturnCards = await prisma.card.findMany({
+  return cards;
+}
+
+async function rollAndChooseLastCard(alreadyChosenCommonCards: Card[]): Promise<Card> {
+  let chosenRarity = "common";
+
+  const rarityRoll = Math.floor(Math.random() * 100) + 1;
+
+  //50% chance of getting common again
+  if (rarityRoll <= 50) {
+    chosenRarity = "common";
+
+    //30% chance to be uncommon
+  } else if (rarityRoll <= 80) {
+    chosenRarity = "uncommon";
+
+    //12.5% chance to be rare
+  } else if (rarityRoll <= 92.5) {
+    chosenRarity = "rare";
+
+    //5% chance to be be epic
+  } else if (rarityRoll <= 97.5) {
+    chosenRarity = "epic";
+
+    //2.5% chance to be legendary ( = 100% :) )
+  } else if (rarityRoll <= 100) {
+    chosenRarity = "legendary";
+  }
+
+  let chosenRarityCards = await prisma.card.findMany({
     where: {
-      id: {
-        in: cardIds,
-      },
+      rarity: chosenRarity,
     },
   });
 
-  return toReturnCards;
+  //if rarity is common, we need to take in consideration already chosen common cards
+  if (chosenRarity === "common") {
+    chosenRarityCards = chosenRarityCards.filter((card) => !alreadyChosenCommonCards.includes(card));
+  }
+
+  const theCardIndex = Math.floor(Math.random() * chosenRarityCards.length);
+
+  return chosenRarityCards[theCardIndex];
 }

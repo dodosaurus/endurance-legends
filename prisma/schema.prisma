@@ -91,5 +91,4 @@ model OwnedCard {
   card           Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
   cardId         Int
   acquiredAt     DateTime @default(now())
-  numberOfCopies Int      @default(1)
 }

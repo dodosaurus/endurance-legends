@@ -37,13 +37,12 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] dispalying and somehow holding last cards acquired in drawer, wiht dashboard still being most recent
 - [x] prepare button for Buy & Open booster, disable when not enough coins
 - [x] after opened pack we need to update frontend coins status immidiately
+- [x] when opening pack with same card that we already own - adjust the opening engine to correctly adjust number of copies (do we need to know when each copy was acuqired? we can throw out numberOfCopies in that case)
+- [x] adjust rarity modifiers
 
 ## TODO
-- [ ] show only owned cards in separate table in collection
-- [ ] when closing opening show loading state on coins card; also when synchronizing show loading state (dashboardSync ongoing)
-- [ ] when opening pack with same card that we already own - adjust the opening engine to correctly adjust number of copies (do we need to know when each copy was acuqired? we can throw out numberOfCopies in that case)
 - [ ] show number of copies in collection page
-- [ ] adjust rarity modifiers
+- [ ] show only owned cards in separate table in collection
 - [ ] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - earnings
@@ -57,19 +56,18 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [ ] bug in translateActivities (maybe delete the layer) Error: activitiesFromApi.map is not a function (429 rate limit problem)
 - [ ] rate limit page redirect when 429 is returned from Strava
 - [ ] adding formula and recalculation of coins on fetch of activities
-- [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app
+- [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app)
 - [ ] additional to loading.tsx add lazy loading on tables (on other components)
-- opening booster phase (new path?)
+- opening booster phase
   - [ ] initial design of the booster/chest and animation for it
   - [ ] desktop/mobile showing of the opened cards, animation for not revealed rare card
   - [ ] revealing animation for common and uncommon cards
-- collection viewer (new path!)
-  - [ ] first concept just list of owned cards
 - [ ] deauthorize on logout here: POST https://www.strava.com/oauth/deauthorize
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
 - [ ] sometimes we get useContext bug (like some client component misconfiguration issue)
+- [ ] enhance opening engine picking phase, so we query the list of cards only once
 - earnings/activites table
 - [ ] handling situations where user already own whole collection
 - [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
