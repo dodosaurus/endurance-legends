@@ -29,5 +29,8 @@ export async function openPack(athleteId: number): Promise<Card[]> {
   //this will add cards to user and reduce account balance
   const newCards = await assignNewCardSetToOwner(athleteId, chosenCards);
 
+  //revalidate dashboard
+  revalidatePath("/dashboard");
+
   return newCards;
 }
