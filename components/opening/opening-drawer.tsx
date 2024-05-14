@@ -12,26 +12,26 @@ import {
 import BackButton from "./back-button";
 import OpeningTable from "./opening-table";
 import OpenPackButton from "./open-pack-button";
-import { useState } from "react";
 import { openPack } from "@/server/interface/actions";
-import { Card } from "@prisma/client";
+import { useOpeningContext } from "@/context/opening-context";
 
 type OpeningDrawerProps = {
   athleteId: number;
   accountBalance: number;
 };
 
-function OpeningDrawer({ athleteId, accountBalance }: OpeningDrawerProps) {
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-  const [newCards, setNewCards] = useState<Card[]>([])
+const OpeningDrawer = ({ athleteId, accountBalance }: OpeningDrawerProps) => {
+  const { isDrawerOpen, setIsDrawerOpen, newCards, setNewCards } = useOpeningContext();
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
-      <form action={async () => {
-        const crds = await openPack(athleteId);
-        setNewCards(crds)
-        setIsDrawerOpen(true);
-      }}>
+      <form
+        action={async () => {
+          const crds = await openPack(athleteId);
+          setNewCards(crds);
+          setIsDrawerOpen(true);
+        }}
+      >
         <OpenPackButton accountBalance={accountBalance} />
       </form>
       <DrawerContent>
@@ -48,6 +48,6 @@ function OpeningDrawer({ athleteId, accountBalance }: OpeningDrawerProps) {
       </DrawerContent>
     </Drawer>
   );
-}
+};
 
 export default OpeningDrawer;
