@@ -69,6 +69,10 @@ export async function listAthleteActivities(after: string, access_token: string)
     cache: "no-store",
   });
 
+  if (res.status === 429) {
+    throw new Error("Strava rate limit reached.");
+  }
+
   if (res.status !== 200) {
     throw new Error("Failed to get activities from Strava");
   }

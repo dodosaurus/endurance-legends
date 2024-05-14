@@ -13,9 +13,8 @@ type Props = {
   inAppSince: Date;
   profile: string;
   name: string;
-  athleteId: number;
 };
-export default function DashboardInfoCard({ lastStravaRefresh, inAppSince, profile, name, athleteId }: Props) {
+export default function DashboardInfoCard({ lastStravaRefresh, inAppSince, profile, name }: Props) {
   return (
     <Card className="sm:col-span-2">
       <CardHeader className="pb-3">
@@ -30,7 +29,7 @@ export default function DashboardInfoCard({ lastStravaRefresh, inAppSince, profi
       </CardHeader>
       <CardFooter className="flex justify-between items-center gap-2">
         <LogoutForm logout={logout} />
-        <SynchronizeForm athleteId={athleteId} synchronize={synchronize} />
+        <SynchronizeForm synchronize={synchronize} />
         <Link href="/collection">
           <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold w-32">My collection</Button>
         </Link>

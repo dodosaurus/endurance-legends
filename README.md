@@ -43,6 +43,7 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing
 
 ## TODO
+- [ ] put displaying coins number and drawer to one component, so we can better control what is displayed in coins status/button - it is critical
 - [ ] show number of copies in collection page (check ownedCards for duplicate cardIds)
 - [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
 - earnings

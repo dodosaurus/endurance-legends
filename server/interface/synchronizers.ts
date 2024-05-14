@@ -5,7 +5,6 @@ import { calcTotalDistances, recalcAccountBalance } from "../calculations";
 import { Activity, Card, User } from "@prisma/client";
 import { checkAndAssignActivityBonusToMany } from "../transactions";
 import prisma from "../db/db";
-import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "../opening-engine";
 
 type DashboardSyncResponse = {
   user: User | null;
