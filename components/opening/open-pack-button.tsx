@@ -4,10 +4,13 @@ import { Loader2 } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
 import { PACK_PRICE } from "@/lib/constants";
+import { useOpeningContext } from "@/context/opening-context";
 
-function OpenPackButton({ accountBalance }: { accountBalance: number }) {
+function OpenPackButton() {
+  const { clientAccBalance } = useOpeningContext();
+
   const userHasEnoughCoins = () => {
-    return accountBalance >= PACK_PRICE
+    return clientAccBalance >= PACK_PRICE
   }
 
   const { pending } = useFormStatus();

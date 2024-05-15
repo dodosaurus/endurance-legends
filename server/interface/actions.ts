@@ -30,7 +30,7 @@ export async function openPack(athleteId: number): Promise<Card[]> {
   const newCards = await assignNewCardSetToOwner(athleteId, chosenCards);
 
   //revalidate dashboard
-  revalidatePath("/dashboard");
+  // revalidatePath("/dashboard");
 
   return newCards;
 }

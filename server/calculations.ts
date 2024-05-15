@@ -34,10 +34,6 @@ export function calcNewUserBonus() {
   return NEW_USER_BONUS_AMOUNT;
 }
 
-export function calcAvailablePacks(totalCoins: number) {
-  return Math.floor(totalCoins / PACK_PRICE);
-}
-
 export async function recalcAccountBalance(updateUserToo: boolean = false) {
   //after each transaction we need to do this, to update account balance on user
   const transactions = await findAllTransactions();

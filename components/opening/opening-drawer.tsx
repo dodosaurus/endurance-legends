@@ -14,25 +14,26 @@ import OpeningTable from "./opening-table";
 import OpenPackButton from "./open-pack-button";
 import { openPack } from "@/server/interface/actions";
 import { useOpeningContext } from "@/context/opening-context";
+import { PACK_PRICE } from "@/lib/constants";
 
 type OpeningDrawerProps = {
   athleteId: number;
-  accountBalance: number;
 };
 
-const OpeningDrawer = ({ athleteId, accountBalance }: OpeningDrawerProps) => {
-  const { isDrawerOpen, setIsDrawerOpen, newCards, setNewCards } = useOpeningContext();
+const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
+  const { isDrawerOpen, setIsDrawerOpen, newCards, setNewCards, clientAccBalance, setClientAccBalance } = useOpeningContext();
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
       <form
         action={async () => {
+          setClientAccBalance(clientAccBalance - PACK_PRICE);
           const crds = await openPack(athleteId);
           setNewCards(crds);
           setIsDrawerOpen(true);
         }}
       >
-        <OpenPackButton accountBalance={accountBalance} />
+        <OpenPackButton />
       </form>
       <DrawerContent>
         <DrawerHeader>

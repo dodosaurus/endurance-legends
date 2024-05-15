@@ -1,5 +1,6 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
+import { PACK_PRICE } from "./constants";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -25,4 +26,8 @@ export function convertSecondsToReadableTime(seconds: number): string {
 
 export function convertMetersToKilometersForUI(meters: number): string {
   return (meters / 1000).toFixed(2)
+}
+
+export function calcAvailablePacks(totalCoins: number) {
+  return Math.floor(totalCoins / PACK_PRICE);
 }

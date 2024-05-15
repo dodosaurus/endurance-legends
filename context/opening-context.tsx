@@ -11,7 +11,9 @@ type OpeningContextType = {
   isDrawerOpen: boolean;
   setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
   newCards: Card[];
-  setNewCards: React.Dispatch<React.SetStateAction<Card[]>>
+  setNewCards: React.Dispatch<React.SetStateAction<Card[]>>;
+  clientAccBalance: number;
+  setClientAccBalance: React.Dispatch<React.SetStateAction<number>>
 };
 
 export const OpeningContext = React.createContext<OpeningContextType | null>(null);
@@ -19,6 +21,7 @@ export const OpeningContext = React.createContext<OpeningContextType | null>(nul
 export default function OpeningContextProvider({ children }: OpeningContextProviderProps) {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false);
   const [newCards, setNewCards] = React.useState<Card[]>([]);
+  const [clientAccBalance, setClientAccBalance] = React.useState<number>(0);
 
   return (
     <OpeningContext.Provider
@@ -26,7 +29,9 @@ export default function OpeningContextProvider({ children }: OpeningContextProvi
         isDrawerOpen,
         setIsDrawerOpen,
         newCards,
-        setNewCards
+        setNewCards,
+        clientAccBalance,
+        setClientAccBalance
       }}
     >
       {children}
