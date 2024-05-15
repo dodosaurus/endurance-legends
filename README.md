@@ -41,11 +41,14 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] adjust rarity modifiers
 - [x] dump DB to local (mainly master collection)
 - [x] implement quick way for cleaning ownedCards, transactions a collectedCards on user for testing
+- [x] put displaying coins number and drawer to one component, so we can better control what is displayed in coins status/button - it is critical
 
 ## TODO
-- [ ] put displaying coins number and drawer to one component, so we can better control what is displayed in coins status/button - it is critical
+- [ ] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
 - [ ] show number of copies in collection page (check ownedCards for duplicate cardIds)
 - [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
+- [ ] history should be separate route, and it should display earnings table
+- [ ] activites on dashboard should defaultly display only new activites, the rest of table should be expandable (SPA approach, no scrolling allowed by default on dashboard)
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
   - and in future it can be extended, but list of activites user can see on Strava, this will be more app related dashbaord table
