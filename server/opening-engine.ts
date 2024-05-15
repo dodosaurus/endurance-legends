@@ -2,6 +2,7 @@ import { Card } from "@prisma/client";
 import prisma from "./db/db";
 import { PACK_PRICE, PACK_SIZE } from "@/lib/constants";
 import { createTransaction } from "./db/queries";
+import { recalcAccountBalance } from "./calculations";
 
 export async function generateAssignmentOfNewCards(athleteId: number): Promise<{ chosenCards: Card[] }> {
   const cards: Card[] = [];
@@ -31,7 +32,7 @@ export async function generateAssignmentOfNewCards(athleteId: number): Promise<{
   };
 }
 
-export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]): Promise<Card[]> {
+export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]) {
   //get user and its already owned cards
   const user = await prisma.user.findUnique({
     where: {
@@ -51,6 +52,7 @@ export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]):
 
   //create new transaction to reduce the number of accountBalance on fetch in dasboard
   await createTransaction(-PACK_PRICE, "purchase_pack");
+  const newAccountBalance = await recalcAccountBalance();
 
   const alreadyOwnedCards = user.ownedCards;
   const duplicatesIds: number[] = [];
@@ -67,7 +69,7 @@ export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]):
   const newCollectedCardsCount = PACK_SIZE - duplicatesIds.length;
 
   //create each new ownedCard on user based on cardIds, and raise the number of collectedCards
-  await prisma.user.update({
+  const { accountBalance } = await prisma.user.update({
     where: {
       athleteId,
     },
@@ -80,10 +82,11 @@ export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]):
       collectedCards: {
         increment: newCollectedCardsCount,
       },
+      accountBalance: newAccountBalance,
     },
   });
 
-  return cards;
+  return { cards, accountBalance };
 }
 
 async function rollAndChooseLastCard(alreadyChosenCommonCards: Card[]): Promise<Card> {

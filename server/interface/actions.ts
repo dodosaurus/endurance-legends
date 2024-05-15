@@ -15,7 +15,7 @@ export async function synchronize() {
   revalidatePath("/dashboard");
 }
 
-export async function openPack(athleteId: number): Promise<Card[]> {
+export async function openPack(athleteId: number): Promise<{ cards: Card[]; accountBalance: number }> {
   //refresh access token if needed
   const access_token = await revalidateStravaAccessToken(athleteId);
 
@@ -27,10 +27,10 @@ export async function openPack(athleteId: number): Promise<Card[]> {
   const { chosenCards } = await generateAssignmentOfNewCards(athleteId);
 
   //this will add cards to user and reduce account balance
-  const newCards = await assignNewCardSetToOwner(athleteId, chosenCards);
+  const { cards, accountBalance } = await assignNewCardSetToOwner(athleteId, chosenCards);
 
   //revalidate dashboard
   // revalidatePath("/dashboard");
 
-  return newCards;
+  return { cards, accountBalance };
 }
