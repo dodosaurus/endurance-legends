@@ -13,7 +13,7 @@ import BackButton from "./back-button";
 import OpeningTable from "./opening-table";
 import OpenPackButton from "./open-pack-button";
 import { openPack } from "@/server/interface/actions";
-import { useOpeningContext } from "@/context/opening-context";
+import { useAppContext } from "@/context/app-context";
 import { PACK_PRICE } from "@/lib/constants";
 
 type OpeningDrawerProps = {
@@ -21,7 +21,7 @@ type OpeningDrawerProps = {
 };
 
 const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
-  const { isDrawerOpen, setIsDrawerOpen, newCards, setNewCards, clientAccBalance, setClientAccBalance } = useOpeningContext();
+  const { isDrawerOpen, setIsDrawerOpen, newCards, setNewCards, clientAccBalance, setClientAccBalance } = useAppContext();
 
   return (
     <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>

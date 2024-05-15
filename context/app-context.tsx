@@ -3,11 +3,11 @@
 import { Card } from "@prisma/client";
 import React from "react";
 
-type OpeningContextProviderProps = {
+type AppContextProviderProps = {
   children: React.ReactNode;
 };
 
-type OpeningContextType = {
+type AppContextType = {
   isDrawerOpen: boolean;
   setIsDrawerOpen: React.Dispatch<React.SetStateAction<boolean>>;
   newCards: Card[];
@@ -16,15 +16,15 @@ type OpeningContextType = {
   setClientAccBalance: React.Dispatch<React.SetStateAction<number>>
 };
 
-export const OpeningContext = React.createContext<OpeningContextType | null>(null);
+export const AppContext = React.createContext<AppContextType | null>(null);
 
-export default function OpeningContextProvider({ children }: OpeningContextProviderProps) {
+export default function AppContextProvider({ children }: AppContextProviderProps) {
   const [isDrawerOpen, setIsDrawerOpen] = React.useState<boolean>(false);
   const [newCards, setNewCards] = React.useState<Card[]>([]);
   const [clientAccBalance, setClientAccBalance] = React.useState<number>(0);
 
   return (
-    <OpeningContext.Provider
+    <AppContext.Provider
       value={{
         isDrawerOpen,
         setIsDrawerOpen,
@@ -35,15 +35,15 @@ export default function OpeningContextProvider({ children }: OpeningContextProvi
       }}
     >
       {children}
-    </OpeningContext.Provider>
+    </AppContext.Provider>
   );
 }
 
-export function useOpeningContext() {
-  const context = React.useContext(OpeningContext);
+export function useAppContext() {
+  const context = React.useContext(AppContext);
 
   if (!context) {
-    throw new Error("useOpeningContext must be used within an OpeningContextProvider");
+    throw new Error("useAppContext must be used within an AppContextProvider");
   }
 
   return context;

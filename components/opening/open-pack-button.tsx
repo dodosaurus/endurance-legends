@@ -4,10 +4,10 @@ import { Loader2 } from "lucide-react";
 import { useFormStatus } from "react-dom";
 import { Button } from "../ui/button";
 import { PACK_PRICE } from "@/lib/constants";
-import { useOpeningContext } from "@/context/opening-context";
+import { useAppContext } from "@/context/app-context";
 
 function OpenPackButton() {
-  const { clientAccBalance } = useOpeningContext();
+  const { clientAccBalance } = useAppContext();
 
   const userHasEnoughCoins = () => {
     return clientAccBalance >= PACK_PRICE

@@ -1,12 +1,12 @@
 "use client";
 
-import { useOpeningContext } from "@/context/opening-context";
+import { useAppContext } from "@/context/app-context";
 import { CoinIcon } from "../coin-icon";
 import { CardDescription, CardHeader, CardTitle } from "../ui/card";
 import { useEffect } from "react";
 
 function AccountBalance({ accountBalance }: { accountBalance: number }) {
-  const { clientAccBalance, setClientAccBalance } = useOpeningContext();
+  const { clientAccBalance, setClientAccBalance } = useAppContext();
   
   useEffect(() => {
     setClientAccBalance(accountBalance);

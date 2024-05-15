@@ -1,7 +1,7 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## What the hell is this?
-Dada is concept application, where Strava user could buy boosters with collectible cards and expand his collection by logging more Strava activities. 
+endurancevault is concept application, where Strava user could buy boosters with collectible cards and expand his collection by logging more Strava activities. 
 
 ## DONE
 
@@ -44,40 +44,39 @@ Dada is concept application, where Strava user could buy boosters with collectib
 - [x] put displaying coins number and drawer to one component, so we can better control what is displayed in coins status/button - it is critical
 
 ## TODO
-- [ ] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
+- [ ] isSynchronizing in context to show pending and disabled status also on open pack when synchronizing
 - [ ] show number of copies in collection page (check ownedCards for duplicate cardIds)
+- [ ] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
 - [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
-- [ ] history should be separate route, and it should display earnings table
+- [ ] history should be separate route, and it should display earnings table; History button will be under profile in info card mdoal
 - [ ] activites on dashboard should defaultly display only new activites, the rest of table should be expandable (SPA approach, no scrolling allowed by default on dashboard)
+- [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right
+- [ ] different accent color than purple (purple are epic cards)
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
-  - and in future it can be extended, but list of activites user can see on Strava, this will be more app related dashbaord table
   - [ ] implement new data model and table (id, event name - enum?, coin transaction, activityId (if it is activity, link it))
   - [ ] trigger events on new activity addition, on first login, on booster purchase
   - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
   - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
-  - [ ] on activity show little map/or on hover
+- [ ] on activity show more info - map for ex. when clicked and row is expanded
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
-- [ ] bug in translateActivities (maybe delete the layer) Error: activitiesFromApi.map is not a function (429 rate limit problem)
-- [ ] rate limit page redirect when 429 is returned from Strava
-- [ ] adding formula and recalculation of coins on fetch of activities
+- [ ] error rate limit page redirect when 429 is returned from Strava
 - [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app)
-- [ ] additional to loading.tsx add lazy loading on tables (on other components)
 - opening booster phase
+  - [ ] core CSS desing for every card
   - [ ] initial design of the booster/chest and animation for it
   - [ ] desktop/mobile showing of the opened cards, animation for not revealed rare card
   - [ ] revealing animation for common and uncommon cards
+- trading
+  - [ ] reading friends from Strava and finding out which one is on EV already
+  - [ ] clicking on card give option in modal to Request Trade
+  - [ ] implement pending trades component on navbar
 - [ ] deauthorize on logout here: POST https://www.strava.com/oauth/deauthorize
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
-- [ ] sometimes we get useContext bug (like some client component misconfiguration issue)
-- [ ] enhance opening engine picking phase, so we query the list of cards only once
-- earnings/activites table
 - [ ] handling situations where user already own whole collection
-- [ ] activites = earnings, maybe rename and after registration add also the initial gifted coins on top as item
-  - [ ] green bg on activities added in last 24 hours
-  - [ ] it makes sense to have instead of bg color different group section of table on top with new activites, where activities can be grouped by startDate
+- [ ] additional to loading.tsx add lazy loading on tables (on other components)
  
 
 ## Sources mentions

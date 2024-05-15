@@ -1,11 +1,11 @@
 "use client";
 
-import { useOpeningContext } from "@/context/opening-context";
+import { useAppContext } from "@/context/app-context";
 import { CoinIcon } from "../coin-icon";
 import { calcAvailablePacks } from "@/lib/utils";
 
 function AvailablePacks() {
-  const { clientAccBalance } = useOpeningContext();
+  const { clientAccBalance } = useAppContext();
 
   return (
     <div className="flex flex-col justify-center items-center text-xs text-muted-foreground">
