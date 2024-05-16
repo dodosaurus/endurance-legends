@@ -31,7 +31,7 @@ export default function DashboardInfoCard({ lastStravaRefresh, inAppSince, profi
         <LogoutForm logout={logout} />
         <SynchronizeForm synchronize={synchronize} />
         <Link href="/collection">
-          <Button className="bg-purple-500 hover:bg-purple-500/80 font-semibold w-32">My collection</Button>
+          <Button className="bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32">My collection</Button>
         </Link>
       </CardFooter>
     </Card>

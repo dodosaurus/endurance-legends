@@ -85,7 +85,7 @@
   width: 20px;
   height: 20px;
   margin: 0 5px;
-  background: #e9beff;
+  background: #cffafe;
   border-radius: 50%;
   display: inline-block;
   animation-name: dots;
@@ -95,12 +95,12 @@
 }
 
 #loading-dots span:nth-child(2) {
-  background-color: #d176ff;
+  background-color: #67e8f9;
   animation-delay: 0.2s;
 }
 
 #loading-dots span:nth-child(3) {
-  background-color: #ae0dff;
+  background-color: #06b6d4;
   animation-delay: 0.4s;
 }
 

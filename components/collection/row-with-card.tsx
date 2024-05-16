@@ -5,7 +5,7 @@ import { Badge } from "../ui/badge";
 export function RowWithCard({ card, owned }: { card: Card; owned: boolean }) {
   const bgBasedOnCardRarity = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-green-50";
+      return "bg-purple-50";
     }
     if (rarity === "rare") {
       return "bg-blue-50";

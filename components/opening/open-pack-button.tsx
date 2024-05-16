@@ -18,7 +18,7 @@ function OpenPackButton() {
   return (
     <Button
       disabled={pending || !userHasEnoughCoins()}
-      className={"bg-purple-500 hover:bg-purple-500/80 font-semibold w-32 " + (!userHasEnoughCoins() ? "pointer-events-none" : "")}
+      className={"bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32 " + (!userHasEnoughCoins() ? "pointer-events-none" : "")}
       aria-disabled={!userHasEnoughCoins()}
       tabIndex={userHasEnoughCoins() ? 0 : -1}
     >
