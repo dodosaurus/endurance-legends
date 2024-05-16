@@ -14,6 +14,7 @@ import OpeningTable from "./opening-table";
 import OpenPackButton from "./open-pack-button";
 import { openPack } from "@/server/interface/actions";
 import { useAppContext } from "@/context/app-context";
+import OpenedCards from "../app-card/opened-cards";
 
 type OpeningDrawerProps = {
   athleteId: number;
@@ -37,9 +38,10 @@ const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle className="py-5 text-center">NICE ! You just opened one pack :)</DrawerTitle>
-          <DrawerDescription className="py-5 text-center">A list of acquired cards.</DrawerDescription>
+          {/* <DrawerDescription className="py-5 text-center">A list of acquired cards.</DrawerDescription> */}
         </DrawerHeader>
-        <OpeningTable assignedCards={newCards} />
+        <OpenedCards />
+        {/* <OpeningTable assignedCards={newCards} /> */}
         <DrawerFooter>
           <DrawerClose>
             <BackButton />
