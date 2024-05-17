@@ -2,10 +2,10 @@ import { Card } from "@prisma/client";
 import { TableCell, TableRow } from "../ui/table";
 import { Badge } from "../ui/badge";
 
-export function RowWithCard({ card, owned }: { card: Card; owned: boolean }) {
+export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: boolean; noOfCopies: number }) {
   const bgBasedOnCardRarity = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-purple-50";
+      return "bg-green-50";
     }
     if (rarity === "rare") {
       return "bg-blue-50";
@@ -38,6 +38,7 @@ export function RowWithCard({ card, owned }: { card: Card; owned: boolean }) {
               </div>
             </Badge>
           </TableCell>
+          <TableCell className="table-cell font-semibold">x {noOfCopies}</TableCell>
         </TableRow>
       ) : (
         <TableRow className="pointer-events-none">

@@ -2,6 +2,7 @@ import { RowWithCard } from "@/components/collection/row-with-card";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
+import { compareCardToOwnedCards } from "@/lib/utils";
 import { verifySession } from "@/server/auth/session";
 import { collectionSync } from "@/server/interface/synchronizers";
 import Link from "next/link";
@@ -36,6 +37,7 @@ export default async function Collection() {
             <TableHead className="hidden md:table-cell">Country of origin</TableHead>
             <TableHead className="hidden md:table-cell">Date</TableHead>
             <TableHead className="hidden lg:table-cell">Rarity</TableHead>
+            <TableHead className="table-cell">Number of copies</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -47,8 +49,13 @@ export default async function Collection() {
             </TableRow>
           )}
           {cards.length > 0 &&
-            cards.map((card) => (            
-              <RowWithCard key={card.id} card={card} owned={ownedCardsIds.includes(card.id)} />
+            cards.map((card) => (
+              <RowWithCard
+                key={card.id}
+                card={card}
+                owned={compareCardToOwnedCards(card.id, ownedCardsIds).isOwned}
+                noOfCopies={compareCardToOwnedCards(card.id, ownedCardsIds).occurences}
+              />
             ))}
         </TableBody>
       </Table>

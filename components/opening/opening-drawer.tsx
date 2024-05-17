@@ -38,10 +38,10 @@ const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
       <DrawerContent>
         <DrawerHeader>
           <DrawerTitle className="py-5 text-center">NICE ! You just opened one pack :)</DrawerTitle>
-          {/* <DrawerDescription className="py-5 text-center">A list of acquired cards.</DrawerDescription> */}
+          <DrawerDescription className="py-5 text-center">A list of acquired cards.</DrawerDescription>
         </DrawerHeader>
-        <OpenedCards />
-        {/* <OpeningTable assignedCards={newCards} /> */}
+        {/* <OpenedCards /> */}
+        <OpeningTable assignedCards={newCards} />
         <DrawerFooter>
           <DrawerClose>
             <BackButton />

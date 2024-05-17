@@ -44,11 +44,11 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] put displaying coins number and drawer to one component, so we can better control what is displayed in coins status/button - it is critical
 - [x] isSynchronizing in context to show pending and disabled status also on open pack when synchronizing (solved in other way)
 - [x] different accent color than purple (purple are epic cards)
+- [x] show number of copies in collection page (check ownedCards for duplicate cardIds)
 
 ## TODO
 - [ ] card back design (three shape with our accent color from video)
 - [ ] implement flip card CSS
-- [ ] show number of copies in collection page (check ownedCards for duplicate cardIds)
 - [ ] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
 - [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
 - [ ] history should be separate route, and it should display earnings table; History button will be under profile in info card mdoal
