@@ -46,11 +46,20 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] different accent color than purple (purple are epic cards)
 - [x] show number of copies in collection page (check ownedCards for duplicate cardIds)
 - [x] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
+- [x] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
 
 ## TODO
 - [ ] card back design (three shape with our accent color from video)
 - [ ] implement flip card CSS
-- [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
+- [ ] gather images for cards (metadata with source?, all on format?)
+- [ ] rarity border color
+- [ ] showing card in collection (only owned cards!!!)
+- adhere to Strava guidelines
+  - [ ] button connect to Strava
+  - [ ] footer with Powered by Strava
+  - [ ] link on activities
+- landing page
+  - [ ] some nice design (some background effect from accent color, some AI generted image, pitch and slogan)
 - [ ] history should be separate route, and it should display earnings table; History button will be under profile in info card mdoal
 - [ ] activites on dashboard should defaultly display only new activites, the rest of table should be expandable (SPA approach, no scrolling allowed by default on dashboard)
 - [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right

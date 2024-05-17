@@ -6,18 +6,18 @@ import { Loader2 } from "lucide-react";
 export default function OpeningTable({ assignedCards }: { assignedCards: Card[] }) {
   const bgBasedOnCardRarity = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-green-50";
+      return "bg-green-100";
     }
     if (rarity === "rare") {
-      return "bg-blue-50";
+      return "bg-blue-100";
     }
     if (rarity === "epic") {
-      return "bg-purple-50";
+      return "bg-purple-100";
     }
     if (rarity === "legendary") {
-      return "bg-orange-50";
+      return "bg-orange-100";
     }
-    return "";
+    return "bg-slate-100";
   };
 
   return (

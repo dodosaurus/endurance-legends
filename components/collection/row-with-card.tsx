@@ -5,18 +5,18 @@ import { Badge } from "../ui/badge";
 export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: boolean; noOfCopies: number }) {
   const bgBasedOnCardRarity = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-green-50";
+      return "bg-green-100";
     }
     if (rarity === "rare") {
-      return "bg-blue-50";
+      return "bg-blue-100";
     }
     if (rarity === "epic") {
-      return "bg-purple-50";
+      return "bg-purple-100";
     }
     if (rarity === "legendary") {
-      return "bg-orange-50";
+      return "bg-orange-100";
     }
-    return "bg-slate-50";
+    return "bg-slate-100";
   };
 
   return (
