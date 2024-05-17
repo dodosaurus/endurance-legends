@@ -1,8 +1,8 @@
-import { RowWithCard } from "@/components/collection/row-with-card";
+import AllCardsTable from "@/components/collection/all-cards-table";
+import OwnedCardsTable from "@/components/collection/owned-cards-table";
 import { Button } from "@/components/ui/button";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { compareCardToOwnedCards } from "@/lib/utils";
+import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { verifySession } from "@/server/auth/session";
 import { collectionSync } from "@/server/interface/synchronizers";
 import Link from "next/link";
@@ -22,43 +22,28 @@ export default async function Collection() {
             <span>
               Below you can see whole collection and which cards you do own. Get out for a run or ride and earn more!
             </span>
-            <Link href="/dashboard">
-              <Button variant={"outline"}>Back to dashboard</Button>
-            </Link>
           </CardDescription>
         </CardHeader>
       </Card>
-      <Table>
-        <TableHeader>
-          <TableRow>
-            <TableHead>Card name</TableHead>
-            <TableHead className="table-cell">Info 1</TableHead>
-            <TableHead className="hidden sm:table-cell">Info 2</TableHead>
-            <TableHead className="hidden md:table-cell">Country of origin</TableHead>
-            <TableHead className="hidden md:table-cell">Date</TableHead>
-            <TableHead className="hidden lg:table-cell">Rarity</TableHead>
-            <TableHead className="table-cell">Number of copies</TableHead>
-          </TableRow>
-        </TableHeader>
-        <TableBody>
-          {cards.length === 0 && (
-            <TableRow>
-              <TableCell colSpan={5} className="text-center">
-                Loading the collection...
-              </TableCell>
-            </TableRow>
-          )}
-          {cards.length > 0 &&
-            cards.map((card) => (
-              <RowWithCard
-                key={card.id}
-                card={card}
-                owned={compareCardToOwnedCards(card.id, ownedCardsIds).isOwned}
-                noOfCopies={compareCardToOwnedCards(card.id, ownedCardsIds).occurences}
-              />
-            ))}
-        </TableBody>
-      </Table>
+      <Tabs defaultValue="owned">
+        <div className="flex justify-between items-center my-3">
+          <TabsList>
+            <TabsTrigger value="owned">Owned only</TabsTrigger>
+            <TabsTrigger value="all">All cards</TabsTrigger>
+          </TabsList>
+          <div>
+            <Link href="/dashboard">
+              <Button variant={"secondary"}>Back to dashboard</Button>
+            </Link>
+          </div>
+        </div>
+        <TabsContent value="owned">
+          <OwnedCardsTable cards={cards} ownedCardsIds={ownedCardsIds} />
+        </TabsContent>
+        <TabsContent value="all">
+          <AllCardsTable cards={cards} ownedCardsIds={ownedCardsIds} />
+        </TabsContent>
+      </Tabs>
     </div>
   );
 }
