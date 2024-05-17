@@ -57,3 +57,15 @@ export const verifySession = async () => {
 
   return { isAuth: true, athleteId: session.athleteId };
 };
+
+export const verifySessionWithoutRedirect = async (): Promise<{ isAuth: boolean, athleteId?: number }> => {
+  const cookie = cookies().get("session")?.value;
+  const session = await decrypt(cookie);
+
+  if (!session?.athleteId) {
+    //not sure if this will work
+    return { isAuth: false };
+  }
+
+  return { isAuth: true, athleteId: session.athleteId as number };
+};

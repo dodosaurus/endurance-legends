@@ -1,10 +1,11 @@
 "use server";
 
-import { deleteSession } from "../auth/session";
+import { deleteSession, verifySessionWithoutRedirect } from "../auth/session";
 import { revalidateStravaAccessToken } from "../strava";
 import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "../opening-engine";
-import { Card } from "@prisma/client";
+import { Card, User } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { findUserByAthleteId } from "../db/queries";
 
 export async function logout() {
   deleteSession();
@@ -33,4 +34,15 @@ export async function openPack(athleteId: number): Promise<{ cards: Card[]; acco
   // revalidatePath("/dashboard");
 
   return { cards, accountBalance };
+}
+
+export async function getUserForProfileSegment(): Promise<User | null> {
+  const { isAuth, athleteId } = await verifySessionWithoutRedirect();
+
+  if (!isAuth) {
+    return null
+  } else {
+    return await findUserByAthleteId(athleteId as number, true)
+  }
+
 }

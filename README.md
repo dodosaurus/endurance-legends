@@ -47,9 +47,9 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] show number of copies in collection page (check ownedCards for duplicate cardIds)
 
 ## TODO
+- [ ] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
 - [ ] card back design (three shape with our accent color from video)
 - [ ] implement flip card CSS
-- [ ] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
 - [ ] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
 - [ ] history should be separate route, and it should display earnings table; History button will be under profile in info card mdoal
 - [ ] activites on dashboard should defaultly display only new activites, the rest of table should be expandable (SPA approach, no scrolling allowed by default on dashboard)
