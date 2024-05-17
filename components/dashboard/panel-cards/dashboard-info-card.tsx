@@ -1,11 +1,8 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { logout, synchronize } from "@/server/interface/actions";
-
-import Link from "next/link";
 import InfoTimes from "./subparts/info-times";
 import LogoutForm from "./subparts/logout-form";
-import { Button } from "@/components/ui/button";
 import SynchronizeForm from "./subparts/synchronize-form";
 
 type Props = {
