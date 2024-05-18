@@ -3,6 +3,7 @@ import OwnedCardsTable from "@/components/collection/owned-cards-table";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { countUniqueMembers } from "@/lib/utils";
 import { verifySession } from "@/server/auth/session";
 import { collectionSync } from "@/server/interface/synchronizers";
 import Link from "next/link";
@@ -10,6 +11,9 @@ import Link from "next/link";
 export default async function Collection() {
   const { athleteId } = await verifySession();
   const { cards, ownedCardsIds } = await collectionSync(athleteId as number);
+
+  //get number of unique owned cards to display
+  const ownedCardsCount = countUniqueMembers(ownedCardsIds);
 
   //not automatically syncing like on dashboard, rather add own button for that
 
@@ -31,6 +35,9 @@ export default async function Collection() {
             <TabsTrigger value="owned">Owned only</TabsTrigger>
             <TabsTrigger value="all">All cards</TabsTrigger>
           </TabsList>
+          <div>
+            <p>Collected <span className="font-semibold">{ownedCardsCount} / {cards.length}</span> </p>
+          </div>
           <div>
             <Link href="/dashboard">
               <Button variant={"secondary"}>Back to dashboard</Button>

@@ -25,7 +25,7 @@ function AllCardsTable({ cards, ownedCardsIds }: AllCardsTableProps) {
       <TableBody>
         {cards.length === 0 && (
           <TableRow>
-            <TableCell colSpan={5} className="text-center">
+            <TableCell colSpan={7} className="text-center">
               Loading the collection...
             </TableCell>
           </TableRow>

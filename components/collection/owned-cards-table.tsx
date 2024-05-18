@@ -27,8 +27,8 @@ function OwnedCardsTable({ cards, ownedCardsIds }: OwnedCardsTableProps) {
       <TableBody>
         {ownedCards.length === 0 && (
           <TableRow>
-            <TableCell colSpan={5} className="text-center">
-              Loading the collection...
+            <TableCell colSpan={7} className="text-center">
+              You don't own any cards yet. Go out and earn some!
             </TableCell>
           </TableRow>
         )}

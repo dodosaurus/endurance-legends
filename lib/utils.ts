@@ -33,7 +33,10 @@ export function calcAvailablePacks(totalCoins: number) {
   return Math.floor(totalCoins / PACK_PRICE);
 }
 
-export const compareCardToOwnedCards = (cardId: number, ownedCardsIds: number[]): { isOwned: boolean; occurences: number } => {
+export const compareCardToOwnedCards = (
+  cardId: number,
+  ownedCardsIds: number[]
+): { isOwned: boolean; occurences: number } => {
   const isOwned = ownedCardsIds.includes(cardId);
   let occurences = 0;
 
@@ -47,3 +50,8 @@ export const compareCardToOwnedCards = (cardId: number, ownedCardsIds: number[])
 
   return { isOwned, occurences };
 };
+
+export function countUniqueMembers(array: number[]) {
+  const uniqueCardIds = new Set(array.map((mem) => mem));
+  return uniqueCardIds.size;
+}
