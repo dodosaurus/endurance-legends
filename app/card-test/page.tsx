@@ -1,4 +1,5 @@
-import AppCard from "@/components/app-card/app-card";
+import AppCardBack from "@/components/app-card/app-card-back";
+import AppCardFront from "@/components/app-card/app-card-front";
 import { verifySession } from "@/server/auth/session";
 import { collectionSync } from "@/server/interface/synchronizers";
 
@@ -7,9 +8,9 @@ export default async function Collection() {
   const { cards, ownedCardsIds } = await collectionSync(athleteId as number);
 
   return (
-    <div id="card-test" className="flex justify-center items-center gap-2">
-      <AppCard />
-      <AppCard />
+    <div id="card-test" className="flex justify-center items-center gap-10">
+      <AppCardFront />
+      <AppCardBack />
     </div>
   );
 }
