@@ -9,7 +9,7 @@ export default async function Collection() {
 
   return (
     <div id="card-test" className="flex justify-center items-center gap-10">
-      <AppCardFront />
+      <AppCardFront card={cards[0]} />
       {/* <AppCardBack /> */}
     </div>
   );
