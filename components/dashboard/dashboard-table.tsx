@@ -5,6 +5,7 @@ import { convertMetersToKilometersForUI, convertSecondsToReadableTime } from "@/
 import { calcActivityCoins } from "@/server/calculations";
 import { Activity, User } from "@prisma/client";
 import { CoinIcon } from "../coin-icon";
+import LinkToStravaActivity from "../link-to-strava-activity";
 
 type Props = {
   user: User;
@@ -65,7 +66,10 @@ export default async function DashboardTable({ user, activities }: Props) {
               activities.map((activity) => (
                 <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)}>
                   <TableCell>
-                    <div className="font-medium">{activity.name}</div>
+                    <div className="flex justify-between items-center gap-3">
+                      <div className="font-medium">{activity.name}</div>
+                      <LinkToStravaActivity activityId={activity.activityId} />
+                    </div>
                     <div className="text-sm text-muted-foreground">{activity.type}</div>
                   </TableCell>
                   <TableCell className="table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
