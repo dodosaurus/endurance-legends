@@ -37,7 +37,7 @@ async function ProfileSegment() {
                 </div>
                 <InfoTimes lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
               </DialogHeader>
-              <div className="flex justify-between items-center gap-2">
+              <div className="flex flex-col sm: flex-row justify-between items-center gap-2">
                 <a target="_blank" href={`https://www.strava.com/athletes/${user.athleteId}`} rel="noopener noreferrer">
                   <Button className="bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32">View on Strava</Button>
                 </a>

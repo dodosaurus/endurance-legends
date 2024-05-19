@@ -26,6 +26,11 @@ export default async function Collection() {
             <span>
               Below you can see whole collection and which cards you do own. Get out for a run or ride and earn more!
             </span>
+            <div>
+            <Link href="/dashboard">
+              <Button variant={"secondary"}>Back to dashboard</Button>
+            </Link>
+          </div>
           </CardDescription>
         </CardHeader>
       </Card>
@@ -37,11 +42,6 @@ export default async function Collection() {
           </TabsList>
           <div>
             <p>Collected <span className="font-semibold">{ownedCardsCount} / {cards.length}</span> </p>
-          </div>
-          <div>
-            <Link href="/dashboard">
-              <Button variant={"secondary"}>Back to dashboard</Button>
-            </Link>
           </div>
         </div>
         <TabsContent value="owned">
