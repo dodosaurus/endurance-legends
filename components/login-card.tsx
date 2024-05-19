@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { getStravaLoginUrl } from "@/lib/utils";
 import Link from "next/link";
+import StravaButton from "./login/strava-button";
 
 export default function LoginCard() {
   return (
@@ -16,7 +17,7 @@ export default function LoginCard() {
       </CardHeader>
       <CardFooter>
         <Link href={getStravaLoginUrl()}>
-          <Button className="bg-cyan-500 hover:bg-cyan-500/80 font-semibold">Connect with Strava</Button>
+          <StravaButton />
         </Link>
       </CardFooter>
     </Card>
