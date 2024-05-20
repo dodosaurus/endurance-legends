@@ -4,8 +4,19 @@ import Image from "next/image";
 import { Badge } from "../ui/badge";
 import AppCardLayout from "./app-card-layout";
 import type { Card as CardType } from "@prisma/client";
+import { getIsoCountryCode } from "@/lib/utils";
 
 function AppCardFront({ card }: { card: CardType }) {
+  const getRightCountryCodeForFlag = (countryString: string) => {
+    //if given string is three chars or lower long just conver it to lowerCase and return
+    if (countryString.length <= 3) {
+      return countryString.toLowerCase();
+    }
+
+    //else call getIsoCountryCode
+    return getIsoCountryCode(countryString);
+  };
+
   return (
     <AppCardLayout rarity={card.rarity}>
       <Image
@@ -25,8 +36,8 @@ function AppCardFront({ card }: { card: CardType }) {
           <CardTitle className="flex justify-between items-center gap-2">
             <span>{card.id}</span>
             <div className="flex justify-end items-center gap-3">
-              <CircleFlag className="w-6 h-6" countryCode="si" />
-              <h2>{card.name}</h2>
+              <CircleFlag className="w-6 h-6" countryCode={getRightCountryCodeForFlag(card.country) || ""} />
+              <h2 className={card.name.length >= 20 ? "text-sm" : "text-xl"}>{card.name}</h2>
             </div>
           </CardTitle>
           <CardDescription className="flex justify-end items-center">

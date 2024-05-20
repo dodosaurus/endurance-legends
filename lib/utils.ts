@@ -54,3 +54,38 @@ export function countUniqueMembers(array: number[]) {
   const uniqueCardIds = new Set(array.map((mem) => mem));
   return uniqueCardIds.size;
 }
+
+const isoCountryCodes: Record<string, string> = {
+  Slovenia: "si",
+  Belgium: "be",
+  Denmark: "dk",
+  Switzerland: "ch",
+  Netherlands: "nl",
+  Spain: "es",
+  Russia: "ru",
+  "Great Britain": "gb",
+  "United States": "us",
+  Australia: "au",
+  Portugal: "pt",
+  France: "fr",
+  Norway: "no",
+  Austria: "at",
+  Latvia: "lv",
+  Italy: "it",
+  Ecuador: "ec",
+  Colombia: "co",
+  Germany: "de",
+  "New Zealand": "nz",
+  Kazakhstan: "kz",
+  Canada: "ca",
+  Ireland: "ie",
+  Eritrea: "er",
+  Mexico: "mx",
+  "United Arab Emirates": "ae", // Added full name for AE for completeness
+  Poland: "pl",
+  China: "cn",
+};
+
+export function getIsoCountryCode(country: string) {
+  return isoCountryCodes[country] || null;
+}

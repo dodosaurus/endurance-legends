@@ -66,6 +66,9 @@ export async function collectionSync(athleteId: number): Promise<{ cards: Card[]
 
   //get all cards from master collection for skeleton
   const cards = await prisma.card.findMany({
+    orderBy:{
+      id: "asc"
+    },
     where: {
       collectionId: 1,
     },

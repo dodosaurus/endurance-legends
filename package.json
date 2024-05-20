@@ -9,7 +9,8 @@
     "lint": "next lint",
     "postinstall": "prisma generate",
     "db:clear-owned-cards": "ts-node --project prisma/scripts/tsconfig-dev.json prisma/scripts/clear-owned-cards.ts",
-    "db:dump-db": "ts-node --project prisma/scripts/tsconfig-dev.json prisma/scripts/dump-db.ts"
+    "db:dump-db": "ts-node --project prisma/scripts/tsconfig-dev.json prisma/scripts/dump-db.ts",
+    "db:read-countries": "ts-node --project prisma/scripts/tsconfig-dev.json prisma/scripts/read-all-countries.ts"
   },
   "prisma": {
     "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"

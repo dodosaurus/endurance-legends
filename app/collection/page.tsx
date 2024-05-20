@@ -15,8 +15,6 @@ export default async function Collection() {
   //get number of unique owned cards to display
   const ownedCardsCount = countUniqueMembers(ownedCardsIds);
 
-  //not automatically syncing like on dashboard, rather add own button for that
-
   return (
     <div id="collection" className="flex flex-col gap-2">
       <Card>
