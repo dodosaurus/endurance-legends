@@ -21,7 +21,7 @@ function AppCardFront({ card }: { card: CardType }) {
     <AppCardLayout rarity={card.rarity}>
       <Image
         className="bg-img border rounded-lg"
-        src="https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/sign/master-collection-1/cyclists/tadej-pogacar-1.avif?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtYXN0ZXItY29sbGVjdGlvbi0xL2N5Y2xpc3RzL3RhZGVqLXBvZ2FjYXItMS5hdmlmIiwiaWF0IjoxNzE1ODg0NzI2LCJleHAiOjE3NDc0MjA3MjZ9._APimoAatWcK0lWrhlFfH_b_LnSI5bD9H9z1RXxvbzQ&t=2024-05-16T18%3A38%3A46.641Z"
+        src="https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/sign/master-collection-1/cyclists/10-wout-van-aert.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtYXN0ZXItY29sbGVjdGlvbi0xL2N5Y2xpc3RzLzEwLXdvdXQtdmFuLWFlcnQud2VicCIsImlhdCI6MTcxNjE4MTkzOCwiZXhwIjoxNzQ3NzE3OTM4fQ.YXYF4jeMbs3a1RPaswzOcCgs2HpHy4ISCA53nzDB0Tg&t=2024-05-20T05%3A12%3A18.763Z"
         alt="app card image"
         width={400}
         height={330}
