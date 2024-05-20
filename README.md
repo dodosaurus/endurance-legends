@@ -47,10 +47,11 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] show number of copies in collection page (check ownedCards for duplicate cardIds)
 - [x] put info card as button modal trigger, display in My Collection and avatr in navbar, coins card should be in middle in first panel
 - [x] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
+- [x] find out best way to dynamically put bg to card (external source and next image, or local images and CSS bg)
+- [x] country code map from DB countries and add it to card front component
 
 ## TODO
-- [ ] country code map from DB countries and add it to card front component
-- [ ] find out best way to dynamically put bg to card (external source and next image, or local images and CSS bg)
+- [ ] make some admin module frontend where I can add pictures for cards to supabase storage (extend Card model in DB to store image URL, image source)
 - [ ] find some pictures for some rarity cards, think about model
 - [ ] card back design (three shape with our accent color from video)
 - [ ] implement flip card CSS
