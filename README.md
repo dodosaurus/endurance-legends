@@ -49,6 +49,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] show only owned cards in separate table in collection (should be as tab - main tab; whole collection should be next tab; from shad cn component)
 - [x] find out best way to dynamically put bg to card (external source and next image, or local images and CSS bg)
 - [x] country code map from DB countries and add it to card front component
+- [x] button connect to Strava
 
 ## TODO
 - [ ] make some admin module frontend where I can add pictures for cards to supabase storage (extend Card model in DB to store image URL, image source)
@@ -61,7 +62,6 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [ ] rarity border color
 - [ ] showing card in collection (only owned cards!!!)
 - adhere to Strava guidelines
-  - [ ] button connect to Strava
   - [ ] footer with Powered by Strava
   - [ ] link on activities
 - landing page
@@ -79,6 +79,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - [ ] error rate limit page redirect when 429 is returned from Strava
 - [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app)
+- [ ] make /admin only accessible to username jozef_kov
 - opening booster phase
   - [ ] core CSS desing for every card
   - [ ] initial design of the booster/chest and animation for it

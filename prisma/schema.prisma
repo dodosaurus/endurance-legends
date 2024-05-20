@@ -82,13 +82,15 @@ model Card {
   additionalInfo2 String?     @default("")
   extendedInfo    String?     @default("")
   ownedCards      OwnedCard[]
+  cardImageUrl    String?     @default("")
+  cardImageSource String?     @default("")
 }
 
 model OwnedCard {
-  id             Int      @id @default(autoincrement())
-  user           User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
-  userAthleteId  Int
-  card           Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
-  cardId         Int
-  acquiredAt     DateTime @default(now())
+  id            Int      @id @default(autoincrement())
+  user          User     @relation(fields: [userAthleteId], references: [athleteId], onDelete: Cascade)
+  userAthleteId Int
+  card          Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  cardId        Int
+  acquiredAt    DateTime @default(now())
 }

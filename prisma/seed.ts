@@ -1,5 +1,5 @@
 import { Prisma, Card, PrismaClient } from "@prisma/client";
-import latest_raw from "./latest_raw.json";
+import latest_raw from "../raw/latest_raw.json";
 
 const prisma = new PrismaClient();
 
