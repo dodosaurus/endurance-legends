@@ -17,6 +17,19 @@ function AppCardFront({ card }: { card: CardType }) {
     return getIsoCountryCode(countryString);
   };
 
+  const getDescContent = () => {
+    if (card.rarity !== "common") {
+      return (
+        <div>
+          <span className="font-semibold">Last winner: </span>
+          {card.additionalInfo1}
+        </div>
+      );
+    } else {
+      return <p>{card.additionalInfo1 || ""}</p>;
+    }
+  };
+
   return (
     <AppCardLayout rarity={card.rarity}>
       <Image
@@ -43,7 +56,7 @@ function AppCardFront({ card }: { card: CardType }) {
             </div>
           </CardTitle>
           <CardDescription className="flex justify-end items-center">
-            <p>{card.additionalInfo1}</p>
+            <p>{getDescContent()}</p>
           </CardDescription>
         </CardHeader>
         {/* <CardContent>
