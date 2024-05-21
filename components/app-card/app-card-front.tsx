@@ -21,7 +21,7 @@ function AppCardFront({ card }: { card: CardType }) {
     <AppCardLayout rarity={card.rarity}>
       <Image
         className="bg-img border rounded-lg"
-        src="https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/sign/master-collection-1/cyclists/10-wout-van-aert.webp?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJtYXN0ZXItY29sbGVjdGlvbi0xL2N5Y2xpc3RzLzEwLXdvdXQtdmFuLWFlcnQud2VicCIsImlhdCI6MTcxNjE4MTkzOCwiZXhwIjoxNzQ3NzE3OTM4fQ.YXYF4jeMbs3a1RPaswzOcCgs2HpHy4ISCA53nzDB0Tg&t=2024-05-20T05%3A12%3A18.763Z"
+        src="https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/10-wout-van-aert.jpg"
         alt="app card image"
         width={400}
         height={330}
