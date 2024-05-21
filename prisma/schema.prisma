@@ -82,7 +82,7 @@ model Card {
   additionalInfo2 String?     @default("")
   extendedInfo    String?     @default("")
   ownedCards      OwnedCard[]
-  cardImageUrl    String?     @default("")
+  cardImageUrl    String      @default("next.svg")
   cardImageSource String?     @default("")
 }
 

@@ -28,7 +28,7 @@ const main = async () => {
       let cardImageSource;
 
       if (specific_image_metadata) {
-        cardImageUrl = specific_image_metadata.finalUrl;
+        cardImageUrl = specific_image_metadata.filename;
         cardImageSource = specific_image_metadata.source;
       } else {
         cardImageUrl = "";
@@ -78,7 +78,7 @@ const main = async () => {
       let cardImageSource;
 
       if (specific_image_metadata) {
-        cardImageUrl = specific_image_metadata.finalUrl;
+        cardImageUrl = specific_image_metadata.filename;
         cardImageSource = specific_image_metadata.source;
       } else {
         cardImageUrl = "";

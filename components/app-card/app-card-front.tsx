@@ -21,10 +21,12 @@ function AppCardFront({ card }: { card: CardType }) {
     <AppCardLayout rarity={card.rarity}>
       <Image
         className="bg-img border rounded-lg"
-        src="https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/10-wout-van-aert.jpg"
+        src={`/images/final/${card.cardImageUrl}`}
         alt="app card image"
         width={400}
         height={330}
+        placeholder="blur"
+        blurDataURL={`/images/final/${card.cardImageUrl}`}
       />
       <Badge className="absolute z-10 top-3 right-3 text-xs" variant="secondary">
         <div className="flex justify-start items-center gap-1">
