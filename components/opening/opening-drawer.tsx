@@ -42,7 +42,7 @@ const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
         </DrawerHeader>
         <OpenedCards assignedCards={newCards} />
         {/* <OpeningTable assignedCards={newCards} /> */}
-        <DrawerFooter>
+        <DrawerFooter className="mt-5">
           <DrawerClose>
             <BackButton />
           </DrawerClose>

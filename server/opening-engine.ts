@@ -22,8 +22,9 @@ export async function generateAssignmentOfNewCards(athleteId: number): Promise<{
     cards.push(randomCard);
     commonCards.splice(randomCardIndex, 1);
   }
+  const alreadyChosenCards = cards
 
-  const lastCard = await rollAndChooseLastCard(cards);
+  const lastCard = await rollAndChooseLastCard(alreadyChosenCards);
 
   cards.push(lastCard);
 
