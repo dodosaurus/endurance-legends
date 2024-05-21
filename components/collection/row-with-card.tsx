@@ -1,6 +1,7 @@
 import { Card } from "@prisma/client";
 import { TableCell, TableRow } from "../ui/table";
 import { Badge } from "../ui/badge";
+import CardPreview from "./card-preview";
 
 export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: boolean; noOfCopies: number }) {
   const bgBasedOnCardRarity = (rarity: string): string => {
@@ -38,7 +39,10 @@ export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: bo
               </div>
             </Badge>
           </TableCell>
-          <TableCell className="table-cell font-semibold">x {noOfCopies}</TableCell>
+          <TableCell className="table-cell font-semibold text-center">x {noOfCopies}</TableCell>
+          <TableCell className="table-cell">
+            <CardPreview card={card} />
+          </TableCell>
         </TableRow>
       ) : (
         <TableRow className="pointer-events-none">
