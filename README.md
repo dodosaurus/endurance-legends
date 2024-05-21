@@ -50,17 +50,16 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] find out best way to dynamically put bg to card (external source and next image, or local images and CSS bg)
 - [x] country code map from DB countries and add it to card front component
 - [x] button connect to Strava
+- alternative - maybe best would be to have script that reads our raw json and based on id finds picture in local folder and uploads it with card to supabase, and save image url rigthaway to db; with this we could also find way how to put other mined data to DB (winned races ex.)
+- [x] find some pictures for some rarity cards, think about model
 
 ## TODO
-- [ ] make some admin module frontend where I can add pictures for cards to supabase storage (extend Card model in DB to store image URL, image source)
-  - alternative - maybe best would be to have script that reads our raw json and based on id finds picture in local folder and uploads it with card to supabase, and save image url rigthaway to db; with this we could also find way how to put other mined data to DB (winned races ex.)
-  - this is BETTER because, it is prep-ed for future
-- [ ] find some pictures for some rarity cards, think about model
+
+- [ ] placeholder for image and again seed and use whole DB
+- [ ] card preview in collection (only owned cards!!!) (app-card-front in modal)
+- [ ] rarity card specifcs - badge color, border, "last winner:"
 - [ ] card back design (three shape with our accent color from video)
 - [ ] implement flip card CSS
-- [ ] gather images for cards (metadata with source?, all on format?)
-- [ ] rarity border color
-- [ ] showing card in collection (only owned cards!!!)
 - adhere to Strava guidelines
   - [ ] footer with Powered by Strava
   - [ ] link on activities
@@ -68,6 +67,7 @@ endurancevault is concept application, where Strava user could buy boosters with
   - [ ] some nice design (some background effect from accent color, some AI generted image, pitch and slogan)
 - [ ] history should be separate route, and it should display earnings table; History button will be under profile in info card mdoal
 - [ ] activites on dashboard should defaultly display only new activites, the rest of table should be expandable (SPA approach, no scrolling allowed by default on dashboard)
+- [ ] display image source, other gathered data from PCS
 - [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right
 - earnings
   - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
