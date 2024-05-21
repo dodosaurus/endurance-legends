@@ -15,15 +15,7 @@ function AppCardLayout({ children, rarity = "common" }: { children: React.ReactN
     return "slate-400";
   };
 
-  return (
-    <div
-      className={`relative h-[450px] w-[325px] flex flex-col justify-end border-2 border-${colorBasedOnCardRarity(rarity)} rounded-lg shadow-2xl shadow-${colorBasedOnCardRarity(
-        rarity
-      )}`}
-    >
-      {children}
-    </div>
-  );
+  return <div className="app-card-border relative h-[450px] w-[325px] flex flex-col justify-end">{children}</div>;
 }
 
 export default AppCardLayout;

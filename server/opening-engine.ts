@@ -22,7 +22,7 @@ export async function generateAssignmentOfNewCards(athleteId: number): Promise<{
     cards.push(randomCard);
     commonCards.splice(randomCardIndex, 1);
   }
-  const alreadyChosenCards = cards
+  const alreadyChosenCards = cards;
 
   const lastCard = await rollAndChooseLastCard(alreadyChosenCards);
 
@@ -95,23 +95,23 @@ async function rollAndChooseLastCard(alreadyChosenCommonCards: Card[]): Promise<
 
   const rarityRoll = Math.floor(Math.random() * 100) + 1;
 
-  //50% chance of getting common again
+  // 50% chance of getting common again
   if (rarityRoll <= 50) {
     chosenRarity = "common";
 
-    //30% chance to be uncommon
+    // 30% chance to be uncommon
   } else if (rarityRoll <= 80) {
     chosenRarity = "uncommon";
 
-    //12.5% chance to be rare
+    // 12.5% chance to be rare
   } else if (rarityRoll <= 92.5) {
     chosenRarity = "rare";
 
-    //5% chance to be be epic
+    // 5% chance to be epic
   } else if (rarityRoll <= 97.5) {
     chosenRarity = "epic";
 
-    //2.5% chance to be legendary ( = 100% :) )
+    // 2.5% chance to be legendary ( = 100% :) )
   } else if (rarityRoll <= 100) {
     chosenRarity = "legendary";
   }
@@ -119,13 +119,13 @@ async function rollAndChooseLastCard(alreadyChosenCommonCards: Card[]): Promise<
   let chosenRarityCards = await prisma.card.findMany({
     where: {
       rarity: chosenRarity,
+      NOT: {
+        id: {
+          in: alreadyChosenCommonCards.map((card) => card.id),
+        },
+      },
     },
   });
-
-  //if rarity is common, we need to take in consideration already chosen common cards
-  if (chosenRarity === "common") {
-    chosenRarityCards = chosenRarityCards.filter((card) => !alreadyChosenCommonCards.includes(card));
-  }
 
   const theCardIndex = Math.floor(Math.random() * chosenRarityCards.length);
 
