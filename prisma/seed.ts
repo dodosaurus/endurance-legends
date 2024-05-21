@@ -1,5 +1,6 @@
 import { Prisma, Card, PrismaClient } from "@prisma/client";
 import latest_raw from "../raw/latest_raw.json";
+import images_metadata from "../raw/images_metadata.json";
 
 const prisma = new PrismaClient();
 
@@ -11,7 +12,7 @@ type CardCoreData = Prisma.CardGetPayload<typeof cardCoreData>;
 
 const main = async () => {
   try {
-    await prisma.card.deleteMany()
+    await prisma.card.deleteMany();
 
     let id = 0;
 
@@ -19,6 +20,21 @@ const main = async () => {
     const cyclist_batch = latest_raw.cyclists.map((cyclist) => {
       id++;
       let w_and_h = `${cyclist.weight.toString()} kg / ${cyclist.height.toString()} m`;
+
+      //get image if we have it
+      let specific_image_metadata = images_metadata.find((metadata) => metadata.cardId === id);
+
+      let cardImageUrl;
+      let cardImageSource;
+
+      if (specific_image_metadata) {
+        cardImageUrl = specific_image_metadata.finalUrl;
+        cardImageSource = specific_image_metadata.source;
+      } else {
+        cardImageUrl = "";
+        cardImageSource = "";
+      }
+
       return {
         id,
         name: cyclist.name,
@@ -27,6 +43,8 @@ const main = async () => {
         additionalInfo1: cyclist.team,
         additionalInfo2: w_and_h,
         rarity: "common",
+        cardImageUrl,
+        cardImageSource,
       };
     });
 
@@ -53,6 +71,20 @@ const main = async () => {
         rarity = "legendary";
       }
 
+      //get image if we have it
+      let specific_image_metadata = images_metadata.find((metadata) => metadata.cardId === id);
+
+      let cardImageUrl;
+      let cardImageSource;
+
+      if (specific_image_metadata) {
+        cardImageUrl = specific_image_metadata.finalUrl;
+        cardImageSource = specific_image_metadata.source;
+      } else {
+        cardImageUrl = "";
+        cardImageSource = "";
+      }
+
       return {
         id,
         name: race.name,
@@ -61,6 +93,8 @@ const main = async () => {
         additionalInfo1: race.lastWinner,
         additionalInfo2: race.class,
         rarity,
+        cardImageUrl,
+        cardImageSource,
       };
     });
 
@@ -70,7 +104,7 @@ const main = async () => {
       data: final_arr,
     });
 
-    console.log(db_cards)
+    console.log(db_cards);
 
     console.log(`Database has been seeded. 🌱`);
   } catch (error) {
