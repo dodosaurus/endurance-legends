@@ -2,28 +2,13 @@ import { Card } from "@prisma/client";
 import { TableCell, TableRow } from "../ui/table";
 import { Badge } from "../ui/badge";
 import CardPreview from "./card-preview";
+import { getRarityColorClass } from "@/lib/utils";
 
 export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: boolean; noOfCopies: number }) {
-  const bgBasedOnCardRarity = (rarity: string): string => {
-    if (rarity === "uncommon") {
-      return "bg-green-100";
-    }
-    if (rarity === "rare") {
-      return "bg-blue-100";
-    }
-    if (rarity === "epic") {
-      return "bg-purple-100";
-    }
-    if (rarity === "legendary") {
-      return "bg-orange-100";
-    }
-    return "bg-slate-100";
-  };
-
   return (
     <>
       {owned ? (
-        <TableRow key={card.id} className={bgBasedOnCardRarity(card.rarity) + " pointer-events-none"}>
+        <TableRow key={card.id} className={"bg-" + getRarityColorClass(card.rarity, "100") + " pointer-events-none"}>
           <TableCell>
             <div className="font-medium">{card.name}</div>
             <div className="text-sm text-muted-foreground">{card.id}</div>

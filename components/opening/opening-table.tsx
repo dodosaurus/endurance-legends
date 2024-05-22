@@ -2,24 +2,9 @@ import { Table, TableBody, TableCell, TableRow } from "@/components/ui/table";
 import { Badge } from "../ui/badge";
 import { Card } from "@prisma/client";
 import { Loader2 } from "lucide-react";
+import { getRarityColorClass } from "@/lib/utils";
 
 export default function OpeningTable({ assignedCards }: { assignedCards: Card[] }) {
-  const bgBasedOnCardRarity = (rarity: string): string => {
-    if (rarity === "uncommon") {
-      return "bg-green-100";
-    }
-    if (rarity === "rare") {
-      return "bg-blue-100";
-    }
-    if (rarity === "epic") {
-      return "bg-purple-100";
-    }
-    if (rarity === "legendary") {
-      return "bg-orange-100";
-    }
-    return "bg-slate-100";
-  };
-
   return (
     <Table className="flex justify-center items-center">
       <TableBody>
@@ -32,7 +17,7 @@ export default function OpeningTable({ assignedCards }: { assignedCards: Card[] 
         )}
         {assignedCards.length > 0 &&
           assignedCards.map((card) => (
-            <TableRow key={card.id} className={bgBasedOnCardRarity(card.rarity)}>
+            <TableRow key={card.id} className={`bg-${getRarityColorClass(card.rarity, "100")}`}>
               <TableCell>
                 <div className="font-medium">{card.name}</div>
                 <div className="text-sm text-muted-foreground">{card.id}</div>

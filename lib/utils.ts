@@ -89,3 +89,19 @@ const isoCountryCodes: Record<string, string> = {
 export function getIsoCountryCode(country: string) {
   return isoCountryCodes[country] || null;
 }
+
+export const getRarityColorClass = (rarity: string, colorStrength: string): string => {
+  if (rarity === "uncommon") {
+    return `green-${colorStrength}`;
+  }
+  if (rarity === "rare") {
+    return `blue-${colorStrength}`;
+  }
+  if (rarity === "epic") {
+    return `purple-${colorStrength}`;
+  }
+  if (rarity === "legendary") {
+    return `orange-${colorStrength}`;
+  }
+  return `slate-${colorStrength}`;
+};
