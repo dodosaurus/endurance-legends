@@ -38,9 +38,8 @@ function AppCardFront({ card }: { card: CardType }) {
         alt="app card image"
         width={400}
         height={330}
-        placeholder="blur"
-        blurDataURL={`/images/final/${card.cardImageUrl}`}
-      />
+        placeholder="empty"
+/>
       <Badge className="absolute z-10 top-3 right-3 text-xs" variant="secondary">
         <div className="flex justify-start items-center gap-1">
           <span>{card.rarity}</span>

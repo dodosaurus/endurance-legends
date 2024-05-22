@@ -53,10 +53,10 @@ endurancevault is concept application, where Strava user could buy boosters with
 - alternative - maybe best would be to have script that reads our raw json and based on id finds picture in local folder and uploads it with card to supabase, and save image url rigthaway to db; with this we could also find way how to put other mined data to DB (winned races ex.)
 - [x] find some pictures for some rarity cards, think about model
 - [x] card preview in collection (only owned cards!!!) (app-card-front in modal)
+- [x] adding carousel for mobile view for opening cards, fix preview width, throw out some columns for mobile in collection
 
 ## TODO
 
-- [ ] adding carousel for mobile view for opening cards, fix preview width, throw out some columns for mobile in collection
 - [ ] images for other cards (a lot of work :))
 - [ ] CSS - card back design (three shape with our accent color from video)
 - [ ] CSS - implement flip card
