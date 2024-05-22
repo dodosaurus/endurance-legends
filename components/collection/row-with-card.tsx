@@ -28,11 +28,11 @@ export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: bo
             <div className="font-medium">{card.name}</div>
             <div className="text-sm text-muted-foreground">{card.id}</div>
           </TableCell>
-          <TableCell className="table-cell">{card.additionalInfo1}</TableCell>
-          <TableCell className="hidden sm:table-cell">{card.additionalInfo2}</TableCell>
+          <TableCell className="hidden sm:table-cell">{card.additionalInfo1}</TableCell>
+          <TableCell className="hidden md:table-cell">{card.additionalInfo2}</TableCell>
           <TableCell className="hidden md:table-cell">{card.country}</TableCell>
           <TableCell className="hidden md:table-cell">{card.dateInfo}</TableCell>
-          <TableCell className="table-cell">
+          <TableCell className="hidden sm:table-cell">
             <Badge className="text-xs" variant="secondary">
               <div className="flex justify-start items-center gap-1">
                 <span>{card.rarity}</span>

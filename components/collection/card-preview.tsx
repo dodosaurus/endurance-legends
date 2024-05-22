@@ -16,10 +16,10 @@ function CardPreview({ card }: { card: Card }) {
     <Dialog>
       <DialogTrigger asChild>
         <Button className="pointer-events-auto" variant="outline">
-          Preview
+          Show
         </Button>
       </DialogTrigger>
-      <DialogContent className="w-full pb-12">
+      <DialogContent className="flex justify-center items-center w-min p-10">
         <AppCardFront card={card} />
         {/* <DialogFooter>
         <Button type="button">Save changes</Button>

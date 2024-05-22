@@ -57,11 +57,11 @@ endurancevault is concept application, where Strava user could buy boosters with
 ## TODO
 
 - [ ] adding carousel for mobile view for opening cards, fix preview width, throw out some columns for mobile in collection
-- [ ] bug on not resolving color on rarity cards in app-card-layout (use cn()?)
-- [ ] rarity card specifcs - badge color, border, "last winner:"
+- [ ] images for other cards (a lot of work :))
+- [ ] CSS - card back design (three shape with our accent color from video)
+- [ ] CSS - implement flip card
+- [ ] on activity show more info - map for ex. when clicked and row is expanded
 - [ ] placeholder for image and again seed and use whole DB
-- [ ] card back design (three shape with our accent color from video)
-- [ ] implement flip card CSS
 - adhere to Strava guidelines
   - [ ] footer with Powered by Strava
   - [ ] link on activities
@@ -77,7 +77,6 @@ endurancevault is concept application, where Strava user could buy boosters with
   - [ ] trigger events on new activity addition, on first login, on booster purchase
   - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
   - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
-- [ ] on activity show more info - map for ex. when clicked and row is expanded
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 - [ ] error rate limit page redirect when 429 is returned from Strava
 - [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app)
@@ -95,7 +94,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
 - [ ] error management (Sentry?)
 - [ ] setting up analytics (Posthog?)
-- [ ] handling situations where user already own whole collection
+- [ ] handling situations where user already own whole collection (no really needed when he can own also copies)
 - [ ] additional to loading.tsx add lazy loading on tables (on other components)
  
 

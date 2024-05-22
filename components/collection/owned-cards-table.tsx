@@ -16,12 +16,13 @@ function OwnedCardsTable({ cards, ownedCardsIds }: OwnedCardsTableProps) {
       <TableHeader>
         <TableRow>
           <TableHead>Card name</TableHead>
-          <TableHead className="table-cell">Info 1</TableHead>
-          <TableHead className="hidden sm:table-cell">Info 2</TableHead>
+          <TableHead className="hidden sm:table-cell">Info 1</TableHead>
+          <TableHead className="hidden md:table-cell">Info 2</TableHead>
           <TableHead className="hidden md:table-cell">Country of origin</TableHead>
           <TableHead className="hidden md:table-cell">Date</TableHead>
-          <TableHead className="hidden lg:table-cell">Rarity</TableHead>
+          <TableHead className="hidden sm:table-cell">Rarity</TableHead>
           <TableHead className="table-cell">Number of copies</TableHead>
+          <TableHead id="button-col" className="table-cell"></TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>

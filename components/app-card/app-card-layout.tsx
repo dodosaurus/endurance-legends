@@ -15,7 +15,7 @@ function AppCardLayout({ children, rarity = "common" }: { children: React.ReactN
     return "slate-400";
   };
 
-  return <div className="app-card-border relative h-[450px] w-[325px] flex flex-col justify-end">{children}</div>;
+  return <div className="relative h-[450px] w-[325px] flex flex-col justify-end rounded-md shadow-md">{children}</div>;
 }
 
 export default AppCardLayout;
