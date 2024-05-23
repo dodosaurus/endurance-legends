@@ -31,13 +31,13 @@ function AppCardFront({ card }: { card: CardType }) {
   };
   const getRarityColorClass = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-green-300";
+      return "bg-emerald-300";
     }
     if (rarity === "rare") {
-      return "bg-blue-300";
+      return "bg-sky-300";
     }
     if (rarity === "epic") {
-      return "bg-purple-300";
+      return "bg-violet-300";
     }
     if (rarity === "legendary") {
       return "bg-orange-300";

@@ -6,13 +6,13 @@ import CardPreview from "./card-preview";
 export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: boolean; noOfCopies: number }) {
   const getRarityColorClass = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-green-100";
+      return "bg-emerald-100";
     }
     if (rarity === "rare") {
-      return "bg-blue-100";
+      return "bg-sky-100";
     }
     if (rarity === "epic") {
-      return "bg-purple-100";
+      return "bg-violet-100";
     }
     if (rarity === "legendary") {
       return "bg-orange-100";
