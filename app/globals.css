@@ -114,26 +114,187 @@
 }
 
 .bg-img {
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  z-index: -1;
 }
 
-.app-card-border {
-  --hue-1: 210;
+/*=============== CARD BACK ===============*/
+
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --white-color: #fff;
+  --black-color: hsl(210, 12%, 15%);
+  --body-color: hsl(210, 16%, 12%);
+  --container-color: #f1f5f9;
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Poppins", sans-serif;
+  --h2-font-size: 1.25rem;
+  --normal-font-size: 0.938rem;
+}
+@media screen and (min-width: 1024px) {
+  :root {
+    --h2-font-size: 1.5rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--normal-font-size);
+  background-color: var(--body-color);
+}
+
+a {
+  text-decoration: none;
+}
+
+/*=============== CARD ===============*/
+.container {
+  display: grid;
+  place-items: center;
+  margin-inline: 1.5rem;
+}
+
+.card__container {
+  display: grid;
+  gap: 2rem;
+}
+.card__container {
+  padding-block: 4.5rem;
+}
+.card__article {
+  width: 325px;
+  height: 450px;
+  --hue-1: 215.4;
   --hue-2: 238;
+  position: relative;
+  color: var(--white-color);
+  padding: 4rem 2rem 3rem;
   border: 4px solid transparent;
   background: linear-gradient(var(--container-color), var(--container-color)) padding-box,
     linear-gradient(
         135deg,
-        hsl(var(--hue-1), 85%, 70%) 0%,
+        hsl(var(--hue-1), 16%, 46%) 0%,
         var(--container-color),
         var(--container-color),
-        hsl(var(--hue-2), 70%, 55%) 100%
+        hsl(var(--hue-2), 16%, 46%) 100%
       )
       border-box;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+.card__shape-1 {
+  position: relative;
+  width: 148px;
+  height: 148px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 75%, 25%) 3%, hsl(var(--hue-2), 65%, 45%) 100%);
+  border-radius: 2rem;
+  z-index: 2;
+}
+.card__shape-2 {
+  width: 116px;
+  height: 116px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 70%, 50%) 3%, hsl(var(--hue-2), 95%, 45%) 100%);
+  border-radius: 1.5rem;
+}
+.card__shape-3 {
+  width: 76px;
+  height: 76px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 85%, 60%) 3%, hsl(var(--hue-2), 85%, 60%) 100%);
+  border-radius: 1rem;
+  display: grid;
+  place-items: center;
+}
+.card__shape-2,
+.card__shape-3 {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+}
+.card__green {
+  --hue-1: 180;
+  --hue-2: 50;
+}
+.card__orange {
+  --hue-1: 300;
+  --hue-2: 30;
+}
+.card__scale-1 {
+  width: 148px;
+  height: 148px;
+  background: linear-gradient(140deg, hsl(var(--hue-1), 70%, 50%) 3%, hsl(var(--hue-2), 95%, 45%) 100%);
+  border-radius: 2rem;
+  top: 4rem;
+}
+.card__scale-2 {
+  width: 116px;
+  height: 116px;
+  background: var(--container-color);
+  border-radius: 1.5rem;
+  top: 5rem;
+}
+.card__scale-1,
+.card__scale-2 {
+  position: absolute;
+  filter: blur(24px);
+  transition: transform 0.3s ease-in;
+}
+.card__article:hover .card__scale-1 {
+  transform: scale(6);
+}
+.card__article:hover .card__scale-2 {
+  transform: scale(6);
+  transition-delay: 0.1s;
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 320px) {
+  .container {
+    margin-inline: 1rem;
+  }
+  .card__article {
+    padding: 2rem 1rem;
+  }
+  .card__scale-1 {
+    top: 2rem;
+  }
+  .card__scale-2 {
+    top: 3rem;
+  }
+}
+/* For medium devices */
+@media screen and (min-width: 576px) {
+  .card__container {
+    grid-template-columns: 328px;
+  }
+}
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 328px);
+  }
+}
+/* For large devices */
+@media screen and (min-width: 1120px) {
+  .container {
+    height: 100vh;
+  }
+  .card__container {
+    grid-template-columns: repeat(3, 345px);
+  }
+  .card__article {
+    padding: 4.5rem 2rem 3.5rem;
+  }
 }

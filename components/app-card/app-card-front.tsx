@@ -33,19 +33,19 @@ function AppCardFront({ card }: { card: CardType }) {
   return (
     <AppCardLayout rarity={card.rarity}>
       <Image
-        className="bg-img border rounded-lg"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src={`/images/final/${card.cardImageUrl}`}
         alt="app card image"
         width={400}
         height={330}
         placeholder="empty"
-/>
-      <Badge className="absolute z-10 top-3 right-3 text-xs" variant="secondary">
+      />
+      <Badge className="absolute z-2 top-3 right-3 text-xs" variant="secondary">
         <div className="flex justify-start items-center gap-1">
           <span>{card.rarity}</span>
         </div>
       </Badge>
-      <Card className="h-24">
+      <Card className="absolute bottom-0 w-full z-10">
         <CardHeader>
           <CardTitle className="flex justify-between items-center gap-2">
             <span>{card.id}</span>
