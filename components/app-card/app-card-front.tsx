@@ -29,6 +29,21 @@ function AppCardFront({ card }: { card: CardType }) {
       return <p>{card.additionalInfo1 || ""}</p>;
     }
   };
+  const getRarityColorClass = (rarity: string): string => {
+    if (rarity === "uncommon") {
+      return "bg-green-300";
+    }
+    if (rarity === "rare") {
+      return "bg-blue-300";
+    }
+    if (rarity === "epic") {
+      return "bg-purple-300";
+    }
+    if (rarity === "legendary") {
+      return "bg-orange-300";
+    }
+    return "bg-slate-300";
+  };
 
   return (
     <AppCardLayout rarity={card.rarity}>
@@ -40,7 +55,7 @@ function AppCardFront({ card }: { card: CardType }) {
         height={330}
         placeholder="empty"
       />
-      <Badge className="absolute z-2 top-3 right-3 text-xs" variant="secondary">
+      <Badge className={"absolute z-2 top-3 right-3 text-xs pointer-events-none " + getRarityColorClass(card.rarity)} variant="secondary">
         <div className="flex justify-start items-center gap-1">
           <span>{card.rarity}</span>
         </div>

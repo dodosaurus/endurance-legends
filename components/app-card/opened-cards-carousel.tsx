@@ -4,7 +4,7 @@ import AppCardFront from "./app-card-front";
 
 export function OpenedCardsCarousel({ cards }: { cards: CardType[] }) {
   return (
-    <Carousel className="w-full max-w-xs">
+    <Carousel className="w-full max-w-[325px]">
       <CarouselContent>
         {cards.map((_, index) => (
           <CarouselItem key={index}>
