@@ -40,7 +40,7 @@ function AppCardFront({ card }: { card: CardType }) {
       return "bg-violet-300";
     }
     if (rarity === "legendary") {
-      return "bg-orange-300";
+      return "bg-amber-300";
     }
     return "bg-slate-300";
   };

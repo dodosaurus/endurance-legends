@@ -15,7 +15,7 @@ export function RowWithCard({ card, owned, noOfCopies }: { card: Card; owned: bo
       return "bg-violet-100";
     }
     if (rarity === "legendary") {
-      return "bg-orange-100";
+      return "bg-amber-100";
     }
     return "bg-slate-100";
   };

@@ -130,9 +130,10 @@
   --black-color: hsl(210, 12%, 15%);
   --body-color: hsl(210, 16%, 12%);
   --container-color: #f1f5f9;
+  --text-color: theme(colors.cyan.500);
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
-  --body-font: "Poppins", sans-serif;
+  --body-font: "Inter", sans-serif;
   --h2-font-size: 1.25rem;
   --normal-font-size: 0.938rem;
 }
@@ -174,13 +175,33 @@ a {
 .card__container {
   padding-block: 4.5rem;
 }
+.card__icon {
+  font-size: 3rem;
+}
+.card__data {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color);
+  z-index: 10;
+}
+.card__title {
+  font-size: var(--h2-font-size);
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+.card__description {
+  margin-bottom: 1.5rem;
+}
 .card__article {
   width: 325px;
   height: 450px;
-  --hue-1: 210;
-  --hue-2: 238;
-  --color-1: theme(colors.slate.300);
-  --color-2: theme(colors.slate.600);
+  --hue-1: 185;
+  --hue-2: 187;
+  --color-1: theme(colors.cyan.50);
+  --color-2: theme(colors.cyan.200);
   position: relative;
   color: var(--white-color);
   padding: 4rem 2rem 3rem;
@@ -192,32 +213,43 @@ a {
   overflow: hidden;
 }
 
+.card__common {
+  --hue-1: 212;
+  --hue-2: 215;
+  --color-1: theme(colors.slate.300);
+  --color-2: theme(colors.slate.600);
+}
+
 .card__uncommon {
-  --hue-1: 180;
-  --hue-2: 50;
+  --hue-1: 156;
+  --hue-2: 161;
   --color-1: theme(colors.emerald.300);
   --color-2: theme(colors.emerald.600);
+  --text-color: theme(colors.emerald.600);
 }
 
 .card__rare {
-  --hue-1: 240;
-  --hue-2: 50;
+  --hue-1: 199;
+  --hue-2: 200;
   --color-1: theme(colors.sky.300);
   --color-2: theme(colors.sky.600);
+  --text-color: theme(colors.sky.600);
 }
 
 .card__epic {
-  --hue-1: 270;
-  --hue-2: 50;
+  --hue-1: 252;
+  --hue-2: 262;
   --color-1: theme(colors.violet.300);
   --color-2: theme(colors.violet.600);
+  --text-color: theme(colors.violet.600);
 }
 
 .card__legendary {
-  --hue-1: 300;
-  --hue-2: 50;
-  --color-1: theme(colors.orange.300);
-  --color-2: theme(colors.orange.600);
+  --hue-1: 45;
+  --hue-2: 32;
+  --color-1: theme(colors.amber.300);
+  --color-2: theme(colors.amber.600);
+  --text-color: theme(colors.amber.600);
 }
 
 .card__shape-1 {
@@ -249,10 +281,6 @@ a {
   margin: auto;
 }
 
-.card__orange {
-  --hue-1: 300;
-  --hue-2: 30;
-}
 .card__scale-1 {
   width: 148px;
   height: 148px;
