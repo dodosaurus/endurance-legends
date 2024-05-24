@@ -4,7 +4,12 @@ import AppCard from "./app-card";
 
 export function OpenedCardsCarousel({ cards }: { cards: CardType[] }) {
   return (
-    <Carousel className="w-full max-w-[325px]">
+    <Carousel
+      className="w-full max-w-[330px]"
+      opts={{
+        containScroll: "keepSnaps",
+      }}
+    >
       <CarouselContent>
         {cards.map((_, index) => (
           <CarouselItem key={index}>
