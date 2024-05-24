@@ -4951,7 +4951,7 @@
       "team": "UAE Team Emirates",
       "points": "751",
       "birthdate": "27/11/2003",
-      "country": "",
+      "country": "Mexico",
       "height": 1.8,
       "weight": 0,
       "topRaceResults": [
@@ -8549,21 +8549,21 @@
     {
       "country": "BE",
       "date": "24.03",
-      "name": "Gent-Wevelgem in Flanders Fields ME",
+      "name": "Gent-Wevelgem",
       "lastWinner": "PEDERSEN Mads",
       "class": "1.UWT"
     },
     {
       "country": "BE",
       "date": "27.03",
-      "name": "Dwars door Vlaanderen - A travers la Flandre ME",
+      "name": "Dwars door Vlaanderen",
       "lastWinner": "JORGENSON Matteo",
       "class": "1.UWT"
     },
     {
       "country": "BE",
       "date": "31.03",
-      "name": "Ronde van Vlaanderen - Tour des Flandres ME",
+      "name": "Ronde van Vlaanderen",
       "lastWinner": "VAN DER POEL Mathieu",
       "class": "1.UWT - Monument"
     },
@@ -8647,7 +8647,7 @@
     {
       "country": "ES",
       "date": "10.08",
-      "name": "Donostia San Sebastian Klasikoa",
+      "name": "San Sebastian Klasikoa",
       "lastWinner": "",
       "class": "1.UWT"
     },
@@ -8668,7 +8668,7 @@
     {
       "country": "FR",
       "date": "25.08",
-      "name": "Bretagne Classic - Ouest-France",
+      "name": "Bretagne Classic",
       "lastWinner": "",
       "class": "1.UWT"
     },

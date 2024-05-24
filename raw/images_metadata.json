@@ -222,16 +222,88 @@
     "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/101-santos-tour-down-under.jpeg"
   },
   {
+    "cardId": 102,
+    "filename": "102-cadel-evans-race.jpeg",
+    "source": "https://www.cadelevansgreatoceanroadrace.com.au/news-media/news/elite-riders-list-confirmed-for-2024/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 103,
+    "filename": "103-uae-tour.jpeg",
+    "source": "https://www.idlprocycling.com/cycling/stage-1-favorites-of-the-uae-tour-2024-desert-winds-spell-echelon-alert-for-kooij-team-",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 104,
+    "filename": "104-omloop-het-nieuwsblad.jpeg",
+    "source": "https://www.cyclingnews.com/features/omloop-het-nieuwsblad-2024-start-list/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 105,
+    "filename": "105-strade-bianche.jpeg",
+    "source": "https://www.tour-magazin.de/profi-radsport/aktuelles/strade-bianche-2024-strecke-tv-uebertragung-live-stream-and-jedermann-rennen/",
+    "finalUrl": ""
+  },
+  {
     "cardId": 106,
     "filename": "106-paris-nice.jpeg",
     "source": "https://www.cyclingwest.com/racing/road-racing/2024-paris-nice-an-american-in-paris-nice-jorgenson-takes-the-overall-win/",
-    "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/106-paris-nice.jpeg"
+    "finalUrl": ""
+  },
+  {
+    "cardId": 107,
+    "filename": "107-tirreno-adriatico.jpeg",
+    "source": "https://www.tirrenoadriatico.it/en/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 108,
+    "filename": "108-milano-sanremo.jpeg",
+    "source": "https://www.milanosanremo.it/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 109,
+    "filename": "109-volta-ciclista.jpeg",
+    "source": "https://www.cyclingnews.com/races/volta-ciclista-a-catalunya-2024/stage-3/results/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 110,
+    "filename": "110-brugge-de-panne.jpeg",
+    "source": "https://www.betarena.sk/rubriky/sportove-clanky/cyklisticka-klasika-brugge-de-panne-info-a-vysledky_5886.html",
+    "finalUrl": ""
   },
   {
     "cardId": 111,
     "filename": "111-e3-saxo-classic.jpeg",
     "source": "https://www.bicycling.com/racing/a60278273/e3-saxo-classic-2024-results/",
-    "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/111-e3-saxo-classic.jpeg"
+    "finalUrl": ""
+  },
+  {
+    "cardId": 112,
+    "filename": "112-gent-wevelgem.jpeg",
+    "source": "https://www.globalcyclingnetwork.com/racing/results/gent-wevelgem-mads-pedersen-pips-mathieu-van-der-poel-in-two-up-sprint",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 113,
+    "filename": "113-dwars-door-vlaanderen.jpeg",
+    "source": "https://www.voorjaarsklassiekers.be/dwars-door-vlaanderen-2024/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 114,
+    "filename": "114-ronde-van-vlaanderen.jpeg",
+    "source": "https://www.rondevanvlaanderen.be/nl/wedstrijd/elite-mannen/wedstrijdinfo",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 115,
+    "filename": "115-itzulia-basque.jpeg",
+    "source": "https://itzulia.eus/en/itzulia/",
+    "finalUrl": ""
   },
   {
     "cardId": 116,
@@ -246,21 +318,111 @@
     "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/117-amstel-gold-race.jpeg"
   },
   {
+    "cardId": 118,
+    "filename": "118-fleche-wallonne.jpeg",
+    "source": "https://inrng.com/2021/04/fleche-wallonne-2021-preview/",
+    "finalUrl": ""
+  },
+  {
     "cardId": 119,
     "filename": "119-liege-bastogne-liege.jpeg",
     "source": "https://olympics.com/fr/infos/liege-bastogne-liege-2024-tadej-pogacar-vainqueur-romain-bardet-deuxieme",
-    "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/119-liege-bastogne-liege.jpeg"
+    "finalUrl": ""
+  },
+  {
+    "cardId": 120,
+    "filename": "120-tour-de-romandie.jpeg",
+    "source": "https://www.cyclingnews.com/tour-de-romandie/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 121,
+    "filename": "121-eschborn-frankfurt.jpeg",
+    "source": "https://www.sportschau.de/regional/hr/hr-radrennen-eschborn-frankfurt-2024-sperrungen-und-bahn-ausfaelle-im-ueberblick-102.html",
+    "finalUrl": ""
   },
   {
     "cardId": 122,
     "filename": "122-giro-ditalia.jpeg",
     "source": "https://www.bicycling.com/racing/a60500101/how-to-watch-2024-giro-ditalia/",
-    "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/122-giro-ditalia.jpeg"
+    "finalUrl": ""
+  },
+  {
+    "cardId": 123,
+    "filename": "123-criterium-du-dauphine.jpeg",
+    "source": "https://www.cycling-info.sk/preteky/10775",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 124,
+    "filename": "124-tour-de-suisse.jpeg",
+    "source": "https://www.trainerroad.com/forum/t/tour-de-suisse-11-20-jun-2023-anyone-watching-it/84489",
+    "finalUrl": ""
   },
   {
     "cardId": 125,
     "filename": "125-tour-de-france.jpeg",
     "source": "https://www.cyklonews.sk/21-etapa-tour-de-france-2021-profil-trasa-favoriti/",
-    "finalUrl": "https://psziumetrhqiqfckluyr.supabase.co/storage/v1/object/public/master-collection-1/125-tour-de-france.jpeg"
+    "finalUrl": ""
+  },
+  {
+    "cardId": 126,
+    "filename": "126-san-sebastian.jpeg",
+    "source": "https://pezcyclingnews.com/racing/clasica-san-sebastian-the-pez-preview/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 127,
+    "filename": "127-tour-de-pologne.jpeg",
+    "source": "https://www.tourdepologne.pl/en/2023/06/tour-de-pologne-2023-the-first-rumours-about-the-route-of-the-80th-edition/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 128,
+    "filename": "128-vuelta.jpeg",
+    "source": "https://sportivebreaks.com/en-us/grand-tours-en-us/vuelta-a-espana-final-week-tour/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 129,
+    "filename": "129-bretagne-classic.jpeg",
+    "source": "https://www.wielerflits.nl/nieuws/frans-kampioen-valentin-madouas-sprint-naar-winst-in-bretagne-classic-ouest-france/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 130,
+    "filename": "130-renewi-tour.jpeg",
+    "source": "https://www.roadcycling.cz/clanek/teunissen-byl-nejchytrejsi-a-vyhral-napinavou-klasikarskou-etapu-renewi-tour",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 131,
+    "filename": "131-bemer-cyclassics.jpeg",
+    "source": "https://www.tomsguide.com/news/watch-hamburg-cyclassics-pro-live-stream",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 132,
+    "filename": "132-cycliste-de-quebec.jpeg",
+    "source": "https://www.quebec-cite.com/fr/quoi-faire-quebec/evenements/grand-prix-cycliste-de-quebec",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 133,
+    "filename": "133-cycliste-de-montreal.jpeg",
+    "source": "https://www.journaldequebec.com/2023/09/10/place-au-grand-prix-cycliste-de-montreal",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 134,
+    "filename": "134-il-lombardia.jpeg",
+    "source": "https://www.ilombardia.it/en/",
+    "finalUrl": ""
+  },
+  {
+    "cardId": 135,
+    "filename": "135-tour-of-guangxi.jpeg",
+    "source": "https://www.cyclingnews.com/news/2021-tour-of-guangxi-tour-of-chongming-island-and-hamburg-cyclassics-cancelled-due-to-covid-19-pandemic/",
+    "finalUrl": ""
   }
 ]

@@ -3,6 +3,9 @@
 # data dumps
 /prisma/dumps
 
+# original images
+/raw/images/from_web
+
 # dependencies
 /node_modules
 /.pnp

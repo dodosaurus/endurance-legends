@@ -26,7 +26,7 @@ function AppCardFront({ card }: { card: CardType }) {
         </div>
       );
     } else {
-      return <p>{card.additionalInfo1 || ""}</p>;
+      return <p>{card.additionalInfo1 || "-"}</p>;
     }
   };
   const getRarityColorClass = (rarity: string): string => {
@@ -51,9 +51,8 @@ function AppCardFront({ card }: { card: CardType }) {
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src={`/images/final/${card.cardImageUrl}`}
         alt="app card image"
-        width={400}
-        height={330}
-        placeholder="empty"
+        width={325}
+        height={450}
       />
       <Badge className={"absolute z-2 top-3 right-3 text-xs pointer-events-none " + getRarityColorClass(card.rarity)} variant="secondary">
         <div className="flex justify-start items-center gap-1">
