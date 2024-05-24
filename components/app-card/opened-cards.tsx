@@ -29,7 +29,7 @@ const useMediaQuery = (width: number) => {
 };
 
 function OpenedCards({ assignedCards }: { assignedCards: Card[] }) {
-  const isBreakpoint = useMediaQuery(1400);
+  const isBreakpoint = useMediaQuery(1280);
 
   return (
     <div className="flex justify-center items-center gap-6">
