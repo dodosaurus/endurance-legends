@@ -18,7 +18,9 @@ function MainCard() {
   };
   return (
     <div className="flex justify-center items-center">
-      <AppCard card={testCard} />
+      <button className="glassy-button">
+        <span>Open pack</span>
+      </button>
     </div>
   );
 }

@@ -10,20 +10,31 @@ function OpenPackButton() {
   const { clientAccBalance } = useAppContext();
 
   const userHasEnoughCoins = () => {
-    return clientAccBalance >= PACK_PRICE
-  }
+    return clientAccBalance >= PACK_PRICE;
+  };
 
   const { pending } = useFormStatus();
-  
+
   return (
-    <Button
-      disabled={pending || !userHasEnoughCoins()}
-      className={"bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32 " + (!userHasEnoughCoins() ? "pointer-events-none" : "")}
-      aria-disabled={!userHasEnoughCoins()}
-      tabIndex={userHasEnoughCoins() ? 0 : -1}
-    >
-      {pending ? <Loader2 className="h-4 w-4 animate-spin" /> : "Open pack"}
-    </Button>
+    <>
+      {userHasEnoughCoins() && (
+        <button
+          disabled={pending || !userHasEnoughCoins()}
+          className={
+            "w-32 z-10 glassy-button flex justify-center items-center " +
+            (!userHasEnoughCoins() ? "pointer-events-none" : "")
+          }
+          aria-disabled={!userHasEnoughCoins()}
+          tabIndex={userHasEnoughCoins() ? 0 : -1}
+        >
+          <span className="w-32">{pending ? <Loader2 className="h-4 w-4 animate-spin ml-8" /> : "Open pack"}</span>
+        </button>
+      )}
+
+      {!userHasEnoughCoins() && (
+        <span className="text-xl text-slate-400">Not enough coins. Go out and earn some :)</span>
+      )}
+    </>
   );
 }
 

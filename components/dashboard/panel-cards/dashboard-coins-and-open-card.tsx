@@ -12,7 +12,7 @@ export default function DashboardCoinsAndOpenCard({ athleteId, accountBalance }:
   return (
     <Card className="flex flex-col justify-center items-center flex-grow bg-cyan-100 dark:bg-amber-950">
       <AccountBalance accountBalance={accountBalance} />
-      <CardContent className="flex flex-col items-center justify-center gap-2">
+      <CardContent className="flex flex-col items-center justify-center gap-2 pt-2">
         <OpeningDrawer athleteId={athleteId} />
         <AvailablePacks />
       </CardContent>
