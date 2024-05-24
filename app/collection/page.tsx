@@ -12,6 +12,8 @@ export default async function Collection() {
   const { athleteId } = await verifySession();
   const { cards, ownedCardsIds } = await collectionSync(athleteId as number);
 
+  // console.log(cards.map(card => card.cardImageUrl));
+
   //get number of unique owned cards to display
   const ownedCardsCount = countUniqueMembers(ownedCardsIds);
 

@@ -26,13 +26,16 @@ const main = async () => {
 
       let cardImageUrl;
       let cardImageSource;
+      let cardImageName;
 
       if (specific_image_metadata) {
         cardImageUrl = specific_image_metadata.filename;
         cardImageSource = specific_image_metadata.source;
+        cardImageName = specific_image_metadata.name;
       } else {
         cardImageUrl = "";
         cardImageSource = "";
+        cardImageName = "";
       }
 
       return {
@@ -45,6 +48,7 @@ const main = async () => {
         rarity: "common",
         cardImageUrl,
         cardImageSource,
+        cardImageName,
       };
     });
 
@@ -74,13 +78,16 @@ const main = async () => {
       //get image if we have it
       let specific_image_metadata = images_metadata.find((metadata) => metadata.cardId === id);
 
+      let cardImageName;
       let cardImageUrl;
       let cardImageSource;
 
       if (specific_image_metadata) {
+        cardImageName = specific_image_metadata.name;
         cardImageUrl = specific_image_metadata.filename;
         cardImageSource = specific_image_metadata.source;
       } else {
+        cardImageName = "";
         cardImageUrl = "";
         cardImageSource = "";
       }
@@ -95,6 +102,7 @@ const main = async () => {
         rarity,
         cardImageUrl,
         cardImageSource,
+        cardImageName,
       };
     });
 

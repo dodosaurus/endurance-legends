@@ -5,6 +5,7 @@ import { Badge } from "../ui/badge";
 import AppCardLayout from "./app-card-layout";
 import type { Card as CardType } from "@prisma/client";
 import { getIsoCountryCode } from "@/lib/utils";
+import cardImages from "@/lib/card-images";
 
 function AppCardFront({ card }: { card: CardType }) {
   const getRightCountryCodeForFlag = (countryString: string) => {
@@ -22,11 +23,11 @@ function AppCardFront({ card }: { card: CardType }) {
       return (
         <div>
           <span className="font-semibold">Last winner: </span>
-          {card.additionalInfo1}
+          {card.additionalInfo1 || "N/A"}
         </div>
       );
     } else {
-      return <p>{card.additionalInfo1 || "-"}</p>;
+      return <p>{card.additionalInfo1}</p>;
     }
   };
   const getRarityColorClass = (rarity: string): string => {
@@ -45,16 +46,33 @@ function AppCardFront({ card }: { card: CardType }) {
     return "bg-slate-300";
   };
 
+  const getTitleFontSize = (title: string): string => {
+    if (title.length <= 20) {
+      return "text-lg";
+    } else if (title.length <= 30) {
+      return "text-sm";
+    } else {
+      return "text-xs";
+    }
+  };
+
+  const resolveImageImport = (str: keyof typeof cardImages) => {
+    return cardImages[str];
+  };
+
   return (
     <AppCardLayout face="front" rarity={card.rarity}>
       <Image
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        src={`/images/final/${card.cardImageUrl}`}
+        src={resolveImageImport(card.cardImageName as keyof typeof cardImages)}
         alt="app card image"
-        width={325}
-        height={450}
+        placeholder="blur"
+        priority
       />
-      <Badge className={"absolute z-2 top-3 right-3 text-xs pointer-events-none " + getRarityColorClass(card.rarity)} variant="secondary">
+      <Badge
+        className={"absolute z-2 top-3 right-3 text-xs pointer-events-none " + getRarityColorClass(card.rarity)}
+        variant="secondary"
+      >
         <div className="flex justify-start items-center gap-1">
           <span>{card.rarity}</span>
         </div>
@@ -65,7 +83,7 @@ function AppCardFront({ card }: { card: CardType }) {
             <span>{card.id}</span>
             <div className="flex justify-end items-center gap-3">
               <CircleFlag className="w-6 h-6" countryCode={getRightCountryCodeForFlag(card.country) || ""} />
-              <h2 className={card.name.length >= 17 ? "text-lg" : "text-xl"}>{card.name}</h2>
+              <h2 className={getTitleFontSize(card.name)}>{card.name}</h2>
             </div>
           </CardTitle>
           <CardDescription className="flex justify-end items-center">
