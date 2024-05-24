@@ -37,7 +37,7 @@ const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
       </form>
       <DrawerContent>
         <DrawerHeader>
-          <DrawerTitle className="py-5 text-center">NICE ! You just opened one pack :)</DrawerTitle>
+          <DrawerTitle className="py-5 text-center">NICE ! You have just opened one pack :)</DrawerTitle>
           <DrawerDescription className="py-5 text-center">A list of acquired cards.</DrawerDescription>
         </DrawerHeader>
         <OpenedCards assignedCards={newCards} />

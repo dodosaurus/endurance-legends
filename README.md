@@ -58,6 +58,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
+- [ ] responsive card title for different char lenghts (text-lg for 17 chars, text-sm for 20 chars, text-xs for 25 chars)
 - [ ] CSS - implement flip card
 - [ ] images for other cards (a lot of work :))
 - [ ] on activity show more info - map for ex. when clicked and row is expanded

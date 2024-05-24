@@ -65,7 +65,7 @@ function AppCardFront({ card }: { card: CardType }) {
             <span>{card.id}</span>
             <div className="flex justify-end items-center gap-3">
               <CircleFlag className="w-6 h-6" countryCode={getRightCountryCodeForFlag(card.country) || ""} />
-              <h2 className={card.name.length >= 20 ? "text-sm" : "text-xl"}>{card.name}</h2>
+              <h2 className={card.name.length >= 17 ? "text-lg" : "text-xl"}>{card.name}</h2>
             </div>
           </CardTitle>
           <CardDescription className="flex justify-end items-center">
