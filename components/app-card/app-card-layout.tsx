@@ -1,4 +1,12 @@
-function AppCardLayout({ children, rarity = "common" }: { children: React.ReactNode; rarity?: string }) {
+function AppCardLayout({
+  children,
+  face,
+  rarity = "common",
+}: {
+  children: React.ReactNode;
+  face: "front" | "back";
+  rarity?: string;
+}) {
   const getRarityColorClass = (rarity: string): string => {
     if (rarity === "common") {
       return "";
@@ -8,7 +16,14 @@ function AppCardLayout({ children, rarity = "common" }: { children: React.ReactN
   };
 
   return (
-    <div className={"card__article flex flex-col justify-between items-center rounded-md shadow-md " + getRarityColorClass(rarity)}>
+    <div
+      className={
+        "app-card-" +
+        face +
+        " card__article flex flex-col justify-between items-center rounded-md shadow-md " +
+        getRarityColorClass(rarity)
+      }
+    >
       {children}
     </div>
   );

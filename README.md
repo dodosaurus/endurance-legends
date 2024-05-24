@@ -54,12 +54,12 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] find some pictures for some rarity cards, think about model
 - [x] card preview in collection (only owned cards!!!) (app-card-front in modal)
 - [x] adding carousel for mobile view for opening cards, fix preview width, throw out some columns for mobile in collection
+- [x] CSS - card back design (three shape with our accent color from video)
 
 ## TODO
 
-- [ ] images for other cards (a lot of work :))
-- [ ] CSS - card back design (three shape with our accent color from video)
 - [ ] CSS - implement flip card
+- [ ] images for other cards (a lot of work :))
 - [ ] on activity show more info - map for ex. when clicked and row is expanded
 - [ ] placeholder for image and again seed and use whole DB, placeholder also as fallback when loading image
 - [ ] implement carousel with 2 cards per turn for medium screens

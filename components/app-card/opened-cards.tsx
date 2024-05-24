@@ -1,7 +1,7 @@
 import { Card } from "@prisma/client";
-import AppCardFront from "./app-card-front";
 import { useState, useCallback, useEffect } from "react";
 import { OpenedCardsCarousel } from "./opened-cards-carousel";
+import AppCard from "./app-card";
 
 const useMediaQuery = (width: number) => {
   const [targetReached, setTargetReached] = useState(false);
@@ -37,10 +37,10 @@ function OpenedCards({ assignedCards }: { assignedCards: Card[] }) {
       {isBreakpoint && <OpenedCardsCarousel cards={assignedCards} />}
       {!isBreakpoint && (
         <>
-          <AppCardFront card={assignedCards[0]} />
-          <AppCardFront card={assignedCards[1]} />
-          <AppCardFront card={assignedCards[2]} />
-          <AppCardFront card={assignedCards[3]} />
+          <AppCard card={assignedCards[0]} />
+          <AppCard card={assignedCards[1]} />
+          <AppCard card={assignedCards[2]} />
+          <AppCard card={assignedCards[3]} />
         </>
       )}
     </div>

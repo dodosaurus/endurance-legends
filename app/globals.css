@@ -127,8 +127,6 @@
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --white-color: #fff;
-  --black-color: hsl(210, 12%, 15%);
-  --body-color: hsl(210, 16%, 12%);
   --container-color: #f1f5f9;
   --text-color: theme(colors.cyan.500);
   /*========== Font and typography ==========*/
@@ -136,38 +134,12 @@
   --body-font: "Inter", sans-serif;
   --h2-font-size: 1.25rem;
   --normal-font-size: 0.938rem;
-}
-@media screen and (min-width: 1024px) {
-  :root {
-    --h2-font-size: 1.5rem;
-    --normal-font-size: 1rem;
-  }
-}
 
-/*=============== BASE ===============*/
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: var(--body-font);
-  font-size: var(--normal-font-size);
-  background-color: var(--body-color);
-}
-
-a {
-  text-decoration: none;
+  --card-width: 325px;
+  --card-height: 450px;
 }
 
 /*=============== CARD ===============*/
-.container {
-  display: grid;
-  place-items: center;
-  margin-inline: 1.5rem;
-}
-
 .card__container {
   display: grid;
   gap: 2rem;
@@ -196,8 +168,8 @@ a {
   margin-bottom: 1.5rem;
 }
 .card__article {
-  width: 325px;
-  height: 450px;
+  width: var(--card-width);
+  height: var(--card-height);
   --hue-1: 185;
   --hue-2: 187;
   --color-1: theme(colors.cyan.50);
@@ -348,3 +320,34 @@ a {
     padding: 4.5rem 2rem 3.5rem;
   }
 }
+
+/*=============== CARD FLIPPING MECHANISM ===============*/
+
+.card-container {
+  height: var(--card-height);
+  width: var(--card-width);
+}
+
+/* .card-container:hover > .app-card {
+  cursor: pointer;
+  transform: rotateY(180deg);
+} */
+
+.app-card {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* transition: transform 1500ms;
+  transform-style: preserve-3d; */
+}
+
+/* .app-card-front,
+.app-card-back {
+  height: 100%;
+  width: 100%;
+  border-radius: 2rem;
+  box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
+  position: absolute;
+  backface-visibility: hidden;
+} */
+

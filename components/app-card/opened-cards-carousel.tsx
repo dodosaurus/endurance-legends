@@ -1,6 +1,6 @@
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import type { Card as CardType } from "@prisma/client";
-import AppCardFront from "./app-card-front";
+import AppCard from "./app-card";
 
 export function OpenedCardsCarousel({ cards }: { cards: CardType[] }) {
   return (
@@ -8,7 +8,7 @@ export function OpenedCardsCarousel({ cards }: { cards: CardType[] }) {
       <CarouselContent>
         {cards.map((_, index) => (
           <CarouselItem key={index}>
-            <AppCardFront card={cards[index]} />
+            <AppCard card={cards[index]} />
           </CarouselItem>
         ))}
       </CarouselContent>
