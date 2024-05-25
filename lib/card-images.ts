@@ -33,7 +33,13 @@ import dylanGroenewegen from "@/public/images/final/32-dylan-groenewegen.jpg";
 import felixGall from "@/public/images/final/33-felix-gall.jpeg";
 import thomasPidcock from "@/public/images/final/34-thomas-pidcock.jpg";
 import guillaumeMartin from "@/public/images/final/35-guillaume-martin.jpg";
+import timWellens from "@/public/images/final/36-tim-wellens.jpeg";
+import matteoJorgenson from "@/public/images/final/37-matteo-jorgenson.jpg";
+import benoitCosnefroy from "@/public/images/final/38-benoit-cosnefroy.jpeg";
+import tomsSkujins from "@/public/images/final/39-toms-skujins.jpg";
+import michaelMatthews from "@/public/images/final/40-michael-matthews.jpeg";
 import jonathanMilan from "@/public/images/final/41-jonathan-milan.jpeg";
+
 import santosTourDownUnder from "@/public/images/final/101-santos-tour-down-under.jpeg";
 import cadelEvansRace from "@/public/images/final/102-cadel-evans-race.jpeg";
 import uaeTour from "@/public/images/final/103-uae-tour.jpg";
@@ -106,6 +112,11 @@ export default {
   felixGall,
   thomasPidcock,
   guillaumeMartin,
+  timWellens,
+  matteoJorgenson,
+  benoitCosnefroy,
+  tomsSkujins,
+  michaelMatthews,
   jonathanMilan,
   santosTourDownUnder,
   cadelEvansRace,
