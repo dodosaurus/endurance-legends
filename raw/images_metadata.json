@@ -246,6 +246,60 @@
     "name": "jonathanMilan"
   },
   {
+    "cardId": 42,
+    "filename": "42-stefan-kung.jpg",
+    "source": "https://www.total-velo.com/stefan-kung-je-vais-passer-un-cap/",
+    "name": "stefanKung"
+  },
+  {
+    "cardId": 43,
+    "filename": "43-richard-carapaz.jpg",
+    "source": "https://www.globalcyclingnetwork.com/racing/results/tour-de-romandie-richard-carapaz-takes-stunning-mountain-win-as-juan-ayuso-cracks",
+    "name": "richardCarapaz"
+  },
+  {
+    "cardId": 44,
+    "filename": "44-filippo-ganna.jpg",
+    "source": "https://www.idlprocycling.com/cycling/individual-starting-times-time-trial-giro-ditalia-2024-what-time-do-arensman-ganna-thomas-and-pogacar-leave",
+    "name": "filippoGanna"
+  },
+  {
+    "cardId": 45,
+    "filename": "45-jhonatan-narvaez.jpeg",
+    "source": "https://www.cyclingnews.com/news/i-think-pogacar-went-too-long-jhonatan-narvaez-tears-up-script-in-giro-ditalia-opener/",
+    "name": "jhonathanNarvaez"
+  },
+  {
+    "cardId": 46,
+    "filename": "46-danny-van-poppel.jpeg",
+    "source": "https://www.stickybottle.com/blog/van-poppel-keen-to-take-giro-chance-after-outpacing-bennett-welsford/",
+    "name": "dannyVanPoppel"
+  },
+  {
+    "cardId": 47,
+    "filename": "47-romain-bardet.jpg",
+    "source": "https://www.sport.fr/cyclisme/tirreno-adriatico-abandon-pour-romain-bardet-1138684.shtm",
+    "name": "romainBardet"
+  },
+  {
+    "cardId": 48,
+    "filename": "48-luca-mozzato.jpeg",
+    "source": "https://naszosie.pl/2024/04/01/luca-mozzato-bylbym-szczesliwy-w-pierwszej-20-podium/",
+    "name": "lucaMozzato"
+  },
+  {
+    "cardId": 49,
+    "filename": "49-valentin-madouas.jpeg",
+    "source": "https://en.wikipedia.org/wiki/File:Valentin_Madouas.jpg",
+    "name": "valentinMadouas"
+  },
+  {
+    "cardId": 50,
+    "filename": "50-alex-aranburu.jpg",
+    "source": "https://cyclinguptodate.com/cycling/alex-aranburu-to-leave-movistar-team-after-2024-to-join-french-team-according-to-reports",
+    "name": "alexAranburu"
+  },
+  {
     "cardId": 101,
     "filename": "101-santos-tour-down-under.jpeg",
     "source": "https://www.globalcyclingnetwork.com/racing/races/road/elite-men/tour-down-under",

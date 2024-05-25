@@ -39,7 +39,15 @@ import benoitCosnefroy from "@/public/images/final/38-benoit-cosnefroy.jpeg";
 import tomsSkujins from "@/public/images/final/39-toms-skujins.jpg";
 import michaelMatthews from "@/public/images/final/40-michael-matthews.jpeg";
 import jonathanMilan from "@/public/images/final/41-jonathan-milan.jpeg";
-
+import stefanKung from "@/public/images/final/42-stefan-kung.jpg";
+import richardCarapaz from "@/public/images/final/43-richard-carapaz.jpg";
+import filippoGanna from "@/public/images/final/44-filippo-ganna.jpg";
+import jhonatanNarvaez from "@/public/images/final/45-jhonatan-narvaez.jpeg";
+import dannyVanPoppel from "@/public/images/final/46-danny-van-poppel.jpeg";
+import romainBardet from "@/public/images/final/47-romain-bardet.jpg";
+import lucaMozzato from "@/public/images/final/48-luca-mozzato.jpeg";
+import valentinMadouas from "@/public/images/final/49-valentin-madouas.jpeg";
+import alexAranburu from "@/public/images/final/50-alex-aranburu.jpg";
 import santosTourDownUnder from "@/public/images/final/101-santos-tour-down-under.jpeg";
 import cadelEvansRace from "@/public/images/final/102-cadel-evans-race.jpeg";
 import uaeTour from "@/public/images/final/103-uae-tour.jpg";
@@ -75,6 +83,7 @@ import cyclisteDeQuebec from "@/public/images/final/132-cycliste-de-quebec.jpeg"
 import cyclisteDeMontreal from "@/public/images/final/133-cycliste-de-montreal.jpg";
 import ilLombardia from "@/public/images/final/134-il-lombardia.jpeg";
 import tourOfGuangxi from "@/public/images/final/135-tour-of-guangxi.jpeg";
+import placeholder from "@/public/images/final/placeholder.jpeg";
 
 export default {
   tadejPogacar,
@@ -118,6 +127,15 @@ export default {
   tomsSkujins,
   michaelMatthews,
   jonathanMilan,
+  stefanKung,
+  richardCarapaz,
+  filippoGanna,
+  jhonatanNarvaez,
+  dannyVanPoppel,
+  romainBardet,
+  lucaMozzato,
+  valentinMadouas,
+  alexAranburu,
   santosTourDownUnder,
   cadelEvansRace,
   uaeTour,
@@ -153,4 +171,5 @@ export default {
   cyclisteDeMontreal,
   ilLombardia,
   tourOfGuangxi,
+  placeholder
 };

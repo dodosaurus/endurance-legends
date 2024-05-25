@@ -35,7 +35,7 @@ const main = async () => {
       } else {
         cardImageUrl = "";
         cardImageSource = "";
-        cardImageName = "tadejPogacar";
+        cardImageName = "placeholder";
       }
       return {
         id,
