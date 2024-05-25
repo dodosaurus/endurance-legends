@@ -381,7 +381,7 @@
     border-radius: inherit;
     background-color: var(--_surface);
     transition: scale var(--_transition-speed), translate var(--_transition-speed);
-    animation: exit forwards var(--_transition-speed);
+    animation: exit_btn forwards var(--_transition-speed);
   }
 
   &:hover,
@@ -399,7 +399,7 @@
     &::after {
       scale: 0.95;
       translate: 0 0.125rem;
-      animation: enter forwards var(--_transition-speed);
+      animation: enter_btn forwards var(--_transition-speed);
     }
   }
 
@@ -416,7 +416,7 @@
   }
 }
 
-@keyframes enter {
+@keyframes enter_btn {
   from {
     transform: translate(0, 0);
   }
@@ -428,7 +428,7 @@
   }
 }
 
-@keyframes exit {
+@keyframes exit_btn {
   from {
     transform: translate(
       calc(var(--_x-motion) * var(--_motion-factor) * -1),

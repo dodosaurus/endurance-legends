@@ -56,6 +56,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] adding carousel for mobile view for opening cards, fix preview width, throw out some columns for mobile in collection
 - [x] CSS - card back design (three shape with our accent color from video)
 - [x] responsive card title for different char lenghts (text-lg for 17 chars, text-sm for 20 chars, text-xs for 25 chars)
+- [x] CSS for glass button is interfering with card preview!!!! fix
 
 ## TODO
 
