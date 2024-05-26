@@ -57,48 +57,60 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] CSS - card back design (three shape with our accent color from video)
 - [x] responsive card title for different char lenghts (text-lg for 17 chars, text-sm for 20 chars, text-xs for 25 chars)
 - [x] CSS for glass button is interfering with card preview!!!! fix
+- [x] placeholder for image and again seed and use whole DB, placeholder also as fallback when loading image
+- [x] link on activities
 
 ## TODO
 
-- [ ] on activity show more info - map for ex. when clicked and row is expanded
-- [ ] placeholder for image and again seed and use whole DB, placeholder also as fallback when loading image
+Strava DEV guideline:
+- [ ] footer with Powered by Strava
+- [ ] to footer add honorable mentions (new route) for other major sources used to make app (ex. card back design, shadcn, Strava API ...)
+
+Dashboard rework:
+- [ ] button Open should be displayed and disabled when not enough coins
+- activities will display now also every Transaction (new symbol to sign newest, new column to signal - or +)
+- [ ] change data for table, change columns
+
+Responsivity:
 - [ ] implement carousel with 2 cards per turn for medium screens
-- [ ] images for other cards (a lot of work :))
-- adhere to Strava guidelines
-  - [ ] footer with Powered by Strava
-  - [ ] link on activities
-- landing page
-  - [ ] some nice design (some background effect from accent color, some AI generted image, pitch and slogan)
-- [ ] CSS - implement flip card
-- [ ] history should be separate route, and it should display earnings table; History button will be under profile in info card mdoal
-- [ ] activites on dashboard should defaultly display only new activites, the rest of table should be expandable (SPA approach, no scrolling allowed by default on dashboard)
-- [ ] display image source, other gathered data from PCS
 - [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right
-- earnings
-  - activity table should be substited by Earnings table, which will also list besides activites (+coins), new user bonus (+coins), spendings on boosters (-coins)
-  - [ ] implement new data model and table (id, event name - enum?, coin transaction, activityId (if it is activity, link it))
-  - [ ] trigger events on new activity addition, on first login, on booster purchase
-  - [ ] ui desing - table rows should have distinguishable design to let user know what event it was
-  - [ ] column with earnd coins per earning (badge with SVG), remove badge from country
+
+Landing page:
+- [ ] Login vs. Register cards - logic behind it (right column)
+- rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app) - this should be case for LOGIN from lannding page
+- [ ] AI generated image? OR/AND some card backs/cards stacked and panned (left column)
+- [ ] short catchy slogan/phrase (left column)
+
+Opening:
+- [ ] implement flip card (maybe not possible if front/back are not absolute)
+- [ ] add booster phase before user see cards and transition (how will booster look and the consequent animation)
+
+Card:
+- [ ] display image source, other gathered data from PCS (card preview right panel)
+- [ ] images for other cards (a lot of work :) - maybe not that prio, because when we release prod version, we probably do new snapshot of UCI rankings
+
+End game:
+- plan hoow should it looks like
+- think about how we can transition to different rewards (some sponsors for some subcollection of cards)
+- [ ] season mechanic (collection for season, hall of fame with all gathered cards, preseason?)
+- [ ] handling situations where user already own whole collection
+
+Testing:
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
-- [ ] error rate limit page redirect when 429 is returned from Strava
-- [ ] rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app)
+
+Trading:
+- [ ] reading friends from Strava and finding out which one is on EV already
+- [ ] clicking on card give option in modal to Request Trade
+- [ ] implement pending trades component on navbar
+
+Misc:
 - [ ] make /admin only accessible to username jozef_kov
-- opening booster phase
-  - [ ] core CSS desing for every card
-  - [ ] initial design of the booster/chest and animation for it
-  - [ ] desktop/mobile showing of the opened cards, animation for not revealed rare card
-  - [ ] revealing animation for common and uncommon cards
-- trading
-  - [ ] reading friends from Strava and finding out which one is on EV already
-  - [ ] clicking on card give option in modal to Request Trade
-  - [ ] implement pending trades component on navbar
-- [ ] deauthorize on logout here: POST https://www.strava.com/oauth/deauthorize
+- [ ] error rate limit page redirect when 429 is returned from Strava
+- [ ] deauthorize (maybe not, this should be separate option in profile to cancel the authorization) on logout here: POST https://www.strava.com/oauth/deauthorize
 - [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
-- [ ] error management (Sentry?)
-- [ ] setting up analytics (Posthog?)
-- [ ] handling situations where user already own whole collection (no really needed when he can own also copies)
 - [ ] additional to loading.tsx add lazy loading on tables (on other components)
+- [ ] setting up analytics (Posthog?)
+- [ ] error management (Sentry?)
  
 
 ## Sources mentions
