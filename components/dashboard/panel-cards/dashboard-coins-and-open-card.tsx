@@ -10,7 +10,7 @@ type Props = {
 
 export default function DashboardCoinsAndOpenCard({ athleteId, accountBalance }: Props) {
   return (
-    <Card className="flex flex-col justify-center items-center flex-grow bg-cyan-100 dark:bg-amber-950">
+    <Card className="flex flex-col justify-center items-center min-w-96 border-2 border-cyan-500">
       <AccountBalance accountBalance={accountBalance} />
       <CardContent className="flex flex-col items-center justify-center gap-2 pt-2">
         <OpeningDrawer athleteId={athleteId} />

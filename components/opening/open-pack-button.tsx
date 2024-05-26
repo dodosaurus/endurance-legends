@@ -16,25 +16,25 @@ function OpenPackButton() {
   const { pending } = useFormStatus();
 
   return (
-    <>
-      {userHasEnoughCoins() && (
-        <button
-          disabled={pending || !userHasEnoughCoins()}
-          className={
-            "w-32 z-10 glassy-button flex justify-center items-center " +
-            (!userHasEnoughCoins() ? "pointer-events-none" : "")
-          }
-          aria-disabled={!userHasEnoughCoins()}
-          tabIndex={userHasEnoughCoins() ? 0 : -1}
-        >
-          <span className="w-32">{pending ? <Loader2 className="h-4 w-4 animate-spin ml-8" /> : "Open pack"}</span>
-        </button>
+    <button
+      disabled={pending || !userHasEnoughCoins()}
+      className={
+        "w-32 z-10 glassy-button flex justify-center items-center " +
+        (!userHasEnoughCoins() ? "pointer-events-none w-full" : "")
+      }
+      aria-disabled={!userHasEnoughCoins()}
+      tabIndex={userHasEnoughCoins() ? 0 : -1}
+    >
+      {userHasEnoughCoins() ? (
+        <span className="w-32">
+          {pending ? <Loader2 className="h-4 w-4 animate-spin ml-8" /> : "Open pack"}
+        </span>
+      ) : (
+        <span className="w-full !bg-slate-300">
+          Not enough coins.
+        </span>
       )}
-
-      {!userHasEnoughCoins() && (
-        <span className="text-xl text-slate-400">Not enough coins. Go out and earn some :)</span>
-      )}
-    </>
+    </button>
   );
 }
 

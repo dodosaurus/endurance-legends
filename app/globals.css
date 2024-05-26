@@ -326,7 +326,6 @@
 :root {
   --button-text: white;
   --button-surface: theme(colors.cyan.500);
-  --button-surface-disabled: theme(colors.slate.300);
 }
 
 .glassy-button {
@@ -442,10 +441,6 @@
 
 .glassy-button {
   --_surface: var(--button-surface);
-}
-
-:disabled .glassy-button {
-  --_surface: var(--button-surface-disabled);
 }
 
 @layer not-demo-related {
