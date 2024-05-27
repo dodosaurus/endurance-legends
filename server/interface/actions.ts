@@ -5,7 +5,7 @@ import { revalidateStravaAccessToken } from "../strava";
 import { assignNewCardSetToOwner, generateAssignmentOfNewCards } from "../opening-engine";
 import { Card, User } from "@prisma/client";
 import { revalidatePath } from "next/cache";
-import { findUserByAthleteId } from "../db/queries";
+import { findUserByAthleteId, getCollectionSizeFromDB } from "../db/queries";
 
 export async function logout() {
   deleteSession();
@@ -40,9 +40,12 @@ export async function getUserForProfileSegment(): Promise<User | null> {
   const { isAuth, athleteId } = await verifySessionWithoutRedirect();
 
   if (!isAuth) {
-    return null
+    return null;
   } else {
-    return await findUserByAthleteId(athleteId as number, true)
+    return await findUserByAthleteId(athleteId as number, true);
   }
+}
 
+export async function getCollectionSize(): Promise<number | null> {
+  return await getCollectionSizeFromDB();
 }

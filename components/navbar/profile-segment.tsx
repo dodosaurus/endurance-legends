@@ -14,9 +14,6 @@ async function ProfileSegment() {
     <div>
       {user ? (
         <div className="flex justify-between items-center gap-5">
-          <Link href="/collection">
-            <Button className="bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32">My collection</Button>
-          </Link>
           <Dialog>
             <DialogTrigger>
               <Avatar>
@@ -37,15 +34,15 @@ async function ProfileSegment() {
                 </div>
                 <InfoTimes lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
               </DialogHeader>
-              <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
+              <div className="flex flex-col sm:flex-row justify-start items-center gap-2">
                 <a target="_blank" href={`https://www.strava.com/athletes/${user.athleteId}`} rel="noopener noreferrer">
                   <Button className="bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32">View on Strava</Button>
                 </a>
                 <SynchronizeForm synchronize={synchronize} />
-                <LogoutForm logout={logout} />
               </div>
             </DialogContent>
           </Dialog>
+          <LogoutForm logout={logout} />
         </div>
       ) : (
         <div id="no_user_loaded"></div>

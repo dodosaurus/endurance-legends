@@ -253,3 +253,7 @@ export async function findAllTransactions() {
 
   return transactions;
 }
+
+export async function getCollectionSizeFromDB() {
+  return await prisma.card.count();
+}
