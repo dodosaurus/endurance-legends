@@ -31,7 +31,7 @@ function CardPreview({ children, card }: { children: React.ReactNode; card: Card
   return (
     <Dialog>
       <DialogTrigger asChild>{children}</DialogTrigger>
-      <DialogContent className={`flex justify-between items-center p-8 ${getRarityColorClass(card.rarity)}`}>
+      <DialogContent className={`flex flex-col md:flex-row justify-between items-center p-8 ${getRarityColorClass(card.rarity)}`}>
         <AppCardFront card={card} />
         <CardPreviewInfo card={card} />
       </DialogContent>

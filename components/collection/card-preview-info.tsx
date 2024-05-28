@@ -18,7 +18,7 @@ function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: Card; numberOfCop
   };
 
   return (
-    <div className={`border-2 rounded-md p-3 bg-white ${getRarityColorClass(card.rarity)}`}>
+    <div className={`border-2 shadow-md rounded-md p-3 bg-white ${getRarityColorClass(card.rarity)}`}>
       {card.rarity === "common" && (
         <article className="flex flex-col gap-2">
           <h3>
