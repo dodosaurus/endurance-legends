@@ -36,10 +36,10 @@ export default async function DashboardTable({ user, activities }: Props) {
       <CardHeader className="px-7">
         <CardTitle>Your activities</CardTitle>
         <CardDescription className="flex flex-col gap-2 items-start justify-center">
-          <span>
-            Latest recorded activities. Activity must be public, done later than you first register here and need to be
-            type of Ride or Run.
-          </span>
+          <p>
+            Activities must be public, done after your registration here and need to be
+            type of Ride or Run. For one pack you need to either run <span className="font-semibold">10 km</span> or ride <span className="font-semibold">40 km</span>.
+          </p>
         </CardDescription>
       </CardHeader>
       <CardContent>

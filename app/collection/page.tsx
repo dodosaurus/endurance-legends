@@ -1,5 +1,5 @@
-import AllCardsTable from "@/components/collection/all-cards-table";
-import OwnedCardsTable from "@/components/collection/owned-cards-table";
+import AllCardsGrid from "@/components/collection/all-cards-grid";
+import OwnedCardsGrid from "@/components/collection/owned-cards-grid";
 import { Button } from "@/components/ui/button";
 import { Card, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
@@ -22,15 +22,15 @@ export default async function Collection() {
       <Card>
         <CardHeader>
           <CardTitle>My collection</CardTitle>
-          <CardDescription className="flex flex-col items-start justify-between gap-5">
+          <CardDescription className="flex flex-col md:flex-row items-center justify-between gap-5">
             <span>
               Below you can see whole collection and which cards you do own. Get out for a run or ride and earn more!
             </span>
             <div>
-            <Link href="/dashboard">
-              <Button variant={"secondary"}>Back to dashboard</Button>
-            </Link>
-          </div>
+              <Link href="/dashboard">
+                <Button variant={"secondary"}>Back to dashboard</Button>
+              </Link>
+            </div>
           </CardDescription>
         </CardHeader>
       </Card>
@@ -41,14 +41,21 @@ export default async function Collection() {
             <TabsTrigger value="all">All cards</TabsTrigger>
           </TabsList>
           <div>
-            <p>Collected <span className="font-semibold">{ownedCardsCount} / {cards.length}</span> </p>
+            <p>
+              Collected{" "}
+              <span className="font-semibold">
+                {ownedCardsCount} / {cards.length}
+              </span>{" "}
+            </p>
           </div>
         </div>
         <TabsContent value="owned">
-          <OwnedCardsTable cards={cards} ownedCardsIds={ownedCardsIds} />
+          {/* <OwnedCardsTable cards={cards} ownedCardsIds={ownedCardsIds} /> */}
+          <OwnedCardsGrid cards={cards} ownedCardsIds={ownedCardsIds} />
         </TabsContent>
         <TabsContent value="all">
-          <AllCardsTable cards={cards} ownedCardsIds={ownedCardsIds} />
+          {/* <AllCardsTable cards={cards} ownedCardsIds={ownedCardsIds} /> */}
+          <AllCardsGrid cards={cards} ownedCardsIds={ownedCardsIds} />
         </TabsContent>
       </Tabs>
     </div>
