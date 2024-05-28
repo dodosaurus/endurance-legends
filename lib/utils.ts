@@ -105,3 +105,17 @@ export const getRarityColorClass = (rarity: string, colorStrength: string): stri
   }
   return `slate-${colorStrength}`;
 };
+
+export const sortCardsByRarity = (a: any, b: any) => {
+  if (a.rarity === "common") return -1;
+  if (b.rarity === "common") return 1;
+  if (a.rarity === "uncommon") return -1;
+  if (b.rarity === "uncommon") return 1;
+  if (a.rarity === "rare") return -1;
+  if (b.rarity === "rare") return 1;
+  if (a.rarity === "epic") return -1;
+  if (b.rarity === "epic") return 1;
+  if (a.rarity === "legendary") return -1;
+  if (b.rarity === "legendary") return 1;
+  return 0;
+};
