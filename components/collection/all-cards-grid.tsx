@@ -2,6 +2,7 @@ import { compareCardToOwnedCards } from "@/lib/utils";
 import { Card } from "@prisma/client";
 import AppCardFront from "../app-card/app-card-front";
 import AppCardPlaceholder from "./app-card-placeholder";
+import CardPreview from "./card-preview";
 
 type AllCardsGridProps = {
   cards: Card[];
@@ -12,9 +13,15 @@ function AllCardsGrid({ cards, ownedCardsIds }: AllCardsGridProps) {
     <div className="flex flex-wrap justify-center gap-4 p-4">
       {cards.map((card) => (
         <div key={card.id}>
-          {compareCardToOwnedCards(card.id, ownedCardsIds).isOwned && <AppCardFront card={card} />}
+          {compareCardToOwnedCards(card.id, ownedCardsIds).isOwned && (
+            <div className="hover:rotate-0 xl:hover:rotate-2 transition ease-in-out duration-500 cursor-pointer">
+              <CardPreview children={<AppCardFront card={card} />} card={card} />
+            </div>
+          )}
           {!compareCardToOwnedCards(card.id, ownedCardsIds).isOwned && (
-            <AppCardPlaceholder cardNo={card.id} rarity={card.rarity} />
+            <div>
+              <AppCardPlaceholder cardNo={card.id} rarity={card.rarity} />
+            </div>
           )}
           {/* <AppCardFront card={card} /> */}
         </div>

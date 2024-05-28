@@ -9,7 +9,7 @@ type AppCardPlaceholderProps = {
 function AppCardPlaceholder({ cardNo, rarity }: AppCardPlaceholderProps) {
   return (
     <AppCardLayout face="back" rarity={rarity} shadowIntensity="md">
-      <h3 className="text-5xl text-slate-300">{cardNo}</h3>
+      <h3 className="pt-24 text-5xl text-slate-300">{cardNo}</h3>
     </AppCardLayout>
   );
 }
