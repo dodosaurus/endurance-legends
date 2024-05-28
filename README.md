@@ -64,11 +64,11 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] navbar should display synchronize and logout button
 - [x] Grid view - implement default view that will show cards themselves in a grid & paginated
 - [x] card images that need refactor -> 38, 39, 40, 42, 45, 48, 49, 131
+- [x] Card preview - should show information that we have in DB
+- [x] number of copies as badge in collection grid on each card (some absolute element)
 
 ## TODO
 
-- [ ] Card preview - should show information that we have in DB
-- [ ] probability for 85 cards vs 135 cards in collection (chatgpt), some interface for changing it (or find 50 more cards :))
 
 Collection:
 - [ ] Table view - each (owned/all) should have 2 separate tables, one for cyclists/one for races
@@ -95,6 +95,7 @@ Landing page:
 - [ ] short catchy slogan/phrase (left column)
 
 Opening:
+- [ ] probability for 85 cards vs 135 cards in collection (chatgpt), some interface for changing it (or find 50 more cards :))
 - [ ] implement flip card (maybe not possible if front/back are not absolute)
 - [ ] add booster phase before user see cards and transition (how will booster look and the consequent animation)
 
