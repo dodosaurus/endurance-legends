@@ -63,7 +63,7 @@ function AppCardFront({ card }: { card: CardType }) {
   return (
     <AppCardLayout face="front" rarity={card.rarity}>
       <Image
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        className="absolute top-0 left-0 h-[375px] object-cover z-0"
         src={resolveImageImport(card.cardImageName as keyof typeof cardImages)}
         alt="app card image"
         placeholder="blur"
@@ -87,7 +87,7 @@ function AppCardFront({ card }: { card: CardType }) {
             </div>
           </CardTitle>
           <CardDescription className="flex justify-end items-center">
-            <p>{getDescContent()}</p>
+            <span>{getDescContent()}</span>
           </CardDescription>
         </CardHeader>
         {/* <CardContent>

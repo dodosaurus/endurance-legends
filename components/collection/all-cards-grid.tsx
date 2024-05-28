@@ -16,6 +16,7 @@ function AllCardsGrid({ cards, ownedCardsIds }: AllCardsGridProps) {
           {!compareCardToOwnedCards(card.id, ownedCardsIds).isOwned && (
             <AppCardPlaceholder cardNo={card.id} rarity={card.rarity} />
           )}
+          {/* <AppCardFront card={card} /> */}
         </div>
       ))}
     </div>

@@ -1,6 +1,5 @@
 import { getUserForProfileSegment, logout, synchronize } from "@/server/interface/actions";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import Link from "next/link";
 import { Button } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import InfoTimes from "../dashboard/panel-cards/subparts/info-times";
@@ -34,15 +33,16 @@ async function ProfileSegment() {
                 </div>
                 <InfoTimes lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
               </DialogHeader>
-              <div className="flex flex-col sm:flex-row justify-start items-center gap-2">
+              <div className="flex flex-col sm:flex-row justify-between items-center gap-2">
                 <a target="_blank" href={`https://www.strava.com/athletes/${user.athleteId}`} rel="noopener noreferrer">
                   <Button className="bg-cyan-500 hover:bg-cyan-500/80 font-semibold w-32">View on Strava</Button>
                 </a>
                 <SynchronizeForm synchronize={synchronize} />
+                <LogoutForm logout={logout} />
               </div>
             </DialogContent>
           </Dialog>
-          <LogoutForm logout={logout} />
+          {/* <LogoutForm logout={logout} /> */}
         </div>
       ) : (
         <div id="no_user_loaded"></div>
