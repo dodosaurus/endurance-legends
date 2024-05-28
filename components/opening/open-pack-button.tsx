@@ -31,7 +31,7 @@ function OpenPackButton() {
         </span>
       ) : (
         <span className="w-full !bg-slate-300">
-          Not enough coins.
+          Not enough coins
         </span>
       )}
     </button>

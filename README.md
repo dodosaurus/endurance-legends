@@ -60,12 +60,14 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] placeholder for image and again seed and use whole DB, placeholder also as fallback when loading image
 - [x] link on activities
 - [x] button Open should be displayed and disabled when not enough coins
+- [x] add My collection button to separate card to dashboard, maybe also glassy button but, make open pack different color
+- [x] navbar should display synchronize and logout button
 
 ## TODO
 
+- [ ] probability for 85 cards vs 135 cards in collection (chatgpt), some interface for changing it
+
 Collection:
-- [ ] add My collection button to separate card to dashboard, maybe also glassy button but, make open pack different color
-- [ ] navbar should display synchronize and logout button
 - [ ] Table view - each (owned/all) should have 2 separate tables, one for cyclists/one for races
 - [ ] Grid view - implement default view that will show cards themselves in a grid & paginated
 - [ ] implement radio button switch to switch between grid and table view

@@ -49,7 +49,7 @@ export default async function DashboardTable({ user, activities }: Props) {
               <TableHead>Title</TableHead>
               <TableHead className="table-cell">Distance</TableHead>
               <TableHead className="hidden sm:table-cell">Duration</TableHead>
-              <TableHead className="hidden md:table-cell">Location country</TableHead>
+              <TableHead className="hidden md:table-cell">Location</TableHead>
               <TableHead className="hidden md:table-cell">Date</TableHead>
               <TableHead className="hidden lg:table-cell">Coins</TableHead>
             </TableRow>
