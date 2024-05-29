@@ -32,18 +32,18 @@ function AppCardFront({ card }: { card: CardType }) {
   };
   const getRarityColorClass = (rarity: string): string => {
     if (rarity === "uncommon") {
-      return "bg-emerald-300";
+      return "bg-emerald-300 dark:bg-emerald-600";
     }
     if (rarity === "rare") {
-      return "bg-sky-300";
+      return "bg-sky-300 dark:bg-sky-600";
     }
     if (rarity === "epic") {
-      return "bg-violet-300";
+      return "bg-violet-300 dark:bg-violet-600";
     }
     if (rarity === "legendary") {
-      return "bg-amber-300";
+      return "bg-amber-300 dark:bg-amber-600";
     }
-    return "bg-slate-300";
+    return "bg-slate-300 dark:bg-slate-600";
   };
 
   const getTitleFontSize = (title: string): string => {
