@@ -30,7 +30,7 @@ function OpenPackButton() {
           {pending ? <Loader2 className="h-4 w-4 animate-spin ml-8" /> : "Open pack"}
         </span>
       ) : (
-        <span className="w-full !bg-slate-300">
+        <span className="w-full !bg-slate-300 dark:!bg-slate-800">
           Not enough coins
         </span>
       )}

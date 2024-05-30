@@ -61,7 +61,7 @@ function AppCardFront({ card }: { card: CardType }) {
   };
 
   return (
-    <AppCardLayout face="front" rarity={card.rarity} shadowIntensity="xl">
+    <AppCardLayout face="front" rarity={card.rarity} shadowIntensity="lg">
       <Image
         className="absolute top-0 left-0 h-[375px] object-cover z-0"
         src={resolveImageImport(card.cardImageName as keyof typeof cardImages)}

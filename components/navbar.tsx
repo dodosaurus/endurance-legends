@@ -10,7 +10,7 @@ const Navbar = () => {
           endurance<span className="text-cyan-600">vault</span>
         </Link>
         <ProfileSegment />
-        <ModeToggle />
+        {/* <ModeToggle /> */}
       </div>
     </nav>
   );

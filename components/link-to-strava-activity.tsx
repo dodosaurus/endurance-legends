@@ -8,7 +8,8 @@ function LinkToStravaActivity({ activityId }: { activityId: string }) {
       target="_blank"
       href={`https://www.strava.com/activities/${activityId}`}
     >
-      <span className="mr-2">View on Strava</span><SquareArrowOutUpRight size={15} color={"orange"} />
+      <span>View on Strava</span>
+      {/* <SquareArrowOutUpRight size={15} color={"orange"} /> */}
     </a>
   );
 }

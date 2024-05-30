@@ -35,7 +35,7 @@ export default async function DashboardTable({ user, activities }: Props) {
     //must be between newest ids and at least 24 hours from loadin
     if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
       return (
-        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/50 dark:text-cyan-100/50">
+        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/50 dark:text-cyan-100/50 italic">
           last 24 hours
         </span>
       );
@@ -43,7 +43,7 @@ export default async function DashboardTable({ user, activities }: Props) {
     //must be loaded to system in last 7 days
     if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
       return (
-        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400/50 dark:text-cyan-200/50">
+        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400/50 dark:text-cyan-200/50 italic">
           last 7 days
         </span>
       );

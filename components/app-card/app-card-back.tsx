@@ -38,7 +38,7 @@ function AppCardBack({ rarity }: { rarity: string }) {
   };
 
   return (
-    <AppCardLayout face="back" rarity={rarity}>
+    <AppCardLayout face="back" rarity={rarity} shadowIntensity="lg">
       <div className="card__scale-1"></div>
       <div className="card__scale-2"></div>
 
