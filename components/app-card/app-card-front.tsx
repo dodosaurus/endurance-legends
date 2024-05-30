@@ -46,6 +46,22 @@ function AppCardFront({ card }: { card: CardType }) {
     return "bg-slate-300 dark:bg-slate-600";
   };
 
+  const getRarityTextColorClass = (rarity: string): string => {
+    if (rarity === "uncommon") {
+      return "text-emerald-600 dark:text-emerald-300";
+    }
+    if (rarity === "rare") {
+      return "text-sky-600 dark:text-sky-300";
+    }
+    if (rarity === "epic") {
+      return "text-violet-600 dark:text-violet-300";
+    }
+    if (rarity === "legendary") {
+      return "text-amber-600 dark:text-amber-300";
+    }
+    return "";
+  };
+
   const getTitleFontSize = (title: string): string => {
     if (title.length <= 20) {
       return "text-lg";
@@ -80,7 +96,7 @@ function AppCardFront({ card }: { card: CardType }) {
       <Card className="absolute bottom-0 w-full z-10">
         <CardHeader>
           <CardTitle className="flex justify-between items-center gap-2">
-            <span>{card.id}</span>
+            <span className={getRarityTextColorClass(card.rarity)}>{card.id}</span>
             <div className="flex justify-end items-center gap-3">
               <CircleFlag className="w-6 h-6" countryCode={getRightCountryCodeForFlag(card.country) || ""} />
               <h2 className={getTitleFontSize(card.name)}>{card.name}</h2>
