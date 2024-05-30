@@ -4,7 +4,7 @@ import { Card as CardType } from "@prisma/client";
 function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: CardType; numberOfCopies?: number }) {
 
   return (
-    <>
+    <div className="w-[var(--card-width)] h-[var(--card-height)]">
       {card.rarity === "common" && (
         <Card>
           <CardHeader>
@@ -73,7 +73,7 @@ function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: CardType; numberO
           </CardFooter>
         </Card>
       )}
-    </>
+    </div>
   );
 }
 
