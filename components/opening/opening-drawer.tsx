@@ -24,7 +24,7 @@ const OpeningDrawer = ({ athleteId }: OpeningDrawerProps) => {
   const { isDrawerOpen, setIsDrawerOpen, newCards, setNewCards, setClientAccBalance } = useAppContext();
 
   return (
-    <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+    <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen} dismissible={false}>
       <form
         action={async () => {
           const { cards: crds, accountBalance: newAccBalance } = await openPack(athleteId);
