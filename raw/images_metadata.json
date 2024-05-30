@@ -300,6 +300,66 @@
     "name": "alexAranburu"
   },
   {
+    "cardId": 51,
+    "filename": "51-rasmus-tiller.jpg",
+    "source": "https://sporza.be/nl/2023/02/16/programma-van-rasmus-tiller-in-de-klassiekers-2024~1676547846311/",
+    "name": "rasmusTiller"
+  },
+  {
+    "cardId": 52,
+    "filename": "52-santiago-buitrago.jpeg",
+    "source": "https://www.eurosport.com/cycling/paris-nice/2024/paris-nice-santiago-buitrago-produces-stunning-climb-to-take-stage-4-lucas-plapp-moves-into-yellow_sto10050537/story.shtml",
+    "name": "santiagoBuitrago"
+  },
+  {
+    "cardId": 53,
+    "filename": "53-nils-pollit.jpg",
+    "source": "https://www.strava.com/pros/2592883",
+    "name": "nilsPollit"
+  },
+  {
+    "cardId": 54,
+    "filename": "54-jasper-stuyven.jpg",
+    "source": "https://www.idlprocycling.com/cycling/preview-omloop-het-nieuwsblad-2024-powerhouse-visma-lease-a-bike-against-the-underdog",
+    "name": "jasperStuyven"
+  },
+  {
+    "cardId": 55,
+    "filename": "55-tiesj-benoot.jpg",
+    "source": "https://sporza.be/nl/2021/02/10/ontdek-het-programma-van-tiesj-benoot-voor-de-klassiekers-in-2024~1613154111842/",
+    "name": "tiesjBenoot"
+  },
+  {
+    "cardId": 56,
+    "filename": "56-mikel-landa.jpeg",
+    "source": "https://www.soudal-quickstepteam.com/en/team/riders/mikel-landa",
+    "name": "mikelLanda"
+  },
+  {
+    "cardId": 57,
+    "filename": "57-arnaud-demare.jpeg",
+    "source": "https://www.globalcyclingnetwork.com/racing/news/i-still-feel-anger-and-misunderstanding-says-arnaud-demare-of-groupama-fdj-exit",
+    "name": "arnaudDemare"
+  },
+  {
+    "cardId": 58,
+    "filename": "58-lennert-van-eetvelt.jpeg",
+    "source": "https://www.theuaetour.com/lennert-van-eetvelt-wins-the-uae-tour-2024/",
+    "name": "lennertVanEetvelt"
+  },
+  {
+    "cardId": 59,
+    "filename": "59-isaac-del-toro.jpeg",
+    "source": "https://www.uaeteamemirates.com/isaac-del-toro-makes-daring-attack-take-first-pro-win/",
+    "name": "isaacDelToro"
+  },
+  {
+    "cardId": 60,
+    "filename": "60-corbin-strong.jpeg",
+    "source": "https://escapecollective.com/five-under-the-radar-talents-poised-for-a-breakout-in-2024/",
+    "name": "corbinStrong"
+  },
+  {
     "cardId": 101,
     "filename": "101-santos-tour-down-under.jpeg",
     "source": "https://www.globalcyclingnetwork.com/racing/races/road/elite-men/tour-down-under",

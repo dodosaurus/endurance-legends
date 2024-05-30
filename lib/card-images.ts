@@ -48,6 +48,17 @@ import romainBardet from "@/public/images/final/47-romain-bardet.jpg";
 import lucaMozzato from "@/public/images/final/48-luca-mozzato.jpeg";
 import valentinMadouas from "@/public/images/final/49-valentin-madouas.jpeg";
 import alexAranburu from "@/public/images/final/50-alex-aranburu.jpg";
+import rasmusTiller from "@/public/images/final/51-rasmus-tiller.jpg";
+import santiagoBuitrago from "@/public/images/final/52-santiago-buitrago.jpeg";
+import nilsPollit from "@/public/images/final/53-nils-pollit.jpg";
+import jasperStuyven from "@/public/images/final/54-jasper-stuyven.jpg";
+import tiesjBenoot from "@/public/images/final/55-tiesj-benoot.jpg";
+import mikelLanda from "@/public/images/final/56-mikel-landa.jpeg";
+import arnaudDemare from "@/public/images/final/57-arnaud-demare.jpeg";
+import lennertVanEetvelt from "@/public/images/final/58-lennert-van-eetvelt.jpeg";
+import isaacDelToro from "@/public/images/final/59-isaac-del-toro.jpeg";
+import corbinStrong from "@/public/images/final/60-corbin-strong.jpeg";
+
 import santosTourDownUnder from "@/public/images/final/101-santos-tour-down-under.jpeg";
 import cadelEvansRace from "@/public/images/final/102-cadel-evans-race.jpeg";
 import uaeTour from "@/public/images/final/103-uae-tour.jpg";
@@ -83,6 +94,7 @@ import cyclisteDeQuebec from "@/public/images/final/132-cycliste-de-quebec.jpeg"
 import cyclisteDeMontreal from "@/public/images/final/133-cycliste-de-montreal.jpg";
 import ilLombardia from "@/public/images/final/134-il-lombardia.jpeg";
 import tourOfGuangxi from "@/public/images/final/135-tour-of-guangxi.jpeg";
+
 import placeholder from "@/public/images/final/placeholder.jpeg";
 
 export default {
@@ -136,6 +148,16 @@ export default {
   lucaMozzato,
   valentinMadouas,
   alexAranburu,
+  rasmusTiller,
+  santiagoBuitrago,
+  nilsPollit,
+  jasperStuyven,
+  tiesjBenoot,
+  mikelLanda,
+  arnaudDemare,
+  lennertVanEetvelt,
+  isaacDelToro,
+  corbinStrong,
   santosTourDownUnder,
   cadelEvansRace,
   uaeTour,
