@@ -21,7 +21,7 @@ async function ProfileSegment() {
                 <AvatarFallback>{user.name[0]}</AvatarFallback>
               </Avatar>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="min-w-80">
               <DialogHeader>
                 <div className="flex justify-start items-center gap-3">
                   <Avatar>

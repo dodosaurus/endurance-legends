@@ -32,7 +32,7 @@ export default function RootLayout({
 
           <AppContextProvider>
             <Navbar />
-            <main className="flex min-h-screen flex-col items-center justify-between p-1 sm:p-8">{children}</main>
+            <main className="flex min-h-screen flex-col items-center justify-between p-2 sm:p-8">{children}</main>
           </AppContextProvider>
         </ThemeProvider>
       </body>

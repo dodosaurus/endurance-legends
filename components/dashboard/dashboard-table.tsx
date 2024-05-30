@@ -69,13 +69,13 @@ export default async function DashboardTable({ user, activities }: Props) {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Title</TableHead>
-              <TableHead className="table-cell">Distance</TableHead>
+              <TableHead className="table-cell">Title</TableHead>
+              <TableHead className="hidden sm:table-cell">Distance</TableHead>
               <TableHead className="hidden sm:table-cell">Duration</TableHead>
               <TableHead className="hidden md:table-cell">Location</TableHead>
               <TableHead className="hidden md:table-cell">Date</TableHead>
-              <TableHead className="hidden lg:table-cell">Coins</TableHead>
-              <TableHead></TableHead>
+              <TableHead className="table-cell">Earned</TableHead>
+              <TableHead className="table-cell"></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -94,7 +94,7 @@ export default async function DashboardTable({ user, activities }: Props) {
                     <div className="font-medium">{activity.name}</div>
                     <div className="text-sm text-muted-foreground">{activity.type}</div>
                   </TableCell>
-                  <TableCell className="table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
+                  <TableCell className="hidden sm:table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
                   <TableCell className="hidden sm:table-cell">
                     {convertSecondsToReadableTime(activity.movingTime)}
                   </TableCell>
@@ -109,7 +109,7 @@ export default async function DashboardTable({ user, activities }: Props) {
                       </div>
                     </Badge>
                   </TableCell>
-                  <TableCell>
+                  <TableCell className="table-cell">
                     <LinkToStravaActivity activityId={activity.activityId} />
                   </TableCell>
                 </TableRow>
