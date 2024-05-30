@@ -36,6 +36,8 @@
     --ring: 224 71.4% 4.1%;
 
     --radius: 0.5rem;
+
+    --card-container-color: #ffffff;
   }
 
   .dark {
@@ -69,6 +71,8 @@
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
     --ring: 216 12.2% 83.9%;
+
+    --card-container-color: theme(colors.slate.900);
   }
 }
 
@@ -127,7 +131,7 @@
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
   --white-color: #fff;
-  --container-color: #f1f5f9;
+  --container-color: var(--card-container-color);
   --text-color: theme(colors.cyan.500);
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -137,6 +141,10 @@
 
   --card-width: 325px;
   --card-height: 450px;
+}
+
+.dark :root {
+  --container-color: #000000;
 }
 
 /*=============== CARD ===============*/
@@ -167,6 +175,7 @@
 .card__description {
   margin-bottom: 1.5rem;
 }
+
 .card__article {
   width: var(--card-width);
   height: var(--card-height);

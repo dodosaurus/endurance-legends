@@ -7,7 +7,7 @@ export function CoinIcon({ w }: { w: string }) {
 
   return (
     <svg
-      className="inline-block"
+      className="inline-block stroke-black dark:stroke-white"
       xmlns="http://www.w3.org/2000/svg"
       width={w}
       height={w}

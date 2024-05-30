@@ -20,11 +20,11 @@ export default async function DashboardTable({ user, activities }: Props) {
   const bgBasedOnActivityAge = (activity: Activity): string => {
     //must be between newest ids and at least 24 hours from loadin
     if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
-      return "bg-cyan-100 dark:bg-cyan-800";
+      return "bg-cyan-100 dark:bg-cyan-800/75 hover:bg-cyan-200 dark:hover:bg-cyan-700/75";
     }
     //must be loaded to system in last 7 days
     if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
-      return "bg-cyan-50 dark:bg-cyan-900";
+      return "bg-cyan-50 dark:bg-cyan-900/75 hover:bg-cyan-100 dark:hover:bg-cyan-800/75";
     }
 
     //default is loaded from component itself
@@ -35,7 +35,7 @@ export default async function DashboardTable({ user, activities }: Props) {
     //must be between newest ids and at least 24 hours from loadin
     if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
       return (
-        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/75 dark:text-cyan-100/75">
+        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/50 dark:text-cyan-100/50">
           last 24 hours
         </span>
       );
@@ -43,7 +43,7 @@ export default async function DashboardTable({ user, activities }: Props) {
     //must be loaded to system in last 7 days
     if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
       return (
-        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400/75 dark:text-cyan-200/75">
+        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400/50 dark:text-cyan-200/50">
           last 7 days
         </span>
       );
