@@ -69,11 +69,11 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
-- [ ] rework dashboard table to show transactions - when activity make row collapsible and there show additional info a put View on Strava button
 
 - [ ] add for newest cards the indicator (maybe dot, that will disappear after hover)
 - [ ] signature somewhere with "Powered by Strava"
 - [ ] polish dark mode (need to play with vars in global.css)
+- [ ] rework dashboard table to show transactions - when activity make row collapsible and there show additional info a put View on Strava button
 
 Collection:
 - [ ] Table view - each (owned/all) should have 2 separate tables, one for cyclists/one for races

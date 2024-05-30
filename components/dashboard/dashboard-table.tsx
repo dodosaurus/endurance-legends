@@ -19,12 +19,12 @@ export default async function DashboardTable({ user, activities }: Props) {
 
   const bgBasedOnActivityAge = (activity: Activity): string => {
     //must be between newest ids and at least 24 hours from loadin
-    if (isActivityNew(activity.id) && activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
-      return "bg-cyan-100 dark:bg-cyan-900";
+    if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
+      return "bg-cyan-100 dark:bg-cyan-800";
     }
     //must be loaded to system in last 7 days
     if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
-      return "bg-cyan-50";
+      return "bg-cyan-50 dark:bg-cyan-900";
     }
 
     //default is loaded from component itself
@@ -33,12 +33,20 @@ export default async function DashboardTable({ user, activities }: Props) {
 
   const spanBasedOnActivityAge = (activity: Activity) => {
     //must be between newest ids and at least 24 hours from loadin
-    if (isActivityNew(activity.id) && activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
-      return <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600">last 24 hours</span>
+    if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
+      return (
+        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/75 dark:text-cyan-100/75">
+          last 24 hours
+        </span>
+      );
     }
     //must be loaded to system in last 7 days
     if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
-      return <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400">last 7 days</span>
+      return (
+        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400/75 dark:text-cyan-200/75">
+          last 7 days
+        </span>
+      );
     }
 
     //default is loaded from component itself
@@ -51,8 +59,9 @@ export default async function DashboardTable({ user, activities }: Props) {
         <CardTitle>Your activities</CardTitle>
         <CardDescription className="flex flex-col gap-2 items-start justify-center">
           <p>
-            Activities must be public, done after your registration here and need to be
-            type of Ride or Run. For one pack you need to either run <span className="font-semibold">10 km</span> or ride <span className="font-semibold">40 km</span>.
+            Activities must be public, done after your registration here and need to be type of Ride or Run. For one
+            pack you need to either run <span className="font-semibold">10 km</span> or ride{" "}
+            <span className="font-semibold">40 km</span>.
           </p>
         </CardDescription>
       </CardHeader>
@@ -66,6 +75,7 @@ export default async function DashboardTable({ user, activities }: Props) {
               <TableHead className="hidden md:table-cell">Location</TableHead>
               <TableHead className="hidden md:table-cell">Date</TableHead>
               <TableHead className="hidden lg:table-cell">Coins</TableHead>
+              <TableHead></TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -79,11 +89,9 @@ export default async function DashboardTable({ user, activities }: Props) {
             {activities.length > 0 &&
               activities.map((activity) => (
                 <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)}>
-                  <TableCell>
-                    <div className="flex justify-between items-center gap-3">
-                      <div className="font-medium">{activity.name}</div>
-                      <LinkToStravaActivity activityId={activity.activityId} />
-                    </div>
+                  <TableCell className="relative table-cell">
+                    {spanBasedOnActivityAge(activity)}
+                    <div className="font-medium">{activity.name}</div>
                     <div className="text-sm text-muted-foreground">{activity.type}</div>
                   </TableCell>
                   <TableCell className="table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
@@ -94,13 +102,15 @@ export default async function DashboardTable({ user, activities }: Props) {
                   <TableCell className="hidden md:table-cell">
                     {new Date(activity.startDate).toLocaleDateString()}
                   </TableCell>
-                  <TableCell className="relative table-cell">
-                    {spanBasedOnActivityAge(activity)}
+                  <TableCell>
                     <Badge className="text-xs" variant="secondary">
                       <div className="flex justify-start items-center gap-1">
                         <CoinIcon w="10px" /> <span>{calcActivityCoins(activity)}</span>
                       </div>
                     </Badge>
+                  </TableCell>
+                  <TableCell>
+                    <LinkToStravaActivity activityId={activity.activityId} />
                   </TableCell>
                 </TableRow>
               ))}
