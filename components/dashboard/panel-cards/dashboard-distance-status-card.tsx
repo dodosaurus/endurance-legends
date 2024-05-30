@@ -17,7 +17,7 @@ export default function DashboardDistanceStatusCard({ distance, activityType }: 
     <Card className="flex-grow">
       <CardHeader className="pb-2">
         <CardDescription>Total distance from <span className="font-bold">{activityType}s</span></CardDescription>
-        <CardTitle className="text-4xl">{convertMetersToKilometersForUI(distance)} km</CardTitle>
+        <CardTitle className="text-3xl">{convertMetersToKilometersForUI(distance)} km</CardTitle>
       </CardHeader>
       <CardContent>
         <div className="text-xs text-muted-foreground">(recorded from moment of your first login here)</div>
