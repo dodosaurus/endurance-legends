@@ -24,10 +24,10 @@ function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: CardType; numberO
               <span className="font-semibold">Weight/height: </span>
               {card.additionalInfo2}
             </p>
-            <p>
+            {/* <p>
               <span className="pt-6 font-semibold">Copies owned: </span>
               <span className="text-lg pl-1 font-bold text-cyan-800">{numberOfCopies}</span>
-            </p>
+            </p> */}
           </CardContent>
           <CardFooter>
             <p>
@@ -58,10 +58,10 @@ function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: CardType; numberO
               <span className="font-semibold">Category: </span>
               {card.additionalInfo2}
             </p>
-            <p>
+            {/* <p>
               <span className="pt-6 font-semibold">Copies owned: </span>
               <span className="text-lg pl-1 font-bold text-cyan-800">{numberOfCopies}</span>
-            </p>
+            </p> */}
           </CardContent>
           <CardFooter>
             <p>

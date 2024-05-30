@@ -69,7 +69,8 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
-
+- [ ] landing page simple hero and Register vs. Login card
+- [ ] some kind of grid in card preview info
 - [ ] add for newest cards the indicator (maybe dot, that will disappear after hover)
 - [ ] signature somewhere with "Powered by Strava"
 - [ ] polish dark mode (need to play with vars in global.css)
