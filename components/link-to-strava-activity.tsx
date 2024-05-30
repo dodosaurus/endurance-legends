@@ -1,5 +1,6 @@
 import { SquareArrowOutUpRight } from "lucide-react";
 import { buttonVariants } from "./ui/button";
+import { StravaIcon } from "./strava-icon";
 
 function LinkToStravaActivity({ activityId }: { activityId: string }) {
   return (
@@ -8,7 +9,8 @@ function LinkToStravaActivity({ activityId }: { activityId: string }) {
       target="_blank"
       href={`https://www.strava.com/activities/${activityId}`}
     >
-      <span>View on Strava</span>
+      <span className="text-xs">View on </span>
+      <StravaIcon />
       {/* <SquareArrowOutUpRight size={15} color={"orange"} /> */}
     </a>
   );
