@@ -32,7 +32,7 @@ function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: CardType; numberO
           <CardFooter>
             <p>
               <span className="font-semibold">Photo source: </span>
-              <a className="text-cyan-700 hover:text-cyan-900" href={card.cardImageSource ? card.cardImageSource : ""}>
+              <a target="_blank" className="text-cyan-700 hover:text-cyan-900" href={card.cardImageSource ? card.cardImageSource : ""}>
                 HERE
               </a>
             </p>
@@ -66,7 +66,7 @@ function CardPreviewInfo({ card, numberOfCopies = 1 }: { card: CardType; numberO
           <CardFooter>
             <p>
               <span className="font-semibold">Photo source: </span>
-              <a className="text-cyan-700 hover:text-cyan-900" href={card.cardImageSource ? card.cardImageSource : ""}>
+              <a target="_blank" className="text-cyan-700 hover:text-cyan-900" href={card.cardImageSource ? card.cardImageSource : ""}>
                 HERE
               </a>
             </p>

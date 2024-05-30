@@ -23,12 +23,26 @@ export default async function DashboardTable({ user, activities }: Props) {
       return "bg-cyan-100 dark:bg-cyan-900";
     }
     //must be loaded to system in last 7 days
-    // if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
-    //   return "bg-cyan-50";
-    // }
+    if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
+      return "bg-cyan-50";
+    }
 
     //default is loaded from component itself
     return "";
+  };
+
+  const spanBasedOnActivityAge = (activity: Activity) => {
+    //must be between newest ids and at least 24 hours from loadin
+    if (isActivityNew(activity.id) && activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
+      return <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600">last 24 hours</span>
+    }
+    //must be loaded to system in last 7 days
+    if (activity.inSystemSince > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
+      return <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400">last 7 days</span>
+    }
+
+    //default is loaded from component itself
+    return <span></span>;
   };
 
   return (
@@ -80,7 +94,8 @@ export default async function DashboardTable({ user, activities }: Props) {
                   <TableCell className="hidden md:table-cell">
                     {new Date(activity.startDate).toLocaleDateString()}
                   </TableCell>
-                  <TableCell className="table-cell">
+                  <TableCell className="relative table-cell">
+                    {spanBasedOnActivityAge(activity)}
                     <Badge className="text-xs" variant="secondary">
                       <div className="flex justify-start items-center gap-1">
                         <CoinIcon w="10px" /> <span>{calcActivityCoins(activity)}</span>
