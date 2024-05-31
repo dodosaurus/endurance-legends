@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div id="landingPage" className="flex flex-col md:flex-row justify-between items-center md:gap-10 gap-2">
       <div className="py-20 mx-auto text-center flex flex-col items-center max-w-3xl">
-        <h1 className="text-5xl md:text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+        <h1 className="text-5xl font-bold tracking-tight text-gray-900 sm:text-6xl">
           Here your fitness meets the <span className="text-cyan-600">real rewards</span>
         </h1>
         <p className="mt-6 text-lg max-w-prose text-primary">
