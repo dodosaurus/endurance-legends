@@ -6,6 +6,7 @@ import InfoTimes from "../dashboard/panel-cards/subparts/info-times";
 import LogoutForm from "../dashboard/panel-cards/subparts/logout-form";
 import SynchronizeForm from "../dashboard/panel-cards/subparts/synchronize-form";
 import { ModeToggle } from "./mode-toggle";
+import Footer from "../footer";
 
 async function ProfileSegment() {
   const user = await getUserForProfileSegment();
@@ -42,6 +43,7 @@ async function ProfileSegment() {
                 <LogoutForm logout={logout} />
                 <ModeToggle />
               </div>
+              <Footer />
             </DialogContent>
           </Dialog>
           {/* <LogoutForm logout={logout} /> */}

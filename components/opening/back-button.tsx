@@ -7,7 +7,6 @@ function BackButton() {
   const router = useRouter();
 
   const onClick = () => {
-    router.push("/dashboard");
     router.refresh();
   };
 

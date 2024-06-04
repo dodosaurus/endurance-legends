@@ -13,13 +13,10 @@ type Props = {
 };
 
 export default async function DashboardTable({ user, activities }: Props) {
-  const isActivityNew = (id: number) => {
-    return user.newActivityIds.includes(id);
-  };
 
   const bgBasedOnActivityAge = (activity: Activity): string => {
     //must be between newest ids and at least 24 hours from loadin
-    if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
+    if (activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
       return "bg-cyan-100 dark:bg-cyan-800/75 hover:bg-cyan-200 dark:hover:bg-cyan-700/75";
     }
     //must be loaded to system in last 7 days
@@ -33,7 +30,7 @@ export default async function DashboardTable({ user, activities }: Props) {
 
   const spanBasedOnActivityAge = (activity: Activity) => {
     //must be between newest ids and at least 24 hours from loadin
-    if (isActivityNew(activity.id) || activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
+    if (activity.inSystemSince > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
       return (
         <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/50 dark:text-cyan-100/50 italic">
           last 24 hours
