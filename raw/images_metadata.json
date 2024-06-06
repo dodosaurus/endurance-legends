@@ -360,6 +360,126 @@
     "name": "corbinStrong"
   },
   {
+    "cardId": 61,
+    "filename": "61-soren-waerenskjold.jpeg",
+    "source": "https://x.com/UnoXteam/status/1752709453579784698",
+    "name": "sorenWaerenskjold"
+  },
+  {
+    "cardId": 62,
+    "filename": "62-florian-vermeersch.jpeg",
+    "source": "https://www.wielerkrant.be/nieuws/2023-10-21/heel-constant-maar-geen-zege-florian-vermeersch-weet-hoe-dat-in-2024-wel-kan",
+    "name": "florianVermeersch"
+  },
+  {
+    "cardId": 63,
+    "filename": "63-alexey-lutsenko.jpeg",
+    "source": "https://www.astana-qazaqstan.com/alexey-lutsenko-set-for-three-more-seasons-in-astana-team/",
+    "name": "alexeyLutsenko"
+  },
+  {
+    "cardId": 64,
+    "filename": "64-enric-mas.jpg",
+    "source": "https://ciclismointernacional.com/nibali-cree-que-enric-mas-deberia-ir-al-giro-en-2024/",
+    "name": "enricMas"
+  },
+  {
+    "cardId": 65,
+    "filename": "65-thibaut-pinot.jpeg",
+    "source": "https://www.independent.co.uk/sport/cycling/thibaut-pinot-tour-de-france-b2380754.html",
+    "name": "thibautPinot"
+  },
+  {
+    "cardId": 66,
+    "filename": "66-jordi-meeus.jpg",
+    "source": "https://dicodusport.fr/blog/tour-de-norvege-2024-jordi-meeus-rafle-la-3eme-etape/",
+    "name": "jordiMeeus"
+  },
+  {
+    "cardId": 67,
+    "filename": "67-kaden-groves.jpeg",
+    "source": "https://www.eurosport.com/cycling/vuelta-a-espana/2023/la-vuelta-a-espana-2023-kaden-groves-avoids-chaos-at-finish-to-sprint-to-victory-on-stage-4-in-tarra_sto9769087/story.shtml",
+    "name": "kadenGroves"
+  },
+  {
+    "cardId": 68,
+    "filename": "68-marijn.van-den-berg.jpeg",
+    "source": "https://efprocycling.com/our-team/marijn-van-den-berg/",
+    "name": "marijnVanDenBerg"
+  },
+  {
+    "cardId": 69,
+    "filename": "69-axel-zingle.jpeg",
+    "source": "https://www.cyclingnews.com/races/arctic-race-of-norway-2022/stage-1/results/",
+    "name": "axelZingle"
+  },
+  {
+    "cardId": 70,
+    "filename": "70-gerben-thijssen.jpg",
+    "source": "https://sporza.be/nl/2024/02/15/het-programma-van-gerben-thijssen-in-de-klassiekers-2024~1707997304811/",
+    "name": "gerbenThijssen"
+  },
+  {
+    "cardId": 71,
+    "filename": "71-wout-poels.jpg",
+    "source": "https://cyclinguptodate.com/cycling/the-team-would-prefer-that-i-prepare-for-other-important-races-wout-poels-denied-chance-to-complete-set-of-grand-tour-stage-wins-at-giro-ditalia-2024",
+    "name": "woutPoels"
+  },
+  {
+    "cardId": 72,
+    "filename": "72-alexander-kristoff.jpeg",
+    "source": "https://escapecollective.com/as-uno-x-rises-alexander-kristoff-seeks-to-match-its-ascent/",
+    "name": "alexanderKristoff"
+  },
+  {
+    "cardId": 73,
+    "filename": "73-laurence-pithie.jpg",
+    "source": "https://www.idlprocycling.com/cycling/spring-revelation-laurence-pithie-gets-all-the-spotlights-in-groupama-fdjs-giro-selection",
+    "name": "laurencePithie"
+  },
+  {
+    "cardId": 74,
+    "filename": "74-christophe-laporte.jpeg",
+    "source": "https://www.cyclingnews.com/news/still-a-question-mark-ill-christophe-laporte-racing-against-time-before-tour-of-flanders/",
+    "name": "christopheLaporte"
+  },
+  {
+    "cardId": 75,
+    "filename": "75-pavel-sivakov.jpeg",
+    "source": "https://www.uaeteamemirates.com/sivakov-takes-final-stage-giro-dabruzzo/",
+    "name": "pavelSivakov"
+  },
+  {
+    "cardId": 76,
+    "filename": "76-egan-bernal.jpeg",
+    "source": "https://www.cyclingweekly.com/racing/did-egan-bernal-accidentally-leak-the-2024-ineos-grenadiers-kit",
+    "name": "eganBernal"
+  },
+  {
+    "cardId": 77,
+    "filename": "77-felix-grossschartner.jpeg",
+    "source": "https://www.kleinezeitung.at/sport/sommersport/rad/18444440/der-helfer-des-rad-kaisers-grossschartner-soll-pogacar-zum-sieg-fuehren",
+    "name": "felixGrossschartner"
+  },
+  {
+    "cardId": 78,
+    "filename": "78-einer-rubio.jpeg",
+    "source": "https://movistarteam.com/en/races/race/2024-mens-uae-tour",
+    "name": "einerRubio"
+  },
+  {
+    "cardId": 79,
+    "filename": "79-alberto-bettiol.jpeg",
+    "source": "https://www.cyclingnews.com/races/milano-torino-2024/elite-men/results/",
+    "name": "albertoBettiol"
+  },
+  {
+    "cardId": 80,
+    "filename": "80-geraint-thomas.jpeg",
+    "source": "https://www.cyclingnews.com/news/geraint-thomas-its-as-if-its-junior-or-u23-racing-theres-less-respect/",
+    "name": "geraintThomas"
+  },
+  {
     "cardId": 101,
     "filename": "101-santos-tour-down-under.jpeg",
     "source": "https://www.globalcyclingnetwork.com/racing/races/road/elite-men/tour-down-under",

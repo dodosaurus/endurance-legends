@@ -58,6 +58,26 @@ import arnaudDemare from "@/public/images/final/57-arnaud-demare.jpeg";
 import lennertVanEetvelt from "@/public/images/final/58-lennert-van-eetvelt.jpeg";
 import isaacDelToro from "@/public/images/final/59-isaac-del-toro.jpeg";
 import corbinStrong from "@/public/images/final/60-corbin-strong.jpeg";
+import sorenWaerenskjold from "@/public/images/final/61-soren-waerenskjold.jpeg";
+import florianVermeersch from "@/public/images/final/62-florian-vermeersch.jpeg";
+import alexeyLutsenko from "@/public/images/final/63-alexey-lutsenko.jpeg";
+import enricMas from "@/public/images/final/64-enric-mas.jpg";
+import thibautPinot from "@/public/images/final/65-thibaut-pinot.jpeg";
+import jordiMeeus from "@/public/images/final/66-jordi-meeus.jpg";
+import kadenGroves from "@/public/images/final/67-kaden-groves.jpeg";
+import marijnVanDenBerg from "@/public/images/final/68-marijn-van-den-berg.jpeg";
+import axelZingle from "@/public/images/final/69-axel-zingle.jpeg";
+import gerbenThijssen from "@/public/images/final/70-gerben-thijssen.jpg";
+import woutPoels from "@/public/images/final/71-wout-poels.jpg";
+import alexanderKristoff from "@/public/images/final/72-alexander-kristoff.jpeg";
+import laurencePithie from "@/public/images/final/73-laurence-pithie.jpg";
+import christopheLaporte from "@/public/images/final/74-christophe-laporte.jpeg";
+import pavelSivakov from "@/public/images/final/75-pavel-sivakov.jpeg";
+import eganBernal from "@/public/images/final/76-egan-bernal.jpeg";
+import felixGrossschartner from "@/public/images/final/77-felix-grossschartner.jpeg";
+import einerRubio from "@/public/images/final/78-einer-rubio.jpeg";
+import albertoBettiol from "@/public/images/final/79-alberto-bettiol.jpeg";
+import geraintThomas from "@/public/images/final/80-geraint-thomas.jpeg";
 
 import santosTourDownUnder from "@/public/images/final/101-santos-tour-down-under.jpeg";
 import cadelEvansRace from "@/public/images/final/102-cadel-evans-race.jpeg";
@@ -158,6 +178,27 @@ export default {
   lennertVanEetvelt,
   isaacDelToro,
   corbinStrong,
+  sorenWaerenskjold,
+  florianVermeersch,
+  alexeyLutsenko,
+  enricMas,
+  thibautPinot,
+  jordiMeeus,
+  kadenGroves,
+  marijnVanDenBerg,
+  axelZingle,
+  gerbenThijssen,
+  woutPoels,
+  alexanderKristoff,
+  laurencePithie,
+  christopheLaporte,
+  pavelSivakov,
+  eganBernal,
+  felixGrossschartner,
+  einerRubio,
+  albertoBettiol,
+  geraintThomas,
+
   santosTourDownUnder,
   cadelEvansRace,
   uaeTour,
@@ -193,5 +234,6 @@ export default {
   cyclisteDeMontreal,
   ilLombardia,
   tourOfGuangxi,
+  
   placeholder
 };
