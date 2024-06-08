@@ -1,12 +1,13 @@
 import { getUserForProfileSegment, logout, synchronize } from "@/server/interface/actions";
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
-import { Button } from "../ui/button";
+import { Button, buttonVariants } from "../ui/button";
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "../ui/dialog";
 import InfoTimes from "../dashboard/panel-cards/subparts/info-times";
 import LogoutForm from "../dashboard/panel-cards/subparts/logout-form";
 import SynchronizeForm from "../dashboard/panel-cards/subparts/synchronize-form";
 import { ModeToggle } from "./mode-toggle";
 import Footer from "../footer";
+import { StravaIcon } from "../strava-icon";
 
 async function ProfileSegment() {
   const user = await getUserForProfileSegment();
@@ -49,7 +50,15 @@ async function ProfileSegment() {
           {/* <LogoutForm logout={logout} /> */}
         </div>
       ) : (
-        <div id="no_user_loaded"></div>
+        <a
+          className={buttonVariants({ variant: "ghost" })}
+          target="_blank"
+          href={`https://www.strava.com/`}
+        >
+          <span className="text-xs">Powered by </span>
+          <StravaIcon />
+          {/* <SquareArrowOutUpRight size={15} color={"orange"} /> */}
+        </a>
       )}
     </div>
   );

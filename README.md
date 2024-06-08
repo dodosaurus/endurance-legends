@@ -73,10 +73,12 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
-- [ ] add more images to more cards
+- [ ] landing page cards
 - [ ] add for newest cards the indicator (maybe dot, that will disappear after hover)
 - [ ] how it works card for landing page/for navabr later
 - [ ] implement carousel with 2 cards per turn for medium screens
+- [ ] add more images to more cards
+- [ ] confetti when opening card pack
 
 Collection:
 - [ ] Table view - each (owned/all) should have 2 separate tables, one for cyclists/one for races
