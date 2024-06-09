@@ -8,6 +8,7 @@ import SynchronizeForm from "../dashboard/panel-cards/subparts/synchronize-form"
 import { ModeToggle } from "./mode-toggle";
 import Footer from "../footer";
 import { StravaIcon } from "../strava-icon";
+import HowToModal from "../how-to-modal";
 
 async function ProfileSegment() {
   const user = await getUserForProfileSegment();
@@ -16,6 +17,7 @@ async function ProfileSegment() {
     <div>
       {user ? (
         <div className="flex justify-between items-center gap-5">
+          <HowToModal triggerVariant="secondary" />
           <Dialog>
             <DialogTrigger>
               <Avatar>
@@ -50,11 +52,7 @@ async function ProfileSegment() {
           {/* <LogoutForm logout={logout} /> */}
         </div>
       ) : (
-        <a
-          className={buttonVariants({ variant: "ghost" })}
-          target="_blank"
-          href={`https://www.strava.com/`}
-        >
+        <a className={buttonVariants({ variant: "ghost" })} target="_blank" href={`https://www.strava.com/`}>
           <span className="text-xs">Powered by </span>
           <StravaIcon />
           {/* <SquareArrowOutUpRight size={15} color={"orange"} /> */}
