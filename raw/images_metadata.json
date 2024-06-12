@@ -480,6 +480,126 @@
     "name": "geraintThomas"
   },
   {
+    "cardId": 81,
+    "filename": "81-cristian-rodriguez.jpeg",
+    "source": "https://www.arkea-bbhotels.com/en/route-doccitanie-3rd-stage-cristian-rodriguez-2nd/",
+    "name": "cristianRodriguez"
+  },
+  {
+    "cardId": 82,
+    "filename": "82-filippo-zana.jpeg",
+    "source": "https://www.giant-bicycles.com/sk/news/zana-scores-his-first-grand-tour-stage-win-at-giro-d-italia/27750",
+    "name": "filippoZana"
+  },
+  {
+    "cardId": 83,
+    "filename": "83-diego-ulissi.jpg",
+    "source": "https://www.cyclingnews.com/races/settimana-internazionale-coppi-e-bartali-2024/stage-2/results/",
+    "name": "diegoUlissi"
+  },
+  {
+    "cardId": 84,
+    "filename": "84-arvid-de-kleijn.jpeg",
+    "source": "https://sportal.eu/2024/03/04/paris-nice-arvid-de-kleijn-triumphs-in-sprint-in-second-stage/",
+    "name": "arvidDeKleijn"
+  },
+  {
+    "cardId": 85,
+    "filename": "85-georg-zimmermann.jpeg",
+    "source": "https://velomotion.net/2023/11/radsport-top-10-fahrer-2023-georg-zimmermann/",
+    "name": "georgZimmermann"
+  },
+  {
+    "cardId": 86,
+    "filename": "86-dylan-teuns.jpeg",
+    "source": "https://www.roadcycling.cz/clanek/specialista-na-ardeny-dylan-teuns-je-v-dobre-forme-ve-spravnou-chvili-pred-amstelem-valonskym-sipem-a-lutychem-si-veri",
+    "name": "dylanTeuns"
+  },
+  {
+    "cardId": 87,
+    "filename": "87-matteo-trentin.jpg",
+    "source": "https://www.tudorprocycling.com/post/matteo-trentin-on-his-move-to-tudor-pro-cycling-his-role-and-ambitions-for-2024",
+    "name": "matteoTrentin"
+  },
+  {
+    "cardId": 88,
+    "filename": "88-michael-woods.jpg",
+    "source": "https://ottawasportspages.ca/2024/05/03/high-achievers-despite-confidence-fitness-troubles-michael-woods-excited-about-third-career-giro-ditalia/",
+    "name": "michaelWoods"
+  },
+  {
+    "cardId": 89,
+    "filename": "89-joshua-tarling.jpg",
+    "source": "https://www.globalcyclingnetwork.com/racing/news/josh-tarling-puts-his-hand-up-for-possible-grand-tour-debut-at-the-vuelta-a-espana",
+    "name": "joshuaTarling"
+  },
+  {
+    "cardId": 90,
+    "filename": "90-andrea-bagioli.jpeg",
+    "source": "https://www.oasport.it/2024/03/andrea-bagioli-obiettivi-freccia-e-amstel-ho-trovato-la-mia-dimensione-al-lombardia-ci-riprovo/",
+    "name": "andreaBagioli"
+  },
+  {
+    "cardId": 91,
+    "filename": "91-ben-healy.jpg",
+    "source": "https://cyclinguptodate.com/cycling/ben-healy-wants-to-continue-to-progress-in-2024-my-goal-is-to-go-to-the-tour-but-many-guys-in-the-team-want-that-too",
+    "name": "benHealy"
+  },
+  {
+    "cardId": 92,
+    "filename": "92-yves-lampaert.jpg",
+    "source": "https://sporza.be/nl/2021/02/16/ontdek-het-programma-van-yves-lampaert-voor-de-klassiekers-in-2024~1582614717577/",
+    "name": "yvesLampaert"
+  },
+  {
+    "cardId": 93,
+    "filename": "93-bryan-coquard.jpg",
+    "source": "https://cyclinguptodate.com/cycling/i-have-finished-second-so-many-times-emotional-bryan-coquard-takes-second-ever-world-tour-win-on-stage-2-of-2024-tour-de-suisse",
+    "name": "bryanCoquard"
+  },
+  {
+    "cardId": 94,
+    "filename": "94-oscar-onley.jpg",
+    "source": "https://cyclinguptodate.com/cycling/its-pretty-incredible-oscar-onley-reacts-to-stunning-tour-down-under-stage-win",
+    "name": "oscarOnley"
+  },
+  {
+    "cardId": 95,
+    "filename": "95-aurelien-paret-peintre.jpg",
+    "source": "https://www.total-velo.com/aurelien-paret-peintre-remporte-la-5e-etape-du-tour-des-alpes-2024-lopez-sacre/",
+    "name": "aurelienParetPeintre"
+  },
+  {
+    "cardId": 96,
+    "filename": "96-soren-kragh-andersen.jpg",
+    "source": "https://www.total-velo.com/soren-kragh-andersen-forfait-au-samyn-2024/",
+    "name": "sorenKraghAndersen"
+  },
+  {
+    "cardId": 97,
+    "filename": "97-ion-izagirre.jpg",
+    "source": "https://cyclinguptodate.com/cycling/ion-izagirre-with-a-clear-goal-for-2024-season-i-want-more-tour-de-france-victories",
+    "name": "ionIzagirre"
+  },
+  {
+    "cardId": 98,
+    "filename": "98-kevin-vauquelin.jpeg",
+    "source": "https://www.arkea-bbhotels.com/en/kevin-vauquelin-finishes-8th-of-the-opening-itt/",
+    "name": "kevinVauquelin"
+  },
+  {
+    "cardId": 99,
+    "filename": "99-warren-barguil.jpeg",
+    "source": "https://cyclingpro.net/spaziociclismo/worldtour/giro-del-delfinato-2024-la-dsm-punta-alle-tappe-e-alla-classifica-generale-con-warren-barguil/",
+    "name": "warrenBarguil"
+  },
+  {
+    "cardId": 100,
+    "filename": "100-biniam-girmay.jpeg",
+    "source": "https://www.lesoir.be/563699/article/2024-01-25/premiere-victoire-de-la-saison-pour-biniam-girmay-et-intermarche-wanty-la-surf",
+    "name": "biniamGirmay"
+  },
+  {
     "cardId": 101,
     "filename": "101-santos-tour-down-under.jpeg",
     "source": "https://www.globalcyclingnetwork.com/racing/races/road/elite-men/tour-down-under",

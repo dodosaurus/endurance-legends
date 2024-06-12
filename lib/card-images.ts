@@ -78,6 +78,26 @@ import felixGrossschartner from "@/public/images/cards/77-felix-grossschartner.j
 import einerRubio from "@/public/images/cards/78-einer-rubio.jpeg";
 import albertoBettiol from "@/public/images/cards/79-alberto-bettiol.jpeg";
 import geraintThomas from "@/public/images/cards/80-geraint-thomas.jpeg";
+import cristianRodriguez from "@/public/images/cards/81-cristian-rodriguez.jpeg";
+import filippoZana from "@/public/images/cards/82-filippo-zana.jpeg";
+import diegoUlissi from "@/public/images/cards/83-diego-ulissi.jpg";
+import arvidDeKleijn from "@/public/images/cards/84-arvid-de-kleijn.jpeg";
+import georgZimmermann from "@/public/images/cards/85-georg-zimmermann.jpeg";
+import dylanTeuns from "@/public/images/cards/86-dylan-teuns.jpeg";
+import matteoTrentin from "@/public/images/cards/87-matteo-trentin.jpg";
+import michaelWoods from "@/public/images/cards/88-michael-woods.jpg";
+import joshuaTarling from "@/public/images/cards/89-joshua-tarling.jpg";
+import andreaBagioli from "@/public/images/cards/90-andrea-bagioli.jpeg";
+import benHealy from "@/public/images/cards/91-ben-healy.jpg";
+import yvesLampaert from "@/public/images/cards/92-yves-lampaert.jpg";
+import bryanCoquard from "@/public/images/cards/93-bryan-coquard.jpg";
+import oscarOnley from "@/public/images/cards/94-oscar-onley.jpg";
+import aurelienParetPeintre from "@/public/images/cards/95-aurelien-paret-peintre.jpg";
+import sorenKraghAndersen from "@/public/images/cards/96-soren-kragh-andersen.jpg";
+import ionIzagirre from "@/public/images/cards/97-ion-izagirre.jpg";
+import kevinVauquelin from "@/public/images/cards/98-kevin-vauquelin.jpeg";
+import warrenBarguil from "@/public/images/cards/99-warren-barguil.jpeg";
+import biniamGirmay from "@/public/images/cards/100-biniam-girmay.jpeg";
 
 import santosTourDownUnder from "@/public/images/cards/101-santos-tour-down-under.jpeg";
 import cadelEvansRace from "@/public/images/cards/102-cadel-evans-race.jpeg";
@@ -198,6 +218,26 @@ export default {
   einerRubio,
   albertoBettiol,
   geraintThomas,
+  cristianRodriguez,
+  filippoZana,
+  diegoUlissi,
+  arvidDeKleijn,
+  georgZimmermann,
+  dylanTeuns,
+  matteoTrentin,
+  michaelWoods,
+  joshuaTarling,
+  andreaBagioli,
+  benHealy,
+  yvesLampaert,
+  bryanCoquard,
+  oscarOnley,
+  aurelienParetPeintre,
+  sorenKraghAndersen,
+  ionIzagirre,
+  kevinVauquelin,
+  warrenBarguil,
+  biniamGirmay,
 
   santosTourDownUnder,
   cadelEvansRace,
