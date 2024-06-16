@@ -6,6 +6,7 @@ import AppCardLayout from "./app-card-layout";
 import type { Card as CardType } from "@prisma/client";
 import { getIsoCountryCode } from "@/lib/utils";
 import cardImages from "@/lib/card-images";
+import TopTenBadge from "./top-ten-badge";
 
 function AppCardFront({ card }: { card: CardType }) {
   const getRightCountryCodeForFlag = (countryString: string) => {
@@ -93,6 +94,7 @@ function AppCardFront({ card }: { card: CardType }) {
           <span>{card.rarity}</span>
         </div>
       </Badge>
+      {card.id <= 10 && <TopTenBadge />}
       <Card className="absolute bottom-0 w-full z-10">
         <CardHeader>
           <CardTitle className="flex justify-between items-center gap-2">
