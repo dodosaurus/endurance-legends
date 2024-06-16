@@ -56,7 +56,9 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   return { user, activities };
 }
 
-export async function collectionSync(athleteId: number): Promise<{ cards: Card[], ownedCardsIds: number[] }> {
+export async function collectionSync(
+  athleteId: number
+): Promise<{ cards: Card[]; ownedCardsIds: number[]; newCardsIds: number[] }> {
   //refresh access token if needed
   const access_token = await revalidateStravaAccessToken(athleteId);
 
@@ -66,8 +68,8 @@ export async function collectionSync(athleteId: number): Promise<{ cards: Card[]
 
   //get all cards from master collection for skeleton
   const cards = await prisma.card.findMany({
-    orderBy:{
-      id: "asc"
+    orderBy: {
+      id: "asc",
     },
     where: {
       collectionId: 1,
@@ -79,11 +81,12 @@ export async function collectionSync(athleteId: number): Promise<{ cards: Card[]
     where: {
       userAthleteId: athleteId as number,
     },
-  })
+  });
 
   const ownedCardsIds = ownedCards.map((card) => card.cardId);
+  const newCardsIds = ownedCards.filter((card) => card.isNew).map((card) => card.cardId);
 
   //not owned cards should be greyed out
 
-  return { cards, ownedCardsIds };
+  return { cards, ownedCardsIds, newCardsIds };
 }

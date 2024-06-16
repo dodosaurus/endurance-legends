@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default async function Collection() {
   const { athleteId } = await verifySession();
-  const { cards, ownedCardsIds } = await collectionSync(athleteId as number);
+  const { cards, ownedCardsIds, newCardsIds } = await collectionSync(athleteId as number);
 
   // console.log(cards.map(card => card.cardImageUrl));
 
@@ -51,11 +51,11 @@ export default async function Collection() {
         </div>
         <TabsContent value="owned">
           {/* <OwnedCardsTable cards={cards} ownedCardsIds={ownedCardsIds} /> */}
-          <OwnedCardsGrid cards={cards} ownedCardsIds={ownedCardsIds} />
+          <OwnedCardsGrid cards={cards} ownedCardsIds={ownedCardsIds} newCardsIds={newCardsIds} />
         </TabsContent>
         <TabsContent value="all">
           {/* <AllCardsTable cards={cards} ownedCardsIds={ownedCardsIds} /> */}
-          <AllCardsGrid cards={cards} ownedCardsIds={ownedCardsIds} />
+          <AllCardsGrid cards={cards} ownedCardsIds={ownedCardsIds} newCardsIds={newCardsIds} />
         </TabsContent>
       </Tabs>
     </div>

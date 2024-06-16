@@ -69,6 +69,16 @@ export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]) 
   //iteration modifier of number of UNIQUE collected cards, so we need to subtract duplicates
   const newCollectedCardsCount = PACK_SIZE - duplicatesIds.length;
 
+  //first set all ownedCard isNew flag to false
+  await prisma.ownedCard.updateMany({
+    where: {
+      userAthleteId: athleteId,
+    },
+    data: {
+      isNew: false,
+    },
+  });
+
   //create each new ownedCard on user based on cardIds, and raise the number of collectedCards
   const { accountBalance } = await prisma.user.update({
     where: {
@@ -78,6 +88,7 @@ export async function assignNewCardSetToOwner(athleteId: number, cards: Card[]) 
       ownedCards: {
         create: cards.map((card) => ({
           cardId: card.id,
+          isNew: true,
         })),
       },
       collectedCards: {
