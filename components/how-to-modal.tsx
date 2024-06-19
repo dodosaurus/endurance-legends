@@ -6,7 +6,7 @@ import { Bike, DoorOpen, LibraryBig, SendToBack } from "lucide-react";
 const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default" | "secondary" }) => {
   return (
     <Dialog>
-      <DialogTrigger>
+      <DialogTrigger className="hidden sm:block">
         <span className={buttonVariants({ variant: triggerVariant })}>How it works?</span>
       </DialogTrigger>
       <DialogContent className="min-w-96">
