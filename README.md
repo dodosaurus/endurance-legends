@@ -74,42 +74,56 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] how it works card for landing page/for navabr later
 - [x] add 20 last images to more cards
 - [x] add for newest cards the indicator (maybe dot, that will disappear after hover)
+- [x] AI generated image? OR/AND some card backs/cards stacked and panned (left column)
+- [x] short catchy slogan/phrase (left column)
+- [x] display image source, other gathered data from PCS (card preview right panel)
 
 ## TODO
 
-- [ ] implement carousel with 2 cards per turn for medium screens
-- [ ] confetti when opening card pack
-- [ ] enhance new badge - or add new grids to collection (last opened, opened in last 24 hours)
+PRIO
+- [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
+  - activity fetch from Strava should be restricted to as few calls as possible, maybe split dashboardSync?
+- [ ] confetti when opening card pack (add more visual funniness)
 
 Collection:
-- [ ] Table view - each (owned/all) should have 2 separate tables, one for cyclists/one for races
+- [ ] enhance new badge - or add new grids to collection (last opened, opened in last 24 hours)
+- [ ] collected cards count of all rarities on /collection
+- [ ] sorting by rarity/ rarity vs. non-rarity cards
 - [ ] implement radio button switch to switch between grid and table view
-- [ ] Grid view - will have sorting by rarity and owned/all should stay as from table view
+- [ ] progress bar on collected cards
 
-Strava DEV guideline:
-- [ ] to footer add honorable mentions (new route) for other major sources used to make app (ex. card back design, shadcn, Strava API ...)
+Re-roll mechanism:
+- before trading stuff, we could implement re-roll mechanism, where user can pick duplicated crads - like 4 and re-roll them and he will get one random card he do not own in return
 
-Dashboard rework:
-- activities will display now also every Transaction (new symbol to sign newest, new column to signal - or +)
-- [ ] change data for table, change columns
+How to page:
+- [ ] should be expanded with more info and moved to another route
+
+Progress and rewards:
+- [ ] think about new concept - maybe have milestones while filling out collectionn and user should be awarded by something
+  - it could be compeltely different think, like something outside of the game, some sponsor discount code
+  - it could be some seconnd meta game which will award user by special (golden ex.) versions of random card; this could start meta collecting for adavnced users
+  (we would need some kind of cycle system then for regular collection)
+
+Profile page:
+- [ ] profile page should be separate route not modal
+- [ ] contain statistics of run/rode km, opened packs; only some should be elsewehere
+- trasnactions - should contain history table of all transactions
 
 Responsivity:
 - [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right
+- [ ] implement carousel with 2 cards per turn for medium screens
 
 Landing page:
-- [ ] Login vs. Register cards - logic behind it (right column)
+- [ ] Login card - think about it, do we need it? if user has token in cookies, he is logged inn; we maybe need just one button to get in
 - rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app) - this should be case for LOGIN from lannding page
-- [ ] AI generated image? OR/AND some card backs/cards stacked and panned (left column)
-- [ ] short catchy slogan/phrase (left column)
 
 Opening:
-- [ ] probability for 85 cards vs 135 cards in collection (chatgpt), some interface for changing it (or find 50 more cards :))
 - [ ] implement flip card (maybe not possible if front/back are not absolute)
 - [ ] add booster phase before user see cards and transition (how will booster look and the consequent animation)
 
 Card:
-- [ ] display image source, other gathered data from PCS (card preview right panel)
-- [ ] images for other cards (a lot of work :) - maybe not that prio, because when we release prod version, we probably do new snapshot of UCI rankings
+- [ ] images for other cards (a lot of work :) - before release we need to snap UCI rankings again and rework all cards
+- think about COPYRIGHT!!! - could we give pictures to AI to recreate them? do they lose their copyright after?
 
 End game:
 - plan hoow should it looks like
@@ -118,6 +132,8 @@ End game:
 - [ ] handling situations where user already own whole collection
 
 Testing:
+- after release we need test user rather than testing with real one (maybe partially with real one)
+- we need compeletly different stage when product is released (new DB for dev)
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
 
 Trading:
