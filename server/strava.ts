@@ -62,12 +62,12 @@ export async function revalidateStravaAccessToken(athleteId: number) {
 
 //ACTIVITIES
 export async function listAthleteActivities(after: string, access_token: string) {
-  const res = await fetch(STRAVA_BASE_PATH + "/athlete/activities?" + new URLSearchParams({ after }), {
+  const res = await fetch(STRAVA_BASE_PATH + "/athlete/activities?" + new URLSearchParams({ after, per_page: "200" }), {
     headers: {
       Authorization: `Bearer ${access_token}`,
     },
     next: {
-      revalidate: 6000,
+      revalidate: 0,
     }
   });
 
