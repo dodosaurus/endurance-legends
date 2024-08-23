@@ -82,7 +82,8 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 PRIO
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
-  - activity fetch from Strava should be restricted to as few calls as possible, maybe split dashboardSync?
+  - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
+  - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work
 - [ ] confetti when opening card pack (add more visual funniness)
 
 Collection:
