@@ -80,7 +80,10 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
+- other usee failing with https://endurance-vault.vercel.app/api/strava/callback?state=&code=aef9f4cca8fecc71b834cec5bef9e4c25fac4581&scope=read,activity:read,activity:read_all
+
 PRIO
+- [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
   - activity fetch from Strava should be restricted to as few calls as possible, maybe split dashboardSync?
 - [ ] confetti when opening card pack (add more visual funniness)
