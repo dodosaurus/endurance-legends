@@ -77,11 +77,13 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] AI generated image? OR/AND some card backs/cards stacked and panned (left column)
 - [x] short catchy slogan/phrase (left column)
 - [x] display image source, other gathered data from PCS (card preview right panel)
+- [x] try to login as different user and fix problem that we have (on localhost with Mari's account)
 
 ## TODO
 
-- [ ] try to login as different user and fix problem that we have (on localhost with Mari's account)
-- other usee failing with https://endurance-vault.vercel.app/api/strava/callback?state=&code=aef9f4cca8fecc71b834cec5bef9e4c25fac4581&scope=read,activity:read,activity:read_all
+- [ ] check db:clear-owned-cards to not interfere with my test users, only take in consideration jozef_kov
+- [ ] remove fixed date and find out from what date we will count in activites when user joins EV (maybe from minus 7 days + new user bonus)
+- [ ] add new user bonus notification when new user joins (toast notification)
 
 - [ ] implement some kind of mock service that will mimic real user of Strava, service that can hold multiple test users (so we dont have to test only with real Strava users), each user has to have some mocked activites, way to generate mock activites
 

@@ -5,13 +5,22 @@ const main = async () => {
 };
 
 const clearOwnedCards = async () => {
-  //delete whole OwnedCard table
-  await prisma.ownedCard.deleteMany({});
+  //delete whole owned cards only for user with username = "jozef_kov"
+  await prisma.ownedCard.deleteMany({
+    where: {
+      user: {
+        username: "jozef_kov",
+      },
+    },
+  });
 
-  //delete records from Transaction table, where desc is "purchase_pack"
+  //delete records from Transaction table, where desc is "purchase_pack", for user with username = "jozef_kov"
   await prisma.transaction.deleteMany({
     where: {
       desc: "purchase_pack",
+      user: {
+        username: "jozef_kov",
+      },
     },
   });
 
