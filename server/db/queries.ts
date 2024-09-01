@@ -14,14 +14,20 @@ export async function createUser(
   scope: string,
   fromStravaCallback: boolean = false
 ) {
+  console.log(data);
+
   if (!fromStravaCallback) {
     await verifySession();
   }
 
+  let username_to_use = data.athlete.username
+    ? data.athlete.username
+    : `${data.athlete.firstname.toLowerCase()}_${data.athlete.lastname.toLowerCase()}`;
+
   const user = await prisma.user.create({
     data: {
       athleteId: data.athlete.id,
-      username: data.athlete.username,
+      username: username_to_use,
       name: data.athlete.firstname + " " + data.athlete.lastname,
       country: data.athlete.country,
       profile: data.athlete.profile,
@@ -161,12 +167,16 @@ export async function updateUser(
 ) {
   const { athleteId } = await verifySession();
 
+  let username_to_use = data.username
+    ? data.username
+    : `${data.firstname.toLowerCase()}_${data.lastname.toLowerCase()}`;
+
   const user = await prisma.user.update({
     where: {
       athleteId: athleteId as number,
     },
     data: {
-      username: data.username,
+      username: username_to_use,
       name: data.firstname + " " + data.lastname,
       country: data.country,
       city: data.city,
