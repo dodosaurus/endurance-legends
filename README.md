@@ -78,14 +78,24 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] short catchy slogan/phrase (left column)
 - [x] display image source, other gathered data from PCS (card preview right panel)
 - [x] try to login as different user and fix problem that we have (on localhost with Mari's account)
+- [x] check db:clear-owned-cards to not interfere with my test users, only take in consideration jozef_kov
+- [x] remove fixed date and find out from what date we will count in activites when user joins EV (maybe from minus 7 days + new user bonus)
 
 ## TODO
 
-- [ ] check db:clear-owned-cards to not interfere with my test users, only take in consideration jozef_kov
-- [ ] remove fixed date and find out from what date we will count in activites when user joins EV (maybe from minus 7 days + new user bonus)
-- [ ] add new user bonus notification when new user joins (toast notification)
+- [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
+- introduce toast notification system to make system more intuitive
+
+- [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
 
 - [ ] implement some kind of mock service that will mimic real user of Strava, service that can hold multiple test users (so we dont have to test only with real Strava users), each user has to have some mocked activites, way to generate mock activites
+
+META GAME (upgrading cards after all collection is collected - or some value goal reached)
+- this should serve as continuation for athletes that already collected all (majority of the cards)
+- would be nice to have trading and friends but is not reuqired
+- coins could be spend also on upgrade the cards - card will become 3D? or we unlock variation of the card
+- to create "golden" version of the card we could use AI somehow (some stabe diffusion model, to alter the graphic in defined way)
+- each card then can have golden/platinum/diamond version, each will be more expensive, and athlete would need to sport his way to be able to upgrade such cards
 
 PRIO
 - [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more
