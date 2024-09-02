@@ -83,12 +83,16 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
+PRIO
+- [ ] how to modal needs to be responsive and more interactive
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - introduce toast notification system to make system more intuitive
-
 - [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
-
-- [ ] implement some kind of mock service that will mimic real user of Strava, service that can hold multiple test users (so we dont have to test only with real Strava users), each user has to have some mocked activites, way to generate mock activites
+- [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more
+- [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
+  - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
+  - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work (problematic at first tries...)
+- [ ] confetti when opening card pack (add more visual funniness)
 
 META GAME (upgrading cards after all collection is collected - or some value goal reached)
 - this should serve as continuation for athletes that already collected all (majority of the cards)
@@ -96,13 +100,6 @@ META GAME (upgrading cards after all collection is collected - or some value goa
 - coins could be spend also on upgrade the cards - card will become 3D? or we unlock variation of the card
 - to create "golden" version of the card we could use AI somehow (some stabe diffusion model, to alter the graphic in defined way)
 - each card then can have golden/platinum/diamond version, each will be more expensive, and athlete would need to sport his way to be able to upgrade such cards
-
-PRIO
-- [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more
-- [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
-  - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
-  - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work (problematic at first tries...)
-- [ ] confetti when opening card pack (add more visual funniness)
 
 Collection:
 - [ ] enhance new badge - or add new grids to collection (last opened, opened in last 24 hours)
@@ -133,6 +130,7 @@ Responsivity:
 - [ ] implement carousel with 2 cards per turn for medium screens
 
 Landing page:
+- add video
 - [ ] Login card - think about it, do we need it? if user has token in cookies, he is logged inn; we maybe need just one button to get in
 - rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app) - this should be case for LOGIN from lannding page
 
@@ -151,6 +149,7 @@ End game:
 - [ ] handling situations where user already own whole collection
 
 Testing:
+- [ ] implement some kind of mock service that will mimic real user of Strava, service that can hold multiple test users (so we dont have to test only with real Strava users), each user has to have some mocked activites, way to generate mock activites
 - after release we need test user rather than testing with real one (maybe partially with real one)
 - we need compeletly different stage when product is released (new DB for dev)
 - [ ] need activity generator for testing and test adding new activities and changing of distances and coins
