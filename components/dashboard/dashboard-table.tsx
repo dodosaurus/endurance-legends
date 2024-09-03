@@ -72,14 +72,14 @@ export default async function DashboardTable({ user, activities }: Props) {
               <TableHead className="hidden md:table-cell">Location</TableHead>
               <TableHead className="hidden md:table-cell">Date</TableHead>
               <TableHead className="table-cell">Earned</TableHead>
-              <TableHead className="table-cell"></TableHead>
+              <TableHead className="table-cell">Link</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {activities.length === 0 && (
               <TableRow>
-                <TableCell colSpan={5} className="text-center">
-                  No activities found yet. Go out and earn your coins :)
+                <TableCell colSpan={7} className="text-center">
+                  No activities found yet. Go out and earn your coins <CoinIcon w="16" />
                 </TableCell>
               </TableRow>
             )}
