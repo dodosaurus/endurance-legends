@@ -56,7 +56,7 @@ export default async function DashboardTable({ user, activities }: Props) {
         <CardTitle>Your activities</CardTitle>
         <CardDescription className="flex flex-col gap-2 items-start justify-center">
           <p>
-            Activities must be public, done after your registration here and need to be type of Ride or Run. For one
+            Activities must be public, done at least 7 days before your first login and need to be type of Ride or Run. For one
             pack you need to either run <span className="font-semibold">10 km</span> or ride{" "}
             <span className="font-semibold">40 km</span>.
           </p>
