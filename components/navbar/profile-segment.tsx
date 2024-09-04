@@ -27,9 +27,9 @@ async function ProfileSegment() {
                 <AvatarFallback>{user.name[0]}</AvatarFallback>
               </Avatar>
             </DialogTrigger>
-            <DialogContent className="w-[90vw] max-w-3xl max-h-[90vh] overflow-y-auto mt-16 sm:mt-0">
-              <DialogHeader>
-                <div className="flex justify-start items-center gap-3">
+            <DialogContent className="w-[95vw] sm:w-[90vw] max-w-md max-h-[90vh] overflow-y-auto mt-16 sm:mt-0">
+              <DialogHeader className="text-center">
+                <div className="flex flex-col items-center gap-3">
                   <Avatar>
                     <AvatarImage src={user.profile} alt="avatar of user" />
                     <AvatarFallback>{user.name[0]}</AvatarFallback>
@@ -37,8 +37,8 @@ async function ProfileSegment() {
                   <DialogTitle>
                     {user.name} <span className="font-normal text-sm"> ({user.username})</span>
                   </DialogTitle>
+                  <InfoTimes lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
                 </div>
-                <InfoTimes lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} />
               </DialogHeader>
               <div className="flex flex-col justify-between items-center gap-2">
                 <div className="sm:hidden w-full flex justify-center mb-2">
