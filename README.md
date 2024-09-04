@@ -85,7 +85,8 @@ endurancevault is concept application, where Strava user could buy boosters with
 ## TODO
 
 PRIO
-- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted
+- [ ] add progress bar on dashboard
+- [ ] add some version, build number identifier in some small/hidden component to track releasees
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - introduce toast notification system to make system more intuitive
 - [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
@@ -94,6 +95,7 @@ PRIO
   - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
   - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work (problematic at first tries...)
 - [ ] confetti when opening card pack (add more visual funniness)
+- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted
 
 META GAME (upgrading cards after all collection is collected - or some value goal reached)
 - this should serve as continuation for athletes that already collected all (majority of the cards)
