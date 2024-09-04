@@ -13,7 +13,7 @@ export default async function Dashboard() {
         <>
           <DashboardFirstPanel user={user} />
           <DashboardSecondPanel user={user} />
-          <DashboardTable activities={activities} />
+          <DashboardTable user={user} activities={activities} />
         </>
       ) :
         <p>Loading...</p>}

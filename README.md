@@ -85,6 +85,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 ## TODO
 
 PRIO
+- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - introduce toast notification system to make system more intuitive
 - [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
