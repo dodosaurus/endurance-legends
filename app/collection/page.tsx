@@ -26,7 +26,7 @@ export default async function Collection() {
           <CardTitle>My collection</CardTitle>
           <CardDescription className="flex flex-col md:flex-row items-center justify-between gap-5">
             <span>
-              Below you can see whole collection and which cards you do own. Get out for a run or ride and earn more!
+              Below you can see whole collection and which cards you do own. Get out for a walk, hike, run or ride and earn more!
             </span>
             <div>
               <Link href="/dashboard">
