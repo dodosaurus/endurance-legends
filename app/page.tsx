@@ -15,7 +15,7 @@ export default function Home() {
           </h1>
           <p className="mt-6 text-xl max-w-prose text-primary">
             Welcome to Endurance Vault. Train, log Strava activities, earn coins and buy card packs to expand your{" "}
-            <span className="font-bold">World Tour cycling</span> collection.
+            <span className="font-bold text-amber-500">World Tour cycling</span> collection.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 mt-6">
             <HowToModal />
