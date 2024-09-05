@@ -124,8 +124,6 @@ export async function findAllActivities() {
 
   const ids = activities.map((activity) => activity.id);
 
-  console.log(activities);
-
   return { activities, ids };
 }
 

@@ -84,13 +84,13 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] add some version, build number identifier in some small/hidden component to track releasees
 - [x] add progress bar on dashboard
 - [x] add progress bar to /collection
+- [x] taking in consideration other activity types (walk, hike) and think about the coins earnings
 
 ## TODO
 
 PRIO
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - [ ] rework filters in collection page to also display rarity filtered cards - I need to take all the tabs and put it into client component, so we can hold filter value in useState and pass it to our main fitlers for all/owned cards (page.tsx is server component)
-- [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
 - [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
   - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
