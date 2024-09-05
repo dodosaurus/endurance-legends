@@ -124,6 +124,8 @@ export async function findAllActivities() {
 
   const ids = activities.map((activity) => activity.id);
 
+  console.log(activities);
+
   return { activities, ids };
 }
 
@@ -161,7 +163,7 @@ export async function updateActivitiesBonusTriggeredByIds(ids: number[], bonusTr
 
 export async function updateUser(
   data: StravaAPI.StravaAthlete,
-  totalDistances: { runs: number; rides: number },
+  totalDistances: { runs: number; rides: number; walks: number },
   newActivityIds: number[],
   newAccountBalance: number
 ) {
@@ -184,6 +186,7 @@ export async function updateUser(
       profileMedium: data.profile_medium,
       totalRunDistance: totalDistances.runs,
       totalRideDistance: totalDistances.rides,
+      totalWalkDistance: totalDistances.walks,
       lastStravaRefresh: new Date(),
       newActivityIds: newActivityIds.length > 0 ? newActivityIds : undefined,
       accountBalance: newAccountBalance,
