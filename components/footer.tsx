@@ -6,8 +6,9 @@ import { Copy } from "lucide-react";
 
 export default function Footer() {
   const copyToClipboard = () => {
-    const buildHash = process.env.NEXT_PUBLIC_COMMIT_SHA || "local8ae00844f9cf6e937a6b91fe88ac7f1a33";
-    navigator.clipboard.writeText(buildHash);
+    const fullBuildHash = process.env.NEXT_PUBLIC_COMMIT_SHA || "local990844f9cf6e937a6b91fe88ac7f1a33";
+    const shortBuildHash = fullBuildHash.slice(0, 7);
+    navigator.clipboard.writeText(shortBuildHash);
   };
 
   return (
