@@ -6,8 +6,16 @@ export function calcActivityCoins(activity: Activity) {
   if (activity.type === "Run") {
     return Math.round(activity.distance / 10); //we give 100 coins for each kilometer
   }
+  if (activity.type === "Walk") {
+    return Math.round(activity.distance / 10); //we give 100 coins for each kilometer
+  }
+  //this is because Strava API, we take it as synonym for walk
+  if (activity.type === "Hike") {
+    return Math.round(activity.distance / 10); //we give 100 coins for each kilometer
+  }
+  //cycling kilometer is easier, by ChatGPT we found out that cycling is 3x easier than going by feet
   if (activity.type === "Ride") {
-    return Math.round(activity.distance / 10 / 4); //cycling kilometer is easier, we assume 4 x easier in general
+    return Math.round(activity.distance / 10 / 3);
   }
   return 0;
 }
@@ -16,6 +24,7 @@ export function calcTotalDistances(activities: Activity[]) {
   const total_distance = {
     runs: 0,
     rides: 0,
+    walks: 0,
   };
 
   for (const activity of activities) {
@@ -24,6 +33,12 @@ export function calcTotalDistances(activities: Activity[]) {
     }
     if (activity.type === "Ride") {
       total_distance.rides += activity.distance;
+    }
+    if (activity.type === "Walk") {
+      total_distance.walks += activity.distance;
+    }
+    if (activity.type === "Hike") {
+      total_distance.walks += activity.distance;
     }
   }
 

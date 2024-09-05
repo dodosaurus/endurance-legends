@@ -83,13 +83,13 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] how to modal needs to be responsive and more interactive
 - [x] add some version, build number identifier in some small/hidden component to track releasees
 - [x] add progress bar on dashboard
+- [x] add progress bar to /collection
 
 ## TODO
 
 PRIO
-- [ ] add progress bar to /collection
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
-- introduce toast notification system to make system more intuitive
+- [ ] rework filters in collection page to also display rarity filtered cards - I need to take all the tabs and put it into client component, so we can hold filter value in useState and pass it to our main fitlers for all/owned cards (page.tsx is server component)
 - [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
 - [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
@@ -104,13 +104,14 @@ META GAME (upgrading cards after all collection is collected - or some value goa
 - coins could be spend also on upgrade the cards - card will become 3D? or we unlock variation of the card
 - to create "golden" version of the card we could use AI somehow (some stabe diffusion model, to alter the graphic in defined way)
 - each card then can have golden/platinum/diamond version, each will be more expensive, and athlete would need to sport his way to be able to upgrade such cards
+- progress bar should be more customized, with some colorful milestones, which will sign when the user can enter the gold/platinum/diamond meta game
 
 Collection:
 - [ ] enhance new badge - or add new grids to collection (last opened, opened in last 24 hours)
 - [ ] collected cards count of all rarities on /collection
 - [ ] sorting by rarity/ rarity vs. non-rarity cards
 - [ ] implement radio button switch to switch between grid and table view
-- [ ] progress bar on collected cards
+- [ ] nicer progress bar on collected cards
 
 Re-roll mechanism:
 - before trading stuff, we could implement re-roll mechanism, where user can pick duplicated crads - like 4 and re-roll them and he will get one random card he do not own in return
