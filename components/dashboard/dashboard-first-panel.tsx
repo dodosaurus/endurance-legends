@@ -8,9 +8,10 @@ type Props = {
 }
 
 export default function DashboardFirstPanel({ user }: Props) {
-  return <div className="flex flex-col sm:flex-row gap-2 justify-between items-center">
-    {/* <DashboardInfoCard lastStravaRefresh={user.lastStravaRefresh} inAppSince={user.inAppSince} profile={user.profile} name={user.name}/> */}
-    <DashboardCoinsAndOpenCard athleteId={user.athleteId} accountBalance={user.accountBalance}/>
-    <DashboardCollectionCard userOwnedCards={user.collectedCards}/>
-  </div>;
+  return (
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+      <DashboardCoinsAndOpenCard athleteId={user.athleteId} accountBalance={user.accountBalance}/>
+      <DashboardCollectionCard userOwnedCards={user.collectedCards}/>
+    </div>
+  );
 }

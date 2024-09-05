@@ -81,12 +81,13 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] check db:clear-owned-cards to not interfere with my test users, only take in consideration jozef_kov
 - [x] remove fixed date and find out from what date we will count in activites when user joins EV (maybe from minus 7 days + new user bonus)
 - [x] how to modal needs to be responsive and more interactive
+- [x] add some version, build number identifier in some small/hidden component to track releasees
+- [x] add progress bar on dashboard
 
 ## TODO
 
 PRIO
-- [ ] add progress bar on dashboard
-- [ ] add some version, build number identifier in some small/hidden component to track releasees
+- [ ] add progress bar to /collection
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - introduce toast notification system to make system more intuitive
 - [ ] taking in consideration other activity types and think about the coins earnings (calories may be good)
