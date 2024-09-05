@@ -7,7 +7,7 @@ import { useEffect } from "react";
 
 function AccountBalance({ accountBalance }: { accountBalance: number }) {
   const { clientAccBalance, setClientAccBalance } = useAppContext();
-  
+
   useEffect(() => {
     setClientAccBalance(accountBalance);
   }, [accountBalance]);
@@ -16,7 +16,8 @@ function AccountBalance({ accountBalance }: { accountBalance: number }) {
     <CardHeader className="pb-2 flex flex-col items-center justify-center">
       <CardDescription>Coin balance</CardDescription>
       <CardTitle className="flex gap-2 justify-center items-center text-4xl">
-        <CoinIcon w="25px" /> <span>{clientAccBalance.toLocaleString("en-GB")}</span>
+        <span>{clientAccBalance.toLocaleString("en-GB")}</span>
+        <CoinIcon w="25px" />
       </CardTitle>
     </CardHeader>
   );

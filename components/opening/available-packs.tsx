@@ -10,8 +10,8 @@ function AvailablePacks() {
   return (
     <div className="flex flex-col justify-center items-center text-xs text-muted-foreground pt-2">
       <span className="font-semibold">{calcAvailablePacks(clientAccBalance)} total available</span>
-      <span>
-        (1 = <CoinIcon w="10px" /> 1000)
+      <span className="flex items-center">
+        (1 = 1000 <CoinIcon w="10" className="ml-1 inline-block align-text-bottom" />)
       </span>
     </div>
   );

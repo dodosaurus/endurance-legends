@@ -58,8 +58,8 @@ export default async function Collection() {
           ) : (
             <Card className="w-full">
               <CardContent className="pt-6">
-                <p className="text-center text-muted-foreground flex items-center justify-center gap-2">
-                  No owned cards found yet. Go out and earn your coins <CoinIcon w="16" />
+                <p className="text-center text-muted-foreground">
+                  No owned cards found yet. Go out and earn your coins <CoinIcon className="inline-block w-4 h-4 ml-1" />
                 </p>
               </CardContent>
             </Card>
