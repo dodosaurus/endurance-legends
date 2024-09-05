@@ -1,6 +1,24 @@
-export function CoinIcon({ w }: { w: string }) {
+import { SVGProps } from 'react';
+
+interface CoinIconProps extends SVGProps<SVGSVGElement> {
+  w?: string;
+}
+
+export function CoinIcon({ w, className, ...props }: CoinIconProps) {
+  const width = w || '24';
+  const height = w || '24';
+  const combinedClassName = `inline-block ${className || ''}`.trim();
+
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width={w} height={w} viewBox="0 0 24 24" fill="none" className="inline-block">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={width}
+      height={height}
+      viewBox="0 0 24 24"
+      fill="none"
+      className={combinedClassName}
+      {...props}
+    >
       <ellipse
         rx="8.5"
         ry="9"

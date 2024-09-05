@@ -13,7 +13,6 @@ type Props = {
 };
 
 export default async function DashboardTable({ user, activities }: Props) {
-
   const bgBasedOnActivityAge = (activity: Activity): string => {
     //must be between newest ids and at least 24 hours from loadin
     if (activity.startDate > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
@@ -56,9 +55,9 @@ export default async function DashboardTable({ user, activities }: Props) {
         <CardTitle>Your activities</CardTitle>
         <CardDescription className="flex flex-col gap-2 items-start justify-center">
           <p>
-            Activities must be public, done at least 7 days before your first login and need to be type of Ride or Run. For one
-            pack you need to either run <span className="font-semibold">10 km</span> or ride{" "}
-            <span className="font-semibold">40 km</span>.
+            Activities must be public, done at least 7 days before your first login. For one pack you need to either
+            walk or run <span className="font-semibold">10 km</span> or ride{" "}
+            <span className="font-semibold">30 km</span>.
           </p>
         </CardDescription>
       </CardHeader>
@@ -91,7 +90,9 @@ export default async function DashboardTable({ user, activities }: Props) {
                     <div className="font-medium">{activity.name}</div>
                     <div className="text-sm text-muted-foreground">{activity.type}</div>
                   </TableCell>
-                  <TableCell className="hidden sm:table-cell">{convertMetersToKilometersForUI(activity.distance)} km</TableCell>
+                  <TableCell className="hidden sm:table-cell">
+                    {convertMetersToKilometersForUI(activity.distance)} km
+                  </TableCell>
                   <TableCell className="hidden sm:table-cell">
                     {convertSecondsToReadableTime(activity.movingTime)}
                   </TableCell>
@@ -102,7 +103,8 @@ export default async function DashboardTable({ user, activities }: Props) {
                   <TableCell>
                     <Badge className="text-xs" variant="secondary">
                       <div className="flex justify-start items-center gap-1">
-                        <CoinIcon w="10px" /> <span>{calcActivityCoins(activity)}</span>
+                        <span>{calcActivityCoins(activity)}</span>
+                        <CoinIcon w="10px" /> 
                       </div>
                     </Badge>
                   </TableCell>

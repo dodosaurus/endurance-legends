@@ -1,0 +1,2 @@
+-- AlterTable
+ALTER TABLE "User" ADD COLUMN     "totalWalkDistance" DOUBLE PRECISION NOT NULL DEFAULT 0;

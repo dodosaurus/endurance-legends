@@ -4,7 +4,8 @@ const main = async () => {
   await clearWholeUser();
 };
 
-const target_user = "jozef_kov";
+// const target_user = "jozef_kov";
+const target_user = "maria_kovacova";
 
 const clearWholeUser = async () => {
   //delete whole activites only for target user

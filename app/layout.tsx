@@ -7,6 +7,7 @@ import AppContextProvider from "@/context/app-context";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import Footer from "@/components/footer";
+import { Toaster } from "@/components/ui/sonner";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -33,6 +34,7 @@ export default function RootLayout({
           <AppContextProvider>
             <Navbar />
             <main className="flex min-h-screen flex-col items-center justify-between p-2 sm:p-8">{children}</main>
+            <Toaster />
             {/* <Footer /> */}
           </AppContextProvider>
         </ThemeProvider>

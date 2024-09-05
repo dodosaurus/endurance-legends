@@ -20,6 +20,7 @@ model User {
   accountBalance    Int             @default(0)
   totalRunDistance  Float           @default(0)
   totalRideDistance Float           @default(0)
+  totalWalkDistance Float           @default(0)
   collectedCards    Int             @default(0)
   lastOpenedPack    Int[]           @default([])
   inAppSince        DateTime        @default(now())
