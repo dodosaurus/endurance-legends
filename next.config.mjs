@@ -1,4 +1,12 @@
 /** @type {import('next').NextConfig} */
+import withPWA from 'next-pwa';
+
+const pwaConfig = withPWA({
+  dest: 'public', // Output location for the generated service worker and assets
+  register: true,
+  skipWaiting: true,
+});
+
 const nextConfig = {
   env: {
     NEXT_PUBLIC_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA,
@@ -19,4 +27,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+export default pwaConfig(nextConfig);
