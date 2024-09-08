@@ -89,6 +89,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 ## TODO
 
 PRIO
+- [ ] strava_athlete username need to be reserved/handled - it is some kind of reserved username for new users? (maybe do it if we find user with same name, we will generate some hash ad the end)
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - [ ] rework filters in collection page to also display rarity filtered cards - I need to take all the tabs and put it into client component, so we can hold filter value in useState and pass it to our main fitlers for all/owned cards (page.tsx is server component)
 - [ ] if activities fetch return 200 activites, we need to re-fetch with oldest activity's timestamp and check if there isn't more

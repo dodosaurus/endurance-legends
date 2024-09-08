@@ -55,7 +55,7 @@ export async function revalidateStravaAccessToken(athleteId: number) {
 
     return newToken;
   } else {
-    console.log("No need to refresh Strava access token. Execution will continue.");
+    console.log(`No need to refresh Strava access token for athlete with id ${stravaSession?.userAthleteId}. Execution will continue.`);
     return stravaSession?.accessTokenCode;
   }
 }

@@ -4,8 +4,10 @@ const main = async () => {
   await clearWholeUser();
 };
 
-// const target_user = "jozef_kov";
-const target_user = "maria_kovacova";
+const target_user = "jozef_kov";
+// const target_user = "maria_kovacova";
+// const target_user = "jozef_kovac";
+// const target_user = "strava_athlete";
 
 const clearWholeUser = async () => {
   //delete whole activites only for target user
