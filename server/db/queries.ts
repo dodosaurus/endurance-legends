@@ -14,7 +14,7 @@ export async function createUser(
   scope: string,
   fromStravaCallback: boolean = false
 ) {
-  console.log(data);
+  // console.log(data);
 
   if (!fromStravaCallback) {
     await verifySession();

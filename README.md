@@ -85,6 +85,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] add progress bar on dashboard
 - [x] add progress bar to /collection
 - [x] taking in consideration other activity types (walk, hike) and think about the coins earnings
+- [x] do not log tokens
 
 ## TODO
 
