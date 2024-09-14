@@ -12,56 +12,43 @@ type DashboardSyncResponse = {
 };
 
 export async function dashboardSync(athleteId: number): Promise<DashboardSyncResponse> {
-  //refresh access token if needed
-  const access_token = await revalidateStravaAccessToken(athleteId);
+  // Parallel execution of token refresh and user fetch
+  const [access_token, dbUser] = await Promise.all([
+    revalidateStravaAccessToken(athleteId),
+    findUniqueUser()
+  ]);
 
-  if (!access_token) {
-    throw new Error("App cannot refresh the Strava access token.");
-  }
+  if (!access_token) throw new Error("App cannot refresh the Strava access token.");
+  if (!dbUser) throw new Error("App cannot set the time cap for activities. User not found.");
 
-  //get new athlete profile and update it in DB
-  const newAthleteData: StravaAPI.StravaAthlete = await getAuthenticatedAthlete(access_token);
+  // Calculate timeCap
+  const oneWeekAgo = new Date(dbUser.inAppSince.getTime() - 7 * 24 * 60 * 60 * 1000);
+  const timeCap = Math.floor(oneWeekAgo.getTime() / 1000).toString();
 
-  //activities sync from timeCap (in prod from time of login of user)
-  const dbUser = await findUniqueUser();
+  // Parallel execution of athlete data fetch and activities fetch
+  const [newAthleteData, newActivities, { ids: oldIds }] = await Promise.all([
+    getAuthenticatedAthlete(access_token),
+    listAthleteActivities(timeCap, access_token),
+    findAllActivities()
+  ]);
 
-  let timeCap: string;
-  if (dbUser) {
-    //we are taking consideration one week of training before first login to app
-    const oneWeekAgo = new Date(dbUser.inAppSince.getTime() - 7 * 24 * 60 * 60 * 1000);
-    timeCap = (oneWeekAgo.getTime() / 1000).toFixed(0).toString();
-  } else {
-    //dummy set to today
-    timeCap = (new Date().getTime() / 1000).toFixed(0).toString();
-    throw new Error("App cannot set the time cap for activites. User not found.");
-  }
-  // const timeCap = "1709323790"; //set to 1.3.2024 for testing
-  // const timeCap = "1711958785"; //set to 1.4.2024 for testing
-  // const timeCap = "1713168385"; //set to 15.4.2024 for testing
-  // const timeCap = "1714029176"; //set to 25.4.2024 for testing
-  // const timeCap = "1714201976"; //set to 27.4.2024 for testing
-
-  //save the previous ids
-  const { ids: oldIds } = await findAllActivities();
-
-  const newActivities = await listAthleteActivities(timeCap, access_token);
+  // Create new activities and fetch updated list
   await createMultipleActivities(newActivities);
-
-  //get new ids and whole activities
   const { activities, ids: newIds } = await findAllActivities();
 
-  //get list of new ids if we have some - if it is not empty we will allow it and overwrite old array on user
-  const newIdsFromDiff = newIds.filter((item) => !oldIds.includes(item));
+  // Calculate new IDs
+  const newIdsFromDiff = newIds.filter(id => !oldIds.includes(id));
 
-  //recalculate total distances and save it to DB
+  // Parallel execution of bonus assignment and account balance recalculation
+  const [, newAccountBalance] = await Promise.all([
+    checkAndAssignActivityBonusToMany(newIdsFromDiff),
+    recalcAccountBalance()
+  ]);
+
+  // Calculate total distances
   const totalDistances = calcTotalDistances(activities);
 
-  //recalculate account balance, checking the list of new ids, because they should gradually come to system
-  //we will probably need safety check which will iterate through all activites if bonus was already assigned
-  await checkAndAssignActivityBonusToMany(newIdsFromDiff);
-  const newAccountBalance = await recalcAccountBalance();
-
-  //at the end update all props of user and get newest version of user
+  // Update user and return results
   const user = await updateUser(newAthleteData, totalDistances, newIdsFromDiff, newAccountBalance);
 
   return { user, activities };
@@ -70,34 +57,26 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
 export async function collectionSync(
   athleteId: number
 ): Promise<{ cards: Card[]; ownedCardsIds: number[]; newCardsIds: number[] }> {
-  //refresh access token if needed
-  const access_token = await revalidateStravaAccessToken(athleteId);
+  // Parallel execution of token refresh and database queries
+  const [access_token, cards, ownedCards] = await Promise.all([
+    revalidateStravaAccessToken(athleteId),
+    prisma.card.findMany({
+      orderBy: { id: "asc" },
+      where: { collectionId: 1 },
+    }),
+    prisma.ownedCard.findMany({
+      where: { userAthleteId: athleteId },
+      select: { cardId: true, isNew: true },
+    }),
+  ]);
 
   if (!access_token) {
     throw new Error("App cannot refresh the Strava access token.");
   }
 
-  //get all cards from master collection for skeleton
-  const cards = await prisma.card.findMany({
-    orderBy: {
-      id: "asc",
-    },
-    where: {
-      collectionId: 1,
-    },
-  });
-
-  //find out which cards user owns and these will be highlighted
-  const ownedCards = await prisma.ownedCard.findMany({
-    where: {
-      userAthleteId: athleteId as number,
-    },
-  });
-
-  const ownedCardsIds = ownedCards.map((card) => card.cardId);
-  const newCardsIds = ownedCards.filter((card) => card.isNew).map((card) => card.cardId);
-
-  //not owned cards should be greyed out
+  // Process owned cards data
+  const ownedCardsIds = ownedCards.map(card => card.cardId);
+  const newCardsIds = ownedCards.filter(card => card.isNew).map(card => card.cardId);
 
   return { cards, ownedCardsIds, newCardsIds };
 }
