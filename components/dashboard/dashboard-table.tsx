@@ -6,6 +6,8 @@ import { calcActivityCoins } from "@/server/calculations";
 import { Activity, User } from "@prisma/client";
 import { CoinIcon } from "../coin-icon";
 import LinkToStravaActivity from "../link-to-strava-activity";
+import { InfoIcon } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 
 type Props = {
   user: User;
@@ -50,16 +52,21 @@ export default async function DashboardTable({ user, activities }: Props) {
   };
 
   return (
-    <Card>
-      <CardHeader className="px-7">
-        <CardTitle>Your activities</CardTitle>
-        <CardDescription className="flex flex-col gap-2 items-start justify-center">
-          <p>
-            Activities must be public, done at least 7 days before your first login. For one pack you need to either
-            walk or run <span className="font-semibold">10 km</span> or ride{" "}
-            <span className="font-semibold">30 km</span>.
-          </p>
-        </CardDescription>
+    <Card className="dark:bg-slate-900 shadow-none">
+      <CardHeader className="flex flex-row justify-between items-center px-7">
+        <CardTitle>Your activity</CardTitle>
+        <Popover>
+          <PopoverTrigger>
+            <InfoIcon className="w-4 h-4 mb-1" />
+          </PopoverTrigger>
+          <PopoverContent>
+            <p>
+              Strava activities must be public, done at least 7 days before your first login. For one pack you need to
+              either walk or run <span className="font-semibold">10 km</span> or ride{" "}
+              <span className="font-semibold">30 km</span>.
+            </p>
+          </PopoverContent>
+        </Popover>
       </CardHeader>
       <CardContent>
         <Table>
@@ -104,7 +111,7 @@ export default async function DashboardTable({ user, activities }: Props) {
                     <Badge className="text-xs" variant="secondary">
                       <div className="flex justify-start items-center gap-1">
                         <span>{calcActivityCoins(activity)}</span>
-                        <CoinIcon w="10px" /> 
+                        <CoinIcon w="10px" />
                       </div>
                     </Badge>
                   </TableCell>
