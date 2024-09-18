@@ -10,7 +10,7 @@ const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default"
       <DialogTrigger>
         <span className={buttonVariants({ variant: triggerVariant })}>How it works?</span>
       </DialogTrigger>
-      <DialogContent className="w-[90vw] max-w-3xl max-h-[90vh] overflow-y-auto mt-12 sm:mt-0">
+      <DialogContent className="w-[90vw] max-w-3xl max-h-[90vh] overflow-y-auto mt-12 sm:mt-4">
         <DialogHeader className="pb-3">
           <DialogTitle className="text-cyan-700 text-2xl font-bold">How Endurance Vault works?</DialogTitle>
         </DialogHeader>
