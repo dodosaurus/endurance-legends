@@ -51,8 +51,15 @@ export default async function DashboardTable({ user, activities }: Props) {
     return <span></span>;
   };
 
+  const getDistanceStringForMobile = (activity: Activity) => {
+    if (activity.distance) {
+      return ` (${convertMetersToKilometersForUI(activity.distance)} km)`;
+    }
+    return "";
+  };
+
   return (
-    <Card className="dark:bg-slate-900 shadow-none">
+    <Card className="border-0 shadow-none">
       <CardHeader className="flex flex-row justify-between items-center px-7">
         <CardTitle>Your activity</CardTitle>
         <Popover>
@@ -73,12 +80,12 @@ export default async function DashboardTable({ user, activities }: Props) {
           <TableHeader>
             <TableRow>
               <TableHead className="table-cell">Title</TableHead>
-              <TableHead className="hidden sm:table-cell">Distance</TableHead>
-              <TableHead className="hidden sm:table-cell">Duration</TableHead>
-              <TableHead className="hidden md:table-cell">Location</TableHead>
-              <TableHead className="hidden md:table-cell">Date</TableHead>
-              <TableHead className="table-cell">Earned</TableHead>
-              <TableHead className="table-cell">Link</TableHead>
+              <TableHead className="hidden sm:table-cell text-center">Distance</TableHead>
+              <TableHead className="hidden sm:table-cell text-center">Duration</TableHead>
+              <TableHead className="hidden md:table-cell text-center">Location</TableHead>
+              <TableHead className="hidden md:table-cell text-center">Date</TableHead>
+              <TableHead className="table-cell text-center">Earned</TableHead>
+              <TableHead className="table-cell text-center">Link</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -94,28 +101,34 @@ export default async function DashboardTable({ user, activities }: Props) {
                 <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)}>
                   <TableCell className="relative table-cell">
                     {spanBasedOnActivityAge(activity)}
-                    <div className="font-medium">{activity.name}</div>
-                    <div className="text-sm text-muted-foreground">{activity.type}</div>
+                    <div className="font-medium mb-1">{activity.name}</div>
+                    <div className="flex flex-col text-sm text-muted-foreground">
+                      <span>{activity.type}</span>
+                      <span className="inline-block sm:hidden">
+                        {getDistanceStringForMobile(activity)}
+                      </span>
+                    </div>
                   </TableCell>
-                  <TableCell className="hidden sm:table-cell">
+                  <TableCell className="hidden sm:table-cell text-center">
                     {convertMetersToKilometersForUI(activity.distance)} km
                   </TableCell>
-                  <TableCell className="hidden sm:table-cell">
+                  <TableCell className="hidden sm:table-cell text-center">
                     {convertSecondsToReadableTime(activity.movingTime)}
                   </TableCell>
-                  <TableCell className="hidden md:table-cell">{activity.locationCountry}</TableCell>
-                  <TableCell className="hidden md:table-cell">
+                  <TableCell className="hidden md:table-cell text-center">{activity.locationCountry}</TableCell>
+                  <TableCell className="hidden md:table-cell text-center">
                     {new Date(activity.startDate).toLocaleDateString()}
                   </TableCell>
-                  <TableCell>
-                    <Badge className="text-xs" variant="secondary">
-                      <div className="flex justify-start items-center gap-1">
-                        <span>{calcActivityCoins(activity)}</span>
-                        <CoinIcon w="10px" />
+                  <TableCell className="text-center">
+                    <Badge className="text-lg mx-auto bg-amber-50 dark:bg-amber-900/75" variant="secondary">
+                      <div className="flex justify-center items-center gap-1">
+                        <span className="flex items-center">+</span>
+                        <span>{calcActivityCoins(activity).toString()}</span>
+                        <CoinIcon w="10px" className="w-4 h-4" />
                       </div>
                     </Badge>
                   </TableCell>
-                  <TableCell className="table-cell">
+                  <TableCell className="table-cell text-center">
                     <LinkToStravaActivity activityId={activity.activityId} />
                   </TableCell>
                 </TableRow>
