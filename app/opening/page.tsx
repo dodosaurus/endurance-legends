@@ -1,6 +1,7 @@
 import OpenedCards from "@/components/app-card/opened-cards";
 import BackButton from "@/components/opening/back-button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import ScrollToTop from "@/components/scroll-to-top";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { verifySession } from "@/server/auth/session";
 import { openingSync } from "@/server/interface/synchronizers";
 
@@ -11,15 +12,18 @@ export default async function Opening() {
   const { newestCards } = await openingSync(athleteId as number);
 
   return (
-    <div id="opening">
+    <div id="opening" className="flex justify-center items-center mt--12">
+      <ScrollToTop />
       <Card>
-        <CardHeader>
-          <CardTitle>NICE ! You have just opened one pack :)</CardTitle>
+        <CardHeader className="flex flex-col gap-2 text-center">
+          <CardTitle>NICE! You have 4 new cards</CardTitle>
         </CardHeader>
         <CardContent>
           <OpenedCards newestCards={newestCards} />
-          <BackButton />
         </CardContent>
+        <CardFooter className="flex justify-center">
+          <BackButton />
+        </CardFooter>
       </Card>
     </div>
   );

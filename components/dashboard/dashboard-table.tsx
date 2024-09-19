@@ -61,7 +61,7 @@ export default async function DashboardTable({ user, activities }: Props) {
 
   return (
     <Card className="border-0 shadow-none">
-      <CardHeader className="flex flex-row justify-between items-center px-7">
+      <CardHeader className="flex flex-row justify-between items-center px-4 sm:px-7">
         <CardTitle>Your activity</CardTitle>
         <Popover>
           <PopoverTrigger>
@@ -76,7 +76,7 @@ export default async function DashboardTable({ user, activities }: Props) {
           </PopoverContent>
         </Popover>
       </CardHeader>
-      <CardContent>
+      <CardContent className="px-2 sm:px-6">
         <Table>
           <TableHeader>
             <TableRow>
