@@ -12,10 +12,10 @@ export default function Footer() {
   };
 
   return (
-    <footer className="mb-6 text-center text-gray-500">
+    <footer className="flex flex-col gap-1 justify-center items-center my-2 text-center text-gray-900">
       <small>Version: {packageJson.version}</small>
       <small className="flex items-center justify-center gap-1">
-        <span>Build:</span> 
+        <span>Build:</span>
         <button
           onClick={copyToClipboard}
           className="text-gray-400 hover:text-gray-600 transition-colors"

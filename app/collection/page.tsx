@@ -9,6 +9,8 @@ import { collectionSync } from "@/server/interface/synchronizers";
 import Link from "next/link";
 import { CoinIcon } from "@/components/coin-icon"; // Update this import
 import { Progress } from "@/components/ui/progress"; // Add this import at the top of the file
+import { InfoIcon } from "lucide-react";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export default async function Collection() {
   const { athleteId } = await verifySession();
@@ -22,19 +24,27 @@ export default async function Collection() {
   return (
     <div id="collection" className="flex-grow flex flex-col gap-2 w-full">
       <Card className="w-full">
-        <CardHeader>
+        <CardHeader className="flex flex-row justify-between items-center">
           <CardTitle>My collection</CardTitle>
-          <CardDescription className="flex flex-col md:flex-row items-center justify-between gap-5">
-            <span>
-              Below you can see whole collection and which cards you do own. Get out for a walk, hike, run or ride and earn more!
-            </span>
-            <div>
-              <Link href="/dashboard">
-                <Button variant={"secondary"}>Back to dashboard</Button>
-              </Link>
-            </div>
-          </CardDescription>
+          <Popover>
+            <PopoverTrigger>
+              <InfoIcon className="w-4 h-4 mb-1" />
+            </PopoverTrigger>
+            <PopoverContent>
+              <p>
+                This is your card collection. You can earn new cards by completing activities on Strava. Each card
+                represents a unique achievement in your fitness journey.
+              </p>
+            </PopoverContent>
+          </Popover>
         </CardHeader>
+        <CardContent>
+          <div className="flex justify-center items-center">
+            <Link href="/dashboard">
+              <Button variant={"secondary"}>Back to dashboard</Button>
+            </Link>
+          </div>
+        </CardContent>
       </Card>
       <Tabs defaultValue="owned" className="w-full">
         <div className="flex flex-col sm:flex-row justify-between items-center my-3 gap-4">
@@ -59,7 +69,8 @@ export default async function Collection() {
             <Card className="w-full">
               <CardContent className="pt-6">
                 <p className="text-center text-muted-foreground">
-                  No owned cards found yet. Go out and earn your coins <CoinIcon className="inline-block w-4 h-4 ml-1" />
+                  No owned cards found yet. Go out and earn your coins{" "}
+                  <CoinIcon className="inline-block w-4 h-4 ml-1" />
                 </p>
               </CardContent>
             </Card>

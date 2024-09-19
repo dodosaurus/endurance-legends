@@ -7,7 +7,7 @@ type LogoutFormProps = {
 function LogoutForm({ logout }: LogoutFormProps) {
   return (
     <form action={logout}>
-      <LoaderButton text="Logout" />
+      <LoaderButton text="Logout" variant="outline" />
     </form>
   );
 }
