@@ -1,3 +1,5 @@
+"use client";
+
 import { Card } from "@prisma/client";
 import { useState, useCallback, useEffect } from "react";
 import { OpenedCardsCarousel } from "./opened-cards-carousel";
@@ -28,19 +30,18 @@ export const useMediaQuery = (width: number) => {
   return targetReached;
 };
 
-function OpenedCards({ assignedCards }: { assignedCards: Card[] }) {
-  const isBreakpoint = useMediaQuery(1280);
+function OpenedCards({ newestCards }: { newestCards: Card[] }) {
+  const isBreakpoint = useMediaQuery(1380);
 
   return (
     <div className="flex justify-center items-center gap-6">
-      {" "}
-      {isBreakpoint && <OpenedCardsCarousel cards={assignedCards} />}
+      {isBreakpoint && <OpenedCardsCarousel cards={newestCards} />}
       {!isBreakpoint && (
         <>
-          <AppCard card={assignedCards[0]} />
-          <AppCard card={assignedCards[1]} />
-          <AppCard card={assignedCards[2]} />
-          <AppCard card={assignedCards[3]} />
+          <AppCard card={newestCards[0]} />
+          <AppCard card={newestCards[1]} />
+          <AppCard card={newestCards[2]} />
+          <AppCard card={newestCards[3]} />
         </>
       )}
     </div>

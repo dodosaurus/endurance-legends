@@ -139,8 +139,8 @@
   --h2-font-size: 1.25rem;
   --normal-font-size: 0.938rem;
 
-  --card-width: 325px;
-  --card-height: 450px;
+  --card-width: 295px;
+  --card-height: 405px;
 }
 
 .dark :root {

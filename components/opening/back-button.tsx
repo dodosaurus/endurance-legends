@@ -7,11 +7,11 @@ function BackButton() {
   const router = useRouter();
 
   const onClick = () => {
-    router.refresh();
+    router.back();
   };
 
   return (
-    <Button onClick={onClick} variant={"secondary"}>
+    <Button onClick={onClick} variant={"secondary"}> 
       Back to dashboard
     </Button>
   );

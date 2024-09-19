@@ -16,24 +16,13 @@ export async function synchronize() {
   revalidatePath("/dashboard");
 }
 
-export async function openPack(athleteId: number): Promise<{ cards: Card[]; accountBalance: number }> {
-  //refresh access token if needed
-  const access_token = await revalidateStravaAccessToken(athleteId);
-
-  if (!access_token) {
-    throw new Error("App cannot refresh the Strava access token.");
-  }
-
+export async function openPack(athleteId: number) {
   //algorithm will generate random 4-card acquirement - 3 common + 1 higher rarity
   const { chosenCards } = await generateAssignmentOfNewCards(athleteId);
 
   //this will add cards to user and reduce account balance
-  const { cards, accountBalance } = await assignNewCardSetToOwner(athleteId, chosenCards);
+  await assignNewCardSetToOwner(athleteId, chosenCards);
 
-  //revalidate dashboard
-  // revalidatePath("/dashboard");
-
-  return { cards, accountBalance };
 }
 
 export async function getUserForProfileSegment(): Promise<User | null> {
