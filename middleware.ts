@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { decrypt } from './server/auth/session'
  
 // 1. Specify protected and public routes
-const protectedRoutes = ['/dashboard']
+const protectedRoutes = ['/dashboard', '/opening']
 const publicRoutes = ['/']
  
 export default async function middleware(req: NextRequest) {

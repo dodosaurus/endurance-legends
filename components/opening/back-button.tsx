@@ -7,7 +7,7 @@ function BackButton() {
   const router = useRouter();
 
   const onClick = () => {
-    router.refresh();
+    router.back();
   };
 
   return (

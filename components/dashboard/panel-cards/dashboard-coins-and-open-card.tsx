@@ -1,7 +1,7 @@
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import OpeningDrawer from "@/components/opening/opening-drawer";
+import { Card, CardContent } from "@/components/ui/card";
 import AccountBalance from "@/components/opening/account-balance";
 import AvailablePacks from "@/components/opening/available-packs";
+import OpeningForm from "./opening-form";
 
 type Props = {
   athleteId: number;
@@ -13,8 +13,8 @@ export default function DashboardCoinsAndOpenCard({ athleteId, accountBalance }:
     <Card className="flex flex-col justify-center items-center w-full border-0 shadow-md">
       <AccountBalance accountBalance={accountBalance} />
       <CardContent className="flex flex-col items-center justify-center gap-2 pt-2 w-full">
-        <OpeningDrawer athleteId={athleteId} />
-        <AvailablePacks />
+        <OpeningForm athleteId={athleteId} />
+        <AvailablePacks accountBalance={accountBalance} />
       </CardContent>
     </Card>
   );
