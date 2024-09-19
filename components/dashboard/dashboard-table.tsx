@@ -8,6 +8,7 @@ import { CoinIcon } from "../coin-icon";
 import LinkToStravaActivity from "../link-to-strava-activity";
 import { InfoIcon } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
+import { ActivityCoinsBadge } from "./dashboard-table/activity-coins-badge";
 
 type Props = {
   user: User;
@@ -104,9 +105,7 @@ export default async function DashboardTable({ user, activities }: Props) {
                     <div className="font-medium mb-1">{activity.name}</div>
                     <div className="flex flex-col text-sm text-muted-foreground">
                       <span>{activity.type}</span>
-                      <span className="inline-block sm:hidden">
-                        {getDistanceStringForMobile(activity)}
-                      </span>
+                      <span className="inline-block sm:hidden">{getDistanceStringForMobile(activity)}</span>
                     </div>
                   </TableCell>
                   <TableCell className="hidden sm:table-cell text-center">
@@ -120,13 +119,7 @@ export default async function DashboardTable({ user, activities }: Props) {
                     {new Date(activity.startDate).toLocaleDateString()}
                   </TableCell>
                   <TableCell className="text-center">
-                    <Badge className="text-lg mx-auto bg-amber-50 dark:bg-amber-900/75" variant="secondary">
-                      <div className="flex justify-center items-center gap-1">
-                        <span className="flex items-center">+</span>
-                        <span>{calcActivityCoins(activity).toString()}</span>
-                        <CoinIcon w="10px" className="w-4 h-4" />
-                      </div>
-                    </Badge>
+                    <ActivityCoinsBadge activity={activity} />
                   </TableCell>
                   <TableCell className="table-cell text-center">
                     <LinkToStravaActivity activityId={activity.activityId} />

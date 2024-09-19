@@ -32,7 +32,7 @@ const clearWholeUser = async () => {
   await prisma.transaction.deleteMany({
     where: {
       user: {
-        username: "jozef_kov",
+        username: target_user,
       },
     },
   });
