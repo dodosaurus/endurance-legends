@@ -2,6 +2,7 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/comp
 import { getStravaLoginUrl } from "@/lib/utils";
 import Link from "next/link";
 import StravaButton from "./login/strava-button";
+import { ArrowRight, ArrowLeft } from "lucide-react"; // Update this import
 
 export default function SignupCard() {
   return (
@@ -14,9 +15,11 @@ export default function SignupCard() {
           {/* <span className="font-semibold text-cyan-500 pt-2">We need at least permission to read your public activties.</span> */}
         </CardDescription>
       </CardHeader>
-      <CardFooter>
-        <Link href={getStravaLoginUrl()}>
+      <CardFooter className="flex items-center justify-center">
+        <Link href={getStravaLoginUrl()} className="flex items-center">
+          <ArrowRight className="mr-2 text-red-500 animate-pulse" size={24} />
           <StravaButton />
+          <ArrowLeft className="ml-2 text-red-500 animate-pulse" size={24} />
         </Link>
       </CardFooter>
     </Card>

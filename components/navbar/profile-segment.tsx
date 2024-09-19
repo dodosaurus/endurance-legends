@@ -56,14 +56,7 @@ async function ProfileSegment() {
           </Dialog>
         </div>
       ) : (
-        <a
-          className={buttonVariants({ variant: "ghost" })}
-          target="_blank"
-          href={`https://www.strava.com/`}
-        >
-          <span className="hidden xs:inline-block text-xs mr-1">Powered by</span>
-          <StravaIcon />
-        </a>
+        <HowToModal />
       )}
     </div>
   );
