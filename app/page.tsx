@@ -1,9 +1,6 @@
-import HowToModal from "@/components/how-to-modal";
+import Footer from "@/components/footer";
 import LandingPageHero from "@/components/landing-page/landing-page-hero";
-import LoginCard from "@/components/login-card";
 import SignupCard from "@/components/signup-card";
-import { Button, buttonVariants } from "@/components/ui/button";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -20,18 +17,17 @@ export default function Home() {
         </div>
         <div className="flex flex-col justify-center items-center gap-5">
           <SignupCard />
-          {/* <LoginCard /> */}
         </div>
       </section>
       <section className="flex flex-col justify-center items-center my-5 gap-10 pt-10">
         <LandingPageHero />
-        {/* <HowToModal /> */}
         <h1 className="max-w-[1000px] text-center text-3xl font-bold tracking-tight text-primary sm:text-4xl md:mt-5">
           Unlock your potential by motivating yourself and your friends buy acquiring more common,{" "}
           <span className="text-green-600">uncommon</span>, <span className="text-sky-600">rare</span>,{" "}
           <span className="text-violet-400">epic</span> and <span className="text-amber-600">legendary</span> cards!
         </h1>
       </section>
+      <Footer />
     </div>
   );
 }
