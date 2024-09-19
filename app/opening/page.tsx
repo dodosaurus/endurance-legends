@@ -5,14 +5,12 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription }
 import { verifySession } from "@/server/auth/session";
 import { openingSync } from "@/server/interface/synchronizers";
 
-// export const dynamic = "force-dynamic";
-
 export default async function Opening() {
   const { athleteId } = await verifySession();
   const { newestCards } = await openingSync(athleteId as number);
 
   return (
-    <div id="opening" className="flex justify-center items-center w-full">
+    <div id="opening" className="flex-grow flex justify-center items-center w-full">
       <ScrollToTop />
       <Card className="w-full max-w-screen-xl">
         <CardHeader className="flex flex-col gap-2 text-center">
@@ -20,10 +18,10 @@ export default async function Opening() {
         </CardHeader>
         <CardContent>
           <OpenedCards newestCards={newestCards} />
+          <div className="flex justify-center mt-4">
+            <BackButton />
+          </div>
         </CardContent>
-        <CardFooter className="flex justify-center mb--6">
-          <BackButton />
-        </CardFooter>
       </Card>
     </div>
   );

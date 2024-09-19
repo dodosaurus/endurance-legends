@@ -9,7 +9,7 @@ export default async function Dashboard() {
   const { activities, user } = await dashboardSync(athleteId as number);
 
   return (
-    <div id="dashboard" className="flex flex-col gap-2">
+    <div id="dashboard" className="flex-grow flex flex-col gap-2 w-full">
       <ScrollToTop />
       {user ? (
         <>

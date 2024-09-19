@@ -20,7 +20,7 @@ export default async function Collection() {
   const ownedCardsCount = countUniqueMembers(ownedCardsIds);
 
   return (
-    <div id="collection" className="flex flex-col gap-2 min-w-full">
+    <div id="collection" className="flex-grow flex flex-col gap-2 w-full">
       <Card className="w-full">
         <CardHeader>
           <CardTitle>My collection</CardTitle>

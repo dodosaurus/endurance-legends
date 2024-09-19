@@ -7,7 +7,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div id="landingPage" className="flex flex-col gap-10 h-full">
+    <div id="landingPage" className="flex-grow flex flex-col gap-10 w-full">
       <section className="flex flex-col md:flex-row justify-between items-center md:gap-20 gap-2">
         <div className="pt-20 pb-5 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-5xl font-bold tracking-tight text-primary sm:text-6xl">
