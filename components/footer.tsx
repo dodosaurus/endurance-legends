@@ -12,27 +12,31 @@ export default function Footer() {
   };
 
   return (
-    <footer className="flex flex-col gap-1 justify-center items-center my-2 text-center text-gray-900">
-      <small>Version: {packageJson.version}</small>
-      <small className="flex items-center justify-center gap-1">
-        <span>Build:</span>
-        <button
-          onClick={copyToClipboard}
-          className="text-gray-400 hover:text-gray-600 transition-colors"
-          title="Copy build hash to clipboard"
-        >
-          <Copy size={14} />
-        </button>
-      </small>
-      <small className="mb-1 block text-xs">
-        &copy; {new Date().getFullYear()} by dodosaurus. All rights reserved.
-      </small>
-      <small className="block text-xs">
-        Powered by{" "}
-        <a target="_blank" className="font-semibold text-orange-500" href="https://www.strava.com">
-          Strava
-        </a>
-      </small>
+    <footer className="flex flex-col sm:flex-row justify-between items-center py-4 px-6 text-sm text-gray-900 dark:text-gray-100 bg-gray-100/20 dark:bg-gray-800/20">
+      <div className="flex flex-col items-center sm:items-start mb-2 sm:mb-0">
+        <small>Version: {packageJson.version}</small>
+        <small className="flex items-center gap-1">
+          <span>Build:</span>
+          <button
+            onClick={copyToClipboard}
+            className="text-gray-400 hover:text-gray-600 dark:text-gray-500 dark:hover:text-gray-300 transition-colors"
+            title="Copy build hash to clipboard"
+          >
+            <Copy size={14} />
+          </button>
+        </small>
+      </div>
+      <div className="flex flex-col items-center sm:items-end">
+        <small>
+          &copy; {new Date().getFullYear()} by dodosaurus. All rights reserved.
+        </small>
+        <small>
+          Powered by{" "}
+          <a target="_blank" className="font-semibold text-orange-500 dark:text-orange-400" href="https://www.strava.com">
+            Strava
+          </a>
+        </small>
+      </div>
     </footer>
   );
 }

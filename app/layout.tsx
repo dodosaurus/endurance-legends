@@ -6,7 +6,6 @@ import React from "react";
 import AppContextProvider from "@/context/app-context";
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
-import Footer from "@/components/footer";
 import { Toaster } from "@/components/ui/sonner";
 import { ModeToggle } from "@/components/navbar/mode-toggle";
 
@@ -37,7 +36,6 @@ export default function RootLayout({
             <main className="flex-grow flex flex-col items-center justify-between p-2 sm:p-8">
               {children}
             </main>
-            <Footer />
             <Toaster />
             <div className="fixed bottom-4 right-4 z-50">
               <ModeToggle />
