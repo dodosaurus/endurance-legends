@@ -8,14 +8,14 @@ export function OpenedCardsCarousel({ cards }: { cards: CardType[] }) {
     <div className="flex flex-col gap-4">
       <CardDescription className="text-center">Swipe to see them all</CardDescription>
       <Carousel
-        className="w-full max-w-[330px]"
+        className="w-full max-w-[var(--card-width)]"
         opts={{
           containScroll: "keepSnaps",
         }}
       >
         <CarouselContent>
           {cards.map((_, index) => (
-            <CarouselItem key={index}>
+            <CarouselItem className="z-99" key={index}>
               <AppCard card={cards[index]} />
             </CarouselItem>
           ))}

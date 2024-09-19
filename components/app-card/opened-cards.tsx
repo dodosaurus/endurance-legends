@@ -31,7 +31,7 @@ export const useMediaQuery = (width: number) => {
 };
 
 function OpenedCards({ newestCards }: { newestCards: Card[] }) {
-  const isBreakpoint = useMediaQuery(1280);
+  const isBreakpoint = useMediaQuery(1380);
 
   return (
     <div className="flex justify-center items-center gap-6">

@@ -20,17 +20,20 @@ function AppCardFront({ card }: { card: CardType }) {
   };
 
   const getDescContent = () => {
-    if (card.rarity !== "common") {
+    if (card.rarity === "common") {
+      return <p>{card.additionalInfo1 || "N/A"}</p>;
+    } else {
+      const content = card.additionalInfo1 || "N/A";
+      const contentClass = content.length > 20 ? "text-xs" : "text-sm";
       return (
-        <div>
+        <div className="text-left">
           <span className="font-semibold">Last winner: </span>
-          {card.additionalInfo1 || "N/A"}
+          <span className={contentClass}>{content}</span>
         </div>
       );
-    } else {
-      return <p>{card.additionalInfo1}</p>;
     }
   };
+
   const getRarityColorClass = (rarity: string): string => {
     if (rarity === "uncommon") {
       return "bg-emerald-300 dark:bg-emerald-600";
@@ -64,12 +67,14 @@ function AppCardFront({ card }: { card: CardType }) {
   };
 
   const getTitleFontSize = (title: string): string => {
-    if (title.length <= 20) {
-      return "text-lg";
-    } else if (title.length <= 30) {
+    if (title.length <= 15) {
+      return "text-base";
+    } else if (title.length <= 25) {
       return "text-sm";
+    } else if (title.length <= 35) {
+      return "text-[10px]";
     } else {
-      return "text-xs";
+      return "text-[9px]";
     }
   };
 
@@ -104,7 +109,7 @@ function AppCardFront({ card }: { card: CardType }) {
               <h2 className={getTitleFontSize(card.name)}>{card.name}</h2>
             </div>
           </CardTitle>
-          <CardDescription className="flex justify-end items-center">
+          <CardDescription className={`flex ${card.rarity === "common" ? "justify-end" : "justify-start"} items-center`}>
             <span>{getDescContent()}</span>
           </CardDescription>
         </CardHeader>

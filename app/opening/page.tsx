@@ -12,16 +12,16 @@ export default async function Opening() {
   const { newestCards } = await openingSync(athleteId as number);
 
   return (
-    <div id="opening" className="flex justify-center items-center mt--12">
+    <div id="opening" className="flex justify-center items-center w-full">
       <ScrollToTop />
-      <Card>
+      <Card className="w-full max-w-screen-xl">
         <CardHeader className="flex flex-col gap-2 text-center">
           <CardTitle>NICE! You have 4 new cards</CardTitle>
         </CardHeader>
         <CardContent>
           <OpenedCards newestCards={newestCards} />
         </CardContent>
-        <CardFooter className="flex justify-center">
+        <CardFooter className="flex justify-center mb--6">
           <BackButton />
         </CardFooter>
       </Card>
