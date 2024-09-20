@@ -86,12 +86,12 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] add progress bar to /collection
 - [x] taking in consideration other activity types (walk, hike) and think about the coins earnings
 - [x] do not log tokens
+- [x] global size of the card needs to be lowered to be more viable for mobile (iPhone SE in insepctor)
 
 ## TODO
 
 PRIO
 - [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
-- [ ] global size of the card needs to be lowered to be more viable for mobile (iPhone SE in insepctor)
 - [ ] strava_athlete username need to be reserved/handled - it is some kind of reserved username for new users? (maybe do it if we find user with same name, we will generate some hash ad the end)
 - [ ] using something like Capacitator a move to mobile-first (only) approach, because this app isn't viable for desktop web app use imo
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in

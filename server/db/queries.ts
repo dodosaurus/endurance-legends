@@ -9,25 +9,27 @@ import { calcNewUserBonus } from "../calculations";
 import { User } from "@prisma/client";
 
 //WITHOUT SESSION VERIFYING
+export function usernameProcessor(data: StravaAPI.StravaAthlete): string {
+  if (!data.username) {
+    return `${data.firstname.toLowerCase()}_${data.lastname.toLowerCase()}`;
+  }
+
+  return data.username;
+}
+
 export async function createUser(
   data: StravaAPI.StravaGetAccessTokenResponse,
   scope: string,
   fromStravaCallback: boolean = false
 ) {
-  // console.log(data);
-
   if (!fromStravaCallback) {
     await verifySession();
   }
 
-  let username_to_use = data.athlete.username
-    ? data.athlete.username
-    : `${data.athlete.firstname.toLowerCase()}_${data.athlete.lastname.toLowerCase()}`;
-
   const user = await prisma.user.create({
     data: {
       athleteId: data.athlete.id,
-      username: username_to_use,
+      username: usernameProcessor(data.athlete),
       name: data.athlete.firstname + " " + data.athlete.lastname,
       country: data.athlete.country,
       profile: data.athlete.profile,
