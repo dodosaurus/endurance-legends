@@ -6,6 +6,7 @@ import { calcTotalDistances, recalcAccountBalance } from "../calculations";
 import { Activity, Card, User } from "@prisma/client";
 import { checkAndAssignActivityBonusToMany } from "../transactions";
 import prisma from "../db/db";
+import { SIGNUP_ACTIVITY_TIME_CAP_IN_DAYS } from "../../lib/constants";
 
 type DashboardSyncResponse = {
   user: User | null;
@@ -19,26 +20,35 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   if (!access_token) throw new Error("App cannot refresh the Strava access token.");
   if (!dbUser) throw new Error("App cannot set the time cap for activities. User not found.");
 
-  // Calculate timeCap
-  const oneWeekAgo = new Date(dbUser.inAppSince.getTime() - 7 * 24 * 60 * 60 * 1000);
-  const timeCap = Math.floor(oneWeekAgo.getTime() / 1000).toString();
+  // Calculate timeCap using SIGNUP_ACTIVITY_TIME_CAP_IN_DAYS
+  const timeCapDate = new Date(dbUser.inAppSince.getTime() - SIGNUP_ACTIVITY_TIME_CAP_IN_DAYS * 24 * 60 * 60 * 1000);
+  const timeCap = Math.floor(timeCapDate.getTime() / 1000).toString();
 
-  //Calculate timeCap for test purposes, instead of 1 week, it's 6 months
-  // const halfYearAgo = new Date(dbUser.inAppSince.getTime() - 6 * 30 * 24 * 60 * 60 * 1000);
-  // const timeCap = Math.floor(halfYearAgo.getTime() / 1000).toString();
+  // Fetch existing activities
+  const { activities: existingActivities } = await findAllActivities();
 
-  // Parallel execution of athlete data fetch and activities fetch
-  const [newAthleteData, newActivities, { ids: oldIds }] = await Promise.all([
+  // Determine the start date for fetching new activities
+  let fetchStartDate = timeCap;
+  if (existingActivities.length > 0) {
+    const newestActivity = existingActivities[0]; // Assuming activities are ordered from newest to oldest
+    fetchStartDate = Math.floor(new Date(newestActivity.startDate).getTime() / 1000).toString();
+  }
+
+  // Parallel execution of athlete data fetch and new activities fetch
+  const [newAthleteData, newActivities] = await Promise.all([
     getAuthenticatedAthlete(access_token),
-    listAthleteActivities(timeCap, access_token),
-    findAllActivities(),
+    listAthleteActivities(fetchStartDate, access_token),
   ]);
+
+  console.log("fetchStartDate", fetchStartDate);
+  console.log("newActivities", newActivities.length);
 
   // Create new activities and fetch updated list
   await createMultipleActivities(newActivities);
   const { activities, ids: newIds } = await findAllActivities();
 
   // Calculate new IDs
+  const oldIds = existingActivities.map(activity => activity.id);
   const newIdsFromDiff = newIds.filter((id) => !oldIds.includes(id));
 
   // Parallel execution of bonus assignment and account balance recalculation
