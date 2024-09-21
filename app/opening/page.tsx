@@ -12,7 +12,7 @@ export default async function Opening() {
   return (
     <div id="opening" className="flex-grow flex justify-center items-center w-full">
       <ScrollToTop />
-      <Card className="w-full max-w-screen-xl">
+      <Card className="w-full max-w-screen">
         <CardHeader className="flex flex-col gap-2 text-center">
           <CardTitle>NICE! You have 4 new cards</CardTitle>
         </CardHeader>
