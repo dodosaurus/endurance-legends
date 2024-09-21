@@ -12,7 +12,7 @@ export default async function DashboardCollectionCard({ userOwnedCards }: Props)
   const collectionSize = (await getCollectionSize()) as number;
 
   return (
-    <Card className="flex flex-col justify-between items-center w-full border-2 py-4 border-0 shadow-md">
+    <Card className="flex flex-col justify-between items-center w-full py-4 shadow-md">
       <CardHeader>
         <Link href="/collection">
           <button className="w-full z-10 collection-glassy-button flex justify-center items-center">

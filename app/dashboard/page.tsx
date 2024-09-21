@@ -1,5 +1,4 @@
 import DashboardFirstPanel from "@/components/dashboard/dashboard-first-panel";
-import DashboardSecondPanel from "@/components/dashboard/dashboard-second-panel";
 import DashboardTable from "@/components/dashboard/dashboard-table";
 import { dashboardSync } from "@/server/interface/synchronizers";
 import { verifySession } from "@/server/auth/session";
@@ -14,7 +13,6 @@ export default async function Dashboard() {
       {user ? (
         <>
           <DashboardFirstPanel user={user} />
-          {/* <DashboardSecondPanel user={user} /> */}
           <DashboardTable user={user} activities={activities} />
         </>
       ) :
