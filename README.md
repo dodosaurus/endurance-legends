@@ -89,19 +89,20 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] global size of the card needs to be lowered to be more viable for mobile (iPhone SE in insepctor)
 - [x] strava_athlete username need to be reserved/handled - it is some kind of reserved username for new users? (maybe do it if we find user with same name, we will generate some hash ad the end)
 - [x] remove resiudal context
+- [x] if activities fetch return 200 activites it is max - we should fetch activities only with timestamp of the newest, and check if there is newer (using "after"); if there are no activities, just fetch "after" = timeCap
 
 ## TODO
 
 PRIO
-- [ ] if activities fetch return 200 activites it is max - we should fetch activities only with timestamp of the newest, and check if there is newer (using "after"); if there are no activities, just fetch "after" = timeCap
-- [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
 - [ ] using something like Capacitor a move to mobile-first (only) approach, because this app isn't viable for desktop web app use imo
+- [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
   - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
   - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work (problematic at first tries...)
 - [ ] confetti when opening card pack (add more visual funniness)
-- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted
+- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted (some warning you were logged out and button to logout)
+- [ ] when user logs after long time and he has 200 new activities it could be problem, because 200 activities are capped on Strava API
 
 META GAME (upgrading cards after all collection is collected - or some value goal reached)
 - this should serve as continuation for athletes that already collected all (majority of the cards)
