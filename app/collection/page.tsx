@@ -39,9 +39,9 @@ export default async function Collection() {
           </Popover>
         </CardHeader>
         <CardContent>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-start items-center">
             <Link href="/dashboard">
-              <Button variant={"secondary"}>Back to dashboard</Button>
+              <Button variant={"secondary"}>Back</Button>
             </Link>
           </div>
         </CardContent>

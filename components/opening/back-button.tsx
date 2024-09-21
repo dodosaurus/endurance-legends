@@ -12,7 +12,7 @@ function BackButton() {
 
   return (
     <Button onClick={onClick} variant={"secondary"}> 
-      Back to dashboard
+      Back
     </Button>
   );
 }

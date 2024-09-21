@@ -40,9 +40,6 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
     listAthleteActivities(fetchStartDate, access_token),
   ]);
 
-  console.log("fetchStartDate", fetchStartDate);
-  console.log("newActivities", newActivities.length);
-
   // Create new activities and fetch updated list
   await createMultipleActivities(newActivities);
   const { activities, ids: newIds } = await findAllActivities();
