@@ -90,6 +90,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] strava_athlete username need to be reserved/handled - it is some kind of reserved username for new users? (maybe do it if we find user with same name, we will generate some hash ad the end)
 - [x] remove resiudal context
 - [x] if activities fetch return 200 activites it is max - we should fetch activities only with timestamp of the newest, and check if there is newer (using "after"); if there are no activities, just fetch "after" = timeCap
+- [x] navbar and back navigation refactor (making place for more improtant buttons like "Reveal all", more filters in /collection)
 
 ## TODO
 

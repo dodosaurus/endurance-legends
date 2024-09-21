@@ -8,7 +8,7 @@ export default function Home() {
       <section className="flex flex-col justify-between items-center md:gap-20 gap-2">
         <div className="py-5 mx-auto text-center flex flex-col items-center max-w-3xl">
           <h1 className="text-5xl font-bold tracking-tight text-primary sm:text-6xl">
-            Where your fitness meets the <span className="text-cyan-500">real rewards</span>
+            Here your fitness meets <span className="text-cyan-500">rewards</span>
           </h1>
           <p className="mt-6 text-xl max-w-prose text-primary">
             Welcome to Endurance Vault. Train, log Strava activities, earn coins and buy card packs to expand your{" "}

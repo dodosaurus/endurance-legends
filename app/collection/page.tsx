@@ -38,13 +38,6 @@ export default async function Collection() {
             </PopoverContent>
           </Popover>
         </CardHeader>
-        <CardContent>
-          <div className="flex justify-start items-center">
-            <Link href="/dashboard">
-              <Button variant={"secondary"}>Back</Button>
-            </Link>
-          </div>
-        </CardContent>
       </Card>
       <Tabs defaultValue="owned" className="w-full">
         <div className="flex flex-col sm:flex-row justify-between items-center my-3 gap-4">

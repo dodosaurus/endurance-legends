@@ -12,7 +12,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="flex flex-col sm:flex-row justify-between items-center py-4 px-6 text-sm text-gray-900 dark:text-gray-100 bg-gray-100/20 dark:bg-gray-800/20">
+    <footer className="flex flex-col sm:flex-row justify-between items-center py-4 px-6 text-sm text-gray-900 dark:text-gray-100">
       <div className="flex flex-col items-center sm:items-start mb-2 sm:mb-0">
         <small>Version: {packageJson.version}</small>
         <small className="flex items-center gap-1">

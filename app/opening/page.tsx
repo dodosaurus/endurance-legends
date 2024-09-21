@@ -1,5 +1,4 @@
 import OpenedCards from "@/components/app-card/opened-cards";
-import BackButton from "@/components/opening/back-button";
 import ScrollToTop from "@/components/scroll-to-top";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { verifySession } from "@/server/auth/session";
@@ -18,9 +17,6 @@ export default async function Opening() {
         </CardHeader>
         <CardContent>
           <OpenedCards newestCards={newestCards} />
-          <div className="flex justify-center mt-4">
-            <BackButton />
-          </div>
         </CardContent>
       </Card>
     </div>

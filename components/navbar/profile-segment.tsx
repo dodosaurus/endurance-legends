@@ -9,6 +9,8 @@ import { ModeToggle } from "./mode-toggle";
 import Footer from "../footer";
 import { StravaIcon } from "../strava-icon";
 import HowToModal from "../how-to-modal";
+import Link from "next/link";
+import BackToDashboard from "./back-to-dashboard";
 
 async function ProfileSegment() {
   const user = await getUserForProfileSegment();
@@ -17,9 +19,7 @@ async function ProfileSegment() {
     <div>
       {user ? (
         <div className="flex items-center gap-2 sm:gap-5">
-          <div>
-            <HowToModal triggerVariant="secondary" />
-          </div>
+          <BackToDashboard />
           <Dialog>
             <DialogTrigger>
               <Avatar>
@@ -47,6 +47,7 @@ async function ProfileSegment() {
                 </div>
               </DialogHeader>
               <div className="flex flex-col justify-between items-center gap-2">
+                <HowToModal triggerVariant="secondary" />
                 <SynchronizeForm synchronize={synchronize} />
                 <LogoutForm logout={logout} />
               </div>
