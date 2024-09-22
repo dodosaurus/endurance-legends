@@ -1,11 +1,4 @@
 /** @type {import('next').NextConfig} */
-import withPWA from 'next-pwa';
-
-const pwaConfig = withPWA({
-  dest: 'public', // Output location for the generated service worker and assets
-  register: true,
-  skipWaiting: true,
-});
 
 const nextConfig = {
   env: {
@@ -27,4 +20,4 @@ const nextConfig = {
   },
 };
 
-export default pwaConfig(nextConfig);
+export default nextConfig;
