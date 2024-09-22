@@ -14,7 +14,7 @@ const BackToDashboard = () => {
       {showBackButton && (
         <Link href="/dashboard">
           <Button variant="secondary" size="icon">
-            <ChevronLeft className="h-4 w-4" strokeWidth={3} />
+            <ChevronLeft className="h-4 w-4" stroke-width={3} />
           </Button>
         </Link>
       )}

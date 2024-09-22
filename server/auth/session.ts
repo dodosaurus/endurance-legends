@@ -23,8 +23,7 @@ export async function decrypt(session: string | undefined = "") {
     });
     return payload;
   } catch (error) {
-    console.log(error);
-    console.log("Failed to verify session");
+    console.log(`Failed to verify session: ${error}`);
   }
 }
 
@@ -52,7 +51,8 @@ export const verifySession = async () => {
 
   if (!session?.athleteId) {
     //not sure if this will work
-    redirect("/");
+    // redirect("/");
+    return { isAuth: false };
   }
 
   return { isAuth: true, athleteId: session.athleteId };
