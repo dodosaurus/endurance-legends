@@ -94,6 +94,8 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
+- [ ] test
+
 PRIO
 - [ ] using something like Capacitor a move to mobile-first (only) approach, because this app isn't viable for desktop web app use imo
 - [ ] extend logging
