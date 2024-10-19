@@ -1,5 +1,7 @@
 import prisma from "../../server/db/db";
 
+const username = "jozef_kov";
+
 const main = async () => {
   await clearOwnedCards();
 };
@@ -9,7 +11,7 @@ const clearOwnedCards = async () => {
   await prisma.ownedCard.deleteMany({
     where: {
       user: {
-        username: "jozef_kov",
+        username: username,
       },
     },
   });
@@ -19,7 +21,7 @@ const clearOwnedCards = async () => {
     where: {
       desc: "purchase_pack",
       user: {
-        username: "jozef_kov",
+        username: username,
       },
     },
   });
@@ -27,7 +29,7 @@ const clearOwnedCards = async () => {
   //on User record with username = "jozef_kov" set collectedCards to 0
   await prisma.user.updateMany({
     where: {
-      username: "jozef_kov",
+      username: username,
     },
     data: {
       collectedCards: 0,

@@ -6,7 +6,7 @@ function StravaButton() {
       <svg width="193px" height="48px" viewBox="0 0 193 48" version="1.1" xmlns="http://www.w3.org/2000/svg">
         <title>btn_strava_connectwith_light</title>
         <defs></defs>
-        <g id="Strava-Button_outlined" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Strava-Button_outlined" stroke="none" strokeWidth="1" fill="none" fill-rule="evenodd">
           <g id="btn_strava_connectwith_light">
             <rect id="button-bg" fill="#FFFFFF" x="4" y="4" width="185" height="40" rx="2"></rect>
             <path
