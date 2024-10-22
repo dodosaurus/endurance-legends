@@ -19,7 +19,7 @@ async function ProfileSegment() {
     <div>
       {user ? (
         <div className="flex items-center gap-2 sm:gap-5">
-          <BackToDashboard />
+          {/* <BackToDashboard /> */}
           <Dialog>
             <DialogTrigger>
               <Avatar>

@@ -11,6 +11,7 @@ import { CoinIcon } from "@/components/coin-icon"; // Update this import
 import { Progress } from "@/components/ui/progress"; // Add this import at the top of the file
 import { InfoIcon } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import BackToDashboard from "@/components/navbar/back-to-dashboard";
 
 export default async function Collection() {
   const { athleteId } = await verifySession();
@@ -23,6 +24,9 @@ export default async function Collection() {
 
   return (
     <div id="collection" className="flex-grow flex flex-col gap-2 w-full">
+      <div className="flex justify-start items-center mb-0 sm:mb-5">
+        <BackToDashboard />
+      </div>
       <Card className="w-full">
         <CardHeader className="flex flex-row justify-between items-center">
           <CardTitle>My collection</CardTitle>
