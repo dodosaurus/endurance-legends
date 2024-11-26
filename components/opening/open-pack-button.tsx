@@ -10,7 +10,7 @@ function OpenPackButton({ userHasEnoughCoins }: { userHasEnoughCoins: boolean })
     <button
       disabled={pending || !userHasEnoughCoins}
       className={
-        "w-[9.5rem] z-10 glassy-button flex justify-center items-center " +
+        "w-[10rem] z-10 glassy-button flex justify-center items-center " +
         (!userHasEnoughCoins ? "pointer-events-none w-full" : "")
       }
       aria-disabled={!userHasEnoughCoins}
@@ -19,7 +19,7 @@ function OpenPackButton({ userHasEnoughCoins }: { userHasEnoughCoins: boolean })
       {userHasEnoughCoins ? (
         <span className="text-xl w-[9.5rem]">{pending ? <Loader2 className="h-6 w-6 animate-spin ml-10" /> : "Open pack"}</span>
       ) : (
-        <span className="w-full !bg-slate-300 dark:!bg-slate-800 text-xl">Not enough coins</span>
+        <span className="text-xl w-[10.5rem] !bg-slate-300 dark:!bg-slate-800 text-slate-500 ">Open pack</span>
       )}
     </button>
   );

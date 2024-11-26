@@ -99,14 +99,20 @@ export default async function DashboardTable({ user, activities }: Props) {
             )}
             {activities.length > 0 &&
               activities.map((activity) => (
-                <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)} >
+                <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)}>
                   <TableCell className="relative table-cell">
-                    <div className="hidden lg:block mb-2">{spanBasedOnActivityAge(activity)}</div>
-                    <div className="font-medium mb-1">{activity.name}</div>
-                    <div className="flex flex-col text-[1rem] text-muted-foreground">
-                      <span>{activity.type}</span>
-                      <span className="inline-block sm:hidden">{getDistanceStringForMobile(activity)}</span>
-                    </div>
+                    <a
+                      href={`https://www.strava.com/activities/${activity.activityId}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <div className="hidden lg:block mb-2">{spanBasedOnActivityAge(activity)}</div>
+                      <div className="font-medium mb-1">{activity.name}</div>
+                      <div className="flex flex-col text-[1rem] text-muted-foreground">
+                        <span>{activity.type}</span>
+                        <span className="inline-block sm:hidden">{getDistanceStringForMobile(activity)}</span>
+                      </div>
+                    </a>
                   </TableCell>
                   <TableCell className="hidden sm:table-cell text-center font-extralight">
                     {convertMetersToKilometersForUI(activity.distance)} km
@@ -114,7 +120,9 @@ export default async function DashboardTable({ user, activities }: Props) {
                   <TableCell className="hidden sm:table-cell text-center font-extralight">
                     {convertSecondsToReadableTime(activity.movingTime)}
                   </TableCell>
-                  <TableCell className="hidden md:table-cell text-center font-extralight">{activity.locationCountry}</TableCell>
+                  <TableCell className="hidden md:table-cell text-center font-extralight">
+                    {activity.locationCountry}
+                  </TableCell>
                   <TableCell className="hidden md:table-cell text-center font-extralight">
                     {new Date(activity.startDate).toLocaleDateString("en-GB")}
                   </TableCell>
