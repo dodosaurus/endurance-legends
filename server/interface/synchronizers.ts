@@ -20,6 +20,9 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   if (!access_token) throw new Error("App cannot refresh the Strava access token.");
   if (!dbUser) throw new Error("App cannot set the time cap for activities. User not found.");
 
+  // Testing variable timeCapDate set to half a year ago
+  // const timeCapDate = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000);
+
   // Calculate timeCap using SIGNUP_ACTIVITY_TIME_CAP_IN_DAYS
   const timeCapDate = new Date(dbUser.inAppSince.getTime() - SIGNUP_ACTIVITY_TIME_CAP_IN_DAYS * 24 * 60 * 60 * 1000);
   const timeCap = Math.floor(timeCapDate.getTime() / 1000).toString();
@@ -47,6 +50,11 @@ export async function dashboardSync(athleteId: number): Promise<DashboardSyncRes
   // Calculate new IDs
   const oldIds = existingActivities.map(activity => activity.id);
   const newIdsFromDiff = newIds.filter((id) => !oldIds.includes(id));
+
+   //Log if we have detected new activites
+   if (newIdsFromDiff.length != 0) {
+    console.log(`${newIdsFromDiff.length} new activites detected and saved for user with id ${athleteId}`)
+  }
 
   // Parallel execution of bonus assignment and account balance recalculation
   const [, newAccountBalance] = await Promise.all([

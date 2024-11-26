@@ -92,14 +92,11 @@ endurancevault is concept application, where Strava user could buy boosters with
 - [x] if activities fetch return 200 activites it is max - we should fetch activities only with timestamp of the newest, and check if there is newer (using "after"); if there are no activities, just fetch "after" = timeCap
 - [x] navbar and back navigation refactor (making place for more improtant buttons like "Reveal all", more filters in /collection)
 - [x] regenerate cards with updated winners, monuments GTs are buggy, seed again, clear owned cards for me
+- [x] add back button in main section above dashboard/opening contents (layout.tsx?)
+- [x] bigger font on all buttons (as text on cards on dashboard)
 
 ## TODO
 
-- [ ] add back button in main section above dashboard/opening contents (layout.tsx?)
-
-PRIO
-- [ ] using something like Capacitor a move to mobile-first (only) approach, because this app isn't viable for desktop web app use imo
-- [ ] extend logging
 - [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh

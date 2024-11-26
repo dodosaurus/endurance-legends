@@ -34,7 +34,7 @@ export default async function DashboardTable({ user, activities }: Props) {
     //must be between newest ids and at least 24 hours from loadin
     if (activity.startDate > new Date(Date.now() - 24 * 60 * 60 * 1000)) {
       return (
-        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-600/50 dark:text-cyan-100/50 italic">
+        <span className="absolute -top-0.5 right-1 text-[1rem] font-light text-cyan-600/50 dark:text-cyan-100/50 italic">
           last 24 hours
         </span>
       );
@@ -42,7 +42,7 @@ export default async function DashboardTable({ user, activities }: Props) {
     //must be loaded to system in last 7 days
     if (activity.startDate > new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)) {
       return (
-        <span className="absolute -top-0.5 right-1 text-[0.75rem] font-light text-cyan-400/50 dark:text-cyan-200/50 italic">
+        <span className="absolute -top-0.5 right-1 text-[1rem] font-light text-cyan-400/50 dark:text-cyan-200/50 italic">
           last 7 days
         </span>
       );
@@ -77,7 +77,7 @@ export default async function DashboardTable({ user, activities }: Props) {
         </Popover>
       </CardHeader>
       <CardContent className="px-2 sm:px-6">
-        <Table>
+        <Table className="text-xl">
           <TableHeader>
             <TableRow>
               <TableHead className="table-cell">Title</TableHead>
@@ -86,7 +86,7 @@ export default async function DashboardTable({ user, activities }: Props) {
               <TableHead className="hidden md:table-cell text-center">Location</TableHead>
               <TableHead className="hidden md:table-cell text-center">Date</TableHead>
               <TableHead className="table-cell text-center">Earned</TableHead>
-              <TableHead className="table-cell text-center">Link</TableHead>
+              {/* <TableHead className="table-cell text-center">Link</TableHead> */}
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -99,31 +99,31 @@ export default async function DashboardTable({ user, activities }: Props) {
             )}
             {activities.length > 0 &&
               activities.map((activity) => (
-                <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)}>
+                <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)} >
                   <TableCell className="relative table-cell">
-                    {spanBasedOnActivityAge(activity)}
+                    <div className="hidden lg:block mb-2">{spanBasedOnActivityAge(activity)}</div>
                     <div className="font-medium mb-1">{activity.name}</div>
                     <div className="flex flex-col text-sm text-muted-foreground">
                       <span>{activity.type}</span>
                       <span className="inline-block sm:hidden">{getDistanceStringForMobile(activity)}</span>
                     </div>
                   </TableCell>
-                  <TableCell className="hidden sm:table-cell text-center">
+                  <TableCell className="hidden sm:table-cell text-center font-extralight">
                     {convertMetersToKilometersForUI(activity.distance)} km
                   </TableCell>
-                  <TableCell className="hidden sm:table-cell text-center">
+                  <TableCell className="hidden sm:table-cell text-center font-extralight">
                     {convertSecondsToReadableTime(activity.movingTime)}
                   </TableCell>
-                  <TableCell className="hidden md:table-cell text-center">{activity.locationCountry}</TableCell>
-                  <TableCell className="hidden md:table-cell text-center">
-                    {new Date(activity.startDate).toLocaleDateString()}
+                  <TableCell className="hidden md:table-cell text-center font-extralight">{activity.locationCountry}</TableCell>
+                  <TableCell className="hidden md:table-cell text-center font-extralight">
+                    {new Date(activity.startDate).toLocaleDateString("en-GB")}
                   </TableCell>
                   <TableCell className="text-center">
                     <ActivityCoinsBadge activity={activity} />
                   </TableCell>
-                  <TableCell className="table-cell text-center">
+                  {/* <TableCell className="table-cell text-center">
                     <LinkToStravaActivity activityId={activity.activityId} />
-                  </TableCell>
+                  </TableCell> */}
                 </TableRow>
               ))}
           </TableBody>

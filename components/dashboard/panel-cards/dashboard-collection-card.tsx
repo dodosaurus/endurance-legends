@@ -16,7 +16,7 @@ export default async function DashboardCollectionCard({ userOwnedCards }: Props)
       <CardHeader>
         <Link href="/collection">
           <button className="w-full z-10 collection-glassy-button flex justify-center items-center">
-            <span className="w-full">My collection</span>
+            <span className="w-full text-xl">My collection</span>
           </button>
         </Link>
       </CardHeader>
