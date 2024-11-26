@@ -29,7 +29,6 @@ export default async function DashboardCollectionCard({ userOwnedCards }: Props)
           <Progress className="mt-4 w-full" value={(userOwnedCards / collectionSize) * 100} />
         </div>
       </CardContent>
-      
     </Card>
   );
 }

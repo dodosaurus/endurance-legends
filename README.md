@@ -97,6 +97,7 @@ endurancevault is concept application, where Strava user could buy boosters with
 
 ## TODO
 
+- [ ] add map miniature to dsashboard - make dashboard more readable (titles) - <a> whole table row to Strava
 - [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
 - [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
 - [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh

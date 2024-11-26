@@ -103,7 +103,7 @@ export default async function DashboardTable({ user, activities }: Props) {
                   <TableCell className="relative table-cell">
                     <div className="hidden lg:block mb-2">{spanBasedOnActivityAge(activity)}</div>
                     <div className="font-medium mb-1">{activity.name}</div>
-                    <div className="flex flex-col text-sm text-muted-foreground">
+                    <div className="flex flex-col text-[1rem] text-muted-foreground">
                       <span>{activity.type}</span>
                       <span className="inline-block sm:hidden">{getDistanceStringForMobile(activity)}</span>
                     </div>
