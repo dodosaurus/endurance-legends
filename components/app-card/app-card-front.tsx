@@ -109,7 +109,7 @@ function AppCardFront({ card }: { card: CardType }) {
               <h2 className={getTitleFontSize(card.name)}>{card.name}</h2>
             </div>
           </CardTitle>
-          <CardDescription className={`flex ${card.rarity === "common" ? "justify-end" : "justify-start"} items-center`}>
+          <CardDescription className={`flex ${card.rarity === "common" ? "justify-end" : "justify-start"} items-center text-sm`}>
             <span>{getDescContent()}</span>
           </CardDescription>
         </CardHeader>
