@@ -14,7 +14,7 @@ function InfoTimes({ lastStravaRefresh, inAppSince }: Props) {
   };
 
   return (
-    <CardDescription className="max-w-lg text-balance leading-relaxed flex flex-col">
+    <CardDescription className="max-w-lg text-balance leading-relaxed flex flex-col justify-center items-center text-sm">
       <span className="whitespace-nowrap">
         <strong>Last refresh at:</strong> {convertToBrowserTime(lastStravaRefresh)}
       </span>

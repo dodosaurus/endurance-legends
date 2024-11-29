@@ -101,13 +101,13 @@ export default async function DashboardTable({ user, activities }: Props) {
             {activities.length > 0 &&
               activities.map((activity) => (
                 <Link
-
+                  key={activity.id}
                   href={`https://www.strava.com/activities/${activity.activityId}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   legacyBehavior={true}
                 >
-                  <TableRow key={activity.id} className={"cursor-pointer " + bgBasedOnActivityAge(activity)}>
+                  <TableRow className={"cursor-pointer " + bgBasedOnActivityAge(activity)}>
                     <TableCell className="relative table-cell">
                       <div className="hidden lg:block mb-2">{spanBasedOnActivityAge(activity)}</div>
                       <div className="font-medium mb-1">{activity.name}</div>
