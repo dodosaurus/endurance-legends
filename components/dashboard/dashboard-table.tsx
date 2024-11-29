@@ -9,6 +9,7 @@ import LinkToStravaActivity from "../link-to-strava-activity";
 import { InfoIcon } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { ActivityCoinsBadge } from "./dashboard-table/activity-coins-badge";
+import Link from "next/link";
 
 type Props = {
   user: User;
@@ -99,40 +100,42 @@ export default async function DashboardTable({ user, activities }: Props) {
             )}
             {activities.length > 0 &&
               activities.map((activity) => (
-                <TableRow key={activity.id} className={bgBasedOnActivityAge(activity)}>
-                  <TableCell className="relative table-cell">
-                    <a
-                      href={`https://www.strava.com/activities/${activity.activityId}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                <Link
+
+                  href={`https://www.strava.com/activities/${activity.activityId}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  legacyBehavior={true}
+                >
+                  <TableRow key={activity.id} className={"cursor-pointer " + bgBasedOnActivityAge(activity)}>
+                    <TableCell className="relative table-cell">
                       <div className="hidden lg:block mb-2">{spanBasedOnActivityAge(activity)}</div>
                       <div className="font-medium mb-1">{activity.name}</div>
                       <div className="flex flex-col text-[1rem] text-muted-foreground">
                         <span>{activity.type}</span>
                         <span className="inline-block sm:hidden">{getDistanceStringForMobile(activity)}</span>
                       </div>
-                    </a>
-                  </TableCell>
-                  <TableCell className="hidden sm:table-cell text-center font-extralight">
-                    {convertMetersToKilometersForUI(activity.distance)} km
-                  </TableCell>
-                  <TableCell className="hidden sm:table-cell text-center font-extralight">
-                    {convertSecondsToReadableTime(activity.movingTime)}
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell text-center font-extralight">
-                    {activity.locationCountry}
-                  </TableCell>
-                  <TableCell className="hidden md:table-cell text-center font-extralight">
-                    {new Date(activity.startDate).toLocaleDateString("en-GB")}
-                  </TableCell>
-                  <TableCell className="text-center">
-                    <ActivityCoinsBadge activity={activity} />
-                  </TableCell>
-                  {/* <TableCell className="table-cell text-center">
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell text-center font-extralight">
+                      {convertMetersToKilometersForUI(activity.distance)} km
+                    </TableCell>
+                    <TableCell className="hidden sm:table-cell text-center font-extralight">
+                      {convertSecondsToReadableTime(activity.movingTime)}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-center font-extralight">
+                      {activity.locationCountry}
+                    </TableCell>
+                    <TableCell className="hidden md:table-cell text-center font-extralight">
+                      {new Date(activity.startDate).toLocaleDateString("en-GB")}
+                    </TableCell>
+                    <TableCell className="text-center">
+                      <ActivityCoinsBadge activity={activity} />
+                    </TableCell>
+                    {/* <TableCell className="table-cell text-center">
                     <LinkToStravaActivity activityId={activity.activityId} />
                   </TableCell> */}
-                </TableRow>
+                  </TableRow>
+                </Link>
               ))}
           </TableBody>
         </Table>
