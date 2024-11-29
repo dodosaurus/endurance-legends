@@ -24,31 +24,9 @@ export default async function Collection() {
 
   return (
     <div id="collection" className="flex-grow flex flex-col gap-2 w-full">
-      <div className="flex justify-start items-center mb-0 sm:mb-5">
-        <BackToDashboard />
-      </div>
       <Card className="w-full">
         <CardHeader className="flex flex-row justify-between items-center">
           <CardTitle>My collection</CardTitle>
-          <Popover>
-            <PopoverTrigger>
-              <InfoIcon className="w-4 h-4 mb-1" />
-            </PopoverTrigger>
-            <PopoverContent>
-              <p>
-                This is your card collection. You can earn new cards by completing activities on Strava. Each card
-                represents a unique achievement in your fitness journey.
-              </p>
-            </PopoverContent>
-          </Popover>
-        </CardHeader>
-      </Card>
-      <Tabs defaultValue="owned" className="w-full">
-        <div className="flex flex-col sm:flex-row justify-between items-center my-3 gap-4">
-          <TabsList>
-            <TabsTrigger value="owned">Owned only</TabsTrigger>
-            <TabsTrigger value="all">All cards</TabsTrigger>
-          </TabsList>
           <div className="flex flex-col items-center w-full sm:w-64">
             <div className="flex justify-between w-full mb-2">
               <span className="text-base">Collected cards</span>
@@ -58,6 +36,26 @@ export default async function Collection() {
             </div>
             <Progress value={(ownedCardsCount / cards.length) * 100} className="w-full" />
           </div>
+          {/* <Popover>
+            <PopoverTrigger>
+              <InfoIcon className="w-4 h-4 mb-1" />
+            </PopoverTrigger>
+            <PopoverContent>
+              <p>
+                This is your card collection. You can earn new cards by completing activities on Strava. Each card
+                represents a unique achievement in your fitness journey.
+              </p>
+            </PopoverContent>
+          </Popover> */}
+        </CardHeader>
+      </Card>
+      <Tabs defaultValue="owned" className="w-full">
+        <div className="flex flex-col sm:flex-row justify-between items-center my-3 gap-4">
+          <TabsList>
+            <TabsTrigger value="owned">Owned only</TabsTrigger>
+            <TabsTrigger value="all">All cards</TabsTrigger>
+          </TabsList>
+          
         </div>
         <TabsContent value="owned" className="w-full">
           {ownedCardsCount > 0 ? (
