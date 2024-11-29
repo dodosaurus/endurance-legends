@@ -25,7 +25,7 @@ export default async function Collection() {
   return (
     <div id="collection" className="flex-grow flex flex-col gap-2 w-full">
       <Card className="w-full">
-        <CardHeader className="flex flex-row justify-between items-center">
+        <CardHeader className="flex flex-col md:flex-row justify-between items-center">
           <CardTitle>My collection</CardTitle>
           <div className="flex flex-col items-center w-full sm:w-64">
             <div className="flex justify-between w-full mb-2">
