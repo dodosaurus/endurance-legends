@@ -18,7 +18,7 @@ export default function LoginCard() {
       </CardHeader>
       <CardFooter>
         <Link href={getStravaLoginUrl()}>
-          <Button>Enter the Vault</Button>
+          <Button>Enter the Legends</Button>
         </Link>
       </CardFooter>
     </Card>

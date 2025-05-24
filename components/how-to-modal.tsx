@@ -23,7 +23,7 @@ const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default"
               </div>
               <p>
                 From moment of <b className="text-cyan-500">your first login</b>, your journey will begin and activities
-                will be taken in consideration and when uploaded, they will be recalculated into Vault coins.
+                will be taken in consideration and when uploaded, they will be recalculated into Legends coins.
               </p>
             </div>
           </li>
@@ -32,7 +32,7 @@ const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default"
             <div className="flex flex-col gap-2">
               <div className="flex justify-start items-center gap-5">
                 <Bike size={40} />
-                <h3 className="text-lg font-bold">Go out and earn the Vault coins.</h3>
+                <h3 className="text-lg font-bold">Go out and earn the Legends coins.</h3>
               </div>
               <p>
                 Everyone needs cardio. We support only <b className="text-cyan-500">walking, hiking, running</b> and{" "}
@@ -52,7 +52,7 @@ const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default"
             <div className="flex flex-col gap-2">
               <div className="flex justify-start items-center gap-5">
                 <SendToBack size={40} />
-                <h3 className="text-lg font-bold">Spend your Vault coins on card packs.</h3>
+                <h3 className="text-lg font-bold">Spend your Legends coins on card packs.</h3>
               </div>
               <p className="flex justify-start items-center gap-1">
                 One pack = 1000 <CoinIcon w="15px" />

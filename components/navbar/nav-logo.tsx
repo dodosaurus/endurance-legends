@@ -12,7 +12,7 @@ const NavLogo = () => {
     <BackToDashboard />
   ) : (
     <Link href="/" className="flex z-40 font-semibold text-lg sm:text-xl">
-      endurance<span className="text-cyan-600">vault</span>
+      endurance<span className="text-cyan-600">legends</span>
     </Link>
   );
 };
