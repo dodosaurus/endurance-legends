@@ -8,8 +8,8 @@ export default function SignupCard() {
   return (
     <Card className="sm:col-span-2">
       <CardHeader className="pb-3">
-        <CardTitle>Login / Signup</CardTitle>
-        <CardDescription className="max-w-lg text-balance leading-relaxed">
+        <CardTitle className="text-center mb-2">Login / Signup</CardTitle>
+        <CardDescription className="max-w-lg text-balance leading-relaxed text-center mb-2">
           Sign in with your Strava and let application read your activity and profile data. From the moment of your first login your journey will start.
           <br />
           {/* <span className="font-semibold text-cyan-500 pt-2">We need at least permission to read your public activties.</span> */}
