@@ -14,7 +14,7 @@ const fontSans = FontSans({
 });
 
 export const metadata: Metadata = {
-  title: "Endurance Vault",
+  title: "Endurance Legends",
   description:
     "Strava athlete could buy boosters with collectible cards and expand his collection by logging more running/cycling activities.",
 };

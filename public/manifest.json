@@ -1,8 +1,8 @@
 {
-  "name": "Endurance Vault",
+  "name": "Endurance Legends",
   "short_name": "EV",
   "description": "Train, log Strava activities, earn coins and buy card packs to expand your World Tour cycling collection.",
-  "start_url": "endurance-vault.vercel.app",
+  "start_url": "endurance-legends.vercel.app",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#06b6d4",

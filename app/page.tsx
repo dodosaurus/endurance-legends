@@ -11,7 +11,7 @@ export default function Home() {
             Here your fitness meets <span className="text-cyan-500">rewards</span>
           </h1>
           <p className="mt-6 text-lg sm:text-xl max-w-prose text-primary">
-            Welcome to Endurance Vault. Train, log Strava activities, earn coins and buy card packs to expand your{" "}
+            Welcome to Endurance Legends. Train, log Strava activities, earn coins and buy card packs to expand your{" "}
             <span className="font-bold text-amber-500">World Tour cycling</span> collection.
           </p>
         </div>

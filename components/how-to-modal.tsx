@@ -12,7 +12,7 @@ const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default"
       </DialogTrigger>
       <DialogContent className="w-[90vw] max-w-3xl max-h-[90vh] overflow-y-auto mt-12 sm:mt-4">
         <DialogHeader className="pb-3">
-          <DialogTitle className="text-cyan-700 text-2xl font-bold">How Endurance Vault works?</DialogTitle>
+          <DialogTitle className="text-cyan-700 text-2xl font-bold">How Endurance Legends works?</DialogTitle>
         </DialogHeader>
         <ul className="flex flex-col gap-10">
           <li className="flex justify-start items-center gap-5">
@@ -77,7 +77,7 @@ const HowToModal = ({ triggerVariant = "default" }: { triggerVariant?: "default"
               </p>
               <p>
                 After end of calendar year, collection will be saved into your Hall of Fame and new collection will be
-                added to Endurance Vault.
+                added to Endurance Legends.
               </p>
             </div>
           </li>
