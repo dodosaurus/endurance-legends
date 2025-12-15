@@ -3,6 +3,93 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 ## What the hell is this?
 endurancelegends is concept application, where Strava user could buy boosters with collectible cards and expand his collection by logging more Strava activities. 
 
+## TODO
+
+- [ ] add map miniature to dsashboard - make dashboard more readable (titles) - <a> whole table row to Strava
+- [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
+- [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
+- [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
+  - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
+  - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work (problematic at first tries...)
+- [ ] confetti when opening card pack (add more visual funniness)
+- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted (some warning you were logged out and button to logout)
+- [ ] when user logs after long time and he has 200 new activities it could be problem, because 200 activities are capped on Strava API
+
+META GAME (upgrading cards after all collection is collected - or some value goal reached)
+- this should serve as continuation for athletes that already collected all (majority of the cards)
+- would be nice to have trading and friends but is not reuqired
+- coins could be spend also on upgrade the cards - card will become 3D? or we unlock variation of the card
+- to create "golden" version of the card we could use AI somehow (some stabe diffusion model, to alter the graphic in defined way)
+- each card then can have golden/platinum/diamond version, each will be more expensive, and athlete would need to sport his way to be able to upgrade such cards
+- progress bar should be more customized, with some colorful milestones, which will sign when the user can enter the gold/platinum/diamond meta game
+
+Collection:
+- [ ] enhance new badge - or add new grids to collection (last opened, opened in last 24 hours)
+- [ ] collected cards count of all rarities on /collection
+- [ ] sorting by rarity/ rarity vs. non-rarity cards
+- [ ] implement radio button switch to switch between grid and table view
+- [ ] nicer progress bar on collected cards
+
+Re-roll mechanism:
+- before trading stuff, we could implement re-roll mechanism, where user can pick duplicated crads - like 4 and re-roll them and he will get one random card he do not own in return
+
+How to page:
+- [ ] should be expanded with more info and moved to another route
+
+Progress and rewards:
+- [ ] think about new concept - maybe have milestones while filling out collectionn and user should be awarded by something
+  - it could be compeltely different think, like something outside of the game, some sponsor discount code
+  - it could be some seconnd meta game which will award user by special (golden ex.) versions of random card; this could start meta collecting for adavnced users
+  (we would need some kind of cycle system then for regular collection)
+
+Profile page:
+- [ ] profile page should be separate route not modal
+- [ ] contain statistics of run/rode km, opened packs; only some should be elsewehere
+- trasnactions - should contain history table of all transactions
+
+Responsivity:
+- [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right
+- [ ] implement carousel with 2 cards per turn for medium screens
+
+Landing page:
+- add video
+- [ ] Login card - think about it, do we need it? if user has token in cookies, he is logged inn; we maybe need just one button to get in
+- rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app) - this should be case for LOGIN from lannding page
+
+Opening:
+- [ ] implement flip card (maybe not possible if front/back are not absolute)
+- [ ] add booster phase before user see cards and transition (how will booster look and the consequent animation)
+
+Card:
+- [ ] images for other cards (a lot of work :) - before release we need to snap UCI rankings again and rework all cards
+- think about COPYRIGHT!!! - could we give pictures to AI to recreate them? do they lose their copyright after?
+
+End game:
+- plan hoow should it looks like
+- think about how we can transition to different rewards (some sponsors for some subcollection of cards)
+- [ ] season mechanic (collection for season, hall of fame with all gathered cards, preseason?)
+- [ ] handling situations where user already own whole collection
+
+Testing:
+- [ ] implement some kind of mock service that will mimic real user of Strava, service that can hold multiple test users (so we dont have to test only with real Strava users), each user has to have some mocked activites, way to generate mock activites
+- after release we need test user rather than testing with real one (maybe partially with real one)
+- we need compeletly different stage when product is released (new DB for dev)
+- [ ] need activity generator for testing and test adding new activities and changing of distances and coins
+
+Trading:
+- [ ] reading friends from Strava and finding out which one is on EV already
+- [ ] clicking on card give option in modal to Request Trade
+- [ ] implement pending trades component on navbar
+
+Misc:
+- [ ] make /admin only accessible to username jozef_kov
+- [ ] error rate limit page redirect when 429 is returned from Strava
+- [ ] deauthorize (maybe not, this should be separate option in profile to cancel the authorization) on logout here: POST https://www.strava.com/oauth/deauthorize
+- [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
+- [ ] additional to loading.tsx add lazy loading on tables (on other components)
+- [ ] setting up analytics (Posthog?)
+- [ ] error management (Sentry?)
+
 ## DONE
 
 - [x] dashboard UI mockup (blocks from shadcn)
@@ -94,93 +181,6 @@ endurancelegends is concept application, where Strava user could buy boosters wi
 - [x] regenerate cards with updated winners, monuments GTs are buggy, seed again, clear owned cards for me
 - [x] add back button in main section above dashboard/opening contents (layout.tsx?)
 - [x] bigger font on all buttons (as text on cards on dashboard)
-
-## TODO
-
-- [ ] add map miniature to dsashboard - make dashboard more readable (titles) - <a> whole table row to Strava
-- [ ] /collection needs to be refactored and ready for next filters (rarity filters mainly, new cards)
-- [ ] add new user bonus notification when new user joins (toast notification) - inform that only last 7 days of activites were counted in
-- [ ] rework the dashboard loading - mainly after card opening, the coin balance refresh and collection size refresh
-  - we need to rework whole fetching mechanism - to fetch often but in small calls, instead of doing one big call and clogging whole site at the start
-  - so for cards only user will be fetched, for activity table only activites - this way Suspense will probably work (problematic at first tries...)
-- [ ] confetti when opening card pack (add more visual funniness)
-- [ ] when user is deleted, and cookie is still stored in client, it do not get reseted (some warning you were logged out and button to logout)
-- [ ] when user logs after long time and he has 200 new activities it could be problem, because 200 activities are capped on Strava API
-
-META GAME (upgrading cards after all collection is collected - or some value goal reached)
-- this should serve as continuation for athletes that already collected all (majority of the cards)
-- would be nice to have trading and friends but is not reuqired
-- coins could be spend also on upgrade the cards - card will become 3D? or we unlock variation of the card
-- to create "golden" version of the card we could use AI somehow (some stabe diffusion model, to alter the graphic in defined way)
-- each card then can have golden/platinum/diamond version, each will be more expensive, and athlete would need to sport his way to be able to upgrade such cards
-- progress bar should be more customized, with some colorful milestones, which will sign when the user can enter the gold/platinum/diamond meta game
-
-Collection:
-- [ ] enhance new badge - or add new grids to collection (last opened, opened in last 24 hours)
-- [ ] collected cards count of all rarities on /collection
-- [ ] sorting by rarity/ rarity vs. non-rarity cards
-- [ ] implement radio button switch to switch between grid and table view
-- [ ] nicer progress bar on collected cards
-
-Re-roll mechanism:
-- before trading stuff, we could implement re-roll mechanism, where user can pick duplicated crads - like 4 and re-roll them and he will get one random card he do not own in return
-
-How to page:
-- [ ] should be expanded with more info and moved to another route
-
-Progress and rewards:
-- [ ] think about new concept - maybe have milestones while filling out collectionn and user should be awarded by something
-  - it could be compeltely different think, like something outside of the game, some sponsor discount code
-  - it could be some seconnd meta game which will award user by special (golden ex.) versions of random card; this could start meta collecting for adavnced users
-  (we would need some kind of cycle system then for regular collection)
-
-Profile page:
-- [ ] profile page should be separate route not modal
-- [ ] contain statistics of run/rode km, opened packs; only some should be elsewehere
-- trasnactions - should contain history table of all transactions
-
-Responsivity:
-- [ ] mobile screen enhancments - collection and not owned card placeholders, navbar and its offset from right
-- [ ] implement carousel with 2 cards per turn for medium screens
-
-Landing page:
-- add video
-- [ ] Login card - think about it, do we need it? if user has token in cookies, he is logged inn; we maybe need just one button to get in
-- rethink and google how to handle situation, when user already was already gave permissions through Strava, but after token expiration still needs to be redirecte to Strava and Authorize; how to identify such user coming to our app) - this should be case for LOGIN from lannding page
-
-Opening:
-- [ ] implement flip card (maybe not possible if front/back are not absolute)
-- [ ] add booster phase before user see cards and transition (how will booster look and the consequent animation)
-
-Card:
-- [ ] images for other cards (a lot of work :) - before release we need to snap UCI rankings again and rework all cards
-- think about COPYRIGHT!!! - could we give pictures to AI to recreate them? do they lose their copyright after?
-
-End game:
-- plan hoow should it looks like
-- think about how we can transition to different rewards (some sponsors for some subcollection of cards)
-- [ ] season mechanic (collection for season, hall of fame with all gathered cards, preseason?)
-- [ ] handling situations where user already own whole collection
-
-Testing:
-- [ ] implement some kind of mock service that will mimic real user of Strava, service that can hold multiple test users (so we dont have to test only with real Strava users), each user has to have some mocked activites, way to generate mock activites
-- after release we need test user rather than testing with real one (maybe partially with real one)
-- we need compeletly different stage when product is released (new DB for dev)
-- [ ] need activity generator for testing and test adding new activities and changing of distances and coins
-
-Trading:
-- [ ] reading friends from Strava and finding out which one is on EV already
-- [ ] clicking on card give option in modal to Request Trade
-- [ ] implement pending trades component on navbar
-
-Misc:
-- [ ] make /admin only accessible to username jozef_kov
-- [ ] error rate limit page redirect when 429 is returned from Strava
-- [ ] deauthorize (maybe not, this should be separate option in profile to cancel the authorization) on logout here: POST https://www.strava.com/oauth/deauthorize
-- [ ] custom 404 page (loading, error pages -> also possible from server component?); loading hopefully works after login in Strava while page is redirecting
-- [ ] additional to loading.tsx add lazy loading on tables (on other components)
-- [ ] setting up analytics (Posthog?)
-- [ ] error management (Sentry?)
  
 
 ## Sources mentions
